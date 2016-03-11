@@ -2,7 +2,7 @@
 h3 {
     padding-top: 60px;
 }
-table thead tr {
+table thead tr, table thead tr th {
     background-color: orange; 
     color: white; 
     font-weight: bold;
