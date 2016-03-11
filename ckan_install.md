@@ -49,6 +49,36 @@ $ sudo -u postgres createuser -S -D -R -P ckan_default
 $ sudo -u postgres createdb -O ckan_default ckan_default -E utf-8
 ```
 
+###建立 CKAN 設定檔
+* 新增放置 CKAN 設定檔之目錄：
+```Bash
+$ sudo mkdir -p /etc/ckan/default
+$ sudo chown -R `whoami` /etc/ckan/
+```
+
+* 透過 paster 新增範例設定檔：
+
+| 重要 |
+| -- |
+| 執行任何 paster 指令時，請確認是在虛擬環境下 |
+```Bash
+(pyenv) $ paster make-config ckan /etc/ckan/default/development.ini
+```
+
+* 修改前面新增的 development.ini，搜尋下面字串，並將帳號密碼與 db 名稱依照前數步驟「設定資料庫」進行設定：
+```Bash
+sqlalchemy.url = postgresql://ckan_default:pass@localhost/ckan_default
+```
+
+| 註解 |
+| -- |
+| 第一個 ckan_default 是使用者名稱，pass 請填寫 db 密碼，最後的 ckan_default 填入 db 名稱 |
+
+* 設定 site_url :
+```Bash
+ckan.site_url = http://127.0.0.1:5000
+```
+
 
 
 
