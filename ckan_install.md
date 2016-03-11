@@ -26,10 +26,8 @@ $ virtualenv --no-site-packages /usr/lib/ckan/default
 $ . /usr/lib/ckan/default/bin/activate
 ```
 
-#####註解
-欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行
-```bash
-$ . /usr/lib/ckan/default/bin/activate
-```
-即可。
+| 註解 |
+| -- |
+| 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行<br>``` $ . /usr/lib/ckan/default/bin/activate ``` <br>即可。 |
+
 
