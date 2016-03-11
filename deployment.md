@@ -51,6 +51,7 @@ $ sudo vi /etc/init/ckan.conf
 ```
 
 * 在開啟的 vi 編輯器中，輸入以下內容：
+
 ```Bash
 description "uWSGI instance to serve CKAN"
 
@@ -66,6 +67,29 @@ script
     uwsgi --ini-paste /etc/ckan/default/production.ini
 end script
 ```
+
+* 之後便可使用以下指令啟動網站：
+```Bash
+$ sudo start ckan
+```
+
+* 你可以使用以下指令確認網站是否正常運作：
+```Bash
+$ ps aux | grep ckan
+```
+你應該可以看到類似下面的輸出：
+```Bash
+demo 12575  0.0  0.5 249060 85144 ?        S    Sep15   0:41 uwsgi --ini-paste /etc/ckan/default/production.ini
+```
+
+* 你可以使用以下指令停止網站：
+```Bash
+$ sudo stop ckan
+```
+
+
+
+
 
 
 
