@@ -173,10 +173,31 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 * 如果一切正常，則會看到此訊息：Initialising DB: SUCCESS
 
 ###建立 who.ini link
+---
 ```Bash
 $ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
 ```
  
+###新增 CKAN 系統管理者
+* 透過 paster 新增 CKAN 系統管理者：
+```Bash
+(pyenv) $ paster --plugin=ckan sysadmin add jkw -c /etc/ckan/default/development.ini	
+```
+
+| 註解 |
+| -- |
+| admin 請代換為您需要的使用者名稱，並依照程式提示設定密碼 |
+
+###在開發環境下執行
+---
+* 透過 paster serve 新安裝的 CKAN 網站
+```Bash
+(pyenv) $ paster serve /etc/ckan/default/development.ini
+```
+
+* 打開瀏覽器，前往 [http://127.0.0.1:5000/](http://127.0.0.1:5000/) ，至此 CKAN 安裝完成
+
+
 
 
 
