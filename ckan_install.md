@@ -12,7 +12,7 @@ $ sudo apt-get install python-dev postgresql libpq-dev python-pip python-virtual
 ```
 
 ###Virtual environment 設定
-1. 新增一個虛擬環境 (virtualenv) 供 CKAN 使用：
+* 新增一個虛擬環境 (virtualenv) 供 CKAN 使用：
 
 ```bash
 $ sudo mkdir -p /usr/lib/ckan/default
@@ -20,11 +20,12 @@ $ sudo chown `whoami` /usr/lib/ckan/default
 $ virtualenv --no-site-packages /usr/lib/ckan/default
 ```
 
-2. 進入剛才新增的虛擬環境：
+* 進入剛才新增的虛擬環境：
 
 ```bash
 $ . /usr/lib/ckan/default/bin/activate
 ```
+
 #####註解
 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行
 ```bash
