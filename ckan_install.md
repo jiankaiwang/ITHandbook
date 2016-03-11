@@ -41,7 +41,6 @@ $ (pyenv) $ pip install -e 'git+https://github.com/okfn/ckan.git@ckan-2.4.1#egg=
 $ (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 ```
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###設定資料庫
 ---
 * 新增 CKAN 使用之 PostgreSQL 使用者：
@@ -54,7 +53,6 @@ $ sudo -u postgres createuser -S -D -R -P ckan_default
 $ sudo -u postgres createdb -O ckan_default ckan_default -E utf-8
 ```
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###建立 CKAN 設定檔
 ---
 * 新增放置 CKAN 設定檔之目錄：
@@ -86,7 +84,6 @@ sqlalchemy.url = postgresql://ckan_default:pass@localhost/ckan_default
 ckan.site_url = http://127.0.0.1:5000
 ```
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝 solr (含中文搜尋支援）
 ---
 | 註解 |
@@ -164,7 +161,6 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 | -- |
 | 網址中的 “ckan” 請代換成實際的 solr core 名稱 |
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###初始化資料庫
 ---
 * 透過 paster 初始化 CKAN 資料庫：
@@ -174,14 +170,12 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 
 * 如果一切正常，則會看到此訊息：Initialising DB: SUCCESS
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###建立 who.ini link
 ---
 ```Bash
 $ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
 ```
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###新增 CKAN 系統管理者
 * 透過 paster 新增 CKAN 系統管理者：
 ```Bash
@@ -192,7 +186,6 @@ $ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
 | -- |
 | admin 請代換為您需要的使用者名稱，並依照程式提示設定密碼 |
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###在開發環境下執行
 ---
 * 透過 paster serve 新安裝的 CKAN 網站
