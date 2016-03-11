@@ -35,3 +35,37 @@ die-on-term = true
 logto = (欲存放程式除錯紀錄檔之目錄)
 ```
 
+###安裝 uwsgi
+---
+* 在虛擬環境下安裝 uwsgi：
+```Bash
+$ . /usr/lib/ckan/default/bin/activate
+(pyenv) $ pip install uwsgi
+```
+
+###設定開機自動執行
+---
+* 建立 Upstart 檔案：
+```Bash
+$ sudo vi /etc/init/ckan.conf
+```
+
+* 在開啟的 vi 編輯器中，輸入以下內容：
+```Bash
+description "uWSGI instance to serve CKAN"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid (填入 /usr/lib/ckan/default 目錄的擁有者)
+setgid www-data
+
+script
+    cd /etc/ckan/default
+    . /usr/lib/ckan/default/bin/activate
+    uwsgi --ini-paste /etc/ckan/default/production.ini
+end script
+```
+
+
+
