@@ -129,7 +129,9 @@ $ sudo ln -s /etc/nginx/sites-available/ckan /etc/nginx/sites-enabled/ckan
 $ sudo service nginx restart
 ```
 
-
+###執行與測試
+---
+打開瀏覽器，前往 [http://127.0.0.1/](http://127.0.0.1/) ，若能看到頁面，恭喜您已經完成所有部署設定！
 
 
 
