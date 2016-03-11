@@ -28,6 +28,16 @@ $ . /usr/lib/ckan/default/bin/activate
 
 | 註解 |
 | -- |
-| 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行<br>``` $ . /usr/lib/ckan/default/bin/activate ``` <br>即可。 |
+| 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行<br>```$ . /usr/lib/ckan/default/bin/activate``` <br>即可。 |
 
+###安裝 CKAN
+* 自 github ckeckout source (這邊以 2.4.1 為例）並安裝：
+```Bash
+$ (pyenv) $ pip install -e 'git+https://github.com/okfn/ckan.git@ckan-2.4.1#egg=ckan'
+```
+
+* 安裝所需 Python 套件：
+```Bash
+$ (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
+```
 
