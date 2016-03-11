@@ -6,5 +6,5 @@
    * [佈署](deployment.md)
    * [擴充](plugins.md)
        * [DataStore](datastore.md)
-       * DataPusher
+       * [DataPusher](datapusher.md)
 
