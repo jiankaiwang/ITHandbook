@@ -5,13 +5,14 @@
 1. 建議使用 Ubuntu 12.02 LTS or 12.04 LTS x86_64 Server Edition
 2. 可以透過虛擬機先進行建置 (需注意網路配置)
 
-
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝必須套件
 ---
 ```Bash
 $ sudo apt-get install python-dev postgresql libpq-dev python-pip python-virtualenv git-core solr-jetty openjdk-6-jdk
 ```
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###Virtual environment 設定
 ---
 * 新增一個虛擬環境 (virtualenv) 供 CKAN 使用：
@@ -30,6 +31,7 @@ $ . /usr/lib/ckan/default/bin/activate
 | -- |
 | 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行<br>```$ . /usr/lib/ckan/default/bin/activate``` <br>即可。 |
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝 CKAN
 ---
 * 自 github ckeckout source (這邊以 2.4.1 為例）並安裝：
@@ -42,6 +44,7 @@ $ (pyenv) $ pip install -e 'git+https://github.com/okfn/ckan.git@ckan-2.4.1#egg=
 $ (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 ```
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###設定資料庫
 ---
 * 新增 CKAN 使用之 PostgreSQL 使用者：
@@ -54,6 +57,7 @@ $ sudo -u postgres createuser -S -D -R -P ckan_default
 $ sudo -u postgres createdb -O ckan_default ckan_default -E utf-8
 ```
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###建立 CKAN 設定檔
 ---
 * 新增放置 CKAN 設定檔之目錄：
@@ -85,6 +89,7 @@ sqlalchemy.url = postgresql://ckan_default:pass@localhost/ckan_default
 ckan.site_url = http://127.0.0.1:5000
 ```
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝 solr (含中文搜尋支援）
 ---
 | 註解 |
@@ -162,7 +167,7 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 | -- |
 | 網址中的 “ckan” 請代換成實際的 solr core 名稱 |
 
-
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###初始化資料庫
 ---
 * 透過 paster 初始化 CKAN 資料庫：
@@ -172,12 +177,14 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 
 * 如果一切正常，則會看到此訊息：Initialising DB: SUCCESS
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###建立 who.ini link
 ---
 ```Bash
 $ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
 ```
- 
+
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###新增 CKAN 系統管理者
 * 透過 paster 新增 CKAN 系統管理者：
 ```Bash
