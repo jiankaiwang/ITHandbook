@@ -165,12 +165,17 @@ solr_url = http://127.0.0.1:8983/solr/ckan
 
 ###初始化資料庫
 ---
-* 透過 paster 初始化 CKAN 資料庫：<br>
-~~(pyenv) $ paster db init -c /etc/ckan/default/development.ini~~
+* 透過 paster 初始化 CKAN 資料庫：
 ```Bash
 (pyenv) $ paster --plugin=ckan db init -c /etc/ckan/default/development.ini	
 ```
 
+* 如果一切正常，則會看到此訊息：Initialising DB: SUCCESS
+
+###建立 who.ini link
+```Bash
+$ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
+```
  
 
 
