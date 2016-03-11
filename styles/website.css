@@ -2,3 +2,8 @@
 h3 {
     padding-top: 60px;
 }
+table tr {
+    background-color: orange; 
+    color: white; 
+    font-weight: bold;
+}
