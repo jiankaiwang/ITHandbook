@@ -188,6 +188,7 @@ $ ln -s /usr/lib/ckan/default/src/ckan/who.ini /etc/ckan/default/who.ini
 | -- |
 | admin 請代換為您需要的使用者名稱，並依照程式提示設定密碼 |
 
+<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###在開發環境下執行
 ---
 * 透過 paster serve 新安裝的 CKAN 網站
