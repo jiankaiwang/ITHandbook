@@ -6,14 +6,12 @@
 
 
 ###安裝必須套件
-
 ```Bash
 $ sudo apt-get install python-dev postgresql libpq-dev python-pip python-virtualenv git-core solr-jetty openjdk-6-jdk
 ```
 
 ###Virtual environment 設定
 * 新增一個虛擬環境 (virtualenv) 供 CKAN 使用：
-
 ```bash
 $ sudo mkdir -p /usr/lib/ckan/default
 $ sudo chown `whoami` /usr/lib/ckan/default
@@ -21,7 +19,6 @@ $ virtualenv --no-site-packages /usr/lib/ckan/default
 ```
 
 * 進入剛才新增的虛擬環境：
-
 ```bash
 $ . /usr/lib/ckan/default/bin/activate
 ```
@@ -40,4 +37,11 @@ $ (pyenv) $ pip install -e 'git+https://github.com/okfn/ckan.git@ckan-2.4.1#egg=
 ```Bash
 $ (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 ```
+
+###設定資料庫
+
+
+
+
+
 
