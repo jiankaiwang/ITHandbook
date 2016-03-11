@@ -5,14 +5,12 @@
 1. 建議使用 Ubuntu 12.02 LTS or 12.04 LTS x86_64 Server Edition
 2. 可以透過虛擬機先進行建置 (需注意網路配置)
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝必須套件
 ---
 ```Bash
 $ sudo apt-get install python-dev postgresql libpq-dev python-pip python-virtualenv git-core solr-jetty openjdk-6-jdk
 ```
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###Virtual environment 設定
 ---
 * 新增一個虛擬環境 (virtualenv) 供 CKAN 使用：
@@ -31,7 +29,6 @@ $ . /usr/lib/ckan/default/bin/activate
 | -- |
 | 欲離開虛擬環境，可使用 deactivate 指令。若需返回，只要再執行<br>```$ . /usr/lib/ckan/default/bin/activate``` <br>即可。 |
 
-<div style="width=100%; margin-top: 10px; margin-bottom: 10px; height: 20px;"/>
 ###安裝 CKAN
 ---
 * 自 github ckeckout source (這邊以 2.4.1 為例）並安裝：
