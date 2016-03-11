@@ -102,6 +102,82 @@ $ wget http://archive.apache.org/dist/lucene/solr/5.1.0/solr-5.1.0.tgz
 $ tar xzf solr-5.1.0.tgz solr-5.1.0/bin/install_solr_service.sh --strip-components=2
 ```
 
+* 執行 solr 安裝腳本:
+```Bash
+$ sudo bash ./install_solr_service.sh solr-5.1.0.tgz
+```
+
+* 建立供 CKAN 使用之 solr configset:
+```Bash
+$ sudo -u solr mkdir -p /var/solr/data/configsets/ckan/conf
+$ sudo ln -s /usr/lib/ckan/default/src/ckan/ckan/config/solr/schema.xml /var/solr/data/configsets/ckan/conf/schema.xml
+$ sudo -u solr cp /opt/solr/server/solr/configsets/basic_configs/conf/solrconfig.xml /var/solr/data/configsets/ckan/conf/.
+$ sudo -u solr touch /var/solr/data/configsets/ckan/conf/protwords.txt
+$ sudo -u solr touch /var/solr/data/configsets/ckan/conf/synonyms.txt
+```
+
+* 下載並將中文斷詞函式庫 [mmesg4j](http://jkwpro.no-ip.info:8080/ckan2/ckan) 之 jar 檔案 (core, solr) 複製至 solr 目錄 (/opt/solr/server/solr-webapp/webapp/WEB-INF/lib)
+
+* 調整 CKAN 搜尋索引定義 (使其支援中文搜尋)：<br>修改 schema.xml，將 fieldType name=”text” 區段修改為：
+```XML
+<fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+        <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word"/>
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English" protected="protwords.txt"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+        <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word"/>
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English" protected="protwords.txt"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+    </analyzer>
+</fieldType>
+```
+
+| 註解 |
+| -- |
+| schema.xml 位於 /usr/lib/ckan/default/src/ckan/ckan/config/solr/schema.xml |
+
+* 重新啟動 solr:
+```Bash
+$ sudo service solr restart
+```
+
+* 在瀏覽器輸入以下連結，以建立供 CKAN 使用之 solr core (此處命名為 ckan):
+[http://127.0.0.1:8983/solr/admin/cores?action=CREATE&name=ckan&configSet=ckan](http://127.0.0.1:8983/solr/admin/cores?action=CREATE&name=ckan&configSet=ckan)
+
+* 打開瀏覽器，前往 [http://127.0.0.1:8983/solr](http://127.0.0.1:8983/solr) ，若能看到畫面則代表安裝完成
+* 修改 /etc/ckan/default/development.ini，指定 solr 連線位址：
+```Bash
+solr_url = http://127.0.0.1:8983/solr/ckan
+```
+
+| 註解 |
+| -- |
+| 網址中的 “ckan” 請代換成實際的 solr core 名稱 |
+
+
+###初始化資料庫
+---
+* 透過 paster 初始化 CKAN 資料庫：<br>
+~~(pyenv) $ paster db init -c /etc/ckan/default/development.ini~~
+```Bash
+(pyenv) $ paster --plugin=ckan db init -c /etc/ckan/default/development.ini	
+```
+
+ 
+
+
+
+
+
+
 
 
 
