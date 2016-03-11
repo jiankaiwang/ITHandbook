@@ -87,7 +87,47 @@ demo 12575  0.0  0.5 249060 85144 ?        S    Sep15   0:41 uwsgi --ini-paste /
 $ sudo stop ckan
 ```
 
+###安裝 nginx 伺服器
+---
+```Bash
+sudo apt-get install nginx
+```
 
+###nginx 伺服器設定
+---
+* 新增 /etc/nginx/sites-available/ckan 檔案，並編輯加入以下設定：
+```Bash
+sudo vi /etc/nginx/sites-available/ckan
+```
+設定內容如下
+
+```Bash
+proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
+
+server {
+    listen 80;
+    server_name server_domain_or_IP;
+    client_max_body_size 1000M;
+    access_log /var/log/nginx/ckan_access.log;
+    error_log /var/log/nginx/ckan_error.log error;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:///tmp/ckan_socket.sock;
+        uwsgi_param SCRIPT_NAME '';
+    }
+}
+```
+
+* 建立 alies 至 sites-enabled：
+```Bash
+$ sudo ln -s /etc/nginx/sites-available/ckan /etc/nginx/sites-enabled/ckan
+```
+
+* 重新啟動 nginx：
+```Bash
+$ sudo service nginx restart
+```
 
 
 
