@@ -39,6 +39,15 @@ $ (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 ```
 
 ###設定資料庫
+* 新增 CKAN 使用之 PostgreSQL 使用者：
+```Bash
+$ sudo -u postgres createuser -S -D -R -P ckan_default
+```
+
+* 新增 CKAN 使用之資料庫：
+```Bash
+$ sudo -u postgres createdb -O ckan_default ckan_default -E utf-8
+```
 
 
 
