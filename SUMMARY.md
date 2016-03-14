@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * [3S](3s.md)
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -38,6 +37,7 @@
    * [React Native](react_native.md)
    * [Corona](corona.md)
 * [Arduino](arduino.md)
+* [3S](3s.md)
 * [GIS](gis.md)
    * [QGIS](qgis.md)
 * [Linux](linux.md)
