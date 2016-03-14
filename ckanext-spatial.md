@@ -123,6 +123,13 @@ ckanext.spatial.search_backend = solr-spatial-field
 $ (pyenv) paster --plugin=ckan search-index rebuild -c /etc/ckan/default/development.ini
 ```
 
+* 新增 Spatial Search Widget：<br>
+打開 CKAN source 目錄下的 ./ckan/templates/package/search.html，在 {% block secondary_content %} 段落中加入<br>
+```Python
+{% snippet "spatial/snippets/spatial_query.html" %}
+```
+
+
 
 
 
