@@ -95,6 +95,52 @@ $ sudo -u solr cp jts-1.13.jar /opt/solr/server/solr-webapp/webapp/WEB-INF/lib/.
 ```Bash
 ckanext.spatial.search_backend = solr-spatial-field
 ```
+並修改 ckan.plugins 參數，增加需要的外掛（參見上文介紹）。
+
+* 修改 solr schema：
+打開 solr schema（一般位於 /usr/lib/ckan/default/src/ckan/ckan/config/solr/schema.xml），找到 &lt;fields&gt; 區段，加上：
+```xml
+<fields>
+    <!-- ... -->
+    <field name="spatial_geom"  type="location_rpt" indexed="true" stored="true" multiValued="true"/>
+</fields>
+```
+找到 &lt;types&gt; 區段，加上：
+```xml
+<types>
+    <!-- ... -->
+    <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
+        spatialContextFactory="com.spatial4j.core.context.jts.JtsSpatialContextFactory"
+        autoIndex="true"
+        distErrPct="0.025"
+        maxDistErr="0.000009"
+        distanceUnits="degrees"/>
+</types>
+```
+
+* 重新建立 solr 搜尋索引：
+```Bash
+$ (pyenv) paster --plugin=ckan search-index rebuild -c /etc/ckan/default/development.ini
+```
+
+* 新增 Spatial Search Widget：<br>
+打開 CKAN source 目錄下的 ./ckan/templates/package/search.html，在 {% block secondary_content %} 段落中加入<br>
+```Python
+{% snippet "spatial/snippets/spatial_query.html" %}
+```
+
+* 新增 Dataset Extent Map (widget)：<br>
+打開 CKAN source 目錄下的 ./ckan/templates/package/read.html，在最後加入<br>
+```Python
+{% block secondary_content %}
+    {{ super() }}
+    {% set dataset_extent = h.get_pkg_dict_extra(c.pkg_dict, 'spatial', '') %}
+    {% if dataset_extent %}
+        {% snippet "spatial/snippets/dataset_map_sidebar.html", extent=dataset_extent %}
+    {% endif %}
+{% endblock %}
+```
+
 
 
 
