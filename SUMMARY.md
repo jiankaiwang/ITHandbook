@@ -34,7 +34,7 @@
    * [Docker](docker.md)
 * [Windows](windows.md)
 * [Mobile](mobile.md)
-   * React Native
+   * [React Native](react_native.md)
 * [Arduino](arduino.md)
 * [Linux](linux.md)
 
