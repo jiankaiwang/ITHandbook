@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * GIS
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -38,5 +37,6 @@
    * [React Native](react_native.md)
    * [Corona](corona.md)
 * [Arduino](arduino.md)
+* GIS
 * [Linux](linux.md)
 
