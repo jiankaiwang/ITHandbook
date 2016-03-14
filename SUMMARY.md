@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Information Security
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -21,5 +20,6 @@
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
 * [Network](network.md)
+* Information Security
 * [Database](database.md)
 
