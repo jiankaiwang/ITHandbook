@@ -14,4 +14,12 @@
     * 以地圖檢視 WMTS 服務圖層。支援 wmts 格式名稱定義。
     * 欲使用此功能，請在 ckan.plugins 加入 resource_proxy 與 wmts_view (2.2 含以下版本則為 wmts_preview)。
 
-
+###安裝
+---
+自 github ckeckout source 並安裝：
+```Bash
+$ cd /usr/lib/ckan/default/src
+$ git clone https://github.com/ckan/ckanext-geoview.git
+$ cd ckanext-geoview
+(pyenv) $ pip install -e .
+```
