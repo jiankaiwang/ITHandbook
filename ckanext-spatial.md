@@ -80,4 +80,12 @@ search_params['fq_list'].append('+spatial_geom:"Intersects(ENVELOPE({minx}, {max
 | -- |
 | 修改後請記得重新啟動 CKAN |
 
+* 安裝其他需要的 Python 套件：
+```Bash
+(pyenv) $ pip install -r pip-requirements.txt
+```
+
+
+
+
 
