@@ -55,20 +55,27 @@ root      9224  0.0  0.3  56420 12204 ?        Ss   15:52   0:00 /usr/bin/python
 ; ===============================
 ; ckan harvester
 ; ===============================
+;
 [program:ckan_gather_consumer]
+;
 command=/usr/lib/ckan/default/bin/paster --plugin=ckanext-harvest harvester gather_consumer -c /etc/ckan/default/production.ini
-; user that owns virtual environment.
-user=okfn
+;
+; user that owns virtual environment.user=okfn
+;
 numprocs=1
 stdout_logfile=/var/log/ckan/default/gather_consumer.log
 stderr_logfile=/var/log/ckan/default/gather_consumer.log
 autostart=true
 autorestart=true
 startsecs=10
+;
 [program:ckan_fetch_consumer]
+;
 command=/usr/lib/ckan/default/bin/paster --plugin=ckanext-harvest harvester fetch_consumer -c /etc/ckan/default/production.ini
+;
 ; user that owns virtual environment.
 user=okfn
+;
 numprocs=1
 stdout_logfile=/var/log/ckan/default/fetch_consumer.log
 stderr_logfile=/var/log/ckan/default/fetch_consumer.log
@@ -76,5 +83,39 @@ autostart=true
 autorestart=true
 startsecs=10
 ```
+其中 user=okfn 請代換成 python virtual environment 的擁有者， /var/log/ckan/default 目錄請自行新增，擁有者同樣為 virtualenv 擁有者
+
+* 接著啟動 Supervisor，請依序輸入以下指令：
+```Bash
+$ sudo supervisorctl reread
+$ sudo supervisorctl add ckan_gather_consumer
+$ sudo supervisorctl add ckan_fetch_consumer
+$ sudo supervisorctl start ckan_gather_consumer
+$ sudo supervisorctl start ckan_fetch_consumer
+```
+您可以透過以下指令確定工作是否正在執行：
+```Bash
+$ sudo supervisorctl status
+```
+若 Supervisor 正在執行，則會看到類似以下的輸出：
+```Bash
+ckan_fetch_consumer              RUNNING    pid 6983, uptime 0:22:06
+ckan_gather_consumer             RUNNING    pid 6968, uptime 0:22:45
+```
+
+* 最後我們要建立定時執行 run 排程，執行下列指令打開排程設定檔：
+```Bash
+$ sudo crontab -e -u okfn
+```
+okfn 請代換為 virtualenv 擁有者
+
+* 進行排程設定，請加入以下文字於 crontab 設定中：
+```Bash
+# m h dom mon dow command
+*/15 * * * * /usr/lib/ckan/default/bin/paster –plugin=ckanext-harvest harvester run -c /etc/ckan/default/production.ini
+```
+
+
+
 
 
