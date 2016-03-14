@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Linux
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -22,5 +21,6 @@
    * [OpenShift](openshift.md)
 * [Network](network.md)
 * [Information Security](information_security.md)
+* Linux
 * [Database](database.md)
 
