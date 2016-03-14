@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Windows
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -23,5 +22,6 @@
 * [Network](network.md)
 * [Information Security](information_security.md)
 * [Database](database.md)
+* Windows
 * [Linux](linux.md)
 
