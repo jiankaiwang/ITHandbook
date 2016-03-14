@@ -24,7 +24,10 @@
 
     * 使用瀏覽器開啟 SITE_URL/harvest，進入剛才建立的 harvest source，選擇右上的「管理者」按鈕，在接下來的頁面選取 Reharvest ，將此 harvest 工作送入排程。
 
-    * 
+    * 最後進入 virtualenv，執行 run handler：
+```Bash
+(pyenv) $ paster --plugin=ckanext-harvest harvester run -c /etc/ckan/default/production.ini
+```
 
 
 
