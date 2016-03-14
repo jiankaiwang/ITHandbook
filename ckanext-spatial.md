@@ -135,8 +135,6 @@ $ (pyenv) paster --plugin=ckan search-index rebuild -c /etc/ckan/default/develop
 
 ```
 
-$$a \ne 0 \{$$
-
 
 
 
