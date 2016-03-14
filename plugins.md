@@ -13,7 +13,7 @@
 
 * 資源描述架構（Resource Description Framework）及 RDF Schema 係由 W3C 制定，用來解決資源描述問題的規範，利用階層式的概念及屬性描述資料的 metadata。
 
-* Schema Mapping， ckan 資料集的所有欄位都可以自 RDF 取得，其對應請參見官方說明： [Schema Mapping](http://docs.ckan.org/en/ckan-2.0.2/linked-data-and-rdf.html#schema-mapping)
+* Schema Mapping， ckan 資料集的所有欄位都可以自 RDF 取得，其對應請參見官方說明 [Schema Mapping](http://docs.ckan.org/en/ckan-2.0.2/linked-data-and-rdf.html#schema-mapping)。
 
 
 
