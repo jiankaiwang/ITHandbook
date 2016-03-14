@@ -115,7 +115,13 @@ okfn 請代換為 virtualenv 擁有者
 */15 * * * * /usr/lib/ckan/default/bin/paster –plugin=ckanext-harvest harvester run -c /etc/ckan/default/production.ini
 ```
 
+* 確認 harvest 工作的執行狀況
+我們可以在網頁介面，harvest source 的「管理者」頁面確認 harvest 工作的執行狀況，包括錯誤、新增、更新、完成的資料集數目，如下圖所示：
+![](harvestStatus.png)
 
-
+* 撰寫自定義 harvesting interface
+如先前所述，ckanext-harvest 提供可以自行定義的 interface，因此您可以為某個網站，或某種資料來源，特別製作 harvester。<br>
+    \* [中研院調查研究中心（SRDA）資料庫](https://srda.sinica.edu.tw/) harvester： [SRDAHarvester](https://github.com/u10313335/ckanext-harvest/blob/master/ckanext/harvest/harvesters/srdaharvester.py)<br>
+    \* CKAN 官方提供之 csv harvester 範例： [DataLondonGovUkHarvester](https://github.com/okfn/ckanext-pdeu/blob/master/ckanext/pdeu/harvesters/london.py)
 
 
