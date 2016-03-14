@@ -8,5 +8,5 @@
        * [DataStore](datastore.md)
        * [DataPusher](datapusher.md)
        * [ckanext-spatial](ckanext-spatial.md)
-       * ckanext-geoview
+       * [ckanext-geoview](ckanext-geoview.md)
 
