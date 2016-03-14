@@ -35,7 +35,7 @@
 * [Windows](windows.md)
 * [3S](3s.md)
    * [QGIS](qgis.md)
-   * Mapbox
+   * [Mapbox](mapbox.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
    * [Corona](corona.md)
