@@ -17,4 +17,5 @@
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
 * [Cloud Computing](cloud_computing.md)
+   * Azure
 
