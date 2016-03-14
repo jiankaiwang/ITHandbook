@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-   * 3S
+   * [3S](3s.md)
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
