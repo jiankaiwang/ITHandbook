@@ -126,6 +126,38 @@ okfn 請代換為 virtualenv 擁有者
 
 ###系統需求
 ---
+* RabbitMQ 或 Redis
+
+###安裝
+---
+* 安裝 RabbitMQ 或 Redis（兩者則一安裝即可，以下用 Redis 作示範）：
+```Bash
+$ sudo apt-get install rabbitmq-server
+$ sudo apt-get install redis-server
+```
+
+* 安裝 ckanext-harvest 套件：
+```Bash
+(pyenv) $ pip install -e git+https://github.com/okfn/ckanext-harvest.git#egg=ckanext-harvest
+```
+
+* 安裝其他需要的 Python 套件：
+```Bash
+(pyenv) $ pip install -r pip-requirements.txt
+```
+
+* 修改 CKAN 設定檔，修改 ckan.plugins，加入：
+```Bash
+ckan.plugins = harvest ckan_harvester
+...
+ckan.harvest.mq.type = redis
+```
+
+* 初始化 harvest 資料庫：
+```Bash
+(pyenv) $ paster --plugin=ckanext-harvest harvester initdb -c /etc/ckan/default/production.ini
+```
+
 
 
 
