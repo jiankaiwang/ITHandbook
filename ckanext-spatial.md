@@ -27,6 +27,22 @@
 | \* 若您有成功安裝 ckanext-spatial 套件並啟用上述三個 plugins，應該可以看到 “CKAN, CSW Server, Web Accessible Folder (WAF), Single spatial metadata document” 四種 source 類別。<br> \* ckanext-spatial 提供的 havester 現階段 (0.2) 並不穩定，匯入大量資料很緩慢（實測 11,400 筆左右需時 3 小時），且容易因 source 缺少某些欄位值或 source 資料格式與 harvester（及其相依的 python library）不符而引發 python exception。<br> \* 實測結果，CSW 可能會有問題（見下方說明）、WAF 可以運作（但資料需符合 ISO 19139 規範）。 |
 
 
+其使用方式與一般 CKAN harvester 相同，請參考 [ckanext-harvest](http://jkwpro.no-ip.info:8080/ckan2/index.html#document-ckanext-harvest)
+* TGOS（國土資訊圖資服務平台）CSW source harvesting 經驗：
+    * 嘗試將 TGOS 提供之 [CSW 服務](http://tgos.nat.gov.tw/tgos/Web/TGOS_Home.aspx) ，透過 spatial harvester 匯入 CKAN，結果會發生 list out of range exception。
+    \* 原因是 spatial harvester 使用的 OWSLib 這個 python library 判斷 csw source 的 xml tag gmd:identificationInfo 時，認定其下只有一個子 tag MD_DataIdentification ， 但 TGOS 有部份的資料卻有兩個 MD_DataIdentification （ 如此例 ） ，因此造成 python 錯誤。
+    * 原先懷疑是 TGOS 不符合 ISO19139 規範，但基本上 ISO 應無要求 tag 的數量只能有一個。
+    * 所以 TGOS 匯入 CSW 失敗，既不是 ckanext-spatial 套件本身的問題，也不是 TGOS csw 不符合 ISO19139 規範，其實是 OWSLib 的問題。此問題可以藉由簡單修改 OWSLib 原始碼解決。<br>
+打開 /usr/lib/ckan/default/local/lib/python2.7/site-packages/owslib/iso.py ，搜尋 'gmd:identificationInfo' ，將：
+```Python
+for idinfo in md.findall(util.nspath_eval('gmd:identificationInfo', namespaces)):
+```
+修改為：
+```Python
+
+```
+
+
 
 
 
