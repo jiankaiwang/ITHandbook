@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * [3S](3s.md)
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -34,6 +33,7 @@
 * [Virtualization](virtualization.md)
    * [Docker](docker.md)
 * [Windows](windows.md)
+* [3S](3s.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
    * [Corona](corona.md)
