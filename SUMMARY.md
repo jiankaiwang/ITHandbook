@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Virtualization
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -30,6 +29,7 @@
    * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
    * [Autologin SSH in RSA](autologin_ssh_in_rsa.md)
 * [Database](database.md)
+* Virtualization
 * [Windows](windows.md)
 * [Linux](linux.md)
 
