@@ -10,4 +10,5 @@
        * [ckanext-spatial](ckanext-spatial.md)
        * [ckanext-geoview](ckanext-geoview.md)
        * [ckanext-harvest](ckanext-harvest.md)
+       * Linked Data and RDF
 
