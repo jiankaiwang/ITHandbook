@@ -39,8 +39,11 @@ for idinfo in md.findall(util.nspath_eval('gmd:identificationInfo', namespaces))
 ```
 修改為：
 ```Python
-
+for idinfo in list(md.findall(util.nspath_eval('gmd:identificationInfo', namespaces)))[0]:
 ```
+即可，促使他擷取第一筆資料。<br>
+由於 ISO19139 對資料格式的規範並不是非常的嚴謹，今後匯入 CSW 時，仍需 case by case 作調整。<br>
+PS. TGOS 有 36,000 個資料集，一次性抓下來需要一天
 
 
 
