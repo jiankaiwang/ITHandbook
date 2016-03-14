@@ -55,6 +55,87 @@ DataPusher 的 Production 安裝與 CKAN 類似，使用 nginx + uwsgi 的方式
 | -- |
 | 本教學部份內容係參考 [How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04 (DigitalOcean)](https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04) 與 [Serving Flask With Nginx (Vladik Khononov)](http://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/) |
 
+* 安裝 uwsgi：
+```Bash
+(pyenv) $ pip install uwsgi
+```
+
+* 修改 wsgi.py：
+為配合 uwsgi，我們需要將 wsgi.py 做小修改。<br>
+開啟 /usr/lib/ckan/datapusher/src/datapusher/wsgi.py，修改如下：
+```Bash
+import ckanserviceprovider.web as web
+import datapusher.jobs as jobs
+import os
+# check whether jobs have been imported properly
+assert(jobs.push_to_datastore)
+os.environ['JOB_CONFIG'] = '/usr/lib/ckan/datapusher/src/datapusher/deployment/datapusher_settings.py'
+web.init()
+web.app.run(web.app.config.get('HOST'), web.app.config.get('PORT'))
+```
+
+* 建立 uwsgi 設定檔：
+創建 log 檔案
+```Bash
+$ mkdir /etc/ckan/default/log
+$ touch /etc/ckan/default/log/datapusher.log
+```
+新增 /etc/ckan/default/datapusher.ini，內容如下：
+```Bash
+[uwsgi]
+wsgi-file = /usr/lib/ckan/datapusher/src/datapusher/wsgi.py
+socket = /tmp/datapusher.sock
+master = true
+processes = 1
+chmod-socket = 664
+vacuum = true
+die-on-term = true
+logto = /etc/ckan/default/log/datapusher.log
+```
+
+* 建立 Upstart 檔案：
+```Bash
+$ sudo vi /etc/init/datapusher.conf
+```
+
+* 在開啟的 vi 編輯器中，輸入以下內容：
+```Bash
+description "uWSGI instance to serve DataPusher"
+start on runlevel [2345]
+stop on runlevel [!2345]
+setuid (填入 /usr/lib/ckan/datapusher 目錄的擁有者)
+setgid www-data
+script
+    cd /etc/ckan/default
+    . /usr/lib/ckan/datapusher/bin/activate
+    uwsgi --ini /etc/ckan/default/datapusher.ini
+end script
+```
+
+* 之後便可使用以下指令啟動 DataPusher：
+```Bash
+$ sudo start datapusher
+```
+
+* 你可以使用以下指令確認 DataPusher 是否正常運作：
+```Bash
+$ ps aux | grep datapusher
+```
+你應該可以看到類似下面的輸出：
+```Bash
+demo 1009  0.0  0.2 266332 37512 ?        Sl   Sep14   2:49 uwsgi --ini /etc/ckan/default/datapusher.ini
+```
+
+| 註解 |
+| -- |
+| 目前此佈署方法無法使用 sudo stop datapusher 的方式停止 DataPusher，請直接使用 kill 指令。 |
+
+* 修改 CKAN 設定檔（一般位於 /etc/ckan/default/），修改 ckan.datapusher.url 為：
+```Bash
+ckan.datapusher.url = http://0.0.0.0:8800/
+```
+
+* 重新啟動 CKAN
 
 
 
