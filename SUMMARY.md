@@ -35,7 +35,7 @@
 * [Windows](windows.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
-   * Corona
+   * [Corona](corona.md)
 * [Arduino](arduino.md)
 * [Linux](linux.md)
 
