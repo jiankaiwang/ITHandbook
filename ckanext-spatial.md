@@ -45,6 +45,9 @@ for idinfo in list(md.findall(util.nspath_eval('gmd:identificationInfo', namespa
 由於 ISO19139 對資料格式的規範並不是非常的嚴謹，今後匯入 CSW 時，仍需 case by case 作調整。<br>
 PS. TGOS 有 36,000 個資料集，一次性抓下來需要一天
 
+###系統需求
+---
+* CKAN (>=1.8)
 
 
 
