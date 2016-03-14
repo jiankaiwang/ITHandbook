@@ -7,4 +7,5 @@
    * [擴充](plugins.md)
        * [DataStore](datastore.md)
        * [DataPusher](datapusher.md)
+       * ckanext-spatial
 
