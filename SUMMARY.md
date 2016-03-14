@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Mobile](mobile.md)
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -34,5 +33,6 @@
 * [Virtualization](virtualization.md)
    * [Docker](docker.md)
 * [Windows](windows.md)
+* [Mobile](mobile.md)
 * [Linux](linux.md)
 
