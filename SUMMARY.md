@@ -24,6 +24,7 @@
    * [DHCP Client On Windows](dhcp_client_on_windows.md)
    * [Socat](socat.md)
    * Nginx
+   * Squid
 * [Information Security](information_security.md)
 * [Database](database.md)
 * [Windows](windows.md)
