@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Drupal
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -13,6 +12,7 @@
        * [ckanext-harvest](ckanext-harvest.md)
        * [Linked Data and RDF](linked_data_and_rdf.md)
    * [客製化頁面](customized.md)
+* Drupal
 * [Shiny 與 Plotly](shiny.md)
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
