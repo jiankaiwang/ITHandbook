@@ -27,6 +27,7 @@
    * [Squid](squid.md)
 * [Information Security](information_security.md)
    * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
+   * Autologin SSH in RSA
 * [Database](database.md)
 * [Windows](windows.md)
 * [Linux](linux.md)
