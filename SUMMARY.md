@@ -15,4 +15,5 @@
 * [Shiny](shiny.md)
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
+   * plotly
 
