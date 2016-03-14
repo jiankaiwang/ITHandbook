@@ -34,6 +34,7 @@
    * [Docker](docker.md)
 * [Windows](windows.md)
 * [3S](3s.md)
+   * QGIS
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
    * [Corona](corona.md)
