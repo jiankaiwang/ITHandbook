@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Database
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -17,6 +16,7 @@
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
+* Database
 * [Cloud Computing](cloud_computing.md)
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
