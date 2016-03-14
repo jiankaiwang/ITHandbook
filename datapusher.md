@@ -47,6 +47,14 @@ ckan.plugins = datapusher
 
 * 重新啟動 CKAN
 
+###佈署
+---
+DataPusher 的 Production 安裝與 CKAN 類似，使用 nginx + uwsgi 的方式。
+
+| 註解 |
+| -- |
+| 本教學部份內容係參考 [How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04 (DigitalOcean)](https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04) 與 [Serving Flask With Nginx (Vladik Khononov)](http://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/) |
+
 
 
 
