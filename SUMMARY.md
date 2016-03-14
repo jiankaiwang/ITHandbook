@@ -16,5 +16,5 @@
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
-* Cloud Computing
+* [Cloud Computing](cloud_computing.md)
 
