@@ -21,6 +21,6 @@
    * [OpenShift](openshift.md)
 * [Network](network.md)
 * [Information Security](information_security.md)
-* [Linux](linux.md)
 * [Database](database.md)
+* [Linux](linux.md)
 
