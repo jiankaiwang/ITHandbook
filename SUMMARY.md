@@ -9,4 +9,5 @@
        * [DataPusher](datapusher.md)
        * [ckanext-spatial](ckanext-spatial.md)
        * [ckanext-geoview](ckanext-geoview.md)
+       * ckanext-harvest
 
