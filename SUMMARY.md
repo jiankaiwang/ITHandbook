@@ -16,8 +16,8 @@
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
-* Database
 * [Cloud Computing](cloud_computing.md)
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
+* Database
 
