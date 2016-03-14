@@ -39,6 +39,5 @@
 * [Arduino](arduino.md)
 * [GIS](gis.md)
    * [QGIS](qgis.md)
-* [3S](3s.md)
 * [Linux](linux.md)
 
