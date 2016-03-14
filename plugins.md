@@ -11,6 +11,7 @@
 
 * ckanext-harvest 是一個 CKAN 的擴充套件（extension），提供一可自訂之介面（interface），以擷取其他網站（或服務）之 metadata，並匯入為 CKAN 資料集。
 
+* 資源描述架構（Resource Description Framework）及 RDF Schema 係由 W3C 制定，用來解決資源描述問題的規範，利用階層式的概念及屬性描述資料的 metadata。
 
 
 
