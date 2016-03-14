@@ -38,5 +38,6 @@
    * [Corona](corona.md)
 * [Arduino](arduino.md)
 * [GIS](gis.md)
+   * QGIS
 * [Linux](linux.md)
 
