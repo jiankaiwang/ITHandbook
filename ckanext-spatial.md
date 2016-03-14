@@ -125,21 +125,11 @@ $ (pyenv) paster --plugin=ckan search-index rebuild -c /etc/ckan/default/develop
 
 * 新增 Spatial Search Widget：<br>
 打開 CKAN source 目錄下的 ./ckan/templates/package/search.html，在 % block secondary_content % 段落中加入<br>
-```Python
-{% snippet "spatial/snippets/spatial_query.html" %}
-```
+![](spatial_query.png)
 
 * 新增 Dataset Extent Map (widget)：<br>
 打開 CKAN source 目錄下的 ./ckan/templates/package/read.html，在最後加入<br>
-```Python
-{% block secondary_content %}
-  {{ super() }}
-  {% set dataset_extent = h.get_pkg_dict_extra(c.pkg_dict, 'spatial', '') %}
-  {% if dataset_extent %}
-    {% snippet "spatial/snippets/dataset_map_sidebar.html", extent=dataset_extent %}
-  {% endif %}
-{% endblock %}
-```
+![](read_htmlpng.png)
 
 
 
