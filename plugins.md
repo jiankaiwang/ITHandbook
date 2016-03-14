@@ -7,7 +7,7 @@
 詳細介紹可以參考 [ckanext-spatial 的官方文件](http://docs.ckan.org/projects/ckanext-spatial/en/latest/)。
 
 * ckanext-geoview 是一個 CKAN 的擴充套件 (extension)，提供地理資料預覽功能。<br>
-* 詳細介紹可以參考 [ckanext-geoview 的 github 頁面](https://github.com/ckan/ckanext-geoview) 。
+詳細介紹可以參考 [ckanext-geoview 的 github 頁面](https://github.com/ckan/ckanext-geoview) 。
 
 
 
