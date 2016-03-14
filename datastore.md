@@ -34,5 +34,17 @@ ckan.datastore.read_url = postgresql://datastore_default:password@localhost/data
 (pyenv) $ paster --plugin=ckan datastore set-permissions -c /etc/ckan/default/production.ini
 ```
 
+* 重新啟動 CKAN
+
+* 測試 DataStore，可輸入以下指令：
+```Bash
+$ curl -X GET "http://127.0.0.1/api/3/action/datastore_search?resource_id=_table_metadata"
+```
+可能得到結果如下
+```Bash
+{"help": "http://127.0.0.1:5000/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "_table_metadata", "fields": [{"type": "text", "id": "_id"}, {"type": "name", "id": "name"}, {"type": "oid", "id": "oid"}, {"type": "name", "id": "alias_of"}], "records": [{"_id": "1fab8662e5772995", "alias_of": "pg_views", "name": "_table_metadata", "oid": 18106}, {"_id": "21b5fe766665b205", "alias_of": "pg_tables", "name": "_table_metadata", "oid": 18106}], "_links": {"start": "/api/3/action/datastore_search?resource_id=_table_metadata", "next": "/api/3/action/datastore_search?offset=100&resource_id=_table_metadata"}, "total": 2}}
+```
+
+
 
 
