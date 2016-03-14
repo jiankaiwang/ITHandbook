@@ -1,5 +1,19 @@
 # DataStore
 
+###功能簡介
+---
+* 上傳至資料庫的資料內容，可提供 資料預覽外掛 使用。
+* 提供 [DataStore API](http://docs.ckan.org/en/latest/maintaining/datastore.html#the-datastore-api) 可供開發者以 RESTful API 取得 JSON 格式資料。
+
+###系統需求
+---
+* CKAN (>=2.1)
+* PostgreSQL (>=9.0)
+
+| 註解 |
+| -- |
+| 若依照本文件的教學安裝 CKAN，你應該已經滿足所有套件需求 |
+
 ###設定
 ---
 * 啟用 DataStore：
