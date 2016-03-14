@@ -18,4 +18,5 @@
    * [Plotly](shiny-plotly.md)
 * [Cloud Computing](cloud_computing.md)
    * Azure
+   * OpenShift
 
