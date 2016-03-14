@@ -21,7 +21,7 @@
    * [OpenShift](openshift.md)
 * [Network](network.md)
    * [DHCP Server On CentOS](dhcp_server_on_centos.md)
-   * DHCP Client On Windows
+   * [DHCP Client On Windows](dhcp_client_on_windows.md)
 * [Information Security](information_security.md)
 * [Database](database.md)
 * [Windows](windows.md)
