@@ -3,4 +3,17 @@
 
 * DataPusher 是一個 CKAN 的擴充套件 (extnsion)，用以於新增前述的結構資料至 CKAN 時，自動上傳資料內容至 DataStore 資料庫。
 
+###功能簡介
+
+
+---
+
+
+* DataStore
+* 
+
+* DataPusher
+
+
+
 
