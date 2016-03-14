@@ -26,7 +26,7 @@
    * [Nginx](nginx.md)
    * [Squid](squid.md)
 * [Information Security](information_security.md)
-   * SSH Protocol on Ubuntu
+   * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
 * [Database](database.md)
 * [Windows](windows.md)
 * [Linux](linux.md)
