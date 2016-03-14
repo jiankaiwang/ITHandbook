@@ -85,6 +85,18 @@ search_params['fq_list'].append('+spatial_geom:"Intersects(ENVELOPE({minx}, {max
 (pyenv) $ pip install -r pip-requirements.txt
 ```
 
+* 下載 [JTS 1.13 或以上版本](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.vividsolutions%22%20AND%20a%3A%22jts%22) 並複製 jar 檔案至 solr 目錄：
+```Bash
+$ sudo -u solr cp jts-1.13.jar /opt/solr/server/solr-webapp/webapp/WEB-INF/lib/.
+```
+
+* 修改 CKAN 設定檔：
+打開 CKAN 設定檔（一般位於 /etc/ckan/default/），並加入：<br>
+```Bash
+ckanext.spatial.search_backend = solr-spatial-field
+```
+
+
 
 
 
