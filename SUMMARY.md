@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Network
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -20,5 +19,6 @@
 * [Cloud Computing](cloud_computing.md)
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
+* Network
 * [Database](database.md)
 
