@@ -20,6 +20,7 @@
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
 * [Network](network.md)
+   * DHCP Server On CentOS
 * [Information Security](information_security.md)
 * [Database](database.md)
 * [Windows](windows.md)
