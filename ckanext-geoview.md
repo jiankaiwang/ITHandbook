@@ -1,2 +1,8 @@
 # ckanext-geoview
+###功能簡介
+---
+* OpenLayers Viewer
+    * 此功能可以地圖方式呈現 WMS、WFS、GeoJSON、GML、KML、Google Fusion Tables 等地理資料/服務涵括的地理範圍。
+    * 欲使用此功能，請在 ckan.plugins 加入 resource_proxy 與 geo_view (2.2 含以下版本則為 geo_preview)。
+    * 若僅想預覽部分格式，可在 CKAN 設定檔加入 ckanext.geoview.ol_viewer.formats 變數，詳細設定方式可參考 [擴充套件的說明](https://github.com/ckan/ckanext-geoview#openlayers-viewer) 。
 
