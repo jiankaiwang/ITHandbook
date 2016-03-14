@@ -51,5 +51,8 @@ PS. TGOS 有 36,000 個資料集，一次性抓下來需要一天
 * solr (>=3.1) 或 PostGIS (>=1.3)
 * 若欲使用外掛 [Spatial Harvesters](http://jkwpro.no-ip.info:8080/ckan2/index.html#spatial-harvesters) 則需要安裝擴充套件 [ckanext-harvest](http://jkwpro.no-ip.info:8080/ckan2/index.html#ckanext-harvest)
 
+| 註解 |
+| -- |
+| \* 若依照本文件的教學安裝 CKAN，你應該已經擁有 PostGIS 外之所有套件<br> \* Dataset Extent Map 與 Spatial Search Widget 兩個 snippets 需要 CKAN>=2.0 |
 
 
