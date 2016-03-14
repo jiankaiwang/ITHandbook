@@ -55,4 +55,29 @@ PS. TGOS 有 36,000 個資料集，一次性抓下來需要一天
 | -- |
 | \* 若依照本文件的教學安裝 CKAN，你應該已經擁有 PostGIS 外之所有套件<br> \* Dataset Extent Map 與 Spatial Search Widget 兩個 snippets 需要 CKAN>=2.0 |
 
+###安裝
+---
+* 安裝 PostGIS
+請直接參考 [官方的安裝說明](http://docs.ckan.org/projects/ckanext-spatial/en/latest/install.html#install-postgis-and-system-packages) （注意此處會因 PostgreSQL 版本而有些許差異）。
+
+* 安裝 ckanext-spatial 套件
+```Bash
+(pyenv) $ pip install -e "git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial"
+```
+
+* 修改 ckanext-spatial 套件：
+因目前 ckanext-spatial 尚未對應 solr 5.x，必須做一些修改。<br>
+打開 /usr/lib/ckan/default/src/ckanext-spatial/ckanext/spatial/plugin.py，修改以下這段：<br>
+```Bash
+search_params['fq_list'].append('+spatial_geom:"Intersects({minx} {miny} {maxx} {maxy})"'.format(minx=bbox['minx'],miny=bbox['miny'],maxx=bbox['maxx'],maxy=bbox['maxy']))
+```
+為
+```Bash
+search_params['fq_list'].append('+spatial_geom:"Intersects(ENVELOPE({minx}, {maxx}, {maxy}, {miny}))"'.format(minx=bbox['minx'],miny=bbox['miny'],maxx=bbox['maxx'],maxy=bbox['maxy']))
+```
+
+| 註解 |
+| -- |
+| 修改後請記得重新啟動 CKAN |
+
 
