@@ -47,4 +47,3 @@ $ curl -X GET "http://127.0.0.1/api/3/action/datastore_search?resource_id=_table
 
 
 
-
