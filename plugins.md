@@ -5,14 +5,22 @@
 
 ###功能簡介
 
-
 ---
 
-
 * DataStore
-* 
+    * 上傳至資料庫的資料內容，可提供資料預覽外掛使用。
+    * 提供 [DataStore API](http://docs.ckan.org/en/latest/maintaining/datastore.html#the-datastore-api) 可供開發者以 RESTful API 取得 JSON 格式資料。
+
 
 * DataPusher
+    * 自動上傳資料內容至 DataStore 資料庫。
+    * 可自資料編輯頁面之「DataStore」頁籤確認上傳狀態或手動上傳資料至 DataStore 資料庫。
+
+
+###系統需求
+* 
+
+
 
 
 
