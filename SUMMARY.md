@@ -37,7 +37,5 @@
    * [React Native](react_native.md)
    * [Corona](corona.md)
 * [Arduino](arduino.md)
-* [3S](gis.md)
-   * [QGIS](qgis.md)
 * [Linux](linux.md)
 
