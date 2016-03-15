@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "include-highlight","mathjax","autocover" ]  
+    "plugins" : [ "include-highlight","mathjax","autocover" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT and IoT System",
