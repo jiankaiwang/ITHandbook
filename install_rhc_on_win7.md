@@ -90,7 +90,7 @@ Login to openshift.redhat.com: abc@gmail.com
 Password:
 ```
 
-  * 是否產生一組新的 token : 若是第一次透過 SSH 登入 OpenShift，回 "yes"；若非第一次登入，則應已有 SSH public 及 Private Key。
+  * 是否產生一組新的 token : 若是第一次透過 SSH 登入 OpenShift，回 "yes"；若非第一次登入，則應已有 SSH public 及 Private Key，回 "no"。
 ```Bash
 Generate a token now? (yes|no)
 ```
