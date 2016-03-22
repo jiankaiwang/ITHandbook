@@ -35,6 +35,71 @@ git version 2.6.4.windows.1
 
 ###安裝及設定 OpenShift gem
 ---
+* 方法一： It might go **wrong**.
+
+  * Installing using update packages : [https://gist.github.com/luislavena/f064211759ee0f806c88](https://gist.github.com/luislavena/f064211759ee0f806c88)
+
+  * gem install the software by command line (assume the software installation file is under C:\)
+
+```Bash
+C:\Windows\System32>gem install --local C:\rubygems-update-1.8.30.gem
+```
+  
+  * update the rubygem
+
+```Bash
+C:\Windows\System32>update_rubygems --no-ri --no-rdoc
+```
+  
+* 方法二： directly install rubygem and update
+
+```Bash
+C:\Windows\System32>gem install rubygems-update
+C:\Windows\System32>update_rubygems
+C:\Windows\System32>gem update --system
+```
+
+###安裝與啟動 rhc
+---
+* 安裝 rhc
+
+```Bash
+C:\Windows\System32>gem install rhc
+```
+
+* 啟動 rhc
+
+```Bash
+C:\Windows\System32>rhc setup
+```
+
+* 設定 rhc
+
+  * 輸入 OpenShift Server hostname : (預設是正確的，可以直接按 enter)
+```Bash
+Enter the server hostname: |openshift.redhat.com|
+```
+
+  * 登入 OpenShift 的帳號，以 abc@gmail.com 為例
+```Bash
+Login to openshift.redhat.com: abc@gmail.com
+```
+
+  * 輸入密碼 : 密碼為不可見，輸入中也不會出現任何符號
+```Bash
+Password:
+```
+
+  * 是否產生一組新的 token : 若是第一次透過 SSH 登入 OpenShift，回 "yes"；若非第一次登入，則應已有 SSH public 及 Private Key。
+```Bash
+Generate a token now? (yes|no)
+```
+
+
+
+
+
+
 
 
 
