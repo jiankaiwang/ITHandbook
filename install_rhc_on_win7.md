@@ -95,7 +95,18 @@ Password:
 Generate a token now? (yes|no)
 ```
 
+  * 若是回 "yes"，則會產生一組 ssh 的 public key (id_rsa.pub) 與 private key，一般而言 Public key 會放在 C:/Users/ucer/.ssh/id_rsa.pub
+```Bash
+No SSH keys were found. We will generate a pair of keys for you.
 
+   Created: C:/Users/ucer/.ssh/id_rsa.pub
+```
+
+  * 最後則是將 public key 上傳至 OpenShift server，回答 yes
+```Bash
+Your public SSH key must be uploaded to the OpenShift server to access code.
+Upload now? (yes|no)
+```
 
 
 
