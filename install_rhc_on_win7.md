@@ -32,3 +32,11 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 C:\Windows\System32>git --version
 git version 2.6.4.windows.1
 ```
+
+###安裝及設定 OpenShift gem
+---
+
+
+
+
+
