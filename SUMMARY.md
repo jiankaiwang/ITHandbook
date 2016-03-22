@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* Useful Resource
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -43,5 +44,4 @@
    * [Corona](corona.md)
 * [Arduino](arduino.md)
 * [Linux](linux.md)
-* Useful Resource
 
