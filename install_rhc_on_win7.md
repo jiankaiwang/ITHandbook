@@ -75,12 +75,12 @@ C:\Windows\System32>rhc setup
 
 * 設定 rhc
 
-  * 輸入 OpenShift Server hostname : (預設是正確的，可以直接按 enter)
+  * 輸入 OpenShift Server hostname : (預設是正確的，可以**直接按 enter**)
 ```Bash
 Enter the server hostname: |openshift.redhat.com|
 ```
 
-  * 登入 OpenShift 的帳號，以 abc@gmail.com 為例
+  * 登入 OpenShift 的帳號，以 **abc@gmail.com** 為例
 ```Bash
 Login to openshift.redhat.com: abc@gmail.com
 ```
@@ -90,19 +90,19 @@ Login to openshift.redhat.com: abc@gmail.com
 Password:
 ```
 
-  * 是否產生一組新的 token : 若是第一次透過 SSH 登入 OpenShift，回 "yes"；若非第一次登入，則應已有 SSH public 及 Private Key，回 "no"。
+  * 是否產生一組新的 token : 若是第一次透過 SSH 登入 OpenShift，回 **yes**；若非第一次登入，則應已有 SSH public 及 Private Key，回 **no**。
 ```Bash
 Generate a token now? (yes|no)
 ```
 
-  * 若是回 "yes"，則會產生一組 ssh 的 public key (id_rsa.pub) 與 private key，一般而言 Public key 會放在 C:/Users/ucer/.ssh/id_rsa.pub
+  * 若是回 "yes"，則會產生一組 ssh 的 public key (id_rsa.pub) 與 private key，一般而言 Public key 會放在 **C:/Users/ucer/.ssh/id_rsa.pub**
 ```Bash
 No SSH keys were found. We will generate a pair of keys for you.
 
    Created: C:/Users/ucer/.ssh/id_rsa.pub
 ```
 
-  * 最後則是將 public key 上傳至 OpenShift server，回答 yes
+  * 最後則是將 public key 上傳至 OpenShift server，回答 **yes**
 ```Bash
 Your public SSH key must be uploaded to the OpenShift server to access code.
 Upload now? (yes|no)
