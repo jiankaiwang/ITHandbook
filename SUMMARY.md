@@ -31,7 +31,7 @@
    * [Autologin SSH in RSA](autologin_ssh_in_rsa.md)
 * [Database](database.md)
    * [T-SQL (SQL Server)](t-sql_sql_server.md)
-       * 創造一個可以完整使用資料庫的使用者
+       * [創造一個可以完整使用資料庫的使用者](create_a_db_owner.md)
 * [Virtualization](virtualization.md)
    * [Docker](docker.md)
 * [Windows](windows.md)
