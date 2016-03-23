@@ -59,7 +59,11 @@ $ sh /home/xxx/桌面/openshift.sh -d
 * push 至 OpenShift
 
 ```Bash
+# 沒有輸入描述
 $ sh /home/xxx/桌面/openshift.sh -u
+
+# 有輸入本次 commit 的描述
+$ sh /home/xxx/桌面/openshift.sh -u (uploded-message)
 ```
 
 詳細說明如下；
