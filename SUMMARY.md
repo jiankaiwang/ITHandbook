@@ -22,6 +22,7 @@
    * [Azure](azure.md)
    * [OpenShift](openshift.md)
        * [安裝 rhc 於 Windows 7](install_rhc_on_win7.md)
+       * Use OpenShift by linux .sh script
 * [Network](network.md)
    * [DHCP Server On CentOS](dhcp_server_on_centos.md)
    * [DHCP Client On Windows](dhcp_client_on_windows.md)
