@@ -1,4 +1,4 @@
-# Use OpenShift by Windows bash script
+# Use OpenShift by Windows batch script
 
 OpenShift 除了可以透過 Linux shell script 支援外，也可以透過 Windows batch script (檔名 .bat) 支援使用 OpenShift 的服務，而使用方式與 Git 大致相同。
 
@@ -13,7 +13,7 @@ OpenShift 除了可以透過 Linux shell script 支援外，也可以透過 Wind
 | -- |
 | 需要注意連接 OpenShift 上某一服務時，該 local 端使用的佈署環境 (例如電腦等)，需要將其 public key 先行放上 OpenShift 中 ([link](https://openshift.redhat.com/app/console/settings)) |
 
-先開啟一份記事本，並加下列 bash script 貼入
+先開啟一份記事本，並加下列 batch script 貼入，然後存成 .bat 檔案
 
 ```Bash
 @echo off
@@ -59,4 +59,29 @@ cd %localPath%
 pause
 ```
 
-使用
+使用方式為
+* clone
+
+```Bash
+C:\Users\JianKaiWang\Desktop> openshift -c
+```
+
+* push
+  * 沒有輸入 commit subject, 預設為 "modify_data"
+
+```Bash
+C:\Users\JianKaiWang\Desktop> openshift -p
+```
+
+  * 有輸入 commint subject
+
+```Bash
+C:\Users\JianKaiWang\Desktop> openshift -p commit-message
+```
+
+
+
+
+
+
+
