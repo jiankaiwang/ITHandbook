@@ -13,6 +13,8 @@ OpenShift 除了可以透過 Linux shell script 支援外，也可以透過 Wind
 | -- |
 | 需要注意連接 OpenShift 上某一服務時，該 local 端使用的佈署環境 (例如電腦等)，需要將其 public key 先行放上 OpenShift 中 ([link](https://openshift.redhat.com/app/console/settings)) |
 
+先開啟一份記事本，並加下列 bash script 貼入
+
 ```Bash
 @echo off
 C:
@@ -56,3 +58,5 @@ goto end
 cd %localPath%
 pause
 ```
+
+使用
