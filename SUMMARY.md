@@ -23,6 +23,7 @@
    * [OpenShift](openshift.md)
        * [安裝 rhc 於 Windows 7](install_rhc_on_win7.md)
        * [Use OpenShift by linux shell script](use_openshift_by_linux_sh_script.md)
+       * Use OpenShift by Windows batch script
 * [Network](network.md)
    * [DHCP Server On CentOS](dhcp_server_on_centos.md)
    * [DHCP Client On Windows](dhcp_client_on_windows.md)
