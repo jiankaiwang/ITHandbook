@@ -6,8 +6,9 @@ OpenShift 除了可以透過 Linux shell script 支援外，也可以透過 Wind
 ---
 * 系統環境
 
-  * Clone OpenShift 服務至 local 的路徑為 C:\Users\JianKaiWang\Desktop
-  * 
+  * Clone OpenShift 服務至 local 的路徑為 C:\Users\JianKaiWang\Desktop\openshift
+
+  *  
 
 ```Bash
 @echo off
