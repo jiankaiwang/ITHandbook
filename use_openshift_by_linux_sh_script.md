@@ -4,6 +4,11 @@
 
 ###Shell Script 執行 Git clone 及 push
 ---
+透過 vim 創造一個 shell script 檔案，並將下列 shell script 貼上
+
+```Bash
+$ vim /home/xxx/桌面/openshift.sh
+```
 
 ```Bash
 #!/bin/bash
@@ -43,3 +48,39 @@ else
         echo "$1 -h gives usage information."
 fi
 ```
+
+使用方法如下；
+* clone 至本機 (若已有資料夾，則會先刪除)
+
+```Bash
+$ sh /home/xxx/桌面/openshift.sh -d
+```
+
+* push 至 OpenShift
+
+```Bash
+$ sh /home/xxx/桌面/openshift.sh -u
+```
+
+詳細說明如下；
+* gitUrl : 為 OpenShift 上該服務 git ssh 協定下的網路位置
+* clonePath : 為本機放置此服務程式碼的位置
+* downClone : 內含 git clone 的指令
+* update : 內含 git push 的指令
+* 透過 -h 來顯示使用說明
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
