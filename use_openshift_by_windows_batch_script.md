@@ -79,6 +79,9 @@ C:\Users\JianKaiWang\Desktop> openshift -p
 C:\Users\JianKaiWang\Desktop> openshift -p commit-message
 ```
 
+程式解說
+* %1, %2 為輸入參數第 1 筆資料與第 2 筆資料，中間以空格區分
+* 字串前後不需要用 ' 或 " 來標示，字串連節時也不用連接符號，如 + , . 等
 
 
 
