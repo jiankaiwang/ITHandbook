@@ -12,6 +12,7 @@
 ###創造 OpenShift 應用程式
 ---
 
-| Command | Explanation | example |
-| -- | -- | -- |
-| rhc app-create {myAppName} {aWebCartridge} | 創造一個使用 aWebCartridge 架構且名為 myAppName 的伺服器，且能對直接對應 HTTP 請求。 | $ rhc app create ezscrum jbossas-7 |
+| Command | Explanation |
+| -- | -- |
+| rhc app-create {myAppName} {aWebCartridge} | 創造一個使用 aWebCartridge 架構且名為 myAppName 的伺服器，且能對直接對應 HTTP 請求。 |
+| example | $ rhc app create ezscrum jbossas-7 |
