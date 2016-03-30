@@ -1,5 +1,6 @@
 # CKAN 安裝
 
+<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/general.js"></script>
 
 ###作業系統環境
