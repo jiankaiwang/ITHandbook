@@ -1,5 +1,7 @@
 # DataStore
 
+<script type="text/javascript" src="js/general.js"></script>
+
 ###功能簡介
 ---
 * 上傳至資料庫的資料內容，可提供 資料預覽外掛 使用。
