@@ -1,4 +1,5 @@
 // add content topic link
+// due to delay of loading app.js, use document.addEventListener() to replace $(function() {});
 document.addEventListener("DOMContentLoaded", function(event) { 
   var allH3 = $("h3");
   $('.normal h1').after('<div id="listItem" style="clear: both; padding: 1px"></div>');
