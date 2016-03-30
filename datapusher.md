@@ -1,4 +1,7 @@
 # DataPusher
+
+<script type="text/javascript" src="js/general.js"></script>
+
 ###功能簡介
 ---
 * 自動上傳資料內容至 DataStore 資料庫。
