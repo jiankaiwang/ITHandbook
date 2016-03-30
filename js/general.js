@@ -1,5 +1,5 @@
 // add content topic link
-$(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
   var allH3 = $("h3");
   $('.normal h1').after('<div id="listItem" style="clear: both; padding: 1px"></div>');
   $('#listItem').append('<h4>主題選單</h4><ul>');
