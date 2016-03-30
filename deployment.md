@@ -6,6 +6,8 @@
 | -- |
 | 本教學部份內容係參考 [How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04 (DigitalOcean)](https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04) |
 
+<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="js/general.js"></script>
 
 ###新增 production.ini 設定檔
 ---
