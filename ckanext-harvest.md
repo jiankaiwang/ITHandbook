@@ -1,4 +1,7 @@
 # ckanext-harvest
+
+<script type="text/javascript" src="js/general.js"></script>
+
 ###架構
 ---
 * harvest 的運作大致可分為三步驟（同時也是設計 harvesting interface 的主要結構）:
