@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "include-highlight","mathjax","autocover","include-codeblock","addcssjs" ],  
+    "plugins" : [ "include-highlight","mathjax","autocover","include-codeblock","customtheme" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT and IoT System",
@@ -16,6 +16,9 @@
               "background": {
                   "color": "#FFF"
               }
-        }
+        },
+        "customtheme" : {
+           "js": ["js/jquery-1.12.2.min.js","js/general.js"]
+         }
     }
 }
