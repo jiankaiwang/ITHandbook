@@ -1,5 +1,7 @@
 # CKAN 安裝
 
+<script type="text/javascript" src="js/general.js"></script>
+
 ###作業系統環境
 ---
 1. 建議使用 Ubuntu 12.02 LTS or 12.04 LTS x86_64 Server Edition
