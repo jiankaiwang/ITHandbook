@@ -1,4 +1,7 @@
 # 資料庫的使用者
+
+<script type="text/javascript" src="js/general.js"></script>
+
 ###前提
 ---
 * 大部分的資料庫使用涉及資料庫的四個基本操作，Create、Read(Query)、Update 及 Deiete，此類型的資料庫使用者多為擁有者角色。
