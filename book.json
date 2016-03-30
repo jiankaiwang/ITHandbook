@@ -16,9 +16,6 @@
               "background": {
                   "color": "#FFF"
               }
-        },
-        "addcssjs": {
-          "js": ["js/jquery-1.12.2.min.js","js/general.js"]
         }
     }
 }
