@@ -98,7 +98,6 @@ Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置�
 * 網路配置
 
 1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
-
 2. 假設虛擬機取得由網卡分配的 IP 位置為 192.168.1.157。
 
 * 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **)
