@@ -94,7 +94,12 @@ ckan.site_url = http://xyz.cloudapp.net/
 solr_url = http://xyz.cloudapp.net:8983/solr/ckan
 ```
 
+###以 Bridge 方式建立網路環境
+---
 
+
+###以 NAT 方式建立網路環境
+---
 
 
 
