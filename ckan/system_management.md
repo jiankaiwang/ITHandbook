@@ -99,12 +99,39 @@ Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置�
 
 1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
 
-2. 假設虛擬機取得由網卡分配的 IP 位置為 。
+2. 假設虛擬機取得由網卡分配的 IP 位置為 192.168.1.157。
 
+* 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **) : 主要為 **  server_name ** 的設定
 
-###以 NAT 方式建立網路環境
----
+```Bash
+proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
 
+server {
+    listen 80;
+    server_name 192.168.1.157;
+    client_max_body_size 1000M;
+    access_log /var/log/nginx/ckan_access.log;
+    error_log /var/log/nginx/ckan_error.log error;
+    charset utf8;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:///tmp/ckan_socket.sock;
+        uwsgi_param SCRIPT_NAME '';
+    }
+}
+```
+
+* 於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
+
+```Bash
+# ...
+# 需要注意的是
+ckan.site_url = http://192.168.1.157/
+
+# ...
+solr_url = http://192.168.1.157:8983/solr/ckan
+```
 
 ###重啟 CKAN 服務
 ---
