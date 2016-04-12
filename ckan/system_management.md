@@ -106,7 +106,7 @@ NAT 方式為虛擬機 (Client OS) 向 Host OS 註冊一個 IP，此 IP 與 Host
 
 server {
     listen 80;
-    server_name 192.168.1.157;
+    server_name 10.0.2.15;
     client_max_body_size 1000M;
 
 # ...
