@@ -52,13 +52,12 @@ server {
 ###以 URI 為例進行設定 : 實際運作環境
 ---
 
-* 網路配置
+網路配置
 
 1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
-
 2. 假設雲端平台指派的 URI 為 ** xyz.cloudapp.net **。
 
-* 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **) : 主要為 **  server_name ** 的設定
+於 nginx 的設定 (** /etc/nginx/sites-available/ckan **) : 主要為 **  server_name ** 的設定
 
 ```Bash
 proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
@@ -79,7 +78,7 @@ server {
 }
 ```
 
-* 於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
+於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
 
 ```Bash
 # ...
@@ -93,14 +92,14 @@ solr_url = http://xyz.cloudapp.net:8983/solr/ckan
 ###以 Bridge 方式建立網路環境
 ---
 
-Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置，且此 IP 位置的網域與 Host OS 相同。
+Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置，且此 IP 位置的網域與 Host OS 相同，因此可以直接使用瀏覽器網址輸入 ip 位址即可 (如 http://192.168.1.157/ 等)。
 
-* 網路配置
+網路配置
 
 1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
 2. 假設虛擬機取得由網卡分配的 IP 位置為 192.168.1.157。
 
-* 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **)
+於 nginx 的設定 (** /etc/nginx/sites-available/ckan **)
 
 ```Bash
 # ...
@@ -113,7 +112,7 @@ server {
 # ...
 ```
 
-* 於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
+於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
 
 ```Bash
 # ...
