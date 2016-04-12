@@ -20,12 +20,33 @@ $ cd /usr/lib/ckan/default/src/ckan/ckan/templates/
 $ cd /usr/lib/ckan/default/src/ckan/ckan/public/base/
 ```
 
-* 初始畫面
+* 初始頁面
 
 ```Bash
 $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/index.html
 ```
 
+* 各主要資源路徑
+
+```Bash
+templates/
+  base.html      # A base template with just core HTML structure
+  page.html      # A base template with default page layout
+  header.html    # The site header.
+  footer.html    # The site footer.
+  snippets/      # A folder of generic sitewide snippets
+  home/
+    index.html   # Template for the index action of the home controller
+    snippets/    # Snippets for the home controller
+  user/
+
+  ...
+
+public/base/
+  css/           # main style designment
+  images/	     # main image location
+  javascript/	 # main javascript libraries
+```
 
 
 
