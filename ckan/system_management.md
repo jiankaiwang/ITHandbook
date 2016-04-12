@@ -93,11 +93,35 @@ solr_url = http://xyz.cloudapp.net:8983/solr/ckan
 ###以 Bridge 方式建立網路環境
 ---
 
+Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置，且此 IP 位置的網域與 Host OS 相同。
+
+* 網路配置
+
+1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
+
+2. 假設虛擬機取得由網卡分配的 IP 位置為 。
+
 
 ###以 NAT 方式建立網路環境
 ---
 
 
+###重啟 CKAN 服務
+---
+
+當重新設定 nginx 與 CKAN 組態檔後，必須重新將之啟動，如下指令；
+
+* 重啟反向代理伺服器
+
+```Bash
+$ sudo service nginx restart
+```
+
+* 重啟 CKAN 服務
+
+```
+$ sudo restart ckan
+```
 
 
 
