@@ -58,10 +58,6 @@ server {
 
 2. 假設雲端平台指派的 URI 為 ** xyz.cloudapp.net **。
 
-3. 雲端平台 (以 Azure 為例) 與虛擬機的架構如下；
-
-
-
 * 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **) : 主要為 **  server_name ** 的設定
 
 ```Bash
