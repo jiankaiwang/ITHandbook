@@ -54,8 +54,15 @@ server {
 
 * 網路配置
 
+1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
 
-* 於 nginx 的設定
+2. 假設雲端平台指派的 URI 為 ** xyz.cloudapp.net **。
+
+3. 雲端平台 (以 Azure 為例) 與虛擬機的架構如下；
+
+
+
+* 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **) : 主要為 **  server_name ** 的設定
 
 ```Bash
 proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
@@ -76,7 +83,7 @@ server {
 }
 ```
 
-* 於 CKAN 設定檔進行設定 (production.ini)
+* 於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
 
 ```Bash
 # ...
