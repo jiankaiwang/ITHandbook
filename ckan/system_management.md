@@ -41,8 +41,25 @@ server {
 
 而對於 server_name 的設定有幾個原則；
 
-1. 若有 URI ，不論是透過 DDNS (動態 DNS 伺服器) 來指派或是有指定的網址 (如 azure 等)，則可以
+1. 若有 URI ，不論是透過 DDNS (動態 DNS 伺服器) 來指派或是有指定的網址 (如 azure 等)，則可以此 URI 作為 server_name。
 
+2. 若有 IP ，不論是動態 IP (如虛擬機等) 或是指定 IP 亦可。
+
+3. ** 若是以虛擬機方式架設，且需要透過 host OS 進行轉 port 方式來達成瀏覽 CKAN，如 azure 便是如此，則建議以 URI 方式設定。 (若無 URI，則在 ckan 設定檔中需要確認設定) **
+
+底下以設定動態 IP 方式為例；
+
+```Bash
+// ...
+
+server {
+    listen 80;
+    server_name 192.168.1.157;
+    client_max_body_size 1000M;
+    access_log /var/log/nginx/ckan_access.log;
+    
+// ...
+```
 
 
 
