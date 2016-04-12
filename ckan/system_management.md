@@ -49,7 +49,7 @@ server {
 
 3. ** 若是以虛擬機方式架設，網路以 NAT 方式建立，需要透過 host OS 進行轉 port 方式來達成瀏覽 CKAN，如 azure 便是如此，則建議以 URI 方式設定。 (若無 URI，則在 ckan 設定檔中需要確認設定，路徑為 /etc/ckan/default/development.ini) **
 
-###以 URI 為例進行設定 : 實際運作環境
+###以 URI 為例進行設定
 ---
 
 網路配置
