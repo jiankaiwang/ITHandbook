@@ -30,22 +30,22 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/index.html
 
 ```Bash
 templates/
-  base.html      # A base template with just core HTML structure
-  page.html      # A base template with default page layout
-  header.html    # The site header.
-  footer.html    # The site footer.
-  snippets/      # A folder of generic sitewide snippets
-  home/
-    index.html   # Template for the index action of the home controller
-    snippets/    # Snippets for the home controller
-  user/
+    base.html      # A base template with just core HTML structure
+    page.html      # A base template with default page layout
+    header.html    # The site header.
+    footer.html    # The site footer.
+    snippets/      # A folder of generic sitewide snippets
+    home/
+        index.html   # Template for the index action of the home controller
+        snippets/    # Snippets for the home controller
+    user/
 
-  ...
+    ...
 
 public/base/
-  css/           # main style designment
-  images/	     # main image location
-  javascript/	 # main javascript libraries
+    css/           # main style designment
+    images/	     # main image location
+    javascript/	 # main javascript libraries
 ```
 
 
