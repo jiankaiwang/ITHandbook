@@ -109,12 +109,16 @@ NAT 方式為虛擬機 (Client OS) 向 Host OS 註冊一個 IP，此 IP 與 Host
 
 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **)
 
+| 註解 |
+| -- |
+| ** 需要注意的是 nginx 是處理轉入 Client OS 的 request，因此 server_name 需要填寫 127.0.0.1，而非瀏覽器上所列的 127.0.0.1:9080。 ** |
+
 ```Bash
 # ...
 
 server {
     listen 80;
-    server_name 10.0.2.15;
+    server_name 127.0.0.1;
     client_max_body_size 1000M;
 
 # ...
@@ -122,13 +126,16 @@ server {
 
 於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
 
+| 註解 |
+| -- |
+| ** 需要注意的是 CKAN 組態檔與 nginx 設置相同，因執行的 scope 皆為 Client OS，因此在 ckan.site_url 設定需以 127.0.0.1 為主，非流覽器網址的 127.0.0.1:9080 ** |
+
 ```Bash
 # ...
-# 需要注意的是
-ckan.site_url = http://192.168.1.157/
+ckan.site_url = http://127.0.0.1/
 
 # ...
-solr_url = http://192.168.1.157:8983/solr/ckan
+solr_url = http://127.0.0.1:8983/solr/ckan
 ```
 
 ###以 Bridge 方式建立網路環境
