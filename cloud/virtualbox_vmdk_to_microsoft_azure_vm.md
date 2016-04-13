@@ -67,6 +67,7 @@ PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows
 ###透過 Azure 網頁連結儲存體並部署虛擬機
 ---
 
+需先將上傳的 .vhd 檔案變成 VM 的選項之一，如此一來才能透過新建 VM 時，將 VM 內容指向此上傳的 .vhd 檔案
 
 
 
