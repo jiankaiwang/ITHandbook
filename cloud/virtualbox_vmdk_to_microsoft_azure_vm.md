@@ -58,12 +58,14 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 ```
 
-假設上傳至 azure 儲存體的 vhd 名為 ckan2.vhd，而經第一步驟由 vmdk 轉換的 vhd 放置於 D:\download\ckan2.vhd，則上傳指令範例如下，
+假設上傳至 azure 儲存體的 vhd 名為 ckan2.vhd，而經第一步驟由 vmdk 轉換的 vhd 放置於 D:\download\ckan2.vhd，並將剛創建 blob (名為 opendata) 的 URL (https://opendataportal.blob.core.windows.net/) 加入，則上傳指令範例如下，
 
 ```Bash
 PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows.net/opendata/ckan2.vhd" -LocalFilePath "D:\download\ckan2.vhd"
 ```
 
+###透過 Azure 網頁連結儲存體並部署虛擬機
+---
 
 
 
