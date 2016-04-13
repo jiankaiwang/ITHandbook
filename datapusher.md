@@ -160,7 +160,7 @@ ckan.datapusher.url = http://0.0.0.0:8800/
 * 若是於資料上傳時出現下列錯誤
 
 ```Html
-錯誤： cannot connect to datapusher
+錯誤： Process completed but unable to post to result_url
 ```
 
 則需要確認 ckan 設定檔中  的 ** ckan.site_url ** 設定為正確，因大多數的 CKAN Server 以 VM 方式建立，若有 URI ，則應以 URI 設置，而非 IP 位置 (尤其在以 NAT 建立的虛擬機上更應如此)，如下範例；
