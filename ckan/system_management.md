@@ -49,8 +49,7 @@ server {
 
 3. ** 若是以虛擬機方式架設，網路以 NAT 方式建立，需要透過 host OS 進行轉 port 方式來達成瀏覽 CKAN，如 azure 便是如此，則建議以 URI 方式設定。 (若無 URI，則在 ckan 設定檔中需要確認設定，路徑為 /etc/ckan/default/development.ini) **
 
-###以 URI 為例進行設定
----
+#####以 URI 為例進行設定
 
 網路配置
 
@@ -97,8 +96,7 @@ http://xyz.cloudapp.net/
 
 來瀏覽 CKAN 服務。
 
-###以 NAT 方式建立網路環境
----
+#####以 NAT 方式建立網路環境
 
 NAT 方式為虛擬機 (Client OS) 向 Host OS 註冊一個 IP，此 IP 與 Host OS 網域並不相同，因此需要透過 Host OS 轉址方式才能瀏覽到虛擬機的頁面。
 
@@ -154,8 +152,7 @@ http://127.0.0.1:9080/
 
 來瀏覽 CKAN 服務。
 
-###以 Bridge 方式建立網路環境
----
+#####以 Bridge 方式建立網路環境
 
 Bridge 方式為虛擬機 (Client OS) 直接向網路卡取得一組 IP 位置，且此 IP 位置的網域與 Host OS 相同，因此可以直接使用瀏覽器網址輸入 ip 位址即可 (如 http://192.168.1.157/ 等)。
 
@@ -195,8 +192,7 @@ http://192.168.1.157/
 
 來瀏覽 CKAN 服務。
 
-###重啟 CKAN 服務
----
+#####重啟 CKAN 服務
 
 當重新設定 nginx 與 CKAN 組態檔後，必須重新將之啟動，如下指令；
 
