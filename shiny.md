@@ -15,15 +15,5 @@
 ---
 [Plotly](https://plot.ly/) 是一套以 R 語言為基底進行資料視覺化與能使用者進行互動性的函式庫。透過結合 Shiny 執行分析與計算再透過 Plotly 進行進階視覺化設計，便能打造出類似 BI 工具等效果，且更具有延展性。
 
-###資源
----
-* Shiny
-    * [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
-    * [Shiny Server by RStudio](https://www.rstudio.com/products/shiny/shiny-server2/)
-* Plotly
-    * [Plotly Public](https://plot.ly/feed/)
-    * [With Shiny](https://plot.ly/r/shiny-tutorial/)
-
-
 
 
