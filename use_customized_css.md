@@ -31,17 +31,14 @@ Example:
 
 ```Html
 {# ... #}
-
-Example:
-
-  {% block styles %}
-    {{ super() }}
     <link rel="stylesheet" href="/base/css/custom.css" />
   {% endblock %}
 #}
+
 {# 加入自定義的 CSS #}
 <link rel="stylesheet" href="/base/css/general.css" />
 
 {# ... #}
 ```
 
+###透過
