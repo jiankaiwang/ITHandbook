@@ -67,15 +67,33 @@ PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows
 ###透過 Azure 網頁連結儲存體並部署虛擬機
 ---
 
-需先將上傳的 .vhd 檔案變成 VM 的選項之一，如此一來才能透過新建 VM 時，將 VM 內容指向此上傳的 .vhd 檔案
+首先需先將剛上傳的 .vhd 檔案轉換成一個 VM 可以使用的 Image，可以透過兩種方式來達成；
 
+* 透過 ** Add-AzureVMImage ** 指令於 PowerShell 來達成
 
-於 Azure 上創建一個 VM，並選擇剛新增的選項；
+```Bash
+Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>
+```
 
+```Bash
+# 注意 -OS 僅有 Windows 與 Linux 兩類
 
+Add-AzureVMImage -ImageName opendata -MediaLocation "https://opendataportal.blob.core.windows.net/opendata/ckan2.vhd" -OS "Linux"
+```
 
+* 透過舊版 Azure 入口 ([https://manage.windowsazure.com](https://manage.windowsazure.com))
 
+選擇「虛擬機器」，點擊「映像」，點擊最下方「建立」，輸入映像檔名稱「ubuntu14.04_CKAN2」(假設)，描述「opendata VM image」(假設)，如下圖；
 
+![](../../images/create-vm.png)
 
+接下來便是創建一個虛擬機並使用此映像檔即可，點擊右側「虛擬機器」，點擊底下「新增」，點擊「虛擬機器」，點擊「從資源庫」，點擊「我的映像」，選擇「ubuntu14.04_CKAN2」
 
+![](../../images/create-vm-from-resource.png)
+
+![](../../images/create-vm-selected-resource.png)
+
+在虛擬機器設定中「新的使用者名稱」部分，若是自己上傳映像檔，可以隨意填寫，也可以填寫已知的登入與密碼；但若是直接使用 azure 內建映像檔建立者，則需要注意，此為管理者帳號與密碼。
+
+在雲端服務 DNS 名稱部分，則是預設將「虛擬機器名稱」帶入，此為往後連入的網址。在端點部分，因為 AZURE 為 NAT 方式建立，因此建議將常用的 Port 進行設定 (當然往後仍可以自行設定)。
 
