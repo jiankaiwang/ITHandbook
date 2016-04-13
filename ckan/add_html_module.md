@@ -17,9 +17,56 @@ templates
     |-home
         |-layout1.html                   # html 主架構頁面
         |-snippets                       # 客製化網頁模組的位置
-            |-customized-1.html          # 引用的客製化網頁模組 1
-            |-customized-2.html          # 引用的客製化網頁模組 2
+            |-customized-all.html        # 引用的客製化網業模組
+            |-customized-1.html          # 引用的客製化網頁模組 (左欄或上方)
+            |-customized-2.html          # 引用的客製化網頁模組 (右欄或下方)
 ```
+
+在 html 主架構中，可以透過 snippet 函式將自定義模組加入已定義好的區塊中，如下；
+
+```Html
+<!-- -->
+
+<div role="main">
+	{#
+		自定義一個位於 layout1 中的顯示區塊
+		html code here 並無 RWD 的設計
+	#}
+	<div class="container">
+		<div class="row row1 section-topic general-font-family">
+			(區塊主題)
+		</div>
+		<div class="row row1">
+			{# 列 (row) 設計，不分左或右欄 #}
+			{% block customized-all %}
+				{% snippet 'home/snippets/customized-all.html' %}
+			{% endblock %}
+		</div>
+		<div class="row row1">
+			<div class="span6 col1">
+				{# 位於左側欄 #}
+				{% block customized-1 %}
+					{% snippet 'home/snippets/customized-1.html' %}
+				{% endblock %}
+			</div>
+			<div class="span6 col2">
+				{# 位於右側欄 #}
+				{% block customized-2 %}
+					{% snippet 'home/snippets/customized-2.html' %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- -->
+```
+
+
+
+
+
+
 
 
 
