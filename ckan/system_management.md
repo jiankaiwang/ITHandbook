@@ -1,7 +1,7 @@
 # 系統維護
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../gitbook/app.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 一般而言， CKAN 系統啟動後，便不需要對系統進行重啟，但在開發時 (如 Javascript library 的更新等)、系統更新或是網路環境變動等狀況下，需要將系統進行重新設定，底下便是多種狀況的解決方法。
 
