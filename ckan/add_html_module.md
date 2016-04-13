@@ -8,4 +8,13 @@
 ###透過 snippet 方式將自訂網頁模組加入主 html 架構中
 ---
 
+底下幾一個範例，在 layout1.html (預設包含 Introductory area, search, featured group and featured organization) 中加入兩自訂網頁模組。
+
+相關 html 文件路徑如下；
+
+```Bash
+
+```
+
+
 
