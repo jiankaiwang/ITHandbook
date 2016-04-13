@@ -25,5 +25,6 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 ![](../../images/vmdk2vhd.png)
 
+* 透過第三方共享軟體 WinImage ([Offical Download Website](http://www.winimage.com/download.htm))
 
 
