@@ -138,6 +138,14 @@ ckan.site_url = http://127.0.0.1/
 solr_url = http://127.0.0.1:8983/solr/ckan
 ```
 
+設定完畢後，重新啟動 CKAN 與 nginx，便可以透過瀏覽器輸入網址
+
+```Html
+http://127.0.0.1:9080/
+```
+
+來瀏覽 CKAN 服務。
+
 ###以 Bridge 方式建立網路環境
 ---
 
@@ -165,12 +173,19 @@ server {
 
 ```Bash
 # ...
-# 需要注意的是
 ckan.site_url = http://192.168.1.157/
 
 # ...
 solr_url = http://192.168.1.157:8983/solr/ckan
 ```
+
+設定完畢後，重新啟動 CKAN 與 nginx，便可以透過瀏覽器輸入網址
+
+```Html
+http://192.168.1.157/
+```
+
+來瀏覽 CKAN 服務。
 
 ###重啟 CKAN 服務
 ---
