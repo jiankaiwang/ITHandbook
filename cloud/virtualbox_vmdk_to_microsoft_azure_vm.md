@@ -70,6 +70,9 @@ PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows
 需先將上傳的 .vhd 檔案變成 VM 的選項之一，如此一來才能透過新建 VM 時，將 VM 內容指向此上傳的 .vhd 檔案
 
 
+於 Azure 上創建一個 VM，並選擇剛新增的選項；
+
+
 
 
 
