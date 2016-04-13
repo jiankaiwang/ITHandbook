@@ -135,7 +135,14 @@ $ sudo service nginx restart
 ---
 打開瀏覽器，前往 [http://127.0.0.1/](http://127.0.0.1/) ，若能看到頁面，恭喜您已經完成所有部署設定！
 
+###修改預設載入語系
+---
 
+假設 CKAN 使用的組態檔為 production.ini (** /etc/ckan/default/production.ini **)，則需要修正 ** ckan.locale_default ** 的設定，以修改成繁體中文為例；
+
+```Bash
+ckan.locale_default = zh_TW
+```
 
 
 
