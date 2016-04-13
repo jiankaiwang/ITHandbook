@@ -13,7 +13,12 @@
 相關 html 文件路徑如下；
 
 ```Bash
-
+templates
+    |-home
+        |-layout1.html                   # html 主架構頁面
+        |-snippets                       # 客製化網頁模組的位置
+            |-customized-1.html          # 引用的客製化網頁模組 1
+            |-customized-2.html          # 引用的客製化網頁模組 2
 ```
 
 
