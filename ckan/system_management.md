@@ -208,6 +208,18 @@ $ sudo service nginx restart
 $ sudo restart ckan
 ```
 
+###CKAN2 於 Azure 上 Port 的設定
+---
+
+若以 CKAN 架構來設計端點，可以參考如下；
+
+| 名稱 | 通訊協定 | 公用連接埠 | 私用連接埠 |
+| -- | -- | -- | -- |
+| SSH | TCP | 22 | 22 |
+| HTTP | TCP | 80 | 80 |
+| datapusher | TCP | 8800 | 8800 |
+| solr | TCP | 8983 | 8983 |
+| FTP | TCP | 21 | 21 |
 
 
 
