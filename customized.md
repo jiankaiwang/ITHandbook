@@ -40,7 +40,7 @@ templates/
       |-snippets/    # Snippets for the home controller
   |-user/
 
-    ...
+  # ...
 
 public/base/
   |-css/           # main style designment
@@ -49,7 +49,6 @@ public/base/
 ```
 
 * 頁面實際引用架構
----
 
 ```Bash
 templates/home/index.html
