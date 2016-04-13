@@ -124,7 +124,7 @@ server {
 # ...
 ```
 
-於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)
+於 CKAN 設定檔進行設定 (** /etc/ckan/default/production.ini **)，如下；
 
 | 註解 |
 | -- |
