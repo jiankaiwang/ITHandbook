@@ -20,6 +20,6 @@ ckan 預設將 ckan 使用者分成 3 組
 
 ```Bash
 # 假設要新增的系統管理員帳號為 jkw
-# 之後便依程式執行進行密碼設定
+# 執行下列指令後便依程式執行進行密碼設定
 (pyenv) $ paster --plugin=ckan sysadmin add jkw -c /etc/ckan/default/development.ini
 ```
