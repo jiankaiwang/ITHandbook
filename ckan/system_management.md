@@ -98,6 +98,14 @@ NAT 方式為虛擬機 (Client OS) 向 Host OS 註冊一個 IP，此 IP 與 Host
 
 1. 假設 CKAN 於開機後自動載入的設定檔 (預設路徑為 ** /etc/init/ckan.conf **) 中設定 production.ini 為 CKAN 預設使用的組態檔。
 2. 假設虛擬機取得由網卡分配的 IP 位置為 ** 10.0.2.15 **。
+3. Host OS 與 Client OS 的轉址設置如下；
+
+| 名稱 | 協定 | 主機 IP | 主機連接埠 | 客體 IP | 客體連接埠 |
+| -- | -- | -- | -- | -- | -- |
+| solr | TCP | 127.0.0.1 | 8983 | 10.0.2.15 | 8983 |
+| datapusher | TCP | 127.0.0.1 | 8800 | 10.0.2.15 | 8800 |
+| http | TCP | 127.0.0.1 | 9080 | 10.0.2.15 | 80 |
+| ssh | TCP |127.0.0.1 | 9022 | 10.0.2.15 | 22 |
 
 於 nginx 的設定 (** /etc/nginx/sites-available/ckan **)
 
