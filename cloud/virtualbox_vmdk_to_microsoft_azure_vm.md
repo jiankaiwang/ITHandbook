@@ -40,19 +40,29 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 ![](../../images/opendataportal-storage.png)
 
-建立儲存體後，需要在建立一個 container 給準備要上傳的虛擬機使用，於服務中 「Blob」 中，新增一個「容器」，假設容器名稱為「** opendata **」，而其 URL 為「** https://opendataportal.blob.core.windows.net/opendata **」，如下圖；
+建立儲存體後，需要在建立一個 container 給準備要上傳的虛擬機使用，於服務中 「Blob」 中，新增一個「容器」，假設容器名稱為「** opendata **」，而其 URL 為「** https://opendataportal.blob.core.windows.net/opendata **」，此 URL 為準備給虛擬機上傳使用的連結，建立方式如下圖；
 
 ![](../../images/opendata-blob.png)
 
-
-
-開啟 PowerShell 並執行 ** Add-AzureAccount ** 指令來登入 Azure；
+開啟 PowerShell 並執行 ** Add-AzureAccount ** 指令來登入 Azure，並輸入帳號與密碼，如下圖；
 
 | 註解 |
 | -- |
-| 如果開啟 PowerShell 並執行 Add-AzureAccount 後出現 ** 無法辨識 'Add-AzureAccount' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。請檢查 ... ** 的訊息，便是沒有安裝 ** Azure SDK 安裝檔 (WindowsAzurePowershellGet.3f.3f.3fnew.exe) **。  |
+| 如果開啟 PowerShell 並執行 Add-AzureAccount 後出現 ** 無法辨識 'Add-AzureAccount' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。請檢查 ... ** 的訊息，便是沒有安裝 ** Azure SDK 安裝檔 (如 WindowsAzurePowershellGet.3f.3f.3fnew.exe) **。 |
 
+![](../../images/powershell_add-azureaccount.png)
 
+登入後，透過 ** Add-AzureVhd ** 指令來上傳轉換後的 .vhd 虛擬機檔案，指令使用方法為如下；
+
+```Bash
+Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
+```
+
+假設上傳至 azure 儲存體的 vhd 名為 ckan2.vhd，而經第一步驟由 vmdk 轉換的 vhd 放置於 D:\download\ckan2.vhd，則上傳指令範例如下，
+
+```Bash
+PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows.net/opendata/ckan2.vhd" -LocalFilePath "D:\download\ckan2.vhd"
+```
 
 
 
