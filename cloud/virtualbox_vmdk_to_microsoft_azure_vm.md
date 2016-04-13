@@ -27,4 +27,39 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 * 透過第三方共享軟體 WinImage ([Offical Download Website](http://www.winimage.com/download.htm))
 
+###透過 Azure SDK (PowerShell) 進行 .vhd 檔案上傳
+---
+
+下載必要工具 (PowerShell) 與 Azure SDK；
+
+* 若有安裝 Visual Studio 2013 版本以上，則預設已安裝 PowerShell，或是透過微軟工具網站 ([Link](https://azure.microsoft.com/zh-tw/downloads/)) 進行下載。
+
+* 因為需要使用 Azure command，如 Add-AzureAccount 等，因此需要下載 Azure SDK 安裝檔 ([說明與下載連結](https://azure.microsoft.com/zh-tw/documentation/articles/powershell-install-configure/))。
+
+於 Azure 網頁上設定準備放置虛擬機的儲存體，新增一個「** 儲存體帳戶 (傳統) **」，點擊「 ** 新增 **」後，在建立儲存體帳戶頁面下進行儲存體設定，假設儲存體名稱為「** opendataportal.core.windows.net **」，之後點擊建立即可，如下；
+
+![](../../images/opendataportal-storage.png)
+
+建立儲存體後，需要在建立一個 container 給準備要上傳的虛擬機使用，於服務中 「Blob」 中，新增一個「容器」，假設容器名稱為「** opendata **」，而其 URL 為「** https://opendataportal.blob.core.windows.net/opendata **」，如下圖；
+
+![](../../images/opendata-blob.png)
+
+
+
+開啟 PowerShell 並執行 ** Add-AzureAccount ** 指令來登入 Azure；
+
+| 註解 |
+| -- |
+| 如果開啟 PowerShell 並執行 Add-AzureAccount 後出現 ** 無法辨識 'Add-AzureAccount' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。請檢查 ... ** 的訊息，便是沒有安裝 ** Azure SDK 安裝檔 (WindowsAzurePowershellGet.3f.3f.3fnew.exe) **。  |
+
+
+
+
+
+
+
+
+
+
+
 
