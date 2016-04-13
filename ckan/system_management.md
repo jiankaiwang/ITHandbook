@@ -89,6 +89,14 @@ ckan.site_url = http://xyz.cloudapp.net/
 solr_url = http://xyz.cloudapp.net:8983/solr/ckan
 ```
 
+設定完畢後，重新啟動 CKAN 與 nginx，便可以透過瀏覽器輸入網址
+
+```Html
+http://xyz.cloudapp.net/
+```
+
+來瀏覽 CKAN 服務。
+
 ###以 NAT 方式建立網路環境
 ---
 
