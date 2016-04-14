@@ -23,7 +23,7 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 相當直覺化的操作，選取代轉換的 vmdk 檔案，並選擇要輸出的路徑，之後便點擊 convert 即可，如下圖；
 
-![](../../images/vmdk2vhd.png)
+![](../images/vmdk2vhd.png)
 
 * 透過第三方共享軟體 WinImage ([Offical Download Website](http://www.winimage.com/download.htm))
 
@@ -38,11 +38,11 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 於 Azure 網頁上設定準備放置虛擬機的儲存體，新增一個「** 儲存體帳戶 (傳統) **」，點擊「 ** 新增 **」後，在建立儲存體帳戶頁面下進行儲存體設定，假設儲存體名稱為「** opendataportal.core.windows.net **」，之後點擊建立即可，如下；
 
-![](../../images/opendataportal-storage.png)
+![](../images/opendataportal-storage.png)
 
 建立儲存體後，需要在建立一個 container 給準備要上傳的虛擬機使用，於服務中 「Blob」 中，新增一個「容器」，假設容器名稱為「** opendata **」，而其 URL 為「** https://opendataportal.blob.core.windows.net/opendata **」，此 URL 為準備給虛擬機上傳使用的連結，建立方式如下圖；
 
-![](../../images/opendata-blob.png)
+![](../images/opendata-blob.png)
 
 開啟 PowerShell 並執行 ** Add-AzureAccount ** 指令來登入 Azure，並輸入帳號與密碼，如下圖；
 
@@ -50,7 +50,7 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 | -- |
 | 如果開啟 PowerShell 並執行 Add-AzureAccount 後出現 ** 無法辨識 'Add-AzureAccount' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。請檢查 ... ** 的訊息，便是沒有安裝 ** Azure SDK 安裝檔 (如 WindowsAzurePowershellGet.3f.3f.3fnew.exe) **。 |
 
-![](../../images/powershell_add-azureaccount.png)
+![](../images/powershell_add-azureaccount.png)
 
 登入後，透過 ** Add-AzureVhd ** 指令來上傳轉換後的 .vhd 虛擬機檔案，指令使用方法為如下；
 
@@ -85,13 +85,13 @@ Add-AzureVMImage -ImageName opendata -MediaLocation "https://opendataportal.blob
 
 選擇「虛擬機器」，點擊「映像」，點擊最下方「建立」，輸入映像檔名稱「ubuntu14.04_CKAN2」(假設)，描述「opendata VM image」(假設)，如下圖；
 
-![](../../images/create-vm.png)
+![](../images/create-vm.png)
 
 接下來便是創建一個虛擬機並使用此映像檔即可，點擊右側「虛擬機器」，點擊底下「新增」，點擊「虛擬機器」，點擊「從資源庫」，點擊「我的映像」，選擇「ubuntu14.04_CKAN2」
 
-![](../../images/create-vm-from-resource.png)
+![](../images/create-vm-from-resource.png)
 
-![](../../images/create-vm-selected-resource.png)
+![](../images/create-vm-selected-resource.png)
 
 在虛擬機器設定中「新的使用者名稱」部分，若是自己上傳映像檔，可以隨意填寫，也可以填寫已知的登入與密碼；但若是直接使用 azure 內建映像檔建立者，則需要注意，此為管理者帳號與密碼。
 
