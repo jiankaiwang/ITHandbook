@@ -18,7 +18,7 @@
        * [加入客製化 html 模組](ckan/add_html_module.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
-   * 問題排除
+   * [問題排除](trouble_shooting.md)
 * [Drupal](drupal.md)
 * [Shiny 與 Plotly](shiny.md)
    * [Server](shiny-server.md)
