@@ -9,7 +9,7 @@
 因 CKAN 預設在首頁的組織或是群組欄位僅能一次呈現出一筆主題，但當資料變多或是一次想顯示多筆主題時，可以透過修改 jinja 中的設定，如下範例增加 organization 的顯示主題數至 5 筆；
 
 ```Bash
-$ vim /usr/lib/ckan/default/src/ckan/ckan/templates/snippets/organization_item.html
+$ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/featured_organization.html
 ```
 
 增加 get_featured_organizations() 函式的傳數參數 ** (count=5) ** 即可，如下；
