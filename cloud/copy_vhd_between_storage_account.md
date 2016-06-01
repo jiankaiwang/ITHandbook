@@ -10,5 +10,10 @@
 
 * Microsoft Azure SDKs : 需要 AzCopy.exe 執行指令
 
+###建立 blob
+---
+
+
+
 ###取得 .vhd 來源
 
