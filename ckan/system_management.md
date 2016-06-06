@@ -280,9 +280,11 @@ licenses_group_url = file:///usr/lib/ckan/default/src/ckan/ckan/public/base/lice
 ]
 ```
 
-可以直接修改 json 格式與內容，並將組態檔中的 licenses_group_url 値指向該位置即可。
+可以直接修改 json 格式與內容，並將組態檔中的 licenses_group_url 値指向該位置即可。最後將 CKAN 重起即可。
 
-
+```Bash
+$ sudo restart ckan
+```
 
 
 
