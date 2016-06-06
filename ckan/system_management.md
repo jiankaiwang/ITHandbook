@@ -221,6 +221,15 @@ $ sudo restart ckan
 | solr | TCP | 8983 | 8983 |
 | FTP | TCP | 21 | 21 |
 
+###
+---
+
+
+
+
+
+
+
 
 
 
