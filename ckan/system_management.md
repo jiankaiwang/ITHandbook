@@ -242,7 +242,45 @@ licenses_group_url = http://licenses.opendefinition.org/licenses/groups/ckan.jso
 licenses_group_url = file:///usr/lib/ckan/default/src/ckan/ckan/public/base/licenses/licenses.json
 ```
 
+| 註解 |
+| -- |
+| 若是以 local 檔案方式進行，則需要先創一個資料夾 (如上例的 licenses) 及新增 json 檔案 (如上例的 licenses.json)。 |
 
+而 licenses 內容範例如下；
+
+```Javascript
+[
+  {
+    "domain_content": false, 
+    "domain_data": false, 
+    "domain_software": false, 
+    "family": "", 
+    "id": "notspecified", 
+    "is_generic": true, 
+    "maintainer": "", 
+    "od_conformance": "not reviewed", 
+    "osd_conformance": "not reviewed", 
+    "status": "active", 
+    "title": "License Not Specified", 
+    "url": ""
+  }, 
+  {
+    "domain_content": false, 
+    "domain_data": true, 
+    "domain_software": false, 
+    "family": "", 
+    "id": "ODC-PDDL-1.0", 
+    "maintainer": "", 
+    "od_conformance": "approved", 
+    "osd_conformance": "not reviewed", 
+    "status": "active", 
+    "title": "Open Data Commons Public Domain Dedication and Licence 1.0", 
+    "url": "http://www.opendefinition.org/licenses/odc-pddl"
+  }
+]
+```
+
+可以直接修改 json 格式與內容，並將組態檔中的 licenses_group_url 値指向該位置即可。
 
 
 
