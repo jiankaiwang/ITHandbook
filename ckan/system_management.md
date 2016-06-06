@@ -221,12 +221,26 @@ $ sudo restart ckan
 | solr | TCP | 8983 | 8983 |
 | FTP | TCP | 21 | 21 |
 
-###
+###更換 CKAN 內的 Licenses
 ---
 
+CKAN 的授權內容與類型是夠過 json 來紀錄。可以透過 initial 組態檔 (production.ini, development.ini) 來指定取得 json 來源。
 
+假設啟動 CKAN 的組態檔為 production.ini，開啟編輯此組態檔，
 
+```Bash
+$ vim /etc/ckan/default/production.ini
+```
 
+修改 licenses_group_url 變數値，可以為 url 或是檔案位置，如下範例；
+
+```Bash
+# licenses fetched from Web Url
+licenses_group_url = http://licenses.opendefinition.org/licenses/groups/ckan.json
+
+# licenses fetched from local file
+licenses_group_url = file:///usr/lib/ckan/default/src/ckan/ckan/public/base/licenses/licenses.json
+```
 
 
 
