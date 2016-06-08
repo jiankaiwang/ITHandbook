@@ -46,7 +46,26 @@ openssl pkcs12 -export -out newPFX.pfx -inkey private.key -in certificate.crt -c
 
 ![](../images/ssl_binding.png)
 
+###強制使用 https
+---
 
+於 Web.config 中加入底下組態設定；
+
+```Xml
+<system.webServer>
+    <rewrite>
+      <rules>
+        <rule name="Force HTTPS" enabled="true">
+          <match url="(.*)" ignoreCase="false" />
+          <conditions>
+            <add input="{HTTPS}" pattern="off" />
+          </conditions>
+          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
+        </rule>
+      </rules>
+    </rewrite>
+</system.webServer>      
+```
 
 
 
