@@ -32,7 +32,7 @@ Figure.2 showed the workflow of the whole procedure:
 
 **The following is the example showing how root@guest_PC automatically login the root@host_PC.**
 
-First, guest PC generated the RSA paired keys to represent itself.
+* First, guest PC generated the RSA paired keys to represent itself.
 
 ```Bash
 # ssh-keygen -t rsa
@@ -48,7 +48,7 @@ The key fingerprint is:
 (256 bits with hex-bit carry) "root@CentOS" (these keys represent this id)
 ```
 
-Second, make sure the id_rsa_public_key and id_rsa_private_key were generated.
+* Second, make sure the id_rsa_public_key and id_rsa_private_key were generated.
 
 ```Bash
 # cd /root/.ssh/
@@ -59,7 +59,7 @@ Second, make sure the id_rsa_public_key and id_rsa_private_key were generated.
 id_rsa   id_rsa.pub
 ```
 
-Third, upload the id_rsa_public_key to host PC by scp.
+* Third, upload the id_rsa_public_key to host PC by scp.
 
 ```Bash
 # scp id_rsa.pub root@host_PC:~/id_rsa_root.pub
@@ -72,7 +72,7 @@ root@192.168.2.46`s password: (enter the password of root@host_PC)
 id_rsa.pub                                      100%   396              0.4KB/s   00:00    (uploading is finished)
 ```
 
-Fourth, add the id_rsa_public_key into the authorized_key hold by host PC.
+* Fourth, add the id_rsa_public_key into the authorized_key hold by host PC.
 
 ```Bash
 # ssh root@host_PC    (or root@192.168.1.10, root@IP address)
@@ -96,7 +96,7 @@ anaconda-ks.cfg id_rsa_root.pub install.log install.log.syslog
 # exit 
 ```
 
-Five, re-login to make sure the authorization worked.
+* Five, re-login to make sure the authorization worked.
 
 ```Bash
 # ssh root@host_PC    (or root@192.168.1.10, root@IP address)
@@ -107,7 +107,7 @@ Last login: Mon Mar 31 20:09:52 2014 from 192.168.2.254
 [root@host_PC ~] #                                     (auto-login and wait for the command)
 ```
 
-Sixth, delete the file, id_rsa_public_key, located on the host PC.
+* Sixth, delete the file, id_rsa_public_key, located on the host PC.
 
 ```Bash
 # rm -f ./id_rsa_root.pub
