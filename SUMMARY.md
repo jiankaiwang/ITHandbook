@@ -54,7 +54,6 @@
 * [Virtualization](virtualization.md)
    * [Docker](docker.md)
 * [Windows](windows.md)
-   * [BIOS](windows/bios.md)
 * [3S](3s.md)
    * [QGIS](qgis.md)
    * [Mapbox](mapbox.md)
