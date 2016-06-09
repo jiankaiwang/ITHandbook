@@ -35,9 +35,9 @@
 * 下載 UltraISO, Win98E boot 映像檔 (.iso) 及 clnpwd 執行檔
 
 * 製作 USB bootable USB
-1. 開啟 UltraISO
-2. 載入.iso 映像檔
-3. [選單] 可開機的，寫入磁碟映像檔
+  1. 開啟 UltraISO
+  2. 載入.iso 映像檔
+  3. [選單] 可開機的，寫入磁碟映像檔
 
 * 將 clnpwd.exe 複製到 bootable USB 中
 
