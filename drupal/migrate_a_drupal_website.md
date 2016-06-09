@@ -1,6 +1,6 @@
 # Migrate a drupal website
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###完整備份網站資料夾，並移至另一主機
 ---
