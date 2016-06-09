@@ -51,6 +51,41 @@ $ ls -alZ /var/www/html/nexus
 $ sudo restorecon -Rv /var/www/html/nexus
 ```
 
+###設定資料庫與 htaccess
+---
+
+假設原資料庫是透過 sqlite 進立於 sites/default/file/.ht.sqlite，而 htaccess 建立於 sites/default/file/.htaccess，需要將此兩項設定權限為全部皆可讀寫；
+
+```Bash
+# 設定 sqlite 資料庫讓全部人都能用
+$ sudo chmod 777 /var/www/html/nexus/sites/default/file/.ht.sqlite 
+
+# 設定 htaccess 
+$ sudo chmod 777 /var/www/html/nexus/sites/default/file/.htaccess 
+```
+
+###重新取得資料庫設定
+---
+
+因新的網站需要使用新的設定，可以直接刪除 sites/default/setting.php 檔案，並重新讓 drupal 進行設定即可：
+
+```Bash
+# 先備份原始設定檔
+$ sudo mv /var/www/html/nexus/sites/default/settings.php /var/www/html/nexus/sites/default/settings.php.backup
+
+# 直接刪除 settings.php 檔案即可
+$ sudo rm -f /var/www/html/nexus/sites/default/settings.php
+```
+
+此時需要透過瀏覽器連入此網站進行設定，例如 http://localhost/nexus/ ，之後在設定時輸入與資料庫相同的設定，並點擊「檢視現有網站」即完成移轉 drupal 網站。
+
+
+
+
+
+
+
+
 
 
 
