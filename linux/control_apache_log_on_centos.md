@@ -27,12 +27,11 @@
 * 開啟 httpd.conf 的設定檔案 (default: /etc/httpd/conf/httpd.conf)，找到 ErrorLog 的位置，將原本 ErrorLog "logs/error_log" 註解化成 #ErrorLog "logs/error_log"，然後改成下列指令：
 
 ```Bash
+# 其中 rotatelogs 為一 program，安裝 apache 時亦同時安裝
+# 其中 86400 表示為一天，即 24 (小時) * 60 (分鐘) * 60 (秒)
+# 而 1M 表示為 log_file_size 最大為 1M
 ErrorLog " | /usr/sbin/rotatelogs /home/ntu.sbl.main/apache_system/%Y_%m_%d_error_log 86400 1M"
 ```
-
-  1. 其中 rotatelogs 為一 program，安裝 apache 時亦同時安裝
-  2. 其中 86400 表示為一天，即 24 (小時) * 60 (分鐘) * 60 (秒)
-  3. 而 1M 表示為 log_file_size 最大為 1M
 
 * 然後相同的方法也用在 CustomLog，先在 httpd.conf 檔案中找到 CustomLog，而後作底下的修正
 
