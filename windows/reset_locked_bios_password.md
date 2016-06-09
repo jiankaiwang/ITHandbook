@@ -1,0 +1,2 @@
+# Reset locked BIOS password
+
