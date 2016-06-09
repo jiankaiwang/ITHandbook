@@ -54,6 +54,7 @@
 * [Virtualization](virtualization.md)
    * [Docker](docker.md)
 * [Windows](windows.md)
+   * Reset locked BIOS password
 * [3S](3s.md)
    * [QGIS](qgis.md)
    * [Mapbox](mapbox.md)
