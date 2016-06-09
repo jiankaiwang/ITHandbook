@@ -43,6 +43,12 @@ $ sudo chown apache:apache -R /var/www/html/nexus
 
 # 設定此資料夾底下目錄為 html 內容
 $ sudo chcon -Rv --type=httpd_sys_content_t /var/www/html/nexus
+
+# 查看 selinux 是否已經標籤
+$ ls -alZ /var/www/html/nexus
+
+# 還原預設 selinux 安全性
+$ sudo restorecon -Rv /var/www/html/nexus
 ```
 
 
