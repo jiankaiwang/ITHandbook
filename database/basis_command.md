@@ -157,14 +157,123 @@ mysql > desc t1;
 mysql > show columns from t1;
 mysql > describe t1;
 ```
+* Basic format to show the columns of the table is: ** desc 'tablename' **;
 
+Delete the table from the database;
 
+```Sql
+mysql > drop table t1;
+```
 
+Alter the setting of the table defined before:
 
+```Sql
+#Rename the table:
+mysql > alter table t1 rename t2;
 
+#Re-define the data type of the column:
+mysql > alter table t2 name TEXT;
 
+#Change the column with its data type:
+mysql > alter table t2 change name sign VARCHAR(75);
 
+#Add a new column named 'place' into the table:
+mysql > alter table t2 add place VARCHAR(100);
 
+#Remove a column named 'place' from the table:
+mysql > alter table t2 drop column place;
+
+#Add a column as a index:
+mysql > alter table t2 add index(place);
+```
+
+Optimize the table into the best status:
+
+```Sql
+mysql > optimize table t2;
+```
+
+###Insert, delete, update entries into the database
+---
+
+Insert a entry into the table:
+
+```Sql
+mysql > insert into t1(sign,breed) values("dog","dog");
+```
+
+Show entries within the table:
+
+```Sql
+mysql > select id,breed from t1 where sign="dog";
+```
+
+The basic format of searching the data is: 
+
+```Sql
+select (columns or * for all) from (table) where (conditions);
+```
+
+Update a entry within the table:
+
+```Sql
+mysql > update t1 set breed="newDog" where id=1 and sign="dog";
+```
+
+The basic format of updating the data is:
+
+```Sql
+update (table) set column=(new value) where (conditions);
+```
+
+Replace a entry from the table:
+
+```Sql
+mysql > replace into t1(id,sign,breed) values("1","aDog","aDog");
+```
+
+* If there is the same primary key matching, this new setting would be replaced with the entry within the table.
+
+* If there is no matching, this new setting would be added into the table as the same action with insert command.
+
+Delete a entry from the table:
+
+```Sql
+mysql > delete from t1 where id="3" and sign="abc";
+```
+
+The basic format of updating the data is: 
+
+```Sql
+delete from (table) where (conditions);
+```
+
+###Other commands
+---
+
+The executing environment:
+
+```Sql
+mysql > show status;
+```
+
+The MySQL environment and setting:
+
+```Sql
+mysql > show variables;
+```
+
+The status of user accessing MySQL server:
+
+```Sql
+mysql > show processlist;
+```
+
+To change the root password of mysql(or mariadb): ( -p'xxx' is connecting )
+
+```Bash
+$ mysqladmin -u root -p'oldpassword' password 'newpass'
+```
 
 
 
