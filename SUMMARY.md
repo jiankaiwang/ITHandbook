@@ -70,5 +70,5 @@
    * [Set Network Configuration](linux/set_network_configuration.md)
    * [Use crontab](linux/use_crontab.md)
    * [Super User Privilege](linux/super_user_privilege.md)
-   * change group of the current user
+   * [change group of the current user](linux/change_group_of_the_current_user.md)
 
