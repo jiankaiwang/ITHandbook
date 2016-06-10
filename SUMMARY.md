@@ -74,5 +74,5 @@
    * [FTP Server](linux/ftp_server.md)
    * [httpd trouble shooting](linux/httpd_trouble_shooting.md)
    * [httpd on dropbox](linux/httpd_on_dropbox.md)
-   * Install dropbox on CentOS with error-free yum
+   * [Install dropbox on CentOS with error-free yum](linux/install_dropbox_on_centos_with_error-free_yum.md)
 
