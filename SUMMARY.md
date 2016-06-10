@@ -68,5 +68,5 @@
    * [auto login](linux/auto_login.md)
    * [Backup strategies](linux/backup_strategies.md)
    * [Set Network Configuration](linux/set_network_configuration.md)
-   * Use crontab
+   * [Use crontab](linux/use_crontab.md)
 
