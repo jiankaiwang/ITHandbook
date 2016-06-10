@@ -72,5 +72,5 @@
    * [Super User Privilege](linux/super_user_privilege.md)
    * [change group of the current user](linux/change_group_of_the_current_user.md)
    * [FTP Server](linux/ftp_server.md)
-   * httpd trouble shooting
+   * [httpd trouble shooting](linux/httpd_trouble_shooting.md)
 
