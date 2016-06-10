@@ -2,6 +2,18 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
+###install Dropbox On CentOS7
+---
+
+* Follow [Offical Reference](https://www.dropbox.com/help/247)
+
+* Error handling : No package '**libnautilus-extension**' found Consider adjusting the PKG_CONFIG_PATH environment variable if you installed software in a non-standard prefix. Alternatively, you may set the environment variables NAUTILUS_CFLAGS and NAUTILUS_LIBS to avoid the need to call pkg-config. See the pkg-config man page for more details. 
+
+```Bash
+# install docutils word system
+$ sudo yum install gcc nautilus-devel docutils
+```
+
 ###Introduction and Background
 ---
 
