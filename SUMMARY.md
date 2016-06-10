@@ -76,5 +76,5 @@
    * [httpd on dropbox](linux/httpd_on_dropbox.md)
    * [Install dropbox on CentOS with error-free yum](linux/install_dropbox_on_centos_with_error-free_yum.md)
    * [Install R-project](linux/install_r-project.md)
-   * install ruby and rubygem
+   * [install ruby and rubygem](linux/install_ruby_and_rubygem.md)
 
