@@ -78,4 +78,5 @@
    * [Install R-project](linux/install_r-project.md)
    * [install ruby and rubygem](linux/install_ruby_and_rubygem.md)
    * [LAMP on CentOS](linux/lamp_on_centos.md)
+   * use rsync
 
