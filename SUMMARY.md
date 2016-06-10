@@ -73,5 +73,5 @@
    * [change group of the current user](linux/change_group_of_the_current_user.md)
    * [FTP Server](linux/ftp_server.md)
    * [httpd trouble shooting](linux/httpd_trouble_shooting.md)
-   * httpd on dropbox
+   * [httpd on dropbox](linux/httpd_on_dropbox.md)
 
