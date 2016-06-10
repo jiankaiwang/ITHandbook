@@ -16,7 +16,7 @@
 
 | minute | hour | day of month | month | day of week | user-name | command |
 | -- | -- | -- | -- | -- | -- | -- |
-| (0-59) | (0-23) | (1-31) | (1-12) | (0-6); Sun=[0|7] | [root|userName] | complete command<br>(absolute path) |
+| (0-59) | (0-23) | (1-31) | (1-12) | (0-6); Sun=[0 or 7] | [root or userName] | complete command<br>(absolute path) |
 | 10 | 3 | 1-31/3 | * | * | root | /home/user/data/backUp.sh |
 
 The example on the above figure is that root executes /home/user/data/backUp.sh at every week (*), every month (*), every three day (1-31/3), 3 AM (3), 10th minute (10).
