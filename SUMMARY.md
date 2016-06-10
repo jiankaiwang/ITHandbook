@@ -71,5 +71,5 @@
    * [Use crontab](linux/use_crontab.md)
    * [Super User Privilege](linux/super_user_privilege.md)
    * [change group of the current user](linux/change_group_of_the_current_user.md)
-   * FTP Server
+   * [FTP Server](linux/ftp_server.md)
 
