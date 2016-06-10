@@ -1,0 +1,2 @@
+# install ruby and rubygem
+
