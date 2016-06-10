@@ -65,7 +65,6 @@
 * [Arduino](arduino.md)
 * [Linux](linux.md)
    * [Control Apache Log on CentOS](linux/control_apache_log_on_centos.md)
-   * [auto login](linux/auto_login.md)
    * [Backup strategies](linux/backup_strategies.md)
    * [Set Network Configuration](linux/set_network_configuration.md)
    * [Use crontab](linux/use_crontab.md)
