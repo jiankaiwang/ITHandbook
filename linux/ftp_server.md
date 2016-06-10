@@ -2,36 +2,71 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-###install ftp server
+###Install vsftpd into CentOS 7
 ---
 
 ```Bash
 $ sudo yum -y install vsftpd
-$ sudo touch /etc/vsftpd/chroot_list
-$ sudo chkconfig vsftpd on
-$ sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 20 -j ACCEPT
-$ sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
-$ sudo service iptables save
-$ sudo service iptables restart
 ```
 
-###ftp server 設定 
+###Modify the config
 ---
 
 ```Bash
 $ sudo vim /etc/vsftpd/vsftpd.conf
 ```
 
-* anonymous_enable=YES -> NO
-* 限制用戶只能在家目錄 (/etc/vsftpd/chroot_list 的用戶可不受限制) 
-  1. chroot_local_user=YES
-  2. chroot_list_enable=YES
-  3. chroot_list_file=/etc/vsftpd/chroot_list
-* 如要 ftp 的檔案列表可以看到跟 Server 上同樣的時間，請在檔案加入:
-  1. use_localtime=YES # 使用本地時區
+組態檔設定如下：
 
 ```Bash
-$ sudo vim /etc/vsftpd/ftpusers
+anonymous_enable=NO   # line 12: no anonymous
+ascii_upload_enable=YES
+ascii_download_enable=YES    # line 82,83: uncomment ( allow ascii mode )
+chroot_local_user=YES
+chroot_list_enable=YES   # line 100, 101: uncomment ( enable chroot )
+chroot_list_file=/etc/vsftpd/chroot_list   # line 103: uncomment ( specify chroot list )
+ls_recurse_enable=YES   # line 109: uncommen
+listen=YES   # line 114: change ( if use IPv4 )
+listen_ipv6=NO   # line 123: change ( turn to OFF if it's not need )
+local_root=public_htm   # add follows to the end, specify root directory ( if don't specify, users' home directory become FTP home directory )
+use_localtime=YES   # use localtime
+seccomp_sandbox=NO   # turn off for seccomp filter ( if you cannot login, add this line )
+```
+
+###Add the user who can login the ftp
+---
+
+```Bash
+$ sudo vim /etc/vsftpd/chroot_list
+```
+
+```Bash
+user   #add users you allow to move over their home director
+```
+
+###reactivate the service
+---
+
+```Bash
+$ sudo systemctl start vsftpd
+$ sudo systemctl enable vsftpd
+```
+
+###make anonymous fill access controlling
+---
+
+```Bash
+# set vsftpd.conf 
+anon_upload_enable=YES
+
+# set vsftpd.conf: 
+anon_mkdir_write_enable=YES
+
+# add the following command into /etc/vsftpd/vsftpd.conf; 
+anon_other_write_enable=YES
+
+# set selinux to make ftp fill access controlling; 
+$ sudo setsebool -P allow_ftpd_full_access 1
 ```
 
 ###install ftp client
