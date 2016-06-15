@@ -1,2 +1,21 @@
 # Jenkins
 
+<script type="text/javascript" src="../js/general.js"></script>
+
+###安裝 Jenkins 於 Linux
+---
+
+| 註解 |
+| -- |
+| 可於 Jenkis 官網依不同環境安裝，底下以 CentOS 7 環境為主 |
+
+* 選擇 [Downloads]，選擇 [Weekly Release]，選擇 [Red hat/Fedora/CentOS]，進入[說明頁面](RedHat Linux RPM packages for Jenkins)
+
+* 可以透過 repo 方式安裝(建議) 或是透過 rpm 下載安裝。
+
+```Bash
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
+
+yum install jenkins
+```
