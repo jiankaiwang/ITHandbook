@@ -30,6 +30,6 @@ $ sudo yum install jenkins
 
 ```Bash
 sudo service jenkins start/stop/restart
-sudo chkconfig jenkins on
+sudo chkconfig --level 135 jenkins on
 ```
 
