@@ -153,5 +153,19 @@ $ sudo vim /etc/sysconfig/iptables
 $ sudo mount -t vboxsf Shared_CentOS /home/jkw/桌面/Shared_Windows
 ```
 
+###自動啟動服務
+---
 
+```Bash
+# level 0：表示關機
+# level 1：單用戶模式
+# level 2：無網絡連接的多用戶命令行模式
+# level 3：有網絡連接的多用戶命令行模式
+# level 4：不可用
+# level 5：帶圖形界面的多用戶模式
+# level 6：重新啟動
+
+# 舉啟動 mysqld 為例
+chkconfig --level 135 mysqld on
+```
 
