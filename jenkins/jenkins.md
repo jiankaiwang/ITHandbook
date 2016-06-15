@@ -35,7 +35,7 @@ sudo service jenkins start/stop/restart
 sudo chkconfig --level 135 jenkins on
 ```
 
-* 啟動 Jenkins，為確認是 administrator 安裝 Jenkins，因此需要讀取檔案內密馬來確認
+* 啟動 Jenkins，為確認是 administrator 安裝 Jenkins，因此需要讀取檔案內密碼來確認
 
 ```
 $ sudo vim /var/lib/jenkins/secrets/initialAdminPassword
