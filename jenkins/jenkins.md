@@ -19,3 +19,17 @@ $ sudo rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
 
 $ sudo yum install jenkins
 ```
+
+* 設置防火牆
+
+```Bash
+
+```
+
+* 啟動 Jenkins
+
+```Bash
+sudo service jenkins start/stop/restart
+sudo chkconfig jenkins on
+```
+
