@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Useful Resource](useful_resource.md)
+* Github
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -25,7 +26,6 @@
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
-* Github
 * [Cloud Computing](cloud_computing.md)
    * [Azure](azure.md)
        * [VirtualBox (.vmdk) 發布到 Microsoft Azure VM](cloud/virtualbox_vmdk_to_microsoft_azure_vm.md)
