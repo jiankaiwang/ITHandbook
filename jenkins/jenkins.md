@@ -35,10 +35,10 @@ sudo service jenkins start/stop/restart
 sudo chkconfig --level 135 jenkins on
 ```
 
-* 設置 Jenkins
+* 啟動 Jenkins，為確認是 administrator 安裝 Jenkins，因此需要讀取檔案內密馬來確認
 
 ```
-
+$ sudo vim /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 * 開啟瀏覽器並輸入底下網址便可以開始使用 jenkins
