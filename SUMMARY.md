@@ -25,6 +25,7 @@
    * [Server](shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](shiny-plotly.md)
+* Github
 * [Cloud Computing](cloud_computing.md)
    * [Azure](azure.md)
        * [VirtualBox (.vmdk) 發布到 Microsoft Azure VM](cloud/virtualbox_vmdk_to_microsoft_azure_vm.md)
@@ -81,5 +82,4 @@
    * [use rsync](linux/use_rsync.md)
    * [更改 python 預設版本 (CentOS)](linxu/change_python_version_in_centos.md)
    * [Common Commands in CentOS](linux/common_commands_in_centos.md)
-* Github
 
