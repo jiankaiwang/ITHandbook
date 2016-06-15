@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Useful Resource](useful_resource.md)
-* Github
+* Git
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
