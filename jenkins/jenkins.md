@@ -14,8 +14,8 @@
 * 可以透過 repo 方式安裝(建議) 或是透過 rpm 下載安裝。
 
 ```Bash
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
-sudo rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
+$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
+$ sudo rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
 
-yum install jenkins
+$ sudo yum install jenkins
 ```
