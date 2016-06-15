@@ -23,7 +23,9 @@ $ sudo yum install jenkins
 * 設置防火牆
 
 ```Bash
-
+$ sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+$ sudo firewall-cmd --zone=public --add-service=http --permanent
+$ sudo firewall-cmd --reload
 ```
 
 * 啟動 Jenkins
