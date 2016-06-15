@@ -35,3 +35,14 @@ sudo service jenkins start/stop/restart
 sudo chkconfig --level 135 jenkins on
 ```
 
+* 設置 Jenkins
+
+```
+
+```
+
+* 開啟瀏覽器並輸入底下網址便可以開始使用 jenkins
+
+```
+http://localhost:8080/
+```
