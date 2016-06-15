@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Useful Resource](useful_resource.md)
 * [Git](git/git.md)
+* Jenkins
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
@@ -82,5 +83,4 @@
    * [use rsync](linux/use_rsync.md)
    * [更改 python 預設版本 (CentOS)](linxu/change_python_version_in_centos.md)
    * [Common Commands in CentOS](linux/common_commands_in_centos.md)
-* Jenkins
 
