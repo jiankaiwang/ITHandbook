@@ -17,26 +17,29 @@
 
 ```Bash
 # 安裝必要套件
-# 將檔名轉成 .zip 並解壓縮
+# 取得 xmlto 套件並進行安裝
+$ sudo yum install -y xmlto.x86_64
+
 # 取得 asciidoc 壓縮檔，解壓縮後安裝
-$ sudo wget https://sourceforge.net/projects/asciidoc/files/latest/download
-$ mv ./download ./download.zip
-$ sudo mv ./download ./download.zip
-$ sudo mv /home/jkw/桌面/asciidoc-8.6.9.zip ./
-$ sudo unzip ./asciidoc-8.6.9.zip 
-$ sudo chown -R jkw:jkw ./asciidoc-8.6.9
+$ wget https://sourceforge.net/projects/asciidoc/files/latest/download
+$ mv ./download ./asciidoc-8.6.9.tar.gz
+$ gunzip ./asciidoc-8.6.9.tar.gz
+$ tar xvf ./asciidoc-8.6.9.tar
 $ cd ./asciidoc-8.6.9/
 $ ./configure 
 $ sudo make install
 
 # 將資料夾移動至 /usr/local/src/
 # 安裝 git
-$ sudo mv ./git-2.8.2 /usr/local/src/
-$ cd /usr/local/src/git-2.8.2/
+$ wget https://www.kernel.org/pub/software/scm/git/git-2.9.0.tar.gz
+$ gunzip ./git-2.9.0.tar.gz
+$ tar xvf ./git-2.9.0.tar
+$ sudo mv ./git-2.9.0 /usr/local/src/
+$ cd /usr/local/src/git-2.9.0/
 $ make configure
 $ ./configure --prefix=/usr
 $ make all doc
-# make install install-doc install-html
+$ sudo make install install-doc install-html
 ```
 
 * 檢查 git 版本確認是否安裝完成
