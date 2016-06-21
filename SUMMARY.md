@@ -4,6 +4,7 @@
 * [Useful Resource](useful_resource.md)
 * [Git](git/git.md)
 * [Jenkins](jenkins/jenkins.md)
+   * 初論
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
