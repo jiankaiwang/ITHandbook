@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Useful Resource](useful_resource.md)
 * [Git](git/git.md)
-   * [Git 資料結構 - 索引結構](git/git_data_structure_index.md)
+   * [git 資料結構 - 索引結構](git/git_data_structure_index.md)
    * [git 常用指令](git/git_command.md)
 * [Jenkins](jenkins/jenkins.md)
    * [初論](jenkins/introduction.md)
