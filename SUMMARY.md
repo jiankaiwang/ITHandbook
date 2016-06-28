@@ -8,6 +8,7 @@
 * [Jenkins](jenkins/jenkins.md)
    * [初論](jenkins/introduction.md)
    * [Jenkins 整合 StyleCop 工具](jenkins/jenkins_hestylecop.md)
+       * Jenkins 整合 FxCop 工具
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
