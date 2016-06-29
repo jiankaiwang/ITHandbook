@@ -68,6 +68,10 @@ git checkout <branch> <filename>
 ---
 
 ```Bash
+# 找出 blob 物件的 hash code
+# file : 檔案名稱
+git hash-object <file>
+
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
@@ -76,8 +80,10 @@ git add [.|<file>]
 # 完整刪除實體資料
 # file : 含有完整路徑的檔案名稱
 # -r <folder> : 刪除資料夾
+# --cached <file> : 刪除索引中檔案，而不刪除實體檔案
 git rm <file>
 git rm -r <folder>
+git rm --cached <file>
 
 # 修改檔案名稱
 # oriFileName : 原檔案名稱(包含路徑)
