@@ -51,6 +51,11 @@ git fsck
 # 自裸儲存庫取得一份致當前(現在)目錄
 git clone [Repo_URL]
 
+# 查看 commit 物件內容，包含 tree 物件
+# branch : 分支名稱，如 master 。
+# hash code : 透過 hash code 來找出 commit 時的內容
+git cat-file -p <branch|hash code>
+
 # 比對檔案或版本差異，比對「工作目錄」與「索引」之間的差異
 # commit : 比對儲存庫與該指定 commit 之間的差異
 # --cached commit : 當前索引與指定 commit 之間的差異
