@@ -56,7 +56,7 @@ git diff [commit|--cached commit]
 git diff <commit1> <commit2>
 ```
 
-###提交至儲存庫
+###儲存庫管理
 ---
 
 ```Bash
@@ -64,6 +64,17 @@ git diff <commit1> <commit2>
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
 git add [.|<file>]
+
+# 完整刪除實體資料
+# file : 含有完整路徑的檔案名稱
+# -r <folder> : 刪除資料夾
+git rm <file>
+git rm -r <folder>
+
+# 修改檔案名稱
+# oriFileName : 原檔案名稱(包含路徑)
+# modifiedFileName : 修改後檔案名稱(包含路徑)
+git mv <oriFileName> <modifiedFileName>
 
 # 加入遠端變數
 # variable : 變數名稱
