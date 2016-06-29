@@ -26,6 +26,9 @@ git init [--bare]
 * git 儲存庫環境管理
 
 ```Bash
+# 列出檔案完整清單(包含路徑)，僅列出已儲存在索引中
+git ls-files
+
 # 儲存庫狀態
 # -s : 精簡版呈現
 git status [-s]
@@ -54,6 +57,11 @@ git clone [Repo_URL]
 # commit1 commit2 : 比對兩個不同 commit 的版本差異
 git diff [commit|--cached commit]
 git diff <commit1> <commit2>
+
+# 還原一個檔案
+# branch : 自主/分支名稱
+# filename : 檔案名稱
+git checkout <branch> <filename>
 ```
 
 ###儲存庫管理
