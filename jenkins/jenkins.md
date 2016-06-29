@@ -46,3 +46,26 @@ $ sudo vim /var/lib/jenkins/secrets/initialAdminPassword
 ```
 http://localhost:8080/
 ```
+
+###啟動 Jenkins.war 
+---
+
+```
+# http
+java -jar jenkins.war --httpPort=9090 --httpListenAddress=100.64.110.20
+
+# https
+java -jar jenkins.war --httpsPort=9090 --httpsListenAddress=100.64.110.20
+```
+
+| Parameters | Description |
+| -- | -- |
+| --httpPort | 監聽 http port |
+| --httpListenAddress | http 使用的 host IP 或 Url |
+| --httpsPort | 使用 https port |
+| --httpsListenAddress | https 使用的 host IP 或 Url |
+
+
+
+
+
