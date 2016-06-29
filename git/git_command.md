@@ -43,6 +43,13 @@ git fsck
 ```Bash
 # 自裸儲存庫取得一份致當前(現在)目錄
 git clone [Repo_URL]
+
+# 比對檔案或版本差異，比對「工作目錄」與「索引」之間的差異
+# commit : 比對儲存庫與該指定 commit 之間的差異
+# --cached commit : 當前索引與指定 commit 之間的差異
+# commit1 commit2 : 比對兩個不同 commit 的版本差異
+git diff [commit|--cached commit]
+git diff <commit1> <commit2>
 ```
 
 ###提交至儲存庫
