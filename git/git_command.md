@@ -40,7 +40,7 @@ git fsck
 ###取得、回復或同步儲存庫
 ---
 
-```
+```Bash
 # 自裸儲存庫取得一份致當前(現在)目錄
 git clone [Repo_URL]
 ```
@@ -48,7 +48,16 @@ git clone [Repo_URL]
 ###提交至儲存庫
 ---
 
+```Bash
+# 加入變更後的檔案準備提交
+# . : 所有檔案皆加入
+# <file> : 僅加入此資料
+git add [.|<file>]
 
+# 提交標題
+# -m "message" : 提交時的標題
+git commit -m "message"
+```
 
 
 
