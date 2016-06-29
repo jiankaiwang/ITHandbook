@@ -52,10 +52,13 @@ http://localhost:8080/
 
 ```
 # http
-java -jar jenkins.war --httpPort=9090 --httpListenAddress=100.64.110.20
+java -jar jenkins.war --httpPort=9090 --httpListenAddress=100.64.110.20 > $LOGFILE 2>&1
 
 # https
-java -jar jenkins.war --httpsPort=9090 --httpsListenAddress=100.64.110.20
+# If your keystore contains multiple certificates (e.g. you are using CA signed certificate) 
+# Jenkins might end-up using a incorrect one. 
+# In this case you can convert the keystore to PEM and use following command line options:
+java -jar jenkins.war --httpPort=-1 --httpsPort=9090 --httpsListenAddress=100.64.110.20 -httpsCertificate=path/to/cert --httpsPrivateKey=path/to/privatekey > $LOGFILE 2>&1
 ```
 
 | Parameters | Description |
