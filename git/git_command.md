@@ -65,16 +65,24 @@ git diff <commit1> <commit2>
 # <file> : 僅加入此資料
 git add [.|<file>]
 
-# 提交標題
-# -m "message" : 提交時的標題
-git commit -m "message"
-
 # 加入遠端變數
 # variable : 變數名稱
 # value : 値
 git remote add <variable> <value>
 # 範例如下
 git remote add <github_url> <remote github repository URL>
+
+# 查詢歷史紀錄
+# -n <number> : 顯示近幾筆的歷史資料
+git log [-n <number>]
+
+# 提交版本紀錄
+# -m "message" : 提交時的標題
+git commit -m "message"
+
+# 重設儲存庫索引狀態
+# --hard : 並還原整個儲存庫
+git reset [--hard]
 ```
 
 
