@@ -8,6 +8,10 @@
 * git 儲存庫創立
 
 ```Bash
+# 查詢 git 指令
+# command : 如 add, commit 等
+git help <command>
+
 # 創造準備使用 git 的工作目錄
 mkdir <folder>
 
@@ -64,8 +68,14 @@ git add [.|<file>]
 # 提交標題
 # -m "message" : 提交時的標題
 git commit -m "message"
-```
 
+# 加入遠端變數
+# variable : 變數名稱
+# value : 値
+git remote add <variable> <value>
+# 範例如下
+git remote add <github_url> <remote github repository URL>
+```
 
 
 
