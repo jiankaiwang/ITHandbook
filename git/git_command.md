@@ -44,7 +44,7 @@ git gc [--prune]
 git fsck
 ```
 
-###取得、回復或同步儲存庫
+###發布、取得、回復或同步儲存庫
 ---
 
 ```Bash
@@ -67,6 +67,18 @@ git diff <commit1> <commit2>
 # branch : 自主/分支名稱
 # filename : 檔案名稱
 git checkout <branch> <filename>
+
+# 加入遠端變數
+# variable : 變數名稱
+# value : 値
+git remote add <variable> <value>
+# 範例如下
+git remote add <github_url> <remote github repository URL>
+
+# 發布到 github
+# branch : 主/分支名稱
+git remote add origin git@github.com:xxx/yyy.git
+git push -u origin <branch>
 ```
 
 ###儲存庫管理
@@ -94,13 +106,6 @@ git rm --cached <file>
 # oriFileName : 原檔案名稱(包含路徑)
 # modifiedFileName : 修改後檔案名稱(包含路徑)
 git mv <oriFileName> <modifiedFileName>
-
-# 加入遠端變數
-# variable : 變數名稱
-# value : 値
-git remote add <variable> <value>
-# 範例如下
-git remote add <github_url> <remote github repository URL>
 
 # 查詢歷史紀錄
 # -n <number> : 顯示近幾筆的歷史資料
