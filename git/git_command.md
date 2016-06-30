@@ -109,7 +109,9 @@ git mv <oriFileName> <modifiedFileName>
 
 # 查詢歷史紀錄
 # -n <number> : 顯示近幾筆的歷史資料
-git log [-n <number>]
+# --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
+# --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
+git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
 
 # 提交版本紀錄
 # -m "message" : 提交時的標題
