@@ -258,6 +258,8 @@ vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/E
 ###將此 plugin 加入 setup.py
 ---
 
+* 準備 setup.py 檔案
+
 ```Bash
 vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/setup.py
 ```
@@ -273,10 +275,42 @@ entry_points='''
 ''',
 ```
 
+* 安裝此 plugin
 
+```Bash
+# 先進入虛擬機
+. /usr/lib/ckan/default/bin/activate
 
+# 進入該 plugin 所在路徑
+cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm
 
+# 開始安裝於測試階段，此時先安裝為 develop
+python setup.py develop
+```
 
+* 使用此 plugin : 以開發環境為優先
+
+```Bash
+vim /etc/ckan/default/development.ini
+```
+
+並於 ckan.plugins 後加入 ExampleIDatasetForm，如下
+
+```Bash
+ckan.plugins = stats text_view image_view recline_view ExampleIDatasetForm
+```
+
+###開始測試
+---
+
+因選擇 development 進行使用此 plugin，故執行 develop 環境來進行測試
+
+```Bash
+$ paster serve /etc/ckan/default/development.ini
+
+Starting server in PID 13961.
+serving on 0.0.0.0:5000 view at http://127.0.0.1:5000
+```
 
 
 
