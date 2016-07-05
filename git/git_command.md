@@ -56,6 +56,9 @@ git clone [Repo_URL]
 # hash code : 透過 hash code 來找出 commit 時的內容
 git cat-file -p <branch|hash code>
 
+# 查看該版本變更紀錄
+git show <branch|hash code>
+
 # 比對檔案或版本差異，比對「工作目錄」與「索引」之間的差異
 # commit : 比對儲存庫與該指定 commit 之間的差異
 # --cached commit : 當前索引與指定 commit 之間的差異
@@ -126,7 +129,7 @@ git reset [--hard]
 ---
 
 ```Bash
-# 查詢目前分支，顯示出「參照名稱」(refs)
+# 查詢目前分支，顯示出「參照名稱」(refs) 及目前主要分支為何 (前有 * 號)
 # 皆位於 .git\refs\heads
 git branch
 ```
