@@ -122,7 +122,13 @@ git commit -m "message"
 git reset [--hard]
 ```
 
+###分支
+---
 
+```Bash
+# 查詢目前分支
+git branch
+```
 
 
 
