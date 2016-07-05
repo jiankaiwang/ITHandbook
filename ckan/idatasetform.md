@@ -71,4 +71,9 @@ cd /usr/lib/ckan/default/src/ckan/ckanext/
 cp -r ./example_idatasetform/plugin.py ./example_idatasetform/templates ./ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/
 ```
 
+###修改模組
+---
+
+
+
 
