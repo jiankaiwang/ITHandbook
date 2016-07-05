@@ -61,6 +61,14 @@ Enter github_user_name (your GitHub user or organization name, for example: "guy
 | -- |
 | 可以透過 http://URL/api/util/status 方式來查看 CKAN 版本 |
 
+* 可以將此資料夾下的內容複製到新產生的 plugin 資料夾中
 
+```Bash
+# 移動到 ckanext 資料夾下
+cd /usr/lib/ckan/default/src/ckan/ckanext/
+
+# 將 example_idatasetform 底下的 plugin.py 與資料夾 templates 整個複製到新建立模組資料夾中放置原始碼的資料夾中
+cp -r ./example_idatasetform/plugin.py ./example_idatasetform/templates ./ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/
+```
 
 ###參考資料
