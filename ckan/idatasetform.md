@@ -59,7 +59,7 @@ Enter github_user_name (your GitHub user or organization name, for example: "guy
 
 | 註解 |
 | -- |
-| 可以透過 http://<URL>/api/util/status 方式來查看 CKAN 版本 |
+| 可以透過 http://URL/api/util/status 方式來查看 CKAN 版本 |
 
 
 
