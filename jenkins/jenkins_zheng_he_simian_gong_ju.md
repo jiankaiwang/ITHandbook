@@ -15,7 +15,7 @@
 
 ```Bash
 # 假設要檢查的程式碼位於 D:\code\openshift\welcome\interface\dynamic\
-java -jar "C:\Program Files (x86)\simian\bin\simian-2.4.0.jar" -formatter=xml:SimianReport.xml -threshold=20 -language=java -excludes=**/perldoc "D:\code\openshift\welcome\interface\dynamic\*.java"
+java -jar "C:\Program Files (x86)\simian\bin\simian-2.4.0.jar" -formatter=xml:"C:\Users\JianKaiWang\Desktop\SimianReport.xml" -threshold=20 -language=java -excludes=**/perldoc "D:\code\openshift\welcome\interface\dynamic\*.java"
 
 # 需要注意的是，一定要為 exit 0，確認程式正確執行完畢
 exit 0
