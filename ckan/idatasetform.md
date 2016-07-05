@@ -74,6 +74,44 @@ cp -r ./example_idatasetform/plugin.py ./example_idatasetform/templates ./ckanex
 ###修改模組
 ---
 
+* 透過修改 plugin.py 的 schemas 便可以新增額外的欄位，可以複寫下列五項函式來達成：
+
+| 函式 | 說明 |
+| -- | -- |
+| create_package_schema() | Return the schema for validating new dataset dicts. |
+| update_package_schema() | Return the schema for validating updated dataset dicts. |
+| show_package_schema() | Return a schema to validate datasets before they’re shown to the user. |
+| is_fallback() | Return True if this plugin is the fallback plugin. |
+| package_types() | Return an iterable of package types that this plugin handles. |
+
+* 創建 plugin.py 類別
+
+創建一個名為 ExampleIDatasetFormPlugins 的類別於 plugin.py 中，此類別實作 IDatasetform 介面並繼承 SingletonPlugin 與 DefaultDatasetForm。
+
+```Python
+# encoding: utf-8
+
+import ckan.plugins as p
+import ckan.plugins.toolkit as tk
+
+class ExampleIDatasetFormPlugin(p.SingletonPlugin, tk.DefaultDatasetForm):
+    p.implements(p.IDatasetForm)
+```
+
+* 更新 CKAN 資料表綱目
+
+```Python
+def create_package_schema(self):
+    # let's grab the default schema in our plugin
+    schema = super(ExampleIDatasetFormPlugin, self).create_package_schema()
+    
+    #our custom field
+    schema.update({
+        'custom_text': [tk.get_validator('ignore_missing'),
+                        tk.get_converter('convert_to_extras')]
+    })
+    return schema
+```
 
 
 
