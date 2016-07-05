@@ -100,6 +100,11 @@ git show-ref
 # hash : 要修改的 commit 絕對名稱，如 aa3b 等
 git update-ref <branch> <hash>
 
+# 加入自訂符號 (symbolic-ref) 參照
+# ref_from : 如 ref/fe2_init
+# ref_to : 如 ref/heads/fe2
+git symbolic-ref <ref_from> <ref_to>
+
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
