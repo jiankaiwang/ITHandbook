@@ -28,3 +28,4 @@ exit 0
 
 * 於「Simian」項目中，加入 SimianReport.xml 項目
 
+* 於 Jenkins 中專案首頁中，便有此顯示圖表可以即時掌握建置狀況。
