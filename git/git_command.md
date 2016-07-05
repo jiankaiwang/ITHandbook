@@ -126,7 +126,7 @@ git reset [--hard]
 ---
 
 ```Bash
-# 查詢目前分支
+# 查詢目前分支，顯示出「參照名稱」(refs)
 git branch
 ```
 
