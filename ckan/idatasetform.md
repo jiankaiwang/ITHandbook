@@ -98,20 +98,167 @@ class ExampleIDatasetFormPlugin(p.SingletonPlugin, tk.DefaultDatasetForm):
     p.implements(p.IDatasetForm)
 ```
 
-* 更新 CKAN 資料表綱目
+* 創建 CKAN 資料表綱目
 
 ```Python
 def create_package_schema(self):
-    # let's grab the default schema in our plugin
     schema = super(ExampleIDatasetFormPlugin, self).create_package_schema()
+    schema = self._modify_package_schema(schema)
     
-    #our custom field
+    # add custom field
     schema.update({
-        'custom_text': [tk.get_validator('ignore_missing'),
-                        tk.get_converter('convert_to_extras')]
+        'custom_text': [tk.get_validator('ignore_missing'),tk.get_converter('convert_to_extras')]
     })
     return schema
 ```
+
+* 更新 CKAN 資料表綱目
+
+```Python
+def update_package_schema(self):
+    schema = super(ExampleIDatasetFormPlugin, self).update_package_schema()
+    schema = self._modify_package_schema(schema)
+    
+    # add custom field
+    schema.update({
+        'custom_text':  [tk.get_validator('ignore_missing'),tk.get_converter('convert_to_extras')]
+    })
+    return schema
+```
+
+* 修改呈現資料表綱目
+
+```Python
+def show_package_schema(self):
+    schema = super(ExampleIDatasetFormPlugin, self).show_package_schema()
+
+    # Don't show vocab tags mixed in with normal 'free' tags
+    # (e.g. on dataset pages, or on the search page)
+    schema['tags']['__extras'].append(tk.get_converter('free_tags_only'))
+
+    # Add our custom_text field to the dataset schema.
+    # add custom field
+    schema.update({
+        'custom_text': [tk.get_converter('convert_from_extras'),
+                tk.get_validator('ignore_missing')]
+        })
+
+    schema['resources'].update({
+            'custom_resource_text' : [ tk.get_validator('ignore_missing') ]
+    })
+    return schema
+```
+
+* 資料集型態
+
+```Python
+def is_fallback(self):
+    # Return True to register this plugin as the default handler for
+    # package types not handled by any other IDatasetForm plugin.
+    return True
+
+def package_types(self):
+    # This plugin doesn't handle any special package types, it just
+    # registers itself as the default (above).
+    return []
+```
+
+* 更新 templates
+
+```Python
+class ExampleIDatasetFormPlugin(plugins.SingletonPlugin, tk.DefaultDatasetForm):
+    '''An example IDatasetForm CKAN plugin.
+    Uses a tag vocabulary to add a custom metadata field to datasets.
+    '''
+    
+    # add custom fields
+    plugins.implements(plugins.IConfigurer, inherit=False)
+
+    plugins.implements(plugins.IDatasetForm, inherit=False)
+    plugins.implements(plugins.ITemplateHelpers, inherit=False)
+```
+
+* 更新組態
+
+```Python
+def update_config(self, config):
+    # Add this plugin's templates dir to CKAN's extra_template_paths, so
+    # that CKAN will use this plugin's custom templates.
+    tk.add_template_directory(config, 'templates')
+
+```
+
+* 建立一個 package_metadata_fields.html
+
+  1. 於 package/snippets/package_metadata_fields.html 加入底下內容
+
+```Bash
+vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/templates/package/snippets/package_metadata_fields.html
+```
+
+```html
+{% ckan_extends %}
+
+{# You could remove 'free extras' from the package form like this, but we keep them for this example's tests.
+  {% block custom_fields %}
+  {% endblock %}
+#}
+
+{% block package_metadata_fields %}
+
+  <div class="control-group">
+    <label class="control-label" for="field-country_code">{{ _("Country Code") }}</label>
+    <div class="controls">
+      <select id="field-country_code" name="country_code" data-module="autocomplete">
+        {% for country_code in h.country_codes()  %}
+          <option value="{{ country_code }}" {% if country_code in data.get('country_code', []) %}selected="selected"{% endif %}>{{ country_code }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  {{ super() }}
+
+{% endblock %}
+```
+
+* 修改 package_basic_fields.html
+
+```Bash
+vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/templates/package/snippets/package_basic_fields.html
+```
+
+```html
+{% ckan_extends %}
+
+{% block package_basic_fields_custom %}
+  {{ form.input('custom_text', label=_('Custom Text'), id='field-custom_text', placeholder=_('custom text'), value=data.custom_text, error=errors.custom_text, classes=['control-medium']) }}
+{% endblock %}
+```
+
+* 修改 additional_info.html
+
+```Bash
+vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/templates/package/snippets/package_basic_fields.html
+```
+
+```html
+{% ckan_extends %}
+
+{% block extras %}
+  {% if pkg_dict.custom_text %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Custom Text") }}</th>
+      <td class="dataset-details">{{ pkg_dict.custom_text }}</td>
+    </tr>
+  {% endif %}
+{% endblock %}
+```
+
+
+
+
+
 
 
 
