@@ -33,7 +33,7 @@
 | pylint | [http://www.logilab.org/857](http://www.logilab.org/857) |  - | - |
 | fxcop | [http://blogs.msdn.com/fxcop/](http://blogs.msdn.com/fxcop/) | 靜態程式碼分析 | Csharp |
 | stylecop | [http://code.msdn.microsoft.com/sourceanalysis](http://code.msdn.microsoft.com/sourceanalysis) | 程式碼設計符合規範 | Csharp |
-| simian | [http://www.redhillconsulting.com.au/products/simian/](http://www.redhillconsulting.com.au/products/simian/) | - | multiple, Java, C#. C++, Ruby, COBOL, ... , etc. |
+| simian | [http://www.redhillconsulting.com.au/products/simian/](http://www.redhillconsulting.com.au/products/simian/) | 找出高度相似度的程式碼區塊 | multiple, Java, C#. C++, Ruby, COBOL, ... , etc. |
 | gendarme | [http://mono-project.com/Gendarme](http://mono-project.com/Gendarme) | - | - |
 | jslint  | [http://www.jslint.com/lint.html](http://www.jslint.com/lint.html) | - | - |
 | jcreport  | [http://www.jcoderz.org/fawkez/wiki/JcReport](http://www.jcoderz.org/fawkez/wiki/JcReport) | - | - |
