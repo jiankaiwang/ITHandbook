@@ -92,6 +92,11 @@ git push -u origin <branch>
 # file : 檔案名稱
 git hash-object <file>
 
+# 自訂參照符號
+# branch : 分支 ref 名稱，如 master 或 new_branch 等
+# hash : 要修改的 commit 絕對名稱，如 aa3b 等
+git update-ref <branch> <hash>
+
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
