@@ -42,8 +42,14 @@ Enter keywords (a space-separated list of keywords, for example: "CKAN blog") ['
 Enter github_user_name (your GitHub user or organization name, for example: "guybrush" or "ckan") ['']:
 ```
 
+創建完後，於此位置便有 plugin 相關安裝等預設內容：
 
+```text
+/usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/
+```
 
-
+  1. ** ckanext_iauthfunctions.egg_info ** : 自動產生的專案 metadata，一般而言不需要特別處理
+  2. ** setup.py ** : 安裝 plugin 所需的 script
+  3. ** ckanext/ExampleIDatasetForm/ ** : plugin 使用的所有 source code 放置的位置
 
 
