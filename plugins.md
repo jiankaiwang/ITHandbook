@@ -19,7 +19,7 @@
 
 * Schema Mapping， ckan 資料集的所有欄位都可以自 RDF 取得，其對應請參見官方說明 [Schema Mapping](http://docs.ckan.org/en/ckan-2.0.2/linked-data-and-rdf.html#schema-mapping)。
 
-
+* idatasetform : 可用來客製化資料欄位的 plugin，此說明為自製模組。
 
 
 
