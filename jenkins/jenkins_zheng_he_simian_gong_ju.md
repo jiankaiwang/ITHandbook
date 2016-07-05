@@ -24,5 +24,7 @@ exit 0
 ###顯示建置結果
 ---
 
+* 於「建置後動作」選項中，新增「Report Violations」
 
+* 於「Simian」項目中，加入 SimianReport.xml 項目
 
