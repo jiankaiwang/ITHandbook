@@ -4,11 +4,46 @@
 
 * 客製化欄位需要透過 plugin 方式來完成，故底下說明將先新增一個 idatasetform plugin，並安裝於 ckan 中，後透過組態檔將此新模組開啟。
 
-###
+###新增一個 plugin 模組
+---
 
+透過 ckan 虛擬機創建模組的模版，如下：
 
 ```Bash
-$ cd /usr/lib/ckan/default/src/ckan/ckanext
-$ cp -r ./example_idatasetform ./cdc_idatasetform
+# 先進入虛擬機環境
+. /usr/lib/ckan/default/bin/activate
+
+# 移動到要放置模組的資料夾
+cd /usr/lib/ckan/default/src/ckan/ckanext
+
+# 創建一個模組
+# ckanext-<模組名稱> : CKAN 模組名稱需要以 ckanext- 為開頭
+# paster --plugin=ckan create -t ckanext ckanext-<模組名稱>
+# 假設 plugin 名稱為 ExampleIDatasetForm
+paster --plugin=ckan create -t ckanext ckanext-ExampleIDatasetForm
 ```
+
+創建後會有許多的資訊需要輸入，如下：
+
+```text
+# 一行描述此 plugin
+Enter description (a one-line description of the extension, for example: "A simple blog extension for CKAN") ['']
+
+# 此 plugin 開發者
+Enter author (for example: "Guybrush Threepwood") ['']:
+
+# 此開發者 e-mail
+Enter author_email (for example: "guybrush@meleeisland.com") ['']:
+
+# plugin 關鍵字
+Enter keywords (a space-separated list of keywords, for example: "CKAN blog") ['']: 
+
+# plugin 的 github 儲存庫資訊
+Enter github_user_name (your GitHub user or organization name, for example: "guybrush" or "ckan") ['']:
+```
+
+
+
+
+
 
