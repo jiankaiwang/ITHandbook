@@ -55,5 +55,12 @@ Enter github_user_name (your GitHub user or organization name, for example: "guy
 ###建立新增欄位模組
 ---
 
+* 於 CKAN 2.5.1 版本中，於 ** /usr/lib/ckan/default/src/ckan/ckanext/ ** 資料夾下，已有 idatasetform 範例模組，稱為「example_idatasetform」。
+
+| 註解 |
+| -- |
+| 可以透過 http://<URL>/api/util/status 方式來查看 CKAN 版本 |
+
+
 
 ###參考資料
