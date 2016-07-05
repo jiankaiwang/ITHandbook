@@ -52,4 +52,8 @@ Enter github_user_name (your GitHub user or organization name, for example: "guy
   2. ** setup.py ** : 安裝 plugin 所需的 script
   3. ** ckanext/ExampleIDatasetForm/ ** : plugin 使用的所有 source code 放置的位置
 
+###建立新增欄位模組
+---
 
+
+###參考資料
