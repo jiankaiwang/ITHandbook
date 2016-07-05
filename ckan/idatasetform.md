@@ -255,6 +255,28 @@ vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/E
 {% endblock %}
 ```
 
+###將此 plugin 加入 setup.py
+---
+
+```Bash
+vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/setup.py
+```
+
+```Python
+# 「ExampleIDatasetForm=ckanext...」中 ExampleIDatasetForm 為之後加入 CKAN 使用的 plugin 名稱
+# 「plugin:ExampleIDatasetFormPlugin」中 ExampleIDatasetFormPlugin 為 plugin 的類別名稱
+entry_points='''
+    [ckan.plugins]
+    ExampleIDatasetForm=ckanext.ExampleIDatasetForm.plugin:ExampleIDatasetFormPlugin
+    [babel.extractors]
+    ckan = ckan.lib.extract:extract_ckan
+''',
+```
+
+
+
+
+
 
 
 
