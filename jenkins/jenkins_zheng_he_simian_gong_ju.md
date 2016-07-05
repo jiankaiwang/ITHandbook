@@ -15,6 +15,7 @@
 
 ```Bash
 # 假設要檢查的程式碼位於 D:\code\openshift\welcome\interface\dynamic\
+# 輸出 simian 結果於 C:\Users\JianKaiWang\Desktop\SimianReport.xml
 java -jar "C:\Program Files (x86)\simian\bin\simian-2.4.0.jar" -formatter=xml:"C:\Users\JianKaiWang\Desktop\SimianReport.xml" -threshold=20 -language=java -excludes=**/perldoc "D:\code\openshift\welcome\interface\dynamic\*.java"
 
 # 需要注意的是，一定要為 exit 0，確認程式正確執行完畢
@@ -26,6 +27,10 @@ exit 0
 
 * 於「建置後動作」選項中，新增「Report Violations」
 
-* 於「Simian」項目中，加入 SimianReport.xml 項目
+* 於「Simian」項目中，加入 SimianReport.xml 項目，如下
+
+```text
+C:\Users\JianKaiWang\Desktop\SimianReport.xml
+```
 
 * 於 Jenkins 中專案首頁中，便有此顯示圖表可以即時掌握建置狀況。
