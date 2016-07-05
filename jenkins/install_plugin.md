@@ -2,12 +2,24 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
+###安裝方式
+---
+
+* 此為 Jenkins 環境的工具，並非專指任一個專案，故回到 Jenkins 首頁。
+
+* 選擇左側「管理 Jenkins」，選擇「管裡外掛程式」
+
+* 選擇「可用的」，並選擇要安裝 plugin
+
+* 點擊「下載並於重新啟動後安裝」即可。
+
 ###Report Violations
 ---
 
 | 項目 | 內容 |
 | -- | -- |
 | Plugin ID | violations |
+| Plugin name in Jenkins | Violations plugin |
 | Download URL | [https://wiki.jenkins-ci.org/display/JENKINS/Violations](https://wiki.jenkins-ci.org/display/JENKINS/Violations) |
 
 * The violations plug-in scans for violation xml files of particular types in the build workspace, gathers the violations and reports on the numbers for each type. The currently supported tools are:
