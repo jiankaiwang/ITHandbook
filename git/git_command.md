@@ -92,6 +92,9 @@ git push -u origin <branch>
 # file : 檔案名稱
 git hash-object <file>
 
+# 顯示目前的參照名稱內容
+git show-ref
+
 # 自訂參照符號
 # branch : 分支 ref 名稱，如 master 或 new_branch 等
 # hash : 要修改的 commit 絕對名稱，如 aa3b 等
