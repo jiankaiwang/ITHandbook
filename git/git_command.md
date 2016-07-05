@@ -96,11 +96,13 @@ git hash-object <file>
 git show-ref
 
 # 自訂參照符號
+# 「一般參照」則是指向一個 Git 物件的「絕對名稱」，絕對名稱為 hash code
 # branch : 分支 ref 名稱，如 master 或 new_branch 等
 # hash : 要修改的 commit 絕對名稱，如 aa3b 等
 git update-ref <branch> <hash>
 
 # 加入自訂符號 (symbolic-ref) 參照
+# 「符號參照」會指向另一個「一般參照」
 # ref_from : 如 ref/fe2_init
 # ref_to : 如 ref/heads/fe2
 git symbolic-ref <ref_from> <ref_to>
