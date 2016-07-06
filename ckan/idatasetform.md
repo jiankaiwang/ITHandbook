@@ -242,6 +242,8 @@ vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/E
 vim /usr/lib/ckan/default/src/ckan/ckanext/ckanext-ExampleIDatasetForm/ckanext/ExampleIDatasetForm/templates/package/snippets/package_basic_fields.html
 ```
 
+此 html 中所列的 "Custom Text" 為顯示在畫面上的內容，若此內容無對應其他語言，則會以此 html 內容為主。
+
 ```html
 {% ckan_extends %}
 
