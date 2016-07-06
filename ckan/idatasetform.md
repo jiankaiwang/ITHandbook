@@ -306,6 +306,10 @@ ckan.plugins = stats text_view image_view recline_view ExampleIDatasetForm
 因選擇 development 進行使用此 plugin，故執行 develop 環境來進行測試
 
 ```Bash
+# 先進入虛擬機環境
+. /usr/lib/ckan/default/bin/activate
+
+# 以測試組態檔來開啟新的 server
 $ paster serve /etc/ckan/default/development.ini
 
 Starting server in PID 13961.
