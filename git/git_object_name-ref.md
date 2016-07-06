@@ -5,3 +5,4 @@
 ###Git 物件名稱與參照
 ---
 
+![](../images/git_object-name-ref.png)
