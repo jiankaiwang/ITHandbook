@@ -108,8 +108,7 @@ git update-ref <branch> <hash>
 git symbolic-ref <ref_from> <ref_to>
 
 # 相對名稱
-# 
-# 數目 : 要比較的幾個版本
+# 數目 : 該物件的前幾個版本
 <參照名稱|絕對名稱>~<數目>
 
 # 加入變更後的檔案準備提交
