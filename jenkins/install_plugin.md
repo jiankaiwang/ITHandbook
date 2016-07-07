@@ -33,6 +33,8 @@
 | Plugin name in Jenkins | HTML Publisher plugin |
 | Download URL | [https://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin) |
 
+* 可以提供許多沒有內建顯示於網頁的 plugin，有一個簡易的顯示器，如 ** Source Monitor **。
+
 ###Report Violations
 ---
 
