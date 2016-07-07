@@ -56,7 +56,7 @@ templates/home/index.html  # 確定使用的 layout.html 為何
       |-templates/base.html  # 從這裡開始
       |-templates/header.html
       |-templates/footer.html
-          |-templates/home/snippets/language_selector.html
+          |-templates/snippets/language_selector.html
   |-templates/home/layout1.html  # 主要客製化位置
       |-templates/home/snippets/promoted.html
       |-templates/home/snippets/search.html
