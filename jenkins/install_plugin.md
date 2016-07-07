@@ -13,6 +13,17 @@
 
 * 點擊「下載並於重新啟動後安裝」即可。
 
+###Embeddable build status
+---
+
+| 項目 | 內容 |
+| -- | -- |
+| Plugin ID | embeddable-build-status |
+| Plugin name in Jenkins | embeddable-build-status |
+| Download URL | [https://wiki.jenkins-ci.org/display/JENKINS/Embeddable+Build+Status+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Embeddable+Build+Status+Plugin) |
+
+* 建立目前專案建置狀況，並可以顯示標籤於網站中。
+
 ###Report Violations
 ---
 
@@ -40,5 +51,4 @@
 | pep8 | [https://github.com/jcrocholl/pep8](https://github.com/jcrocholl/pep8) | - | - |
 | codenarc | [http://codenarc.sourceforge.net/](http://codenarc.sourceforge.net/) |  - | - |
 | perlcritic | [http://perlcritic.com/](http://perlcritic.com/) | - | - |
-
 
