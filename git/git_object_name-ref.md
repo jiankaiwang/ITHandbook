@@ -6,3 +6,12 @@
 ---
 
 ![](../images/git_object-name-ref.png)
+
+###Git 物件的相對參照
+---
+
+* 相對參照方
+  * ~ : 
+
+
+
