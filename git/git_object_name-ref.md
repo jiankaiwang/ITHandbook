@@ -21,6 +21,6 @@
 
 * 相對名稱的階層表示 :
 
-
+![](../images/git_relative_object_name.png)
 
 
