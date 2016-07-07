@@ -107,7 +107,7 @@ git update-ref <branch> <hash>
 # ref_to : 如 ref/heads/fe2
 git symbolic-ref <ref_from> <ref_to>
 
-# 相對名稱
+# 相對名稱表示
 # 數目 : 該物件的前幾個版本
 <參照名稱|絕對名稱>~<數目>
 
