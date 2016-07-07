@@ -27,6 +27,10 @@ exit 0
 
 * 於「建置後動作」選項中，新增「Report Violations」
 
+| 註解 |
+| -- |
+| 請先注意 jenkins 已有安裝 |
+
 * 於「Simian」項目中，加入 SimianReport.xml 項目，如下
 
 ```text
