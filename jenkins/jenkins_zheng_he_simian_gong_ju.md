@@ -29,7 +29,7 @@ exit 0
 
 | 註解 |
 | -- |
-| 請先注意 jenkins 已有安裝 |
+| 請先注意 jenkins 已有安裝 violations plugin |
 
 * 於「Simian」項目中，加入 SimianReport.xml 項目，如下
 
