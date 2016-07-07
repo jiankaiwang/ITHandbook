@@ -24,6 +24,15 @@
 
 * 建立目前專案建置狀況，並可以顯示標籤於網站中。
 
+###HTML Publisher Plugin
+---
+
+| 項目 | 內容 |
+| -- | -- |
+| Plugin ID | htmlpublisher |
+| Plugin name in Jenkins | HTML Publisher plugin |
+| Download URL | [https://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin) |
+
 ###Report Violations
 ---
 
