@@ -59,7 +59,7 @@
    * [Squid](squid.md)
 * [Database](database.md)
    * [T-SQL (SQL Server)](t-sql_sql_server.md)
-       * [資料庫的使用者](create_a_db_owner.md)
+       * [資料庫的使用者](database/create_a_db_owner.md)
    * [MySQL](database/mysql.md)
        * [Basis Command](database/basis_command.md)
        * [Database Backup and Restore](database/database_backup_and_restore.md)
