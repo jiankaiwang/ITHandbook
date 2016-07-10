@@ -1,7 +1,6 @@
 # 問題排除
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###解決組織或群組於首頁僅能呈現一筆資料問題
 ---
