@@ -1,6 +1,6 @@
 # Squid
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###安裝 squid (八爪章魚)
 ---
