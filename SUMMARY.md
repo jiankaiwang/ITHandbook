@@ -15,7 +15,7 @@
 * [CKAN](ckan/ckan.md)
    * [安裝](ckan/ckan_install.md)
    * [佈署](ckan/deployment.md)
-   * [擴充](plugins.md)
+   * [擴充](ckan/plugins.md)
        * [DataStore](ckan/datastore.md)
        * [DataPusher](ckan/datapusher.md)
        * [ckanext-spatial](ckan/ckanext-spatial.md)
