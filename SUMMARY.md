@@ -71,7 +71,7 @@
    * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
 * [3S](3s/3s.md)
    * [QGIS](3s/qgis.md)
-   * [Mapbox](mapbox.md)
+   * [Mapbox](3s/mapbox.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
    * [Corona](corona.md)
