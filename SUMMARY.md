@@ -19,7 +19,7 @@
        * [DataStore](datastore.md)
        * [DataPusher](datapusher.md)
        * [ckanext-spatial](ckanext-spatial.md)
-       * [ckanext-geoview](ckanext-geoview.md)
+       * [ckanext-geoview](ckan/ckanext-geoview.md)
        * [ckanext-harvest](ckanext-harvest.md)
        * [Linked Data and RDF](linked_data_and_rdf.md)
        * [idatasetform](ckan/idatasetform.md)
