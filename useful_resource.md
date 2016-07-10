@@ -37,7 +37,9 @@
 
 ###Cloud Computing
 ---
+
 * OpenShift
   * [Common RHC Commands (link)](https://developers.openshift.com/managing-your-applications/common-rhc-commands.html)
-
+* [Openstack](http://docs.openstack.org/)
+* [Galaxy](https://galaxyproject.org/)
 
