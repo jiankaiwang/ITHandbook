@@ -1,7 +1,6 @@
 # R, Shiny, Plotly 與 Hadoop
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 #####一個將 R 語言包裝成網頁應用程式的解決方案，由 RStudio 開發。前端能向下支援接近原生 HTML, CSS, Javascript 等架構；後端亦能支援原生 R 語言，是近年來隨著高通量資料與大數據等應用下的一項技術。
 #####因為 R 語言背後蘊含豐富的資料函式庫，包含機器學習、資料探勘、統計與數學模型等而具有相當大的潛力。
