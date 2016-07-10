@@ -56,7 +56,7 @@
    * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
    * [Socat](network/socat.md)
    * [Nginx](network/nginx.md)
-   * [Squid](squid.md)
+   * [Squid](network/squid.md)
 * [Database](database/database.md)
    * [T-SQL (SQL Server)](t-sql_sql_server.md)
        * [資料庫的使用者](database/create_a_db_owner.md)
