@@ -45,6 +45,7 @@
        * [Use OpenShift by linux shell script](use_openshift_by_linux_sh_script.md)
        * [Use OpenShift by Windows batch script](use_openshift_by_windows_batch_script.md)
        * [RHC Commands](rhc_commands.md)
+   * OpenStack
 * [Information Security](information_security.md)
    * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
    * [Autologin SSH in RSA](autologin_ssh_in_rsa.md)
