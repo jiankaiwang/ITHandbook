@@ -20,7 +20,7 @@
        * [DataPusher](datapusher.md)
        * [ckanext-spatial](ckanext-spatial.md)
        * [ckanext-geoview](ckan/ckanext-geoview.md)
-       * [ckanext-harvest](ckanext-harvest.md)
+       * [ckanext-harvest](ckan/ckanext-harvest.md)
        * [Linked Data and RDF](linked_data_and_rdf.md)
        * [idatasetform](ckan/idatasetform.md)
    * [客製化頁面](customized.md)
