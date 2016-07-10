@@ -1,6 +1,5 @@
 # 使用者管理
 
-<script type="text/javascript" src="../gitbook/app.js"></script>
 <script type="text/javascript" src="../js/general.js"></script>
 
 一個開放資料平台的核心便是平台使用者，CKAN 預設便分成 3 類使用成員。
