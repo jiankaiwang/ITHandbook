@@ -121,7 +121,7 @@ okfn 請代換為 virtualenv 擁有者
 
 * 確認 harvest 工作的執行狀況
 我們可以在網頁介面，harvest source 的「管理者」頁面確認 harvest 工作的執行狀況，包括錯誤、新增、更新、完成的資料集數目，如下圖所示：
-![](harvestStatus.png)
+![](../images/harvestStatus.png)
 
 * 撰寫自定義 harvesting interface
 如先前所述，ckanext-harvest 提供可以自行定義的 interface，因此您可以為某個網站，或某種資料來源，特別製作 harvester。<br>
