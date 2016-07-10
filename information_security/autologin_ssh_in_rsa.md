@@ -1,13 +1,13 @@
 # Autologin SSH in RSA
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###Introduction and Background
 ---
 
 Show the flow of basic ssh connection.
 
-![](images/20140331_ssh_auto.jpg)
+![](../images/20140331_ssh_auto.jpg)
 
 Figure.1 showed:
 
