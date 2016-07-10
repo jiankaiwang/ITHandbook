@@ -1,6 +1,6 @@
 # DHCP Client On Windows
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 常會有下面的情況發生：
 
