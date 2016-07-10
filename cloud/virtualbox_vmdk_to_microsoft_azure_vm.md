@@ -1,6 +1,5 @@
 # VirtualBox (.vmdk) 發布到 Microsoft Azure VM
 
-<script type="text/javascript" src="../gitbook/app.js"></script>
 <script type="text/javascript" src="../js/general.js"></script>
 
 很多時候開發團隊會在本機或組織內將服務以 local VM 進行開發，例如 VirtualBox 或是 VMware 等，但隨著雲端技術的演進，便需要將此 local VM 上到雲端，例如 Azure 等。因此本篇將介紹如何將建立在 VirtualBox 的 VM (副檔名為 .vmdk) 轉換到 Azure VM (.vhd)。
