@@ -91,6 +91,6 @@
    * [install ruby and rubygem](linux/install_ruby_and_rubygem.md)
    * [LAMP on CentOS](linux/lamp_on_centos.md)
    * [use rsync](linux/use_rsync.md)
-   * [更改 python 預設版本 (CentOS)](linxu/change_python_version_in_centos.md)
+   * [更改 python 預設版本 (CentOS)](linux/change_python_version_in_centos.md)
    * [Common Commands in CentOS](linux/common_commands_in_centos.md)
 
