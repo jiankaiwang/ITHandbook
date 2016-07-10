@@ -76,7 +76,7 @@
    * [React Native](react_native.md)
    * [Corona](mobile/corona.md)
 * [Arduino](arduino/arduino.md)
-* [Linux](linux.md)
+* [Linux](linux/linux.md)
    * [Control Apache Log on CentOS](linux/control_apache_log_on_centos.md)
    * [Backup strategies](linux/backup_strategies.md)
    * [Set Network Configuration](linux/set_network_configuration.md)
