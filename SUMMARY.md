@@ -23,7 +23,7 @@
        * [ckanext-harvest](ckan/ckanext-harvest.md)
        * [Linked Data and RDF](linked_data_and_rdf.md)
        * [idatasetform](ckan/idatasetform.md)
-   * [客製化頁面](customized.md)
+   * [客製化頁面](ckan/customized.md)
        * [使用 CSS](use_customized_css.md)
        * [使用 Javascript](use_customized_javascript.md)
        * [加入客製化 html 模組](ckan/add_html_module.md)
