@@ -18,7 +18,7 @@
    * [擴充](plugins.md)
        * [DataStore](datastore.md)
        * [DataPusher](datapusher.md)
-       * [ckanext-spatial](ckanext-spatial.md)
+       * [ckanext-spatial](ckan/ckanext-spatial.md)
        * [ckanext-geoview](ckan/ckanext-geoview.md)
        * [ckanext-harvest](ckan/ckanext-harvest.md)
        * [Linked Data and RDF](linked_data_and_rdf.md)
