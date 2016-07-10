@@ -1,7 +1,6 @@
 # ckanext-spatial
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###功能簡介
 ---
@@ -16,7 +15,7 @@
     * 以地圖顯示資料集 “spatial” 欄位所述之地理空間資訊 (僅支援 geojson 格式)。如下圖所示，在「額外的資訊」中填寫的 spatial geojson 資訊，將顯示在左下角的 Dataset extent 中。
     * 欲使用此功能，請在 ckan.plugins 加入 spatial_metadata。
 
-![](extentMap.png)
+![](../images/extentMap.png)
 
 * CSW Server
     * 提供 CSW 服務介面。
