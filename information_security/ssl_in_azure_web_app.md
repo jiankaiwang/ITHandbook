@@ -1,6 +1,6 @@
 # SSL in Azure Web APP
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 在 Azure 的 Web APP 使用 Let's encrypt 對自定網域進行 SSL 加密。
 
