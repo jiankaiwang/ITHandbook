@@ -74,7 +74,7 @@
    * [Mapbox](3s/mapbox.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
-   * [mobile/corona.md](mobile/corona.md)
+   * [Corona](mobile/corona.md)
 * [Arduino](arduino/arduino.md)
 * [Linux](linux.md)
    * [Control Apache Log on CentOS](linux/control_apache_log_on_centos.md)
