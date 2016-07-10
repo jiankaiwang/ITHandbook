@@ -7,13 +7,6 @@
 
 * [git official website](https://git-scm.com/downloads)
 
-###CKAN
----
-
-* CKAN 官方說明文件 ([http://docs.ckan.org/en/latest/contents.html](http://docs.ckan.org/en/latest/contents.html))
-  1. 撰寫模組文件 ([http://docs.ckan.org/en/latest/extensions/tutorial.html](http://docs.ckan.org/en/latest/extensions/tutorial.html))
-  2. 透過 IDatasetForm 客製化資料集欄位 ([http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html](http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html))
-
 ###Jenkins
 ---
 
@@ -25,7 +18,17 @@
   1. MSDN : https://msdn.microsoft.com/en-us/library/bb429476(v=vs.80).aspx
   2. [CodePlex download](https://fxcopinstaller.codeplex.com/)
 
-###Shiny 與 Plotly
+###CKAN
+---
+
+* CKAN 官方說明文件 ([http://docs.ckan.org/en/latest/contents.html](http://docs.ckan.org/en/latest/contents.html))
+  1. 撰寫模組文件 ([http://docs.ckan.org/en/latest/extensions/tutorial.html](http://docs.ckan.org/en/latest/extensions/tutorial.html))
+  2. 透過 IDatasetForm 客製化資料集欄位 ([http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html](http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html))
+
+###Drupal
+---
+
+###R, Shiny, Plotly 與 Hadoop
 ---
 * Shiny
     * [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
