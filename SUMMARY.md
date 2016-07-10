@@ -14,7 +14,7 @@
    * [Jenkins 整合 Simian 工具](jenkins/jenkins_simian.md)
 * [CKAN](ckan/ckan.md)
    * [安裝](ckan/ckan_install.md)
-   * [佈署](deployment.md)
+   * [佈署](ckan/deployment.md)
    * [擴充](plugins.md)
        * [DataStore](ckan/datastore.md)
        * [DataPusher](ckan/datapusher.md)
