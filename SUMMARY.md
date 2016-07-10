@@ -42,7 +42,7 @@
        * [Copy VHD between storage account](cloud/copy_vhd_between_storage_account.md)
    * [OpenShift](cloud/openshift.md)
        * [安裝 rhc 於 Windows 7](cloud/install_rhc_on_win7.md)
-       * [Use OpenShift by linux shell script](use_openshift_by_linux_sh_script.md)
+       * [Use OpenShift by linux shell script](cloud/use_openshift_by_linux_sh_script.md)
        * [Use OpenShift by Windows batch script](use_openshift_by_windows_batch_script.md)
        * [RHC Commands](cloud/rhc_commands.md)
    * [OpenStack](cloud/openstack.md)
