@@ -72,7 +72,7 @@
 * [3S](3s/3s.md)
    * [QGIS](3s/qgis.md)
    * [Mapbox](3s/mapbox.md)
-* [Mobile](mobile.md)
+* [Mobile](mobile/mobile.md)
    * [React Native](react_native.md)
    * [Corona](mobile/corona.md)
 * [Arduino](arduino/arduino.md)
