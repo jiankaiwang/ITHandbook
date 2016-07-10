@@ -52,7 +52,7 @@
    * [SSL in Azure Web APP](information_security/ssl_in_azure_web_app.md)
    * [WebGoat](information_security/webgoat.md)
 * [Network](network.md)
-   * [DHCP Server On CentOS](dhcp_server_on_centos.md)
+   * [DHCP Server On CentOS](network/dhcp_server_on_centos.md)
    * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
    * [Socat](socat.md)
    * [Nginx](nginx.md)
