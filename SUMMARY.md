@@ -53,7 +53,7 @@
    * [WebGoat](information_security/webgoat.md)
 * [Network](network.md)
    * [DHCP Server On CentOS](dhcp_server_on_centos.md)
-   * [DHCP Client On Windows](dhcp_client_on_windows.md)
+   * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
    * [Socat](socat.md)
    * [Nginx](nginx.md)
    * [Squid](squid.md)
