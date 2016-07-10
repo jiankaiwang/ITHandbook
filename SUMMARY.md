@@ -47,7 +47,7 @@
        * [RHC Commands](cloud/rhc_commands.md)
    * [OpenStack](cloud/openstack.md)
 * [Information Security](information_security/information_security.md)
-   * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
+   * [SSH Protocol on Ubuntu](information_security/ssh_protocol_on_ubuntu.md)
    * [Autologin SSH in RSA](information_security/autologin_ssh_in_rsa.md)
    * [SSL in Azure Web APP](information_security/ssl_in_azure_web_app.md)
    * [WebGoat](information_security/webgoat.md)
