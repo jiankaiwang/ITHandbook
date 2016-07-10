@@ -1,7 +1,6 @@
 # Linked Data and RDF
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ckan 自 1.7 版後開始內建支援 RDF 格式輸出，使用非常容易。
 
