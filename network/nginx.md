@@ -1,6 +1,6 @@
 # Nginx
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###狀況/問題
 ---
