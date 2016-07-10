@@ -33,7 +33,7 @@
 * [Drupal](drupal/drupal.md)
    * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
 * [R, Shiny, Plotly 與 Hadoop](shiny.md)
-   * [r-shiny-plotly-hadoop/shiny-server.md](r-shiny-plotly-hadoop/shiny-server.md)
+   * [Shiny Server](r-shiny-plotly-hadoop/shiny-server.md)
    * [UI](shiny-ui.md)
    * [Plotly](r-shiny-plotly-hadoop/plotly.md)
 * [Cloud Computing](cloud/cloud_computing.md)
