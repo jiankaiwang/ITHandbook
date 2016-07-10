@@ -11,7 +11,7 @@
    * [安裝 Plugin](jenkins/install_plugin.md)
    * [Jenkins 整合 StyleCop 工具](jenkins/jenkins_hestylecop.md)
    * [Jenkins 整合 FxCop 工具](jenkins/jenkins_fxcop.md)
-   * [Jenkins 整合 Simian 工具](jenkins/jenkins_zheng_he_simian_gong_ju.md)
+   * [Jenkins 整合 Simian 工具](jenkins/jenkins_simian.md)
 * [CKAN](chapter1.md)
    * [安裝](ckan_install.md)
    * [佈署](deployment.md)
