@@ -22,7 +22,7 @@
 
 * LAMP-based 伺服器。
 
-###R-Shiny-Plotly-Hadoop
+###R, Shiny, Plotly 與 Hadoop
 ---
 
 * 以數學、統計為主的動態語言，透過 shiny 相關 package 建立網頁資料呈現，配合 plotly 達到使用者互動性操作，並配合如 Hadoop 平台建立大數據、巨量資料或高通量資料整合平台。
