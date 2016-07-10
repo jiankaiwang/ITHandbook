@@ -54,7 +54,7 @@
 * [Network](network/network.md)
    * [DHCP Server On CentOS](network/dhcp_server_on_centos.md)
    * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
-   * [Socat](socat.md)
+   * [Socat](network/socat.md)
    * [Nginx](network/nginx.md)
    * [Squid](squid.md)
 * [Database](database/database.md)
