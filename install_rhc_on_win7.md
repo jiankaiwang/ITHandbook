@@ -1,7 +1,6 @@
 # 安裝 rhc 於 Windows 7
 
-<script type="text/javascript" src="gitbook/app.js"></script>
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###安裝 Ruby
 ---
