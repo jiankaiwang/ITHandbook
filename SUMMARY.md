@@ -44,7 +44,7 @@
        * [安裝 rhc 於 Windows 7](cloud/install_rhc_on_win7.md)
        * [Use OpenShift by linux shell script](use_openshift_by_linux_sh_script.md)
        * [Use OpenShift by Windows batch script](use_openshift_by_windows_batch_script.md)
-       * [RHC Commands](rhc_commands.md)
+       * [RHC Commands](cloud/rhc_commands.md)
    * [OpenStack](cloud/openstack.md)
 * [Information Security](information_security/information_security.md)
    * [SSH Protocol on Ubuntu](ssh_protocol_on_ubuntu.md)
