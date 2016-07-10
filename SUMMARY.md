@@ -57,7 +57,7 @@
    * [Socat](socat.md)
    * [Nginx](nginx.md)
    * [Squid](squid.md)
-* [Database](database.md)
+* [Database](database/database.md)
    * [T-SQL (SQL Server)](t-sql_sql_server.md)
        * [資料庫的使用者](database/create_a_db_owner.md)
    * [MySQL](database/mysql.md)
