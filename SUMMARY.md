@@ -70,7 +70,7 @@
    * [Reset locked BIOS password](windows/reset_locked_bios_password.md)
    * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
 * [3S](3s/3s.md)
-   * [QGIS](qgis.md)
+   * [QGIS](3s/qgis.md)
    * [Mapbox](mapbox.md)
 * [Mobile](mobile.md)
    * [React Native](react_native.md)
