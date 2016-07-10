@@ -1,6 +1,6 @@
 # WebGoat
 
-<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 ###建立 WebGoat 6 網站
 ---
