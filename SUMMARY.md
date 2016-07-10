@@ -65,7 +65,7 @@
        * [Database Backup and Restore](database/database_backup_and_restore.md)
    * [Import MySQL databases into SQL Server databases](database/import_mysql_databases_into_sql_server_databases.md)
 * [Virtualization](virtualization.md)
-   * [Docker](docker.md)
+   * [Docker](virtualization/docker.md)
 * [Windows](windows/windows.md)
    * [Reset locked BIOS password](windows/reset_locked_bios_password.md)
    * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
