@@ -7,7 +7,7 @@ return c?(c=Sa(a,b),Oa.test(c)?n(a).position()[b]+"px":c):void 0})}),n.each({Hei
 
 // add content topic link
 var $nj = jQuery.noConflict();
-$nj(document).ready(function() {
+$(function() {
   var allH3 = $("h3");
   $('.normal h1').after('<div id="listItem" style="clear: both; padding: 1px; margin-bottom: 30px;"></div>');
   $('#listItem').append('<h4>主題選單</h4><ul>');
