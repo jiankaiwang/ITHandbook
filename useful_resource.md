@@ -1,6 +1,5 @@
 # Useful Resource
 
-<script type="text/javascript" src="gitbook/theme.js"></script>
 <script type="text/javascript" src="js/general.js"></script>
 
 ###git
