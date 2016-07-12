@@ -17,6 +17,9 @@
 * FxCop
   1. MSDN : https://msdn.microsoft.com/en-us/library/bb429476(v=vs.80).aspx
   2. [CodePlex download](https://fxcopinstaller.codeplex.com/)
+* SourceMonitor
+  1. [Website](http://www.campwoodsw.com/sourcemonitor.html)
+  2. 嵌入 Jenkins 須使用 [msxsl.exe](https://www.microsoft.com/en-us/download/details.aspx?id=21714)
 
 ###CKAN
 ---
