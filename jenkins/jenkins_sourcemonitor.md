@@ -33,7 +33,11 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 * 安裝完後，進入要使用此 plugin 的專案，因此 plugin 功能為掃描靜態程式碼，選擇左側的「組態」中「建置」，選擇「執行 Windows 批此指令」，並批次完成下列各項指令
 
 ```bash
-"C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe" /C "C:\CI_Tools\SourceMonitorCommand.xml" "C:\CI_Tools\msxsl.exe" SourceMonitorReport.xml "C:\CI_Tools\SourceMonitorSummaryGeneration.xsl" -o SourceMonitorSummaryGeneration.xml "C:\CI_Tools\msxsl.exe" SourceMonitorSummaryGeneration.xml "C:\CI_Tools\SourceMonitor.xsl" -o SourceMonitorResult.html
+"C:\Program Files (x86)\SourceMonitor\SourceMonitor.exe" /C "C:\CI_Tools\SourceMonitorCommand.xml"
+
+ "C:\CI_Tools\msxsl.exe" SourceMonitorReport.xml "C:\CI_Tools\SourceMonitorSummaryGeneration.xsl" -o SourceMonitorSummaryGeneration.xml
+ 
+ "C:\CI_Tools\msxsl.exe" SourceMonitorSummaryGeneration.xml "C:\CI_Tools\SourceMonitor.xsl" -o SourceMonitorResult.html
 ```
 
 
