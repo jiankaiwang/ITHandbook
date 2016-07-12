@@ -142,7 +142,7 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 
 * 而在專案管理頁面中，任一次的建置結果 (如 \#10) 下，其左側「HTML Report」中便有相關結果，如下；
 
-
+![](../images/sourcemonitor.png)
 
 
 
