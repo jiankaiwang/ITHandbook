@@ -4,6 +4,8 @@
 
 * SourceMonitor 為一分析程式碼複雜度的工具。
 
+* 範例檔案 : 20160712_sourcemonitor.rar
+
 ###報表內容準備
 ---
 
