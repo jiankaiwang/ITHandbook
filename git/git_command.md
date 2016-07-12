@@ -5,6 +5,7 @@
 
 
 
+
 # git 常用指令
 
 <script type="text/javascript" src="../js/general.js"></script>
@@ -151,14 +152,19 @@ git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
 # message : 暫存版本的註解
 git stash save [-u] [message]
 
+# 查看目前暫存版本清單 
+git stash list 
+
 # 取出最新的暫存版本
 # pop : 完整取出，並將 stash 暫存版本刪除，移除清單
 # apply : 取出暫存版本，但並不移除暫存資料，仍保留於清單中
 # apply <stash version> : 僅取出某一特定暫存版本
 git stash [pop|apply ["<stash version>"]]
 
-# 查看目前暫存版本清單
-git stash list
+# 移除暫存檔
+# clear : 清除所有暫存檔版本
+# drop : 清除某一特定的暫存檔
+git stash [clear|drop "<stash version>"]
 
 # 提交版本紀錄
 # -m "message" : 提交時的標題
