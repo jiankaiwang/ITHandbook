@@ -23,6 +23,12 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 
 * 於 Jenkins Server 系統頁面，選擇左側「管理 Jenkins」中「管理外掛程式」，選擇「HTML Publisher plugin」，並進行安裝即可。
 
-* 安裝完後，進入要使用此 plugin 的專案中，
+* 開啟 SourceMonitor，並確定允許編碼 UTF-8 掃描的選項為開啟。
+
+```text
+「File」 > 「Options」 > 「Allow parsing of UTF-8 files」
+```
+
+* 安裝完後，進入要使用此 plugin 的專案，選擇左側的
 
 
