@@ -26,6 +26,7 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 * 開啟 SourceMonitor，並確定允許編碼 UTF-8 掃描的選項為開啟。
 
 ```text
+# 設定方式如下
 「File」 > 「Options」 > 「Allow parsing of UTF-8 files」
 ```
 
