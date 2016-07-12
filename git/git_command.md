@@ -2,6 +2,7 @@
 
 
 
+
 # git 常用指令
 
 <script type="text/javascript" src="../js/general.js"></script>
@@ -145,10 +146,14 @@ git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
 # 建立暫存版本
 # 將所有已列入追蹤 (tracked) 的檔案建立暫存版
 # -u : 包括所有已追蹤或未追蹤的檔案，皆建立暫存版
-git stash [-u]
+# message : 暫存版本的註解
+git stash [-u] [message]
 
 # 取出暫存版本
 git stash pop
+
+# 查看目前暫存版本清單
+git stash list
 
 # 提交版本紀錄
 # -m "message" : 提交時的標題
