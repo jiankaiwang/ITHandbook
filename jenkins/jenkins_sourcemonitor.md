@@ -30,6 +30,9 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 「File」 > 「Options」 > 「Allow parsing of UTF-8 files」
 ```
 
+* 下載 [msxsl.exe (Command Line Transformation Utility tool)](https://www.microsoft.com/en-us/download/details.aspx?id=21714)
+  1. 能在 xsl 與 xml 檔案之間進行轉換
+
 * 安裝完後，進入要使用此 plugin 的專案，因此 plugin 功能為掃描靜態程式碼，選擇左側的「組態」中「建置」，選擇「執行 Windows 批此指令」，並批次完成下列各項指令
 
 ```bash
