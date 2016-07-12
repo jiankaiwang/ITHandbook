@@ -1,3 +1,4 @@
+
 # git 常用指令
 
 <script type="text/javascript" src="../js/general.js"></script>
@@ -137,6 +138,12 @@ git mv <oriFileName> <modifiedFileName>
 # --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
+
+
+# 建立暫存版本
+# 將所有已列入追蹤 (tracked) 的檔案建立暫存版
+# -u : 包括所有已追蹤或未追蹤的檔案，皆建立暫存版
+git stash [-u]
 
 # 提交版本紀錄
 # -m "message" : 提交時的標題
