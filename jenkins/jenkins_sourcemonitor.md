@@ -21,6 +21,8 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 ###安裝與設定 HTML Publisher Plugin
 ---
 
+* 於 Jenkins Server 系統頁面，選擇左側「管理 Jenkins」中「管理外掛程式」，選擇「HTML Publisher plugin」，並進行安裝即可。
 
+* 安裝完後，進入要使用此 plugin 的專案中，
 
 
