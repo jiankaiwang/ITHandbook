@@ -138,4 +138,19 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 "D:\code\jenkins\sourcemonitor\msxsl.exe" "C:\Users\JianKaiWang\Desktop\SourceMonitorSummaryGeneration.xml" "D:\code\jenkins\sourcemonitor\htmlpublisher\SourceMonitor.xsl" -o "C:\Users\JianKaiWang\Desktop\SourceMonitorResult.html"
 ```
 
+* 將上述指令輸入建置的批次指令後，新增一「建置後動作」，並以「Publish HTML reports」為輸出內容，並將剛輸出的結果 ** SourceMonitorResult.html ** 新增成一份輸出報表即可。
+
+* 而在專案管理頁面中，任一次的建置結果 (如 \#10) 下，其左側「HTML Report」中便有相關結果，如下；
+
+
+
+
+
+
+
+
+
+
+
+
 
