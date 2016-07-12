@@ -16,4 +16,6 @@ C:\Program Files (x86)\SourceMonitor\Samples\sample_commands.xml
 
 * 準備於 Jenkins 中呈現報表使用的檔案
 
-因 SourceMonitor 沒有自身開發的顯示頁面，故主要是透過 ** HTML Publisher Plugin ** 來顯示於 Jenkins 的專案畫面上。而為了使用此 plugin，需要有兩個專屬 SourceMonitor 使用的 xsl 模版， ** SourceMonitor.xsl ** 及** SourceMonitorSummaryGeneration.xsl **
+因 SourceMonitor 沒有自身開發的顯示頁面，故主要是透過 ** HTML Publisher Plugin ** 來顯示於 Jenkins 的專案畫面上。而為了使用此 plugin，需要有兩個專屬 SourceMonitor 使用的 xsl 模版， ** SourceMonitor.xsl ** 及** SourceMonitorSummaryGeneration.xsl **。
+
+###安裝 HTML Publisher Plugin
