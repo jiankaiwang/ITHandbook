@@ -34,7 +34,7 @@ git config --unset <--system|--global|--local> <parameter>
 git config <--system|--global|--local> alias.<self_defined_command> <git_original_command>
 
 # 指定特定層級預設文字編輯器
-# editor_app_name : 編輯器名稱，如 notepad.exe (記事本)
+# editor_app_name : 編輯器名稱如 "\"C:\Program Files (x86)\Notepad++\notepad++.exe\"" (notepad++)
 git config <--system|--global|--local> core.editor <editor_app_name>
 ```
 
