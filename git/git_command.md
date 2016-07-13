@@ -27,6 +27,11 @@ git config <--system|--global|--local> <parameter> <value>
 
 # 刪除特定層級中的選項
 git config --unset <--system|--global|--local> <parameter>
+
+# 設定特定層級中工作指令別名
+# git_original_command : git 原指令，如 commit
+# self_defined_command : 自定義指令，如 ct
+git config <--system|--global|--local> alias.<self_defined_command> <git_original_command>
 ```
 
 * git 儲存庫創立
