@@ -12,6 +12,7 @@
 # --list : 列表
 #  | --system : 列出系統層級，屬於本機所有使用者的預設値
 #  | --global : 列出使用者層級設定，屬於使用者專屬的設定値
+#  | --local : 本 git 儲存庫的專屬設定
 git config [--list [--system|--global]]
 
 # 設定組態
