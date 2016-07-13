@@ -25,6 +25,9 @@ git config [--system|--global|--local] <parameter>
 # value : 改變組態的値
 git config <--system|--global|--local> <parameter> <value>
 
+# 開啟編輯整個組態檔
+git config --edit <--system|--global|--local>
+
 # 刪除特定層級中的選項
 git config --unset <--system|--global|--local> <parameter>
 
