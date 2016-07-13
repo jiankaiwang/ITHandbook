@@ -24,6 +24,9 @@ git config [--system|--global|--local] <parameter>
 # parameter : 要改變組態中的項目
 # value : 改變組態的値
 git config <--system|--global|--local> <parameter> <value>
+
+# 刪除特定層級中的選項
+git config --unset <--system|--global|--local> <parameter>
 ```
 
 * git 儲存庫創立
