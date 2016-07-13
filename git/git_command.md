@@ -5,6 +5,20 @@
 ###git 管理環境
 ---
 
+* git 工具組態設定
+
+```Bash
+# 組態設定
+# --list : 列表
+#  | --system : 列出系統層級，屬於本機所有使用者的預設値
+git config [--list [--system]]
+
+# 設定組態
+# parameter : 要改變組態中的項目
+# value : 改變組態的値
+git config --system <parameter> <value>
+```
+
 * git 儲存庫創立
 
 ```Bash
