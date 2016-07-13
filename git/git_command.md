@@ -17,7 +17,8 @@ git config [--list [--system|--global|--local]]
 
 # 取得組態的値
 # parameter : 要查看的參數名稱
-git config <--system|--global|--local> <parameter>
+# 若不傳入任何層級，則可以取得目前組態的綜合設定
+git config [--system|--global|--local] <parameter>
 
 # 設定組態
 # parameter : 要改變組態中的項目
