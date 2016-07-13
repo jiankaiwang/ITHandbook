@@ -13,12 +13,16 @@
 #  | --system : 列出系統層級，屬於本機所有使用者的預設値
 #  | --global : 列出使用者層級設定，屬於使用者專屬的設定値
 #  | --local : 本 git 儲存庫的專屬設定
-git config [--list [--system|--global]]
+git config [--list [--system|--global|--local]]
+
+# 取得組態的値
+# parameter : 要查看的參數名稱
+git config <--system|--global|--local> <parameter>
 
 # 設定組態
 # parameter : 要改變組態中的項目
 # value : 改變組態的値
-git config --system <parameter> <value>
+git config <--system|--global|--local> <parameter> <value>
 ```
 
 * git 儲存庫創立
