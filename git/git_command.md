@@ -32,6 +32,9 @@ git config --unset <--system|--global|--local> <parameter>
 # git_original_command : git 原指令，如 commit
 # self_defined_command : 自定義指令，如 ct
 git config <--system|--global|--local> alias.<self_defined_command> <git_original_command>
+
+# 指定特定層級預設文字編輯器
+git config <--system|--global|--local> core.editor <editor_app_name>
 ```
 
 * git 儲存庫創立
