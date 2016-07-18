@@ -34,11 +34,13 @@
 ###R, Shiny, Plotly 與 Hadoop
 ---
 * Shiny
-    * [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
-    * [Shiny Server by RStudio](https://www.rstudio.com/products/shiny/shiny-server2/)
+  * [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
+  * [Shiny Server by RStudio](https://www.rstudio.com/products/shiny/shiny-server2/)
 * Plotly
-    * [Plotly Public](https://plot.ly/feed/)
-    * [With Shiny](https://plot.ly/r/shiny-tutorial/)
+  * [Plotly Public](https://plot.ly/feed/)
+  * [With Shiny](https://plot.ly/r/shiny-tutorial/)
+* [Hadoop official link](http://hadoop.apache.org/)
+  *
 
 ###Cloud Computing
 ---
