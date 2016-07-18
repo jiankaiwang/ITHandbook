@@ -29,7 +29,7 @@ $ cd hadoop-2.6.4
 $ vim ~/.bash_profile
 
 # 加入下方設定
-export JAVA_HOME=/usr/java/jkd1.7.0_79
+export JAVA_HOME=/usr/java/jdk1.7.0_79
 
 # 使用此設定
 $ source ~/.bash_profile
@@ -40,7 +40,7 @@ $ source ~/.bash_profile
 $ vim ./etc/hadoop/hadoop-env.sh
 
 # 將 JAVA_HOME 進行設置
-export JAVA_HOME=/usr/java/jkd1.7.0_79
+export JAVA_HOME=/usr/java/jdk1.7.0_79
 ```
 
 * 設置 Hadoop 安裝路徑
@@ -62,16 +62,19 @@ $ bin/hadoop
 
 ### Check : Standalone Operation
 
-*
+* 底下為一範例可用於確認是否安裝成功，以 hadoop 自身的組態 xml 檔案作為目標，透過 mapreduce 配合正規表示式找出內容符合 dfs[a-z.]+ 的結果，並將此結果輸出至 output 資料夾中。
 
 ```bash
-
+# 創建一個測試用輸入檔案的資料夾
 $ mkdir input
 
+# 預設將 hadoop 的自身組態檔作為目標
 $ cp etc/hadoop/*.xml input
 
+# 執行 hadoop 指令
 $ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.4.jar grep input output 'dfs[a-z.]+'
 
+# 顯示出結果
 $ cat output/*
 ```
 
