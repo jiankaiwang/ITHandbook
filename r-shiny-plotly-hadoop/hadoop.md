@@ -50,6 +50,6 @@ export JAVA_HOME=/usr/java/jkd1.7.9_79/
 $ vim ./etc/hadoop/hadoop-env.sh
 
 # 假設路徑為 /usr/local/hadoop ，並加入下方
-export HADOOP_PREFIX=/usr/local/hadoop
+export HADOOP_PREFIX=/home/jkw/hadoop-2.6.4
 ```
 
