@@ -151,7 +151,9 @@ git symbolic-ref <ref_from> <ref_to>
 git rev-parse <參照名稱|絕對名稱><~|^><數目>
 
 # 顯示標籤 (tags)
-git tag
+# tag_name : 標籤的名稱
+# -d : 刪除標籤
+git tag [<tag_name>|<tag_name> -d]
 
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
