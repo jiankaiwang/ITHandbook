@@ -20,8 +20,12 @@ $ tar -zxvf hadoop-2.6.4.tar.gz
 
 # 進入此解壓縮的資料夾內
 $ cd hadoop-2.6.4
+```
 
-# 設置 java 執行環境
+* 設置 JAVA_HOME，可以透過下方兩種方式來達成
+
+```bash
+# 透過設置帳戶的 java 執行環境變數
 $ vim ~/.bash_profile
 
 # 加入下方設定
@@ -29,4 +33,12 @@ export JAVA_HOME=/usr/java/jkd1.7.9_79/
 
 # 使用此設定
 $ source ~/.bash_profile
+```
+
+```bash
+# 透過設定 hadoop 專案的環境變數設定中
+vim ./etc/hadoop/hadoop-env.sh
+
+# 將 JAVA_HOME 進行設置
+export JAVA_HOME=/usr/java/jkd1.7.9_79/
 ```
