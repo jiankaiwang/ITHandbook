@@ -37,8 +37,19 @@ $ source ~/.bash_profile
 
 ```bash
 # 透過設定 hadoop 專案的環境變數設定中
-vim ./etc/hadoop/hadoop-env.sh
+$ vim ./etc/hadoop/hadoop-env.sh
 
 # 將 JAVA_HOME 進行設置
 export JAVA_HOME=/usr/java/jkd1.7.9_79/
 ```
+
+* 設置 Hadoop 安裝路徑
+
+```Bash
+# 設定 hadoop 專案的環境變數設定中
+$ vim ./etc/hadoop/hadoop-env.sh
+
+# 假設路徑為 /usr/local/hadoop ，並加入下方
+export HADOOP_PREFIX=/usr/local/hadoop
+```
+
