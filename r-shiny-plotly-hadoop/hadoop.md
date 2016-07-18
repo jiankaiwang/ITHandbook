@@ -29,7 +29,7 @@ $ cd hadoop-2.6.4
 $ vim ~/.bash_profile
 
 # 加入下方設定
-export JAVA_HOME=/usr/java/jkd1.7.9_79/
+export JAVA_HOME=/usr/java/jkd1.7.0_79
 
 # 使用此設定
 $ source ~/.bash_profile
@@ -40,7 +40,7 @@ $ source ~/.bash_profile
 $ vim ./etc/hadoop/hadoop-env.sh
 
 # 將 JAVA_HOME 進行設置
-export JAVA_HOME=/usr/java/jkd1.7.9_79/
+export JAVA_HOME=/usr/java/jkd1.7.0_79
 ```
 
 * 設置 Hadoop 安裝路徑
@@ -62,7 +62,18 @@ $ bin/hadoop
 
 ### Check : Standalone Operation
 
+*
 
+```bash
+
+$ mkdir input
+
+$ cp etc/hadoop/*.xml input
+
+$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.4.jar grep input output 'dfs[a-z.]+'
+
+$ cat output/*
+```
 
 
 
