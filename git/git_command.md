@@ -150,6 +150,9 @@ git symbolic-ref <ref_from> <ref_to>
 # e.g. C^3~3 : C commit 物件第 3 個分支的上三層物件
 git rev-parse <參照名稱|絕對名稱><~|^><數目>
 
+# 顯示標籤 (tags)
+git tag
+
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
