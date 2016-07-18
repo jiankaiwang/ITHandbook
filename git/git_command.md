@@ -88,9 +88,11 @@ git fsck
 git clone [Repo_URL]
 
 # 查看 commit 物件內容，包含 tree 物件
+# -p : 查看此 commit 內容
+# -t : 查看此 commit 類型
 # branch : 分支名稱，如 master 。
 # hash code : 透過 hash code 來找出 commit 時的內容
-git cat-file -p <branch|hash code>
+git cat-file [-p|-t] <branch|hash code>
 
 # 查看該版本變更紀錄
 git show <branch|hash code>
