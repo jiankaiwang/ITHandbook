@@ -158,6 +158,11 @@ git rev-parse <參照名稱|絕對名稱><~|^><數目>
 # object_id : 要標示的 hash code
 git tag [<tag_name>|<tag_name> -d|<tag_name> <object_id>]
 
+# 建立標示標籤 (annotated tag)
+# tag_name : 標籤的名稱
+# desc : 標籤描述
+git tag <tag_name> -a -m "<desc>"
+
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
