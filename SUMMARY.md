@@ -37,7 +37,7 @@
    * [Shiny Server](r-shiny-plotly-hadoop/shiny-server.md)
    * [Shiny UI](r-shiny-plotly-hadoop/shiny-ui.md)
    * [Plotly](r-shiny-plotly-hadoop/plotly.md)
-   * Hadoop
+   * [Hadoop](r-shiny-plotly-hadoop/hadoop.md)
 * [Cloud Computing](cloud/cloud_computing.md)
    * [Azure](cloud/azure.md)
        * [VirtualBox (.vmdk) 發布到 Microsoft Azure VM](cloud/virtualbox_vmdk_to_microsoft_azure_vm.md)
