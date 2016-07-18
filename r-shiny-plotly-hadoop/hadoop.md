@@ -12,7 +12,7 @@
 
 * 於 Apache Hadoop 官方網站上下載 [Tarball source](http://hadoop.apache.org/releases.html)，底下舉版本 ** hadoop-2.6.4.tar.gz ** 為例
 
-* 安裝過程
+* 下載並解壓縮
 
 ```Bash
 # 解壓縮
