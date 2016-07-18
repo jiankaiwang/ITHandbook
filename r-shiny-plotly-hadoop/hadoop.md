@@ -53,7 +53,14 @@ $ vim ./etc/hadoop/hadoop-env.sh
 export HADOOP_PREFIX=/home/jkw/hadoop-2.6.4
 ```
 
+* 透過底下指令檢查是否已安裝
 
+```bash
+# 應該會出現如何使用的內容
+$ bin/hadoop
+```
+
+### Check : Standalone Operation
 
 
 
