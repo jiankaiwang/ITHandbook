@@ -9,7 +9,7 @@
 
 Apache Hadoop is an open-source software framework for distributed storage and distributed processing of very large data sets on computer clusters built from commodity hardware.
 
-### install
+### install in Linux (CentOS 7)
 ---
 
 * Hadoop 運行在 Java 環境下，需要先安裝 Java，底下舉 ** /usr/java/jdk1.7.0_79/ ** 為例
