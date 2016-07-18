@@ -53,3 +53,20 @@ $ vim ./etc/hadoop/hadoop-env.sh
 export HADOOP_PREFIX=/home/jkw/hadoop-2.6.4
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
