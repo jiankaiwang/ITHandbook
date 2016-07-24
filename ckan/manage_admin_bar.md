@@ -98,12 +98,41 @@
 
 ```bash
 /usr/lib/ckan/default/src/ckan/ckan/templates
-  |- footer.html
+  |- footer.html                  # footer 主要內容
+  |- header_in_footer.html        # 加入語言選項
 ```
 
-* 修改內容如下
+* 修改 ** header_in_footer.html ** 內容如下
 
 ```bash
-
+{% block header_account %}
+  <header class="account-masthead" style="background: none;">
+    <div class="container">
+      {% block header_account_container_content %}
+        {% if c.userobj %}
+          <nav class="account not-authed">
+            <ul class="unstyled">
+              {# cdc #}
+              {% snippet "snippets/customized_language_selector.html" %}
+            </ul>
+          </nav>
+        {% else %}
+          <nav class="account not-authed">
+            <ul class="unstyled">
+              {# cdc #}
+              {% block header_account_notlogged %}
+              {% snippet "snippets/customized_language_selector.html" %}
+              <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
+              {% if h.check_access('user_create') %}
+                <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
+              {% endif %}
+              {% endblock %}
+            </ul>
+          </nav>
+        {% endif %}
+      {% endblock %}
+    </div>
+  </header>
+{% endblock %}
 ```
 
