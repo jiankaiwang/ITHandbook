@@ -65,7 +65,63 @@ ckan.plugins = pages
             |- base_form.html  # 修改欄位
 ```
 
+* 修改 actions.py 內容如下
 
+```bash
+...
+
+{# customized : add english and chinese #}
+schema = {
+    'id': [p.toolkit.get_validator('ignore_empty'), unicode],
+    'title': [p.toolkit.get_validator('not_empty'), unicode],
+    'ename': [p.toolkit.get_validator('not_empty'), unicode],
+    'cname': [p.toolkit.get_validator('not_empty'), unicode],
+    'name': [p.toolkit.get_validator('not_empty'), unicode,
+             p.toolkit.get_validator('name_validator'), page_name_validator],
+    'content': [p.toolkit.get_validator('ignore_missing'), unicode],
+    'econtent': [p.toolkit.get_validator('ignore_missing'), unicode],
+    'page_type': [p.toolkit.get_validator('ignore_missing'), unicode],
+  #  'lang': [p.toolkit.get_validator('not_empty'), unicode],
+    'order': [p.toolkit.get_validator('ignore_missing'),
+              unicode],
+    'private': [p.toolkit.get_validator('ignore_missing'),
+                p.toolkit.get_validator('boolean_validator')],
+    'group_id': [p.toolkit.get_validator('ignore_missing'), unicode],
+    'user_id': [p.toolkit.get_validator('ignore_missing'), unicode],
+    'created': [p.toolkit.get_validator('ignore_missing'),
+                p.toolkit.get_validator('isodate')],
+    'publish_date': [not_empty_if_blog,
+                     p.toolkit.get_validator('ignore_missing'),
+                     p.toolkit.get_validator('isodate')],
+}
+
+...
+
+def _pages_list(context, data_dict):
+  ...
+  # cdc
+  for pg in out:
+    parser = HTMLFirstImage()
+    parser.feed(pg.content)
+    img = parser.first_image
+    pg_row = {'title': pg.title,
+              'ename': pg.ename,
+              'cname': pg.cname,
+              'content': pg.content,
+              'econtent': pg.econtent,
+              'name': pg.name,
+              'publish_date': pg.publish_date.isoformat() if pg.publish_date else None,
+              'group_id': pg.group_id,
+              'page_type': pg.page_type,
+             }
+    if img:
+        pg_row['image'] = img
+    extras = pg.extras
+    if extras:
+        pg_row.update(json.loads(pg.extras))
+    out_list.append(pg_row)
+  return out_list
+```
 
 
 
