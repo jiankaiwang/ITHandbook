@@ -32,6 +32,7 @@
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
    * [問題排除](ckan/trouble_shooting.md)
+   * 主路徑架構
 * [Drupal](drupal/drupal.md)
    * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
 * [R, Shiny, Plotly 與 Hadoop](r-shiny-plotly-hadoop/r-shiny-plotly-hadoop.md)
