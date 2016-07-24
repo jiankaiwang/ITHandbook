@@ -57,5 +57,9 @@ paster serve /etc/ckan/default/development.ini
     |- src/
       |- ckanext/
         |- ckanext-scheming                 # 完全自定義的 schema plugin    
+          |- setup.py                       # 安裝於 production 與 develop
+          |- ckanext/scheming/
+            |- customized_shema.json        # 新欄位設定檔案
+            |- presets.json                 # 預定欄位設定檔
 ```
 
