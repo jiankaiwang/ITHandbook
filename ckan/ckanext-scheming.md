@@ -13,7 +13,7 @@
 
 ```bash
 # 必須確認進入虛擬環境 (因 ckan 執行為 sandbox-based 環境)
-pip install ckantoolkit upgrade
+pip2 install ckantoolkit upgrade
 ```
 
 * 自 github 安裝 by http protocol
