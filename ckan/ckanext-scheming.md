@@ -478,6 +478,124 @@ $ sudo restart ckan
       |- additional_info.html
 ```
 
+內容顯示如下
+
+```
+{# customized metadata of the dataset #}
+
+<section class="additional-info">
+  <h3>{{ _('Additional Info') }}</h3>
+  <table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th scope="col">{{ _('Field') }}</th>
+        <th scope="col">{{ _('Value') }}</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% if pkg_dict.em_notes or pkg_dict.cd_notes %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Metadata","欄位資訊") }}</th>
+            {% if h.lang() == "en" %}
+                <td class="dataset-details">{{ _(pkg_dict.em_notes) }}</td>
+            {% elif h.lang() == "zh_TW" %}
+                <td class="dataset-details">{{ _(pkg_dict.cm_notes) }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.url %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Source') }}</th>
+            {% if h.is_url(pkg_dict.url) %}
+              <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.url, pkg_dict.url, rel='foaf:homepage', target='_blank') }}</td>
+            {% else %}
+              <td class="dataset-details" property="foaf:homepage">{{ pkg_dict.url }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.fee %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Fee","計費") }}</th>
+            <td class="dataset-details">{{ _(pkg_dict.fee) }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.version %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Version") }}</th>
+            <td class="dataset-details">{{ pkg_dict.version }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.author_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
+          </tr>
+        {% elif pkg_dict.author %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.author_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Author Email") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author_email) }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.updated_freq %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Updated Frequency","更新頻率") }}</th>
+            <td class="dataset-details">{{ pkg_dict.updated_freq }}</td>
+          </tr>
+        {% endif %}
+
+        {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("State") }}</th>
+            <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.metadata_modified %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
+            </td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.metadata_created %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Created") }}</th>
+
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_created %}
+            </td>
+          </tr>
+        {% endif %}
+
+      {% block extras scoped %}
+        {% for extra in h.sorted_extras(pkg_dict.extras) %}
+          {% set key, value = extra %}
+          <tr rel="dc:relation" resource="_:extra{{ i }}">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
+            <td class="dataset-details" property="rdf:value">{{ value }}</td>
+          </tr>
+        {% endfor %}
+			{% endblock %}
+	
+		</tbody>
+	</table>
+</section>
+```
+
 * 修改 dataset 頁面底下資料及說明位置 (e.g. http://127.0.0.1:9050/zh_TW/dataset)
 
 ```bash
