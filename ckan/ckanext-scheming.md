@@ -400,6 +400,12 @@ scheming.presets = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckane
 scheming.dataset_fallback = false
 scheming.organization_schemas = ckanext.scheming:org_with_dept_id.json
 scheming.group_schemas = ckanext.scheming:group_with_bookface.json
+
+# 安裝於 production
+python ./setup.py install
+
+# 重啟 ckan 服務
+$ sudo restart ckan
 ```
 
 
