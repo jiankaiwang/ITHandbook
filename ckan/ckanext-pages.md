@@ -300,10 +300,145 @@ sudo restart ckan
           |- base_form.html  # 修改欄位
 ```
 
-* 修改內容如下
+* 修改 base_form.html 內容如下
 
 ```html
+{% import 'macros/form.html' as form %}
+{% import 'macros/wysiwyg.html' as wysiwyg %}
 
+{% set data = data or {} %}
+{% set errors = errors or {} %}
+
+{% if type == 'org' %}
+  {% set action_url = h.url_for('organization_pages_edit', id=id, page='/' + page) %}
+  {% set cancel_url = h.url_for('organization_pages_index', id=id) %}
+  {% set slug_prefix = cancel_url ~ '/' %}
+  {% set slug_domain = h.url_for('organization_pages_index', id=id, qualified=true) %}
+  {% set hide_field_order = true %}
+{% elif type == 'group' %}
+  {% set action_url = h.url_for('group_pages_edit', id=id, page='/' + page) %}
+  {% set cancel_url = h.url_for('group_pages_index', id=id) %}
+  {% set slug_prefix = cancel_url ~ '/' %}
+  {% set slug_domain = h.url_for('group_pages_index', id=id, qualified=true) %}
+  {% set hide_field_order = true %}
+{% elif type == 'blog' %}
+  {# customized #}
+  {% set action_url = h.url_for('blog_edit', id=id, page='/' + page) %}
+  {% set cancel_url = h.url_for('blog_index') %}
+  {% set slug_prefix = cancel_url ~ '/' %}
+  {% set slug_domain = h.url_for('blog_index', qualified=true) %}
+  {% if page %}
+     {% set delete_url = h.url_for('blog_delete', page='/' + data.name) %}
+  {% endif %}
+{% else %}
+  {# customized #}
+  {% set action_url = h.url_for('pages_edit', id=id, page='/' + page) %}
+  {% set cancel_url = h.url_for('pages_index') %}
+  {% set slug_prefix = cancel_url ~ '/' %}
+  {% set slug_domain = h.url_for('pages_index', qualified=true) %}
+  {% if page %}
+     {% set delete_url = h.url_for('pages_delete', page='/' + data.name) %}
+  {% endif %}
+{% endif %}
+
+
+{% if type == 'blog' %}
+    {% if not page %}
+      <h1>{{ h.getLangLabel("Add Blog Article","加入文章") }}</h1>
+    {% else %}
+      <h1>{{ h.getLangLabel("Edit Blog Article","編輯文章") }}</h1>
+    {% endif %}
+    {% set url_placeholder = 'eg. my-blog-article' %}
+    {% set title_placeholder = _('eg. Blog Article Title') %}
+{% else %}
+    {% if not page %}
+      <h1>{{ h.getLangLabel("Add Page","加入頁面") }}</h1>
+    {% else %}
+      <h1>{{ h.getLangLabel("Edit Page","編輯頁面") }}</h1>
+    {% endif %}
+    {% set url_placeholder = 'eg. my-page' %}
+    {% set title_placeholder = _('eg. Page Title') %}
+{% endif %}
+
+
+<form class="form-horizontal" method="post" action="{{ action_url }}" data-module="basic-form">
+  {# customized #}
+  {{ form.input('title', id='field-title', label=h.getLangLabel("Website","網址"), placeholder=title_placeholder, value=data.title, error=errors.title, classes=['control-full', 'control-large'], attrs={'data-module': 'slug-preview-target'}) }}
+
+  {% set domain = slug_domain|replace("http://", "")|replace("https://", "") %}
+  {% set attrs = {'data-module': 'slug-preview-slug', 'data-module-prefix': domain~'/', 'data-module-placeholder': '<page>'} %}
+  {{ form.prepend('name', id='field-name', label=_('URL'), prepend=slug_prefix, placeholder=_(url_placeholder), value=data.name, error=errors.name, attrs=attrs) }}
+
+  {# customized #}
+  {{ form.input('publish_date', id='field-publish_date', label=h.getLangLabel("Publish Date","發布日期"), placeholder=_('2005-01-01'), value=data.publish_date, error=errors.publish_date, classes=[], attrs={'data-module': 'datepicker', 'data-date-format': 'yyyy-mm-dd'}) }}
+
+  {% block extra_pages_form %}
+  {% endblock extra_pages_form %}
+
+  {# customized #}
+  {#
+  {{ form.input('name', id='field-name', label=_('name'), placeholder=_('name'), value=data.name) }} 
+  #}
+  {{ form.input('ename', id='field-name', label=h.getLangLabel("Title in English","英文標題"), placeholder=h.getLangLabel("Title in English","英文標題"), value=data.ename) }}
+  {{ form.input('cname', id='field-name', label=h.getLangLabel("Title in Chinese","中文標題"), placeholder=h.getLangLabel("Title in Chinese","中文標題"), value=data.cname) }}
+
+  <div class="control-group">
+    <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
+    <div class="controls">
+      <select id="field-private" class="form-control" name="private">
+        {% for option in [(true, _('Private')), (false, _('Public'))] %}
+        <option value="{{ option[0] }}" {% if option[0] == data.private %}selected="selected"{% endif %}>{{ option[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  {% if not hide_field_order %}
+    <div class="control-group">
+      <label for="field-order" class="control-label">{{ h.getLangLabel("Menu Order","選單順序") }}</label>
+      <div class="controls">
+        <select id="field-order" class="form-control" name="order">
+            {% for option in [('', h.getLangLabel("Not in Menu","不放入選單")), ('1','1'), ('2', '2'), ('3', '3') , ('4', '4')] %}
+          <option value="{{ option[0] }}" {% if option[0] == data.order %}selected="selected"{% endif %}>{{ option[1] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  {% endif %}
+
+  {% set editor = h.get_wysiwyg_editor() %}
+  {% if editor == 'medium' %}
+    {{ wysiwyg.editor('content', id='field-content', label=_('Content'), placeholder=_('Enter content here'), value=data.content|safe, error=errors.content) }}
+  {% elif editor == 'ckeditor' %}
+    {% resource 'ckanext-pages/main' %}
+    <div class="control-group">
+        <label for="field-content-ck" class="control-label">{{ h.getLangLabel("Content","內容") }}</label>
+    </div>
+    <textarea id="field-content-ck" name="content" placeholder="{{_('My content')}}" data-module="ckedit" style="height:400px" data-module-site_url="{{ h.dump_json(h.url('/', locale='default', qualified=true)) }}"> {{ data.content }}</textarea>
+  {% else %}
+    {# customized #}
+    {{ form.markdown('content', id='field-content', label=h.getLangLabel("Content in Chinese","中文內容"), placeholder=h.getLangLabel("Content in Chinese","中文內容"), value=data.content, error=errors.content) }}
+    {{ form.markdown('econtent', id='field-content', label=h.getLangLabel("Content in English","英文內容"), placeholder=h.getLangLabel("Content in English","英文內容"), value=data.econtent, error=errors.content) }}
+  {% endif %}
+
+  <div class="form-actions">
+    {% if not page %}
+      <a class="btn pull-left" href="{{ cancel_url }}">{{ _('Cancel') }}</a>
+      <button class="btn btn-primary" name="save" value="save" type="submit">{{ _('Add') }}</button>
+    {% else %}
+
+      {% block delete_button %}
+        {% if h.check_access('ckanext_pages_delete', {'id': data.id})  %}
+          {% set locale = h.dump_json({'content': _('Are you sure you want to delete this Page?')}) %}
+          <a class="btn btn-danger pull-left" href="{{ delete_url }}" data-module="confirm-action" data-module-i18n="{{ locale }}">{% block delete_button_text %}{{ _('Delete') }}{% endblock %}</a>
+        {% endif %}
+      {% endblock %}
+
+      <button class="btn btn-primary" name="save" value="save" type="submit">{{ _('Save') }}</button>
+    {% endif %}
+  </div>
+
+</form>
 ```
 
 
