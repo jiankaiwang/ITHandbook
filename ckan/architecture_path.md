@@ -45,6 +45,8 @@ paster serve /etc/ckan/default/development.ini
               |- layout2.html               # 原呼叫 stats.html 內容
                 |- snippets/
                   |- stats.html             # 統計値顯示主要內容
+      |- ckanext
+        |- ckanext-scheming                 # 完全自定義的 schema plugin
 ```
 
 
