@@ -360,7 +360,7 @@ vim ./customized_schema.json
 vim /etc/ckan/default/development.ini
 
 # 於 plugins 底下加入 plugins 設定檔
-scheming_datasets scheming_groups scheming_organizations pages
+scheming_datasets scheming_groups scheming_organizations
 
 # 並加入 ckanext-scheming settings
 # ckanext-scheming settings
