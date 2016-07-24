@@ -15,3 +15,14 @@
 
 ### 新增功能
 ---
+
+* 回傳 List 內的元素總數
+
+```python
+# customized function
+# desc : return the length of a list
+def getLen(getObj):
+    return len(getObj)
+```
+
+
