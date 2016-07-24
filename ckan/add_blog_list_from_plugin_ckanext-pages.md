@@ -11,9 +11,9 @@
 # 位於 template 底下，為 homepage 中顯示的一部分
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- home/
-    |- layout2.html              # 於此呼叫 promoted.html 內容
-      |- snippets/customized_promoted.html  # 顯示主要內容
-      |- 
+    |- layout2.html                         # 於此呼叫 promoted.html 內容
+      |- snippets/customized_promoted.html  # 顯示框架
+      |- snippets/latest_item.html          # 顯示項目
 ```
 
 * 將此取出，並假設以 **layout1.html** 為主模版開發
