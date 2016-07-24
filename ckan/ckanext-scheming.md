@@ -385,7 +385,11 @@ python ./setup.py develop
 paster serve /etc/ckan/default/development.ini
 ```
 
+* 安裝於 production 正式環境下
 
+```bash
+
+```
 
 
 
