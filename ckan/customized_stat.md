@@ -54,14 +54,17 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
 </div>
 ```
 
-* ** stat.html ** 內容主要以 li 方式建立清單，故於 endblock stats_group 結尾前加入要統計的項目
+* ** customized_stats.html ** 內容主要以 li 方式建立清單，故於 endblock stats_group 結尾前加入要統計的項目
 
 ```html
 {% set stats = h.get_site_statistics() %}
 
 <div class="box stats">
   <div class="inner">
-    <h3>{{ _('{0} statistics').format(g.site_title) }}</h3>
+    {# customized : 修改 module 標題 #}
+    <h3 class="page-heading module-content">
+      <i class="icon-signal icon-1x"></i>&nbsp;&nbsp;{{ h.getLangLabel("Statistics","統計資訊") }}
+    </h3>
     <ul>
       {% block stats_group %}
       <li>
@@ -83,8 +86,14 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
         </a>
       </li>
       {# customized #}
-      
-      
+      {# 假設 ckan 有安裝 plugin ckanext-pages 模組 #}
+      <li>
+        {% set posts = h.get_recent_blog_posts() %}
+        <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='') }}">
+          <b>{{ h.getLen(posts) }}</b>
+          {{ h.getLangLabel("news","消息") }}
+        </a>
+      </li>
       {% endblock %}
     </ul>
   </div>
