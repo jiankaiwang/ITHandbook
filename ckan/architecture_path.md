@@ -36,12 +36,14 @@ paster serve /etc/ckan/default/development.ini
       |- ckan/
         |- ckan/
           |- lib/
-            |- helpers.py                                   # 主要定義 helper python 函式
-          |- templates/                                     # ckan 網站網頁主要使用位置
+            |- helpers.py                   # 主要定義 helper python 函式
+          |- templates/                     # ckan 網站網頁主要使用位置
             |- organization/
             |- home/
-              |- layout2.html  # 於此呼叫 stats.html 內容
-                |- snippets/stats.html  # 統計値顯示主要內容
+              |- layout1.html               # 主要顯示內容模版 (配合管理者登入畫面選擇)
+              |- layout2.html               # 原呼叫 stats.html 內容
+                |- snippets/
+                  |- stats.html             # 統計値顯示主要內容
 ```
 
 
