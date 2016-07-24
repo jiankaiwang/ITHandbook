@@ -30,7 +30,7 @@ pip2 list
 $ cd /usr/lib/ckan/default/src/ckan/ckanext
 
 # 取得原 plugin 模組的 http url
-$ git clone git@github.com:ckan/ckanext-scheming.git
+$ git clone https://github.com/ckan/ckanext-scheming.git
 ```
 
 
