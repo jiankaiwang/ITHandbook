@@ -36,7 +36,10 @@ paster serve /etc/ckan/default/development.ini
       |- ckan/
         |- ckan/
           |- lib/
-            |- helpers.py  # 主要定義 helper python 函式
+            |- helpers.py                                   # 主要定義 helper python 函式
+          |- templates/                                     # ckan 網站網頁主要使用位置
+            |- organization/
+            
 ```
 
 
