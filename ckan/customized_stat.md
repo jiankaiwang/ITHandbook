@@ -12,16 +12,20 @@
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- home/
     |- layout2.html  # 於此呼叫 stats.html 內容
-      |- snippets/stats.html  # 統計顯示主要內容
+      |- snippets/stats.html  # 統計値顯示主要內容
 ```
 
 * 將此取出，並假設以 **layout1.html** 為主模版開發
 
 ```bash
+# 複製一份 stat.html 內容為 customized_stats.html 並準備引用
+cd /usr/lib/ckan/default/src/ckan/ckan/templates
+cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
+
 # 位於 template 底下，為 homepage 中顯示的一部分
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- home/
-    |- layout1.html  # 以此為模版
+    |- layout1.html  # 以此為模版，並於此頁面下加入客製化統計頁面
 ```
 
 ###客製化模組
