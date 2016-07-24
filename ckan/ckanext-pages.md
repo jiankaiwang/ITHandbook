@@ -277,7 +277,16 @@ def TextBoxView(p.SingletonPlugin):
   ...
 ```
 
-* 
+* 安裝此 plugin.py
+
+```bash
+# 透過 setup.py 安裝
+cd /usr/lib/ckan/default/src/ckanext-pages/
+python ./setup.py install
+
+# 重啟 ckan
+sudo restart ckan
+```
 
 
 
