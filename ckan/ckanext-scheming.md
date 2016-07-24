@@ -433,6 +433,24 @@ $ sudo restart ckan
       |- read.html  # 主要顯示頁面，修正標題處與描述，包含資源與標籤引用
 ```
 
+內容如下
+
+```bash
+    ...
+    {% endif %}
+    <h1>
+      {# customized : modify dataset title #}
+      {% block page_heading %}
+        {% if h.lang() == "en" %}
+          {{ pkg.e_title or pkg.name }}
+        {% elif h.lang() == "zh_TW" %}
+          {{ pkg.c_title or pkg.name }}
+        {% endif %}
+
+        {% if pkg.state.startswith('draft') %}
+        ...
+```
+
 * 修正額外欄位資訊
 
 ```bash
