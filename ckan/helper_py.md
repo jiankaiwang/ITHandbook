@@ -21,6 +21,7 @@
 ```python
 # customized function
 # desc : return the length of a list
+# para : a list
 def getLen(getObj):
     return len(getObj)
 ```
