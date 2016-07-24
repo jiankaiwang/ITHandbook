@@ -471,7 +471,7 @@ $ sudo restart ckan
 * 修正額外欄位資訊
 
 ```bash
-# 修改位置階層 (位於 template 資料夾)
+# 測試機與正式機的修改位置階層 (位於 template 資料夾)
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- package/
     |- snippets/
