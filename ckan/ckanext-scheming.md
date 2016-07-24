@@ -417,11 +417,19 @@ $ sudo restart ckan
 
 接續便是要將此畫面進行修正，包含將標題、說明與欄位資料依據語言顯示內容。
 
+* 修正標題 (shema field 自 title 改成 c_title 或 e_title)
 
+```bash
 
+```
 
+* 修改 dataset 頁面底下資料及說明位置 (e.g. http://127.0.0.1:9050/zh_TW/dataset)
 
-
+```bash
+# 修改位置如下
+/usr/lib/ckan/default/src/ckan/ckan/templates/
+  |- snippets/package_item.html
+```
 
 
 
