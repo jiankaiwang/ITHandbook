@@ -288,7 +288,17 @@ python ./setup.py install
 sudo restart ckan
 ```
 
+* 設計新的編輯畫面
 
+```bash
+# 
+/usr/lib/ckan/default/src/ckanext-pages/
+  |- ckanext/pages/
+    |- theme/
+      |- templates_main/
+        |- ckanext_pages/
+          |- base_form.html  # 修改欄位
+```
 
 
 
