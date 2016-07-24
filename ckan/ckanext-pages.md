@@ -174,3 +174,46 @@ def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
     ...
 ```
 
+* 修改 db.py 內容如下
+
+```python
+def init_db(model):
+
+  ...
+
+  # We will just try to create the table.  If it already exists we get an
+  # error but we can just skip it and carry on.
+  
+  # customized
+  sql = '''
+                CREATE TABLE ckanext_pages (
+                    id text NOT NULL,
+                    title text,
+                    ename text,
+                    cname text,
+                    name text,
+                    content text,
+                    econtent text,
+                    lang text,
+                    "order" text,
+                    private boolean,
+                    group_id text,
+                    user_id text NOT NULL,
+                    created timestamp without time zone,
+                    modified timestamp without time zone
+                );
+    '''
+  
+  ...
+  
+```
+
+
+
+
+
+
+
+
+
+
