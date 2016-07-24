@@ -121,7 +121,9 @@ def _pages_list(context, data_dict):
           pg_row.update(json.loads(pg.extras))
       out_list.append(pg_row)
   return out_list
-  
+
+...
+
 def _pages_update(context, data_dict):
   ...
   items = ['title', 'ename', 'cname', 'content', 'econtent', 'name', 'private',
