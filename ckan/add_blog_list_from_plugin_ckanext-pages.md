@@ -77,7 +77,29 @@ cp ./home/snippets/promoted.html ./home/snippets/customized_promoted.html
   {% block home_image %}
   {% snippet 'snippets/latest_item.html' %}
   {% endblock %}
-
   
 </div>
 ```
+
+* ** latest_item.html ** 內容為顯示最新消息的3則清單
+
+```html
+{% set posts = h.get_recent_blog_posts(number=3) %}
+
+{% for post in posts %}
+    <div class="blog-title dataset-item module-content">
+        <h3 class="dataset-heading">
+            <i class="icon-pushpin"></i> &nbsp;&nbsp;
+            <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + post.name) }}">{{ h.getLangLabel(post.ename,post.cname) }}</a>
+            <br>
+            {% if post.publish_date %}
+                <small> {{ h.render_datetime(post.publish_date) }} </small>
+            {% endif %}
+        </h3>
+        {{ h.markdown_extract(h.getLangLabel(post.econtent, post.content))| truncate(50) }}
+           <br>
+    </div>
+{% endfor %}
+```
+
+
