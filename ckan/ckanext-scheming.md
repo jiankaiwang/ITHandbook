@@ -63,12 +63,169 @@ vim ./customized_schema.json
 | License | license_id | "form_snippet" 為 "license.html" | 資料集授選 |
 | Organization | owner_org | "preset" 為 "dataset_organization" | 資料集釋出的組織 |
 | Source | url | "display_snippet" 為 "link.html" | 資料說明頁面 |
-| fee | fee | 含有 choices, form_snippet 與 display_snippet | 收費標準 |
+| fee | fee | selector | 收費標準 |
 | Version | version | text | 顯示資料版本 |
 | Author | author | text | 顯示資料集作者 |
-| | | | |
-| | | | |
-| | | | |
+| Author Email | author_email | "display_snippet" 為 "email.html" | 作者電子郵件 |
+| Published Date | pub_time | "form_snippet" 為 "date.html" | 發布時間 |
+| Updated Frequency | updated_freq | selector | 更新頻率 |
+
+新定義的 json 內容如下：
+
+```javascript
+{
+  "scheming_version": 1,
+  "dataset_type": "dataset",
+  "about": "A reimplementation of the default CKAN dataset schema",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "dataset_fields": [
+    {
+      "field_name": "title",
+      "label": "website",
+      "preset": "title",
+      "form_placeholder": "eg. A descriptive title"
+    },
+    {
+      "field_name": "c_title",
+      "label": "Title in Chinese",
+      "form_placeholder": "eg. 登革熱",
+      "validators": "ignore_missing unicode package_version_validator"
+    },
+    {
+      "field_name": "e_title",
+      "label": "Title in English",
+      "form_placeholder": "eg. Dengue",
+      "validators": "ignore_missing unicode package_version_validator"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug",
+      "form_placeholder": "eg. my-dataset"
+    },
+    {
+      "field_name": "cd_notes",
+      "label": "Description in Chinese",
+      "preset": "note_meta",
+      "form_placeholder": "eg. 2003年起各地區、各年齡層、性別之病例數統計表"
+    },
+    {
+      "field_name": "ed_notes",
+      "label": "Description in English",
+      "preset": "note_meta",
+      "form_placeholder": "eg. The statistical data to determined cases on the age group and gender in Taiwan since 2003."
+    },
+    {
+      "field_name": "cm_notes",
+      "label": "Metadata in Chinese",
+      "preset": "note_meta",
+      "form_placeholder": "eg. 主要欄位有「確定病名」、「發病年份」、「發病月份」、「縣市」、「性別」、「年齡層」、「確定病例數」"
+    },
+    {
+      "field_name": "em_notes",
+      "label": "Metadata in English",
+      "preset": "note_meta",
+      "form_placeholder": "eg. Columns include disease name, year of onset, month of onset, county name, gender, age group and determined number of cases."
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Tags",
+      "preset": "tag_string_autocomplete",
+      "form_placeholder": "eg. economy, mental health, government"
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "form_snippet": "license.html",
+      "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization"
+    },
+    {
+      "field_name": "url",
+      "label": "Source",
+      "form_placeholder": "http://example.com/dataset.json",
+      "display_property": "foaf:homepage",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "fee",
+      "label": "fee",
+      "choices": [
+	{ "value": "toll", "label": "toll" },
+        { "value": "free", "label": "free" }
+      ],
+      "form_snippet": "select.html",
+      "display_snippet": "select.html"
+    },
+    {
+      "field_name": "version",
+      "label": "Version",
+      "validators": "ignore_missing unicode package_version_validator",
+      "form_placeholder": "1.0"
+    },
+    {
+      "field_name": "author",
+      "label": "Author",
+      "form_placeholder": "Joe Bloggs",
+      "display_property": "dc:creator"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Author Email",
+      "form_placeholder": "joe@example.com",
+      "display_property": "dc:creator",
+      "display_snippet": "email.html",
+      "display_email_name_field": "author"
+    },
+    {
+      "field_name": "pub_time",
+      "label": "Published Date",
+      "form_snippet": "date.html",
+      "form_placeholder": "eg. 2016/07/20"
+    },
+    {
+      "field_name": "updated_freq",
+      "label": "Updated Frequency",
+      "choices": [
+        { "value": "year", "label": "year" },
+        { "value": "month", "label": "month" },
+        { "value": "day", "label": "day" },
+        { "value": "once", "label": "once" },
+        { "value": "non-scheduled", "label": "non-scheduled" }
+      ],
+      "form_snippet": "select.html",
+      "display_snippet": "select.html"
+    }
+  ],
+  "resource_fields": [
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "name",
+      "label": "Name",
+      "form_placeholder": "eg. January 2011 Gold Prices"
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "Some useful notes about the data"
+    },
+    {
+      "field_name": "format",
+      "label": "Format",
+      "preset": "resource_format_autocomplete"
+    }
+  ]
+}
+```
 
 * 設定新參考定義 (preset.json)
 
