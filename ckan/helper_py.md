@@ -24,6 +24,17 @@
 # para : a list
 def getLen(getObj):
     return len(getObj)
+    
+# 因為可能由網頁進行讀取，須放置在 ** __allowed_functions__ ** 中
+__allowed_functions__ = [
+  ...
+  'time_ago_from_timestamp',
+  'get_organization',
+  'has_more_facets',
+  'getLangLabel',
+  'getLen',
+  ...
+]
 ```
 
 
