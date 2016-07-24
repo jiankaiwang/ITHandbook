@@ -291,7 +291,6 @@ sudo restart ckan
 * 設計新的編輯畫面
 
 ```bash
-# 
 /usr/lib/ckan/default/src/ckanext-pages/
   |- ckanext/pages/
     |- theme/
