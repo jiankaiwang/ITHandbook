@@ -411,7 +411,11 @@ $ sudo restart ckan
 ### 客製化資料集描述與欄位
 ---
 
+* 完成安裝後，可能出現畫面如下
 
+![](../images/dataset_ckanext-scheming.png)
+
+接續便是要將此畫面進行修正，包含將標題、說明與欄位資料依據語言顯示內容。
 
 
 
