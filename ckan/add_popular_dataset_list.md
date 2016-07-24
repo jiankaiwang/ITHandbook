@@ -12,12 +12,32 @@
   |- home/
     |- snippet/
       |- customized_popular.html
+  |- snippet/
+    |- popular_data.html
 ```
 
 * customized_popular.html 內容如下
 
 ```html
+{% set intro = g.site_intro_text %}
 
+<div class="box" style="padding-bottom: 20px;">
+  <header class="hp-header-bg">
+    {% if intro %}
+      {{ h.render_markdown(intro) }}
+    {% else %}
+      <h3 class="page-heading module-content">
+      {{ h.getLangLabel("Popular Data","熱門資料") }}
+      </h3>
+    {% endif %}
+  </header>
+
+  {# cdc #}
+  {% block home_image %}
+  {% snippet 'snippets/popular_data.html' %}
+  {% endblock %}
+
+</div>
 ```
 
 ###客製化模組
