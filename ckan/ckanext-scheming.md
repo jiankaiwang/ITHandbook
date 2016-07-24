@@ -31,6 +31,9 @@ $ cd /usr/lib/ckan/default/src/ckan/ckanext
 
 # 取得原 plugin 模組的 http url
 $ git clone https://github.com/ckan/ckanext-scheming.git
+
+# clone 後的內容會放置在
+$ cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/
 ```
 
 
