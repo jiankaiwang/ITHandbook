@@ -11,6 +11,8 @@
 /usr/lib/ckan/default/src/ckan/ckan/templates
   |- home/
     |- layout1.html
+    |- snippets/
+      |- featured_group.html
 ```
 
 * 修改 layout1.html 如下
