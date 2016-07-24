@@ -23,3 +23,5 @@
 * ckanext-scheming : 可用於客製化完整資料欄位的 plugin。
 
 * ckanext-pages : 可用來新增頁面 (pages) 與文章 (blog) 的 plugin。
+
+* Disqus : 用來紀錄 comment 的工具
