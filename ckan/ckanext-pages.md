@@ -452,3 +452,6 @@ python ./setup.py install
 sudo restart ckan
 ```
 
+* 結果如下圖
+
+![](../images/ckanext-pages-modify.png)
