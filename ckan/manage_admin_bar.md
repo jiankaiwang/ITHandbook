@@ -94,6 +94,16 @@
 
 * 但登入後僅保留 「English|中文(台灣)」
 
+* 修改路徑
 
+```bash
+/usr/lib/ckan/default/src/ckan/ckan/templates
+  |- footer.html
+```
 
+* 修改內容如下
+
+```bash
+
+```
 
