@@ -17,6 +17,7 @@
    * [安裝](ckan/ckan_install.md)
    * [佈署](ckan/deployment.md)
        * [helper.py 設定](ckan/helper_py.md)
+       * Change Language Selector
    * [擴充](ckan/plugins.md)
        * [DataStore](ckan/datastore.md)
        * [DataPusher](ckan/datapusher.md)
