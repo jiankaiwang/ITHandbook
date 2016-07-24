@@ -604,7 +604,24 @@ $ sudo restart ckan
   |- snippets/package_item.html
 ```
 
+內容如下
 
+```bash
+{# customized : modify titles on dataset list under page dataset/ #}
+{# {% set title = package.title or package.name %} #}
+{% if h.lang() == "en" %}
+{% set title = h.markdown_extract(package.e_title, extract_length=100) %}
+{% elif h.lang() == "zh_TW" %}
+{% set title = h.markdown_extract(package.c_title, extract_length=100) %}
+{% endif %}
+
+{# customized : modify descriptions on dataset list under page dataset/ #}
+{% if h.lang() == "en" %}
+{% set notes = h.markdown_extract(package.ed_notes, extract_length=100) %}
+{% elif h.lang() == "zh_TW" %}
+{% set notes = h.markdown_extract(package.cd_notes, extract_length=100) %}
+{% endif %}
+```
 
 
 
