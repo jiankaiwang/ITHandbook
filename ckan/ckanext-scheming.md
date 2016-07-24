@@ -388,7 +388,18 @@ paster serve /etc/ckan/default/development.ini
 * 安裝於 production 正式環境下
 
 ```bash
+# 編輯 production.ini
+vim /etc/ckan/default/production.ini
 
+# 加入 plugins
+scheming_datasets scheming_groups scheming_organizations
+
+# 加入組態設定
+scheming.dataset_schemas = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/customized_schema.json
+scheming.presets = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/presets.json
+scheming.dataset_fallback = false
+scheming.organization_schemas = ckanext.scheming:org_with_dept_id.json
+scheming.group_schemas = ckanext.scheming:group_with_bookface.json
 ```
 
 
