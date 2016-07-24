@@ -9,6 +9,13 @@
 ### 安裝
 ---
 
+* 預先安裝必要 package : ckantoolkit, ckanapi
+
+```bash
+# 必須確認進入虛擬環境 (因 ckan 執行為 sandbox-based 環境)
+pip install ckantoolkit upgrade
+```
+
 * 自 github 安裝 by http protocol
 
 ```
