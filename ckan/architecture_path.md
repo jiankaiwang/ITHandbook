@@ -50,6 +50,12 @@ paster serve /etc/ckan/default/development.ini
               |- layout2.html               # 原呼叫 stats.html 內容
                 |- snippets/
                   |- stats.html             # 統計値顯示主要內容
+            |- snippet/
+              |- language_selector.html	# 修改語言
+              |- customized_language_selector.html # 自製化語言列且放在頁面頂
+              |- latest_item.html # 最新消息清單
+              |- group.item.html # 群組清單
+              |- disqus.html # comment 位置
 ```
 
 * plugin 架構路徑
