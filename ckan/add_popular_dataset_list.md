@@ -32,12 +32,18 @@
     {% endif %}
   </header>
 
-  {# cdc #}
+  {# customized #}
   {% block home_image %}
   {% snippet 'snippets/popular_data.html' %}
   {% endblock %}
 
 </div>
+```
+
+* popular_data.html 內容如下
+
+```html
+
 ```
 
 ###客製化模組
