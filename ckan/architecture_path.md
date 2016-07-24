@@ -30,6 +30,7 @@ paster serve /etc/ckan/default/development.ini
 ---
 
 ```bash
+# 細部頁面說明
 /usr/lib/ckan/
   |- default/
     |- src/
