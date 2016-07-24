@@ -66,6 +66,10 @@ paster serve /etc/ckan/default/development.ini
             |- presets.json                 # 預定欄位設定檔
       |- ckanext-pages/
         |- ckanext/pages/
+          |- actions.py # schema, __page_list, _page_update
+          |- controller.py # org_edit, group_edit
+          |- db.py # init_db x 2 (sql 指令, 有新增要加上 DROP TABLE ckanext_pages; 無則刪除此行)
+          |- plugin.py (TextBoxView,, build_pages_nav_main x 2)  # 同時也是修改 page 與 blog 主選單
           |- theme/
             |- templates_main/
               |- header.html	# 登入後的編輯窗格
