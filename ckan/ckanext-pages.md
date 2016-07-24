@@ -469,7 +469,6 @@ sudo restart ckan
         |- ckanext_pages/
           |- blog.list  # blog 
               |- snippets/pages_list.html # blog 與 pages 的列表
-    |- plugin.py : 修改主選單
 ```
 
 * 內容如下
