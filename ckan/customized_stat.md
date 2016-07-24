@@ -31,6 +31,29 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
 ###客製化模組
 ---
 
+* 將剛複製出的 ** customized_stats.html ** 加入 ** layout1.html **，並放置於主畫面牆之下。
+
+```html
+<div role="main" class="homepage-data-section">
+  <div class="container">
+    <div class="row row1 section-topic general-font-family">
+     {# 重新設定區塊主題，getLangLabel 為自定義函式 (位於 helper.py 中) #}
+     {{ h.getLangLabel("Browser more topics and data.", "瀏覽更多的資料與內容") }}
+    </div>
+    <div class="row row2">
+      <div class="span6 col1">
+        {% block stats %}
+          {% snippet 'home/snippets/customized_stats.html' %}
+        {% endblock %}
+      </div>
+      <div class="span6 col2">
+
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 * ** stat.html ** 內容主要以 li 方式建立清單，故於 endblock stats_group 結尾前加入要統計的項目
 
 ```html
