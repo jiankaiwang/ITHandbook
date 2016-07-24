@@ -43,6 +43,7 @@ paster serve /etc/ckan/default/development.ini
           |- lib/
             |- helpers.py                   # 主要定義 helper python 函式
           |- templates/                     # ckan 網站網頁主要使用位置
+            |- base.html                    # ckan 網站框架
             |- organization/
             |- home/
               |- layout1.html               # 主要顯示內容模版 (配合管理者登入畫面選擇)
