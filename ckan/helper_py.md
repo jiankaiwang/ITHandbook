@@ -16,6 +16,29 @@
 ### 新增功能
 ---
 
+* 依目前使用的語言回傳該語言的字串
+
+```python
+# customized function
+# desc : return a string based on current language selected, english or chinese
+# para : a english string and a chinese string
+def getLangLabel(en,tw):
+    if lang() == "en":
+        return en
+    elif lang() == "zh_TW":
+        return tw
+        
+# 因為可能由網頁進行讀取，須放置在 ** __allowed_functions__ ** 中
+__allowed_functions__ = [
+    ...
+    'time_ago_from_timestamp',
+    'get_organization',
+    'has_more_facets',
+    'getLangLabel'
+    ...
+]
+```
+
 * 回傳 List 內的元素總數
 
 ```python
@@ -27,14 +50,43 @@ def getLen(getObj):
     
 # 因為可能由網頁進行讀取，須放置在 ** __allowed_functions__ ** 中
 __allowed_functions__ = [
-  ...
-  'time_ago_from_timestamp',
-  'get_organization',
-  'has_more_facets',
-  'getLangLabel',
-  'getLen',
-  ...
+    ...
+    'time_ago_from_timestamp',
+    'get_organization',
+    'has_more_facets',
+    'getLangLabel',
+    'getLen',
+    ...
 ]
 ```
+
+* 取代自串功能
+
+```python
+# customized function
+# desc : return a replaced string
+# para : a string content, a target substring, a replaced string for target substring
+def strReplace(getStr,getTarget,getReplace):
+    return getStr.replace(getTarget,getReplace)
+    
+# 因為可能由網頁進行讀取，須放置在 ** __allowed_functions__ ** 中
+__allowed_functions__ = [
+    ...
+    'time_ago_from_timestamp',
+    'get_organization',
+    'has_more_facets',
+    'getLangLabel',
+    'getLen',
+    'strReplace',
+    ...
+]
+```
+
+
+
+
+
+
+
 
 
