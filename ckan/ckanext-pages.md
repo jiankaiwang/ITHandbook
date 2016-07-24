@@ -43,8 +43,8 @@ vim /etc/ckan/default/production.ini
 # 並於 ckan.plugins 中加入 pages
 ckan.plugins = pages
 
-# ckeanext-pages settings : 使用不同的 editor
-ckanext.pages.editor = ckeditor
+# ckeanext-pages settings : 使用不同的 editor，預設為 markdown
+#ckanext.pages.editor = ckeditor
 ```
 
 
