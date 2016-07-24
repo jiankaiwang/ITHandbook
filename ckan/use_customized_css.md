@@ -39,9 +39,3 @@ Example:
 
 {# ... #}
 ```
-
-或是透過 ** resource ** 將樣式加入
-
-```html
-{% resource 'example_theme/custom.css' %}
-```
