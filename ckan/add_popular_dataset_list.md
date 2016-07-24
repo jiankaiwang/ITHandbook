@@ -11,9 +11,9 @@
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- home/
     |- snippet/
-      |- customized_popular.html
+      |- customized_popular.html  # entry point
   |- snippet/
-    |- popular_data.html
+    |- popular_data.html          # 真正顯示內容的頁面
 ```
 
 * customized_popular.html 內容如下
