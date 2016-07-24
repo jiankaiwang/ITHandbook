@@ -39,3 +39,9 @@ var disqus_config = function () {
 })();
 </script>
 ```
+
+### 加入 ckan
+---
+
+
+
