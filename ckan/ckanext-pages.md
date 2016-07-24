@@ -175,6 +175,8 @@ def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
 ```
 
 * 修改 db.py 內容如下
+  1. 若有新增，則要加上 DROP TABLE ckanext_pages;
+  2. 若無新增，則再將 DROP TABLE ckanext_pages; 移除
 
 ```python
 def init_db(model):
@@ -205,6 +207,27 @@ def init_db(model):
     '''
   
   ...
+  
+  pages_table = sa.Table('ckanext_pages', model.meta.metadata,
+      sa.Column('id', types.UnicodeText, primary_key=True, default=make_uuid),
+      sa.Column('title', types.UnicodeText, default=u''),
+      sa.Column('ename', types.UnicodeText, default=u''),
+      sa.Column('cname', types.UnicodeText, default=u''),
+      sa.Column('name', types.UnicodeText, default=u''),
+      sa.Column('content', types.UnicodeText, default=u''),
+      sa.Column('econtent', types.UnicodeText, default=u''),
+      sa.Column('lang', types.UnicodeText, default=u''),
+      sa.Column('order', types.UnicodeText, default=u''),
+      sa.Column('private',types.Boolean,default=True),
+      sa.Column('group_id', types.UnicodeText, default=None),
+      sa.Column('user_id', types.UnicodeText, default=u''),
+      sa.Column('publish_date', types.DateTime),
+      sa.Column('page_type', types.DateTime),
+      sa.Column('created', types.DateTime, default=datetime.datetime.utcnow),
+      sa.Column('modified', types.DateTime, default=datetime.datetime.utcnow),
+      sa.Column('extras', types.UnicodeText, default=u'{}'),
+      extend_existing=True
+  )
   
 ```
 
