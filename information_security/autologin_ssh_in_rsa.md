@@ -62,7 +62,8 @@ id_rsa   id_rsa.pub
 * Third, upload the id_rsa_public_key to host PC by scp.
 
 ```Bash
-# scp id_rsa.pub root@host_PC:~/id_rsa_root.pub
+# -P (P is Uppercase) : by what ports
+# scp -P 9022 id_rsa.pub root@host_PC:~/id_rsa_root.pub
 ```
 
 ```Bash
