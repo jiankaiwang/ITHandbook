@@ -231,7 +231,51 @@ def init_db(model):
   
 ```
 
+* 修改 plugin.py 內容
 
+```python
+def build_pages_nav_main(*args):
+  ...
+  
+  for page in pages_list:
+      if page['page_type'] == 'blog':
+          # customized
+          link = h.link_to( h.getLangLabel(page['ename'], page['cname']),
+                           h.url_for('/blog/' + str( page['name'] )))
+      else:
+          # customized
+          link = h.link_to( h.getLangLabel(page['ename'], page['cname']),
+                           h.url_for('/pages/' + str( page['name'] )))
+
+      if page['name'] == page_name:
+          li = h.literal('<li class="active">') + link + h.literal('</li>')
+      else:
+          li = h.literal('<li>') + link + h.literal('</li>')
+      output = output + li
+  
+  ...
+  
+def TextBoxView(p.SingletonPlugin):
+  ...
+  
+  def info(self):
+      schema = {
+          'content': [ignore_missing],
+          'econtent': [ignore_missing],
+      }
+
+      # customized
+      return {'name': 'wysiwyg',
+              'ename': 'Free Text',
+              'cname': 'Free Text',
+              'title': 'Free Text',
+              'icon': 'pencil',
+              'iframed': False,
+              'schema': schema,
+              }
+  
+  ...
+```
 
 
 
