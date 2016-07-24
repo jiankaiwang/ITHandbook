@@ -33,5 +33,25 @@ pip install -e 'git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages'
     |- plugin.py : 修改主選單
 ```
 
+### 使用 pages plugin
+---
+
+```bash
+# 於組態檔中使用此 plugin
+vim /etc/ckan/default/production.ini
+
+# 並於 ckan.plugins 中加入 pages
+ckan.plugins = pages
+
+# ckeanext-pages settings : 使用不同的 editor
+ckanext.pages.editor = ckeditor
+```
+
+
+
+
+
+
+
 
 
