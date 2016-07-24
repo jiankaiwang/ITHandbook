@@ -36,6 +36,7 @@
        * [加入熱門資料集選單](ckan/add_popular_dataset_list.md)
        * [加入 ckanext-pages 中 blog 清單 (以最新消息為例)](ckan/add_blog_list_from_plugin_ckanext-pages.md)
        * [調整管理狀態列](ckan/manage_admin_bar.md)
+       * 調整主選單
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
