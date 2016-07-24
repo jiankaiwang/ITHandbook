@@ -29,6 +29,8 @@ paster serve /etc/ckan/default/development.ini
 ###架構路徑
 ---
 
+* 主模版架構路徑
+
 ```bash
 # 細部頁面說明
 /usr/lib/ckan/
@@ -45,8 +47,15 @@ paster serve /etc/ckan/default/development.ini
               |- layout2.html               # 原呼叫 stats.html 內容
                 |- snippets/
                   |- stats.html             # 統計値顯示主要內容
-      |- ckanext
-        |- ckanext-scheming                 # 完全自定義的 schema plugin
 ```
 
+* plugin 架構路徑
+
+```bash
+/usr/lib/ckan/
+  |- default/
+    |- src/
+      |- ckanext/
+        |- ckanext-scheming                 # 完全自定義的 schema plugin    
+```
 
