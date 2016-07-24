@@ -36,6 +36,22 @@ $ git clone https://github.com/ckan/ckanext-scheming.git
 $ cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/
 ```
 
+### 設定必要組態檔
+---
 
+* 設定新 data schema 列表
+
+```
+```
+
+* 設定新參考定義
+
+
+
+* 設定組態檔案 (以 development.ini 為例)
+
+```bash
+
+```
 
 ###
