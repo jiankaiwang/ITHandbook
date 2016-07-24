@@ -420,11 +420,13 @@ $ sudo restart ckan
 * 修正標題 (shema field 自 title 改成 c_title 或 e_title) 與描述 (自 notes 改成 ed_notes 或 cd_notes)
 
 ```bash
-# 修改位置階層 (位於 plugin 資料夾)
+# 測試環境下的修改位置階層 (位於 plugin 資料夾)
 /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/
   |- template/scheming
     |- package/
       |- read.html  # 主要顯示頁面，修正標題處與描述
+      
+# 正式環境下的修改位置階層
 ```
 
 * 修正額外欄位資訊
