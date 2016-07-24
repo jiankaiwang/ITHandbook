@@ -16,8 +16,8 @@
 . /usr/lib/ckan/default/bin/activate
 
 # 透過 pip 進行安裝
-pip2 install ckantoolkit upgrade
-pip2 install ckanapi upgrade
+pip2 install ckantoolkit
+pip2 install ckanapi
 
 # 檢查是否安裝成功
 pip2 list
