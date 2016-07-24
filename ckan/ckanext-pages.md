@@ -67,7 +67,7 @@ ckan.plugins = pages
 
 * 修改 actions.py 內容如下
 
-```bash
+```python
 ...
 
 {# customized : add english and chinese #}
@@ -133,7 +133,7 @@ def _pages_update(context, data_dict):
 
 * 修改 controller.py 內容如下
 
-```
+```python
 def group_edit(self, id, page=None, data=None, errors=None, error_summary=None):
     ...
     
@@ -159,5 +159,18 @@ def group_edit(self, id, page=None, data=None, errors=None, error_summary=None):
         p.toolkit.redirect_to(p.toolkit.url_for('group_pages', id=id, page='/' + _page['name']))
         
         ...
+        
+def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
+    
+    ...
+
+    if p.toolkit.request.method == 'POST' and not data:
+        data = p.toolkit.request.POST
+        # customized
+        items = ['title', 'ename', 'cname', 'name', 'content', 'econtent', 'private']
+        # update config from form
+        for item in items:
+            if item in data:
+    ...
 ```
 
