@@ -31,6 +31,7 @@
 * Plugins :
   * ckanext-scheming ([原 ckan 模組](https://github.com/ckan/ckanext-scheming), [自製模組](https://github.com/jiankaiwang/ckanext-scheming))
   * ckanext-pages ([原 ckan 模組](https://github.com/ckan/ckanext-pages), [自製模組](https://github.com/jiankaiwang/ckanext-pages))
+  * [Disqus](https://disqus.com/)
 
 ###Drupal
 ---
