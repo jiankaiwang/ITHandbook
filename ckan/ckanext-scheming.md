@@ -427,6 +427,10 @@ $ sudo restart ckan
       |- read.html  # 主要顯示頁面，修正標題處與描述
       
 # 正式環境下的修改位置階層
+/usr/lib/ckan/default/src/ckan/ckan
+  |- /templates/
+    |- package/
+      |- read.html  # 主要顯示頁面，修正標題處與描述，包含資源與標籤引用
 ```
 
 * 修正額外欄位資訊
