@@ -38,6 +38,7 @@
        * [調整管理狀態列](ckan/manage_admin_bar.md)
        * [調整主選單](ckan/order_main_menu.md)
        * [修改關於](ckan/modify_about.md)
+       * 修改 group 呈現清單
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
