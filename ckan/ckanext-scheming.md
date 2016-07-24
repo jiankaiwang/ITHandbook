@@ -478,7 +478,7 @@ $ sudo restart ckan
       |- additional_info.html
 ```
 
-內容顯示如下
+額外欄位內容顯示如下
 
 ```
 {# customized metadata of the dataset #}
