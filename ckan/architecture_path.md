@@ -29,6 +29,14 @@ paster serve /etc/ckan/default/development.ini
 ###架構路徑
 ---
 
-
+```bash
+/usr/lib/ckan/
+  |- default/
+    |- src/
+      |- ckan/
+        |- ckan/
+          |- lib/
+            |- helpers.py  # 主要定義 helper python 函式
+```
 
 
