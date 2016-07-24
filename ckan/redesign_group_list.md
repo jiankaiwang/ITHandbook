@@ -12,7 +12,8 @@
   |- home/
     |- layout1.html
     |- snippets/
-      |- featured_group.html
+      |- featured_group.html       # entry point, 呼叫 snippet/group_item.html
+  |- snippet/group_item.html       # 主要顯示頁面
 ```
 
 * 修改 layout1.html 如下
