@@ -28,6 +28,10 @@
   1. 撰寫模組文件 ([http://docs.ckan.org/en/latest/extensions/tutorial.html](http://docs.ckan.org/en/latest/extensions/tutorial.html))
   2. 透過 IDatasetForm 客製化資料集欄位 ([http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html](http://docs.ckan.org/en/latest/extensions/adding-custom-fields.html))
 
+* Plugins :
+  * ckanext-scheming ([原 ckan 模組](https://github.com/ckan/ckanext-scheming), [自製模組](https://github.com/jiankaiwang/ckanext-scheming))
+  * ckanext-pages ([原 ckan 模組](https://github.com/ckan/ckanext-pages), [自製模組](https://github.com/jiankaiwang/ckanext-pages))
+
 ###Drupal
 ---
 
