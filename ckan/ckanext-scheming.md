@@ -359,9 +359,16 @@ vim ./customized_schema.json
 # 編輯 development.ini
 vim /etc/ckan/default/development.ini
 
-# 
+# 於 plugins 底下加入 plugins 設定檔
+scheming_datasets scheming_groups scheming_organizations pages
 
-
+# 並加入 ckanext-scheming settings
+# ckanext-scheming settings
+scheming.dataset_schemas = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/customized_schema.json
+scheming.presets = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/presets.json
+scheming.dataset_fallback = false
+scheming.organization_schemas = ckanext.scheming:org_with_dept_id.json
+scheming.group_schemas = ckanext.scheming:group_with_bookface.json
 
 ```
 
