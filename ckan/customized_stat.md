@@ -87,6 +87,7 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
       </li>
       {# customized #}
       {# 假設 ckan 有安裝 plugin ckanext-pages 模組 #}
+      {# 底下為計算有多少則消息被發布 #}
       <li>
         {% set posts = h.get_recent_blog_posts() %}
         <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='') }}">
