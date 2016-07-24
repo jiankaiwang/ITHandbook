@@ -43,5 +43,9 @@ var disqus_config = function () {
 ### 加入 ckan
 ---
 
+* 透過 snippet 方式加入即可
 
+```
+
+```
 
