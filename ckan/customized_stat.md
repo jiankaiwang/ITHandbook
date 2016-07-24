@@ -31,6 +31,8 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
 ###客製化模組
 ---
 
+* 假設使用 ** layout1.html ** 作為主要顯示的模組，此需要管理員登入後於「設置」中「首頁」項目中亦選擇「Introductory area, search, ... 」選項才是以 layout1.html 為模組。
+
 * 將剛複製出的 ** customized_stats.html ** 加入 ** layout1.html **，並放置於主畫面牆之下。
 
 ```html
