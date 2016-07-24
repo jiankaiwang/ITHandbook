@@ -441,4 +441,14 @@ sudo restart ckan
 </form>
 ```
 
+* 重新安裝並重啟服務
+
+```bash
+# 透過 setup.py 安裝
+cd /usr/lib/ckan/default/src/ckanext-pages/
+python ./setup.py install
+
+# 重啟服務
+sudo restart ckan
+```
 
