@@ -19,5 +19,12 @@
   |- production.ini  # 正式環境
 ```
 
+* 執行測試環境
+
+```bash
+# 以測試組態檔來開啟新的 server 進行測試 (可以透過 http://xxx.xxx.xxx:5000/ 進入測試環境)
+paster serve /etc/ckan/default/development.ini
+```
+
 ###架構路徑
 ---
