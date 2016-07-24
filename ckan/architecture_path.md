@@ -78,7 +78,7 @@ paster serve /etc/ckan/default/development.ini
                 |- blog.html  # blog 的網站地圖, 注意 plugin 中的 after_map 定義
                 |- blog.list  # blog 
                   |- snippets/pages_list.html # blog 與 pages 的列表
-                |- base_form.html  # 修改 page 或 blog 的編輯表格
+                |- base_form.html  # 修改 page 或 blog 的編輯表格, 修改欄位
         |- plugin.py : 修改主選單
 ```
 
