@@ -64,5 +64,17 @@ paster serve /etc/ckan/default/development.ini
           |- ckanext/scheming/
             |- customized_shema.json        # 新欄位設定檔案
             |- presets.json                 # 預定欄位設定檔
+      |- ckanext-pages/
+        |- ckanext/pages/
+          |- theme/
+            |- templates_main/
+              |- header.html	# 登入後的編輯窗格
+              |- ckanext_pages/
+                |- page.html  # page 的網站地圖(注意 plugin 中的 after_map 定義), 主呈現頁面
+                |- blog.html  # blog 的網站地圖, 注意 plugin 中的 after_map 定義
+                |- blog.list  # blog 
+                  |- snippets/pages_list.html # blog 與 pages 的列表
+                |- base_form.html  # 修改 page 或 blog 的編輯表格
+        |- plugin.py : 修改主選單
 ```
 
