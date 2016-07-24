@@ -47,7 +47,23 @@ ckan.plugins = pages
 #ckanext.pages.editor = ckeditor
 ```
 
+### 修改欄位資訊
+---
 
+* 主要修改欄位資料位置如下
+
+```bash
+/usr/lib/ckan/default/src/ckanext-pages/
+  |- ckanext/pages/
+    |- actions.py # schema, __page_list, _page_update
+    |- controller.py # org_edit, group_edit
+    |- db.py # init_db x 2 (sql 指令, 有新增要加上 DROP TABLE ckanext_pages; 無則刪除此行)
+    |- plugin.py (TextBoxView,, build_pages_nav_main x 2)  # 同時也是修改 page 與 blog 主選單
+      |- theme/
+        |- templates_main/
+          |- ckanext_pages/
+            |- base_form.html  # 修改欄位
+```
 
 
 
