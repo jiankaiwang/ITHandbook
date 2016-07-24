@@ -377,12 +377,12 @@ scheming.group_schemas = ckanext.scheming:group_with_bookface.json
 * 先安裝於 development 環境下測試
 
 ```bash
-# 準備對 setup.py 進行安裝
+# 對 setup.py 進行安裝
 cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming
+python ./setup.py develop
 
-# python ./setup.py develop
-
-# 
+# 在測試環境下運行 plugin
+paster serve /etc/ckan/default/development.ini
 ```
 
 
