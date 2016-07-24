@@ -7,7 +7,7 @@
 
 * 修改路徑
 
-```
+```bash
 /usr/lib/ckan/default/src/ckan/ckan/templates
   |- home/
     |- layout1.html
@@ -18,7 +18,7 @@
 
 * 修改 layout1.html 如下
 
-```
+```html
 <div role="main" class="homepage-data-section">
   <div class="container">
     ...
@@ -41,7 +41,7 @@
 
 * 修改 featured_group.html 如下
 
-```
+```html
 {% set groups = h.get_featured_groups(count=5) %}
 
 {% set colNum = 0 %}
@@ -52,4 +52,10 @@
     </div>
 
 {% endfor %}
+```
+
+* 修改 group_item.html 如下
+
+```html
+
 ```
