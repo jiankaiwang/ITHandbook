@@ -46,6 +46,6 @@ var disqus_config = function () {
 * 透過 snippet 方式加入即可
 
 ```
-
+{% snippet "snippets/disqus.html" %}
 ```
 
