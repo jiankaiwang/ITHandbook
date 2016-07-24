@@ -39,7 +39,9 @@ paster serve /etc/ckan/default/development.ini
             |- helpers.py                                   # 主要定義 helper python 函式
           |- templates/                                     # ckan 網站網頁主要使用位置
             |- organization/
-            
+            |- home/
+              |- layout2.html  # 於此呼叫 stats.html 內容
+                |- snippets/stats.html  # 統計値顯示主要內容
 ```
 
 
