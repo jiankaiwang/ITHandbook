@@ -455,3 +455,112 @@ sudo restart ckan
 * 結果如下圖
 
 ![](../images/ckanext-pages-modify.png)
+
+### 調整語言頁面
+---
+
+* 路徑如下
+
+```
+/usr/lib/ckan/default/src/ckanext-pages/
+  |- ckanext/pages/
+    |- theme/
+      |- templates_main/
+        |- ckanext_pages/
+          |- blog.list  # blog 
+              |- snippets/pages_list.html # blog 與 pages 的列表
+    |- plugin.py : 修改主選單
+```
+
+* 內容如下
+
+```html
+{% set pages_total = pages|length %}
+{% set action = '{0}_show'.format(type) %}
+
+{#
+{% if type == 'blog' %}
+  <h2>{{ _('1 blog article') if pages_total == 1 else _('{0} blog articles').format(pages_total) }}</h2>
+{% else %}
+  <h2>{{ _('1 page') if pages_total == 1 else _('{0} pages').format(pages_total) }}</h2>
+{% endif %}
+#}
+
+{% if type == 'blog' %}
+  <h2>{{ h.getLangLabel("News List","訊息列表") }}</h2>
+{% else %}
+  <h2>{{ h.getLangLabel("Pages List","頁面列表") }}</h2>
+{% endif %}
+
+{% if pages %}
+  {% set editor = h.get_wysiwyg_editor() %}
+
+    {% for page in pages %}
+      {% if id %} {# this is for orgs and groups #}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action=action, id=id, page='/' + page.name) %}
+      {% elif type == 'blog' %}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + page.name) %}
+      {% else %}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
+      {% endif %}
+      <div class="row page-list-item dataset-item">
+      {% if page.image %}
+        <div class="span3 image">
+          <a style="background-image:url({{ page.image }})" href="{{ url }}">
+          </a>
+        </div>
+        <div class="span8">
+           <h3 class="dataset-heading">
+              {# customized #}
+              <a href="{{ url }}" ><i class="icon-pushpin"></i> {{ h.getLangLabel(page.ename, page.cname) }}</a>
+              {% if page.publish_date %}
+                 <small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+              {% endif %}
+            </h3>
+            {% if page.content %}
+              {% if editor %}
+              <div>
+                {{h.getLangLabel(page.econtent, page.content)|striptags|truncate}}
+              </div>
+              {% else %}
+                {{ h.markdown_extract(h.getLangLabel(page.econtent, page.content)) }}
+              {% endif %}
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
+        </div>
+      {% else %}
+        <div class="span11">
+          <h3 class="dataset-heading">
+            <a href="{{ url }}" ><i class="icon-pushpin"></i> {{ h.getLangLabel(page.ename, page.cname) }}</a>
+            {% if page.publish_date %}
+               <small class="date"> {{ h.render_datetime(page.publish_date) }} </small>
+            {% endif %}
+          </h3>
+          {% if page.content %}
+            {% if editor %}
+            <div>
+              {{h.getLangLabel(page.econtent, page.content)|striptags|truncate}}
+            </div>
+            {% else %}
+              {{ h.markdown_extract(h.getLangLabel(page.econtent, page.content)) }}
+            {% endif %}
+          {% else %}
+            <p class="empty">{{ _('This page currently has no content') }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      </div>
+    {% endfor %}
+
+{% else %}
+    {% if type == 'blog' %}
+      <p class="empty">{{ _('There are currently no blog articles here') }}</p>
+    {% else %}
+      <p class="empty">{{ _('There are currently no pages here') }}</p>
+    {% endif %}
+{% endif %}
+```
+
+
+
