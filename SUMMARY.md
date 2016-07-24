@@ -30,7 +30,7 @@
        * [使用 Javascript](ckan/use_customized_javascript.md)
        * [加入客製化 html 模組](ckan/add_html_module.md)
        * [加入並客製化統計資料模組內容](ckan/customized_stat.md)
-       * 加入熱門資料集選單
+       * [加入熱門資料集選單](ckan/add_popular_dataset_list.md)
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
