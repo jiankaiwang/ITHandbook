@@ -356,7 +356,7 @@ vim ./customized_schema.json
 * 設定組態檔案 (以 development.ini 為例)
 
 ```bash
-
+vim /etc/ckan/default/development.ini
 ```
 
 ###
