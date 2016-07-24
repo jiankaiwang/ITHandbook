@@ -43,7 +43,12 @@
 * popular_data.html 內容如下
 
 ```html
-
+{# customized : list 5 popular datasets #}
+{% for post in range(0,5,1) %}
+    <div class="blog-title dataset-item module-content">
+        {% snippet 'snippets/package_item.html', package=c.datasets[post], banner=true %}
+    </div>
+{% endfor %}
 ```
 
 ###客製化模組
