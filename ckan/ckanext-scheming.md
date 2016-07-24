@@ -6,7 +6,7 @@
   * 原 ckan 模組 : [https://github.com/ckan/ckanext-scheming](https://github.com/ckan/ckanext-scheming) 
   * 自製模組 (by forking) : [https://github.com/jiankaiwang/ckanext-scheming](https://github.com/jiankaiwang/ckanext-scheming)
 
-### 安裝
+### 下載
 ---
 
 * 預先安裝必要 package : ckantoolkit, ckanapi
@@ -371,7 +371,19 @@ scheming.organization_schemas = ckanext.scheming:org_with_dept_id.json
 scheming.group_schemas = ckanext.scheming:group_with_bookface.json
 ```
 
-###
+### 安裝 plugins
+---
+
+* 先安裝於 development 環境下測試
+
+```bash
+# 準備對 setup.py 進行安裝
+cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming
+
+# python ./setup.py develop
+
+# 
+```
 
 
 
