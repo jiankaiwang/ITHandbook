@@ -28,7 +28,7 @@
        * [使用 CSS](ckan/use_customized_css.md)
        * [使用 Javascript](ckan/use_customized_javascript.md)
        * [加入客製化 html 模組](ckan/add_html_module.md)
-       * 加入並客製化統計資料模組內容
+       * [加入並客製化統計資料模組內容](ckan/customized_stat.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
    * [問題排除](ckan/trouble_shooting.md)
