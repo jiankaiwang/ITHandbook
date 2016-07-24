@@ -60,7 +60,7 @@ __allowed_functions__ = [
 ]
 ```
 
-* 取代自串功能
+* 取代子自串
 
 ```python
 # customized function
