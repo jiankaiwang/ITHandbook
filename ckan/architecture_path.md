@@ -41,21 +41,21 @@ paster serve /etc/ckan/default/development.ini
       |- ckan/
         |- ckan/
           |- lib/
-            |- helpers.py                   # 主要定義 helper python 函式
-          |- templates/                     # ckan 網站網頁主要使用位置
-            |- base.html                    # ckan 網站框架, css 匯入區域之一
+            |- helpers.py                         # 主要定義 helper python 函式
+          |- templates/                           # ckan 網站網頁主要使用位置
+            |- base.html                          # ckan 網站框架, css 匯入區域之一
             |- organization/
             |- home/
-              |- layout1.html               # 主要顯示內容模版 (配合管理者登入畫面選擇)
-              |- layout2.html               # 原呼叫 stats.html 內容
+              |- layout1.html                     # 主要顯示內容模版 (配合管理者登入畫面選擇)
+              |- layout2.html                     # 原呼叫 stats.html 內容
                 |- snippets/
-                  |- stats.html             # 統計値顯示主要內容
+                  |- stats.html                    # 統計値顯示主要內容
             |- snippet/
-              |- language_selector.html	# 修改語言
+              |- language_selector.html	           # 修改語言
               |- customized_language_selector.html # 自製化語言列且放在頁面頂
-              |- latest_item.html # 最新消息清單
-              |- group.item.html # 群組清單
-              |- disqus.html # comment 位置
+              |- latest_item.html                  # 最新消息清單
+              |- group.item.html                   # 群組清單
+              |- disqus.html                       # comment 位置
 ```
 
 * plugin 架構路徑
