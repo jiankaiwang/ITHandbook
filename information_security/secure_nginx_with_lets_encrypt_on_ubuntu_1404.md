@@ -143,7 +143,12 @@ $ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 $ sudo vim /etc/nginx/sites-available/default
 ```
 
+* comment or delete the following settings inside the server block because ssl usually takes port 443
 
+```bash
+       # listen 80 default_server;
+       # listen [::]:80 default_server ipv6only=on;
+```
 
 
 
