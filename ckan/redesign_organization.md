@@ -83,6 +83,73 @@
 ### 修改各 organization 頁面的內容
 ---
 
+* 修改 snippets/organization.html 內容如下：
 
+```html
+{% set truncate = truncate or 0 %}
+{% set url = h.url_for(controller='organization', action='read', id=organization.name) %}
+
+  {% block info %}
+  <div class="module module-narrow module-shallow context-info">
+    {% if has_context_title %}
+      <h2 class="module-heading"><i class="icon-building"></i> {{ _('Organization') }}</h2>
+    {% endif %}
+    <section class="module-content">
+      {% block inner %}
+
+      {# customized : img src is organization.url to replace organization.image_display_url #}
+      {% block image %}
+        <div class="image">
+          <a href="{{ url }}">
+            <img src="{{ organization.url or h.url_for_static('/base/images/placeholder-organization.png') }}" width="200" alt="{{ organization.name }}" />
+          </a>
+        </div>
+      {% endblock %}
+      {% block heading %}
+      <h1 class="heading">{{ organization.title or organization.name }}
+        {% if organization.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      </h1>
+      {% endblock %}
+
+
+      {# customized : description is organization.notes to replace organization.description #}
+      {% block description %}
+      {% if organization.notes %}
+        <p>
+          {{ h.markdown_extract(organization.notes, 180) }}
+          {% link_for _('read more'), controller='organization', action='about', id=organization.name %}
+        </p>
+      {% else %}
+        <p class="empty">{{ _('There is no description for this organization') }}</p>
+      {% endif %}
+      {% endblock %}
+
+
+      {% if show_nums %}
+        {% block nums %}
+        <div class="nums">
+          <dl>
+            <dt>{{ _('Followers') }}</dt>
+            <dd>{{ h.SI_number_span(organization.num_followers) }}</dd>
+          </dl>
+          <dl>
+            <dt>{{ _('Datasets') }}</dt>
+            <dd>{{ h.SI_number_span(organization.package_count) }}</dd>
+          </dl>
+        </div>
+        {% endblock %}
+        {% block follow %}
+        <div class="follow_button">
+          {{ h.follow_button('group', organization.id) }}
+        </div>
+        {% endblock %}
+      {% endif %}
+      {% endblock %}
+    </section>
+  </div>
+  {% endblock %}
+```
 
 
