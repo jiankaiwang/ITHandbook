@@ -85,7 +85,7 @@ cd /opt/letsencrypt
 ./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d abc.cloudapp.net
 ```
 
-
+* after Let's encrypt initialization
 
 
 
