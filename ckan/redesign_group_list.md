@@ -22,6 +22,9 @@
       |- group_item.html           # group 顯示畫面內容
 ```
 
+### 修改首頁中的 group 清單
+---
+
 * 修改 layout1.html 如下
 
 ```html
