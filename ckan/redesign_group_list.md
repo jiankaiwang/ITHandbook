@@ -103,7 +103,7 @@
 
 * 修改 ** group_list.html ** 如下
 
-```bash
+```html
 {% block group_list %}
 <ul class="media-grid" data-module="media-grid">
   {% block group_list_inner %}
@@ -117,7 +117,25 @@
 {% endblock %}
 ```
 
+* 修改 ** group_list.html ** 如下
 
+```html
+{% block group_list %}
+<ul class="media-grid" data-module="media-grid">
+  {% block group_list_inner %}
 
+  {# customized : use h.get_featured_groups() instead of groups #}
+  {% for group in h.get_featured_groups(count=5) %}
+    {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
+  {% endfor %}
+  {% endblock %}
+</ul>
+{% endblock %}
+```
 
+* 修改 ** group_item.html ** 如下
+
+```html
+
+```
 
