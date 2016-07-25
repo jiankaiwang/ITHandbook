@@ -180,7 +180,7 @@ $ sudo vim /etc/nginx/sites-available/default
 ```bash
 server {
     listen 80;
-    server_name example.com www.example.com;
+    server_name example.no-ip.biz;
     return 301 https://$host$request_uri;
 }
 ```
