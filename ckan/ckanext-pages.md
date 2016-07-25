@@ -481,11 +481,11 @@ sudo restart ckan
     |- theme/
       |- templates_main/
         |- ckanext_pages/
-          |- blog.list  # blog 
+          |- blog_list.html  # blog 
               |- snippets/pages_list.html # blog 與 pages 的列表
 ```
 
-* 內容如下
+* 修改 snippets/pages_list.html 內容如下
 
 ```html
 {% set pages_total = pages|length %}
