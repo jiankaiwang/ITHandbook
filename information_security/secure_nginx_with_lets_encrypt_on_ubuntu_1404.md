@@ -97,7 +97,24 @@ Also, the term of service is the following :
 
 ![](../images/letsencrypt_acme.png)
 
-* after Let's encrypt initialization
+* after Let's encrypt initialization and if it is successfully generated, notes would be like bellow
+
+![](../images/letsencrypt-success.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 * 
