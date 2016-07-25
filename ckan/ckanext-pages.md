@@ -652,6 +652,56 @@ sudo restart ckan
 {% endblock %}
 ```
 
+* 修正 templates_main/ckanext_pages/page.html 內容 : page 清單內容，包含加入網站地圖
+
+```html
+{% extends 'page.html' %}
+
+{% block subtitle %}{{ c.page.title }}{% endblock %}
+
+{# customized #}
+{% block toolbar %}
+    <div class="toolbar">
+        {% block breadcrumb %}
+            <ol class="breadcrumb">
+                {% snippet 'snippets/home_breadcrumb_item.html' %}
+                <li class="active">{% link_for c.page.title|truncate(35), controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + c.page.name %}</li>
+            </ol>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block primary %}
+  <section class="module-content">
+    {% if h.check_access('ckanext_pages_update') %}
+      {% link_for _('Edit'), controller='ckanext.pages.controller:PagesController', action='pages_edit', page='/' + c.page.name, class_='btn btn-primary pull-right', icon='edit' %}
+    {% endif %}
+    {# customized #}
+    {% if c.page.content %}
+      <h1 class="page-heading">{{ h.getLangLabel(c.page.ename,c.page.cname) }}</h1>
+      <div class="ckanext-pages-content">
+        {% set editor = h.get_wysiwyg_editor() %}
+        {% if editor %}
+          <div>
+              {{c.page.content|safe}}
+          </div>
+        {% else %}
+          {# customized #}
+          {{ h.getLangLabel(h.render_content(c.page.econtent),h.render_content(c.page.content)) }}
+          {% if c.page.ename == "Suggestion" %}
+              {% snippet "snippets/disqus.html" %}
+          {% endif %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="empty">{{ _('This page currently has no content') }}</p>
+    {% endif %}
+  </section>
+{% endblock %}
+
+{% block secondary %}{% endblock %}
+```
+
 * 移除 sql 中 drop database 指令，重新安裝並重啟服務
 
 ```bash
