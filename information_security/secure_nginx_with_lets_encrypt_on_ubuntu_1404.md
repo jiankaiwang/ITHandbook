@@ -122,6 +122,13 @@ fullchain.pem -> ../../archive/cdcopendatatest.no-ip.biz/fullchain1.pem
 privkey.pem -> ../../archive/cdcopendatatest.no-ip.biz/privkey1.pem
 ```
 
+| 註解 |
+| -- |
+| The certificate files would be truely located on ** /etc/letsencrypt/archive **, but the Let's encrypt create symbolic links to the ** most recent certifcate files ** in the directory ** /etc/letsencrypt/live/domain_name ** |
+
+* In most conditions, you will configure your server to use ** fullchain.pem ** as the certificate file, and ** privkey.pem ** as the certificate key file.
+
+
 
 
 
