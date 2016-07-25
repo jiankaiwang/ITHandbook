@@ -62,12 +62,15 @@ cp ./home/snippets/stats.html ./home/snippets/customized_stats.html
 {% set stats = h.get_site_statistics() %}
 
 <div class="box stats">
-  <div class="inner">
-    {# customized : 修改 module 標題 #}
-    <h3 class="page-heading module-content">
-      <i class="icon-signal icon-1x"></i>&nbsp;&nbsp;{{ h.getLangLabel("Statistics","統計資訊") }}
-    </h3>
-    <ul>
+  <div>
+    <header class="hp-header-bg">
+      {# customized 修改 module 標題 #}
+      <h3 class="page-heading module-content">
+      <i class="icon-signal icon-1x"></i>&nbsp;&nbsp;
+      {{ h.getLangLabel("Statistics","統計資訊") }}
+      </h3>
+    </header>
+    <ul class="module-content">
       {% block stats_group %}
       <li>
         <a href="{{ h.url_for(controller='package', action='search') }}">
