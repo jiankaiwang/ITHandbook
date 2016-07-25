@@ -178,6 +178,51 @@
 * 修改 info.html 內容如下
 
 ```html
+{% block info %}
+<div class="module context-info">
+  <section class="module-content">
+    {% block inner %}
+    {% block image %}
+    <div class="image">
+      <a href="{{ group.url }}">
+        {# customized : original - img src is group.image_display_url, use plugins - group.url #}
+        <img src="{{ group.url or h.url_for_static('/base/images/placeholder-group.png') }}" width="190" height="118" alt="{{ group.name }}" />
+      </a>
+    </div>
+    {% endblock %}
+    {% block heading %}
+    <h1 class="heading">
+      {{ group.display_name }}
+      {% if group.state == 'deleted' %}
+        [{{ _('Deleted') }}]
+      {% endif %}
+    </h1>
+    {% endblock %}
+    {# customized : original - description is group.description, use plugins - group.notes #}
+    {% block description %}
+    {% if group.notes %}
+      <p>
+        {{ h.markdown_extract(group.notes, 180) }}
+        {% link_for _('read more'), controller='group', action='about', id=group.name %}
+      </p>
+    {% endif %}
+    {% endblock %}
+    {% if show_nums %}
+      {% block nums %}
+      <div class="nums">
+        <dl>
+          <dt>{{ _('Followers') }}</dt>
+          <dd>{{ h.SI_number_span(group.num_followers) }}</dd>
+        </dl>
+        <dl>
+          <dt>{{ _('Datasets') }}</dt>
+          <dd>{{ h.SI_number_span(group.package_count) }}</dd>
+        </dl>
+      </div>
+      {% endblock %}
+      {% block follow %}
+      <div class="follow_button">
+        {{ h.follow_button('group', group.id) }}
       </div>
       {% endblock %}
     {% endif %}
