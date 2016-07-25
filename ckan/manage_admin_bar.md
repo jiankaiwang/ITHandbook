@@ -17,6 +17,7 @@
 * 並加入 snippets/customized_language_selector.html 即可
 
 ```bash
+...
 {% block header_account %}
   <header class="account-masthead">
     <div class="container">
@@ -87,6 +88,7 @@
     </div>
   </header>
 {% endblock %}
+...
 ```
 
 ### 將下方狀態列改成「English|中文(台灣)|登入|註冊」
