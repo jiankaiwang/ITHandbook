@@ -78,11 +78,11 @@ $ sudo service nginx reload
 ./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d www.example.com
 ```
 
-* the following is the example using example.com
+* the following is the example using example.no-ip.biz
 
 ```
 cd /opt/letsencrypt
-./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com
+./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.no-ip.biz
 ```
 
 | 註解 |
@@ -91,7 +91,7 @@ cd /opt/letsencrypt
 
 Let's encrypt takes E-mail as a part of Certificate
 
-
+![](../images/letsencrypt-bindemail.png)
 
 
 
