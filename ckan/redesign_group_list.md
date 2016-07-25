@@ -18,7 +18,8 @@
 /usr/lib/ckan/default/src/ckan/ckan/templates
   |- group/
     |- snippets/
-      |- group_item.html           # group 網頁底下的顯示畫面
+      |- group_list.html           # group 網頁底下的顯示畫面，呼叫 group_item.html
+      |- group_item.html           # group 顯示畫面內容
 ```
 
 * 修改 layout1.html 如下
