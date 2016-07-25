@@ -44,17 +44,16 @@
 ```html
 {% set groups = h.get_featured_groups(count=5) %}
 
-{% set colNum = 0 %}
 {% for group in groups %}
 
     <div class="span4 hp-category hp-category-mb">
-            {% snippet 'snippets/group_item.html', group=group, truncate=50, truncate_title=35 %}
+            {% snippet 'snippets/group_item.html', group=group, truncate=15, truncate_title=35 %}
     </div>
 
 {% endfor %}
 ```
 
-* 修改 group_item.html 如下
+* 客製化 group_item.html 如下
 
 ```html
 {% block group_item %}
