@@ -137,6 +137,12 @@ $ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 ### Step.3 : Configure TLS/SSL on Web Server (Nginx)
 ---
 
+* Edit nginx configure file
+
+```bash
+$ sudo vim /etc/nginx/sites-available/default
+```
+
 
 
 
