@@ -68,6 +68,7 @@
    * [Autologin SSH in RSA](information_security/autologin_ssh_in_rsa.md)
    * [SSL in Azure Web APP](information_security/ssl_in_azure_web_app.md)
    * [WebGoat](information_security/webgoat.md)
+   * Secure Nginx with Let's Encrypt on Ubuntu 14.04
 * [Network](network/network.md)
    * [DHCP Server On CentOS](network/dhcp_server_on_centos.md)
    * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
