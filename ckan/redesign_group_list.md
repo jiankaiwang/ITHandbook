@@ -14,11 +14,15 @@
     |- snippets/
       |- featured_group.html       # entry point, 呼叫 snippet/group_item.html
   |- snippet/
-    |- group_item.html       # 主要顯示頁面
+    |- group_item.html             # 主要顯示頁面
   |- group/
     |- snippets/
       |- group_list.html           # group 網頁底下的顯示畫面，呼叫 group_item.html
       |- group_item.html           # group 顯示畫面內容
+      |- info.html
+      |- feeds.html
+    |- read_base.html              # group 頁面內容框架, 呼叫 info.html 與 feeds.html
+    
 ```
 
 ### 修改首頁中的 group 清單
