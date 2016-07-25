@@ -70,7 +70,7 @@ ckan.plugins = pages
 ```python
 ...
 
-{# customized : add english and chinese #}
+# customized : add english and chinese
 schema = {
     'id': [p.toolkit.get_validator('ignore_empty'), unicode],
     'title': [p.toolkit.get_validator('not_empty'), unicode],
