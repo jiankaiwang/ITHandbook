@@ -27,7 +27,7 @@
 ### 修改首頁中的 group 清單
 ---
 
-* 修改 layout1.html 如下
+* 修改 home/layout1.html 如下
 
 ```html
 <div role="main" class="homepage-data-section">
@@ -50,7 +50,7 @@
 </div>
 ```
 
-* 修改 featured_group.html 如下
+* 修改 home/snippets/featured_group.html 如下
 
 ```html
 {% set groups = h.get_featured_groups(count=5) %}
