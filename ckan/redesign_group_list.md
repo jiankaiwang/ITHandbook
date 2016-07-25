@@ -179,7 +179,7 @@
 ### 修改各 group 頁面的內容
 ---
 
-* 修改 info.html 內容如下
+* 修改 group/snippet/info.html 內容如下
 
 ```html
 {% block info %}
