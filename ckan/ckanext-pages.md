@@ -99,28 +99,28 @@ schema = {
 
 def _pages_list(context, data_dict):
   ...
-  # customized : 
-  for pg in out:
-      parser = HTMLFirstImage()
-      parser.feed(pg.content)
-      img = parser.first_image
-      pg_row = {'title': pg.title,
-                'ename': pg.ename,
-                'cname': pg.cname,
-                'content': pg.content,
-                'econtent': pg.econtent,
-                'name': pg.name,
-                'publish_date': pg.publish_date.isoformat() if pg.publish_date else None,
-                'group_id': pg.group_id,
-                'page_type': pg.page_type,
-               }
-      if img:
-          pg_row['image'] = img
-      extras = pg.extras
-      if extras:
-          pg_row.update(json.loads(pg.extras))
-      out_list.append(pg_row)
-  return out_list
+  # customized
+    for pg in out:
+        parser = HTMLFirstImage()
+        parser.feed(pg.content)
+        img = parser.first_image
+        pg_row = {'title': pg.title,
+                  'ename': pg.ename,
+                  'cname': pg.cname,
+                  'content': pg.content,
+                  'econtent': pg.econtent,
+                  'name': pg.name,
+                  'publish_date': pg.publish_date.isoformat() if pg.publish_date else None,
+                  'group_id': pg.group_id,
+                  'page_type': pg.page_type,
+                 }
+        if img:
+            pg_row['image'] = img
+        extras = pg.extras
+        if extras:
+            pg_row.update(json.loads(pg.extras))
+        out_list.append(pg_row)
+    return out_list
 
 ...
 
