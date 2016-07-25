@@ -22,6 +22,52 @@ $ sudo apt-get update
 $ sudo apt-get -y install git bc
 ```
 
+### Step.2 : Obtain a Certificate
+---
+
+* Here, we demonstrate using **Webroot** plugin to obtain an SSL certificate.
+  * The Webroot plugin works by placing a specific file in the directory /.well-known
+
+```bash
+$ sudo mkdir /.well-known
+```
+
+* Install nginx (skip if it is already installed)
+
+```bash
+$ sudo apt-get install nginx
+```
+
+* Set configuration of nginx server
+
+```bash
+# edit nginx default configuration
+$ sudo vim /etc/nginx/sites-available/default
+```
+
+```bash
+# add the access directory to the block server (inside server block)
+location ~ /.well-known {
+        allow all;
+}
+```
+
+```bash
+# the default document root for using Webroot plugin 
+/usr/share/nginx/html
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
