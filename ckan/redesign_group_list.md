@@ -63,24 +63,32 @@
         {% set truncate=truncate or 0 %}
         {% set truncate_title = truncate_title or 0 %}
         {% set title = group.title or group.name %}
+        
+        {# customized : image source #}
+        {# original : img src is group.image_display_url ; use chanext plugins : img src is group.url #}
         {% block group_item_header_image %}
           <a class="module-image" href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
-          <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" />
-
+            <img src="{{ group.url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" />
           </a>
         {% endblock %}
+
+        {# customized : group title #}
         {% block group_item_header_title %}
           <h3 class="media-heading"><a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">{{ group.title or group.name }}</a></h3>
         {% endblock %}
+
+        {# customized : group description #}
+        {# original : description is group.description ; use chanext plugins : description is group.notes #}
         {% block group_item_header_description %}
-          {% if group.description %}
+          {% if group.notes %}
             {% if truncate == 0 %}
-              <p>{{ h.markdown_extract(group.description)|urlize }}</p>
+              <p>{{ h.markdown_extract(group.notes)|urlize }}</p>
             {% else %}
-              <p>{{ h.markdown_extract(group.description, truncate)|urlize }}</p>
+              <p>{{ h.markdown_extract(group.notes, truncate)|urlize }}</p>
             {% endif %}
           {% endif %}
         {% endblock %}
+        
       </header>
     {% endblock %}
   </section>
