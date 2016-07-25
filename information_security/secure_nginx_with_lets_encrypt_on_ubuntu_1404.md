@@ -78,17 +78,25 @@ $ sudo service nginx reload
 ./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d www.example.com
 ```
 
-* the following is the example using abc.cloudapp.net
+* the following is the example using example.com
 
 ```
 cd /opt/letsencrypt
-./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d abc.cloudapp.net
+./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com
 ```
+
+| 註解 |
+| -- |
+| If there is error, the log would be ** /var/log/letsencrypt/ ** . If the message is "** let's encrypt policy forbids issuing for name **", it means the domain name is not allowed for let's encrypt, e.g. cloudnapp.net, Amazon EC2, etc. |
+
+Let's encrypt takes E-mail as a part of Certificate
+
+
 
 * after Let's encrypt initialization
 
 
-
+* 
 
 
 
