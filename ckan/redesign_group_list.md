@@ -17,7 +17,7 @@
     |- group_item.html             # 主要顯示頁面
   |- group/
     |- snippets/
-      |- group_list.html           # group 網頁底下的顯示畫面，呼叫 group_item.html
+      |- group_list.html           # group 網頁底下的顯示畫面，呼叫 group/snippet/group_item.html
       |- group_item.html           # group 顯示畫面內容
       |- info.html                 # 各 group 的頁面內容
     |- read_base.html              # group 頁面內容框架, 呼叫 info.html 與 feeds.html
@@ -109,7 +109,7 @@
 ### 修改群組頁面 (group/) 下的清單
 ---
 
-* 修改 ** group_list.html ** 如下
+* 修改 ** group/snippet/group_list.html ** 如下
 
 ```html
 {% block group_list %}
@@ -125,7 +125,7 @@
 {% endblock %}
 ```
 
-* 修改 ** group_item.html ** 如下
+* 修改 ** group/snippet/group_item.html ** 如下
 
 ```html
 {% set type = group.type or 'group' %}
