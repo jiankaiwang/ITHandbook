@@ -227,7 +227,12 @@ vim ./customized_schema.json
 }
 ```
 
-* 設定新參考定義 (/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/presets.json) : 在上述的欄位定義也可以透過 preset 進行設置
+* 設定新參考定義 (presets.json) : 在上述的欄位定義也可以透過 preset 進行設置
+
+```bash
+cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/
+vim ./presets.json
+```
 
 ```javascript
 {
