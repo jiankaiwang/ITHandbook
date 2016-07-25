@@ -101,9 +101,26 @@ Also, the term of service is the following :
 
 ![](../images/letsencrypt-success.png)
 
+* The Certificate files are also generated
 
+```bash
+# the default path for certificate files
+cd /etc/letsencrypt/live/example.no-ip.biz/
+```
 
+```bash
+# cert.pem : the domain's certificate
+cert.pem -> ../../archive/cdcopendatatest.no-ip.biz/cert1.pem
 
+# chain.pem : the let's encrypt chain certificate
+chain.pem -> ../../archive/cdcopendatatest.no-ip.biz/chain1.pem
+
+# fullchain.pem : combine both cert.pem and chain.pem
+fullchain.pem -> ../../archive/cdcopendatatest.no-ip.biz/fullchain1.pem
+
+# privkey.pem : the certificate's private key
+privkey.pem -> ../../archive/cdcopendatatest.no-ip.biz/privkey1.pem
+```
 
 
 
