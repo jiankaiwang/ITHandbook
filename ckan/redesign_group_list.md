@@ -64,7 +64,7 @@
 {% endfor %}
 ```
 
-* 客製化 group_item.html 如下
+* 客製化 snippet/group_item.html 如下
 
 ```html
 {% block group_item %}
