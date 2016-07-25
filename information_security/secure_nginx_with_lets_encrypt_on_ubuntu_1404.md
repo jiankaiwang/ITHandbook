@@ -197,13 +197,40 @@ $ sudo service nginx reload
 https://www.ssllabs.com/ssltest/analyze.html?d=example.no-ip.biz
 ```
 
+### Step.4 : Setup Auto Renewal
+---
 
+* Let's encrypt certificates are vaild for 90 days, but it is strongly recommended that renew the server certificates for 60 days to allow a margin of error.
 
+* It is simply to renew the Let's encrypt
 
+```bash
+$ /opt/letsencrypt/letsencrypt-auto renew
+```
 
-* 
+| 註解 |
+| -- |
+| If renew the server certificate with multiple domain names, only the base domain would be renewal. |
 
+* Use ** crontab ** to schedule the renewal process
 
+```bash
+$ sudo crontab -e
+
+# crontab entry
+30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
+35 2 * * 1 /etc/init.d/nginx reload
+```
+
+or the following method
+
+```bash
+$ sudo vim /etc/crontab
+
+# crontab entry
+30 2 * * 1 root /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
+35 2 * * 1 root /etc/init.d/nginx reload
+```
 
 
 
