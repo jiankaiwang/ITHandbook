@@ -575,6 +575,83 @@ sudo restart ckan
 {% endif %}
 ```
 
+* 修正 templates_main/ckanext_pages/blog.html 內容 : blog 清單內容，包含加入網站地圖
+
+```html
+{% extends 'page.html' %}
+{% block bodytag %}{{ super() }} class="blog"{% endblock %}
+{% block subtitle %}{{ c.page.title }}{% endblock %}
+
+{# customized #}
+{% block toolbar %}
+    <div class="toolbar">
+        {% block breadcrumb %}
+            <ol class="breadcrumb">
+                {% snippet 'snippets/home_breadcrumb_item.html' %}
+                <li class="active">{% link_for c.page.title|truncate(35), controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + c.page.name %}</li>
+            </ol>
+        {% endblock %}
+        </div>
+{% endblock %}
+
+{% block primary_content %}
+  <section class="module-content">
+    {% if h.check_access('ckanext_pages_update') %}
+      {% link_for _('Edit'), controller='ckanext.pages.controller:PagesController', action='blog_edit', page='/' + c.page.name, class_='btn btn-primary pull-right', icon='edit' %}
+    {% endif %}
+    <h1 class="page-heading">{{ h.getLangLabel(c.page.ename, c.page.cname) }}</h1>
+      {% if c.page.publish_date %}
+         <span class="muted date"> {{ h.render_datetime(c.page.publish_date) }} </span>
+      {% endif %}
+    {% if c.page.content %}
+      {% set editor = h.get_wysiwyg_editor() %}
+      {% if editor %}
+        <div>
+            {{c.page.content|safe}}
+        </div>
+      {% else %}
+        {{ h.render_content(h.getLangLabel(c.page.econtent, c.page.content)) }}
+      {% endif %}
+    {% else %}
+      <p class="empty">{{ _('This page currently has no content') }}</p>
+    {% endif %}
+  </section>
+{% endblock %}
+
+{% block secondary_content %}
+{% set posts = h.get_recent_blog_posts(number=5, exclude=c.page.name) %}
+
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      {# customized #}
+      {{ h.getLangLabel("history","歷史訊息") }}
+    </h2>
+    <div class="module-content">
+        {% for post in posts %}
+            <div class="blog-title">
+                <h3 class="dataset-heading">
+                    <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + post.name) }}">{{ h.getLangLabel(post.ename, post.cname) }}</a>
+                    <br>
+                    {% if post.publish_date %}
+                        <small> {{ h.render_datetime(post.publish_date) }} </small>
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="blog-content">
+                {{ h.markdown_extract(h.getLangLabel(post.econtent,post.content)) }}
+                {% if post.publish_date %}
+                   <br>
+                   <a class="btn btn-small btn-primary more" href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + post.name) }}">{{ _('More') }}</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+
+{% resource 'ckanext-pages/blog' %}
+{% endblock %}
+```
+
 * 移除 sql 中 drop database 指令，重新安裝並重啟服務
 
 ```bash
