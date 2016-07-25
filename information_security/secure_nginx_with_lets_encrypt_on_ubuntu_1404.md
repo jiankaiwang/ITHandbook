@@ -9,7 +9,10 @@
 * own or control the registered domain name
 * (lowest) A Record points your domain to the public IP address of the server
 
-###
+### Step.1 : install Let's Encrypt Client
+---
+
+
 
 
 
