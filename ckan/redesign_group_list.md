@@ -14,6 +14,11 @@
     |- snippets/
       |- featured_group.html       # entry point, 呼叫 snippet/group_item.html
   |- snippet/group_item.html       # 主要顯示頁面
+  
+/usr/lib/ckan/default/src/ckan/ckan/templates
+  |- group/
+    |- snippets/
+      |- group_item.html           # group 網頁底下的顯示畫面
 ```
 
 * 修改 layout1.html 如下
