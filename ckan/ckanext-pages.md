@@ -165,13 +165,26 @@ def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
     
     ...
 
-    if p.toolkit.request.method == 'POST' and not data:
-        data = p.toolkit.request.POST
-        # customized
-        items = ['title', 'ename', 'cname', 'name', 'content', 'econtent', 'private']
-        # update config from form
-        for item in items:
-            if item in data:
+        if p.toolkit.request.method == 'POST' and not data:
+            data = p.toolkit.request.POST
+            # customized
+            items = ['title', 'ename', 'cname', 'name', 'content', 'econtent', 'private']
+            # update config from form
+            for item in items:
+                if item in data:
+                    _page[item] = data[item]
+            _page['org_id'] = p.toolkit.c.group_dict['id'],
+            _page['page'] = page
+            try:
+                junk = p.toolkit.get_action('ckanext_pages_update')(
+                    data_dict=_page
+                )
+            except p.toolkit.ValidationError, e:
+                errors = e.error_dict
+                error_summary = e.error_summary
+                return self.org_edit(id, '/' + page, data,
+                                 errors, error_summary)
+            p.toolkit.redirect_to(p.toolkit.url_for('organization_pages', id=id, page='/' + _page['name']))
     ...
 ```
 
