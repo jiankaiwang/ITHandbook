@@ -45,6 +45,7 @@
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
+       * CKAN on SSL
    * [問題排除](ckan/trouble_shooting.md)
 * [Drupal](drupal/drupal.md)
    * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
