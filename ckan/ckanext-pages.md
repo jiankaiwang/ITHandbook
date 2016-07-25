@@ -253,11 +253,11 @@ def build_pages_nav_main(*args):
   
     for page in pages_list:
         if page['page_type'] == 'blog':
-            # cdc
+            # customized
             link = h.link_to( h.getLangLabel(page['ename'], page['cname']),
                              h.url_for('/blog/' + str( page['name'] )))
         else:
-            # cdc
+            # customized
             link = h.link_to( h.getLangLabel(page['ename'], page['cname']),
                              h.url_for('/pages/' + str( page['name'] )))
 
