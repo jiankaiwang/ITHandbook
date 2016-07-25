@@ -400,6 +400,7 @@ vim /etc/ckan/default/production.ini
 scheming_datasets scheming_groups scheming_organizations
 
 # 加入組態設定
+# add ckanext-scheming settings
 scheming.dataset_schemas = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/customized_schema.json
 scheming.presets = ckanext.scheming:/usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/ckanext/scheming/presets.json
 scheming.dataset_fallback = false
