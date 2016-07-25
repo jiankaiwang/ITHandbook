@@ -136,6 +136,47 @@
 * 修改 ** group_item.html ** 如下
 
 ```html
+{% set type = group.type or 'group' %}
+{% set group = group %}
+{% set url = h.url_for(type ~ '_read', action='read', id=group.name) %}
 
+{% block item %}
+<li class="media-item">
+  {% block item_inner %}
+
+  {# customized : original is group.image_display_url, use plugins is group.url #}
+  {% block image %}
+    <img src="{{ group.url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" class="media-image">
+  {% endblock %}
+  {% block title %}
+    <h3 class="media-heading">{{ group.title }}</h3>
+  {% endblock %}
+
+  {% block description %}
+    {% if group.notes %}
+      <p>{{ h.markdown_extract(group.notes, extract_length=40) }}</p>
+    {% endif %}
+  {% endblock %}
+  {% block datasets %}
+    {% if group.packages %}
+      <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', group.packages).format(num=group.packages) }}</strong>
+    {% elif group.packages == 0 %}
+      <span class="count">{{ _('0 Datasets') }}</span>
+    {% endif %}
+  {% endblock %}
+  {% block link %}
+  <a href="{{ url }}" title="{{ _('View {name}').format(name=group.display_name) }}" class="media-view">
+    <span>{{ _('View {name}').format(name=group.display_name) }}</span>
+  </a>
+  {% endblock %}
+  {% if group.user_member %}
+    <input name="group_remove.{{ group.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this group') }}"/>
+  {% endif %}
+  {% endblock %}
+</li>
+{% endblock %}
+{% if position is divisibleby 3 %}
+  <li class="clearfix js-hide"></li>
+{% endif %}
 ```
 
