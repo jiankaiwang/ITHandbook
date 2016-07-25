@@ -78,10 +78,11 @@ $ sudo service nginx reload
 ./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d www.example.com
 ```
 
-* the following is the example
+* the following is the example using abc.cloudapp.net
 
 ```
-
+cd /opt/letsencrypt
+./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d abc.cloudapp.net
 ```
 
 
