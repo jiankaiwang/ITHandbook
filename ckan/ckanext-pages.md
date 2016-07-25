@@ -575,7 +575,20 @@ sudo restart ckan
 {% endif %}
 ```
 
-* 重新安裝並重啟服務
+* 移除 sql 中 drop database 指令，重新安裝並重啟服務
+
+```bash
+# 編輯 db.py 
+cd /usr/lib/ckan/default/src/ckanext-pages/
+vim ./ckanext/pages/db.py
+
+# 將 drop database 指令去除 ** DROP TABLE ckanext_pages; ** 如下
+sql = '''
+                CREATE TABLE ckanext_pages (
+                    id text NOT NULL,
+                    title text,
+       ...
+```
 
 ```bash
 # 透過 setup.py 安裝
