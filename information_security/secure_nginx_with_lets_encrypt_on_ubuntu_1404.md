@@ -93,7 +93,9 @@ Let's encrypt takes E-mail as a part of Certificate
 
 ![](../images/letsencrypt-bindemail.png)
 
+Also, the term of service is the following :
 
+![](../images/letsencrypt_acme.png)
 
 * after Let's encrypt initialization
 
