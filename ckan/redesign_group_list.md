@@ -19,8 +19,7 @@
     |- snippets/
       |- group_list.html           # group 網頁底下的顯示畫面，呼叫 group_item.html
       |- group_item.html           # group 顯示畫面內容
-      |- info.html
-      |- feeds.html
+      |- info.html                 # 各 group 的頁面內容
     |- read_base.html              # group 頁面內容框架, 呼叫 info.html 與 feeds.html
     
 ```
@@ -172,4 +171,21 @@
   <li class="clearfix js-hide"></li>
 {% endif %}
 ```
+
+### 修改各 group 頁面的內容
+---
+
+* 修改 info.html 內容如下
+
+```html
+      </div>
+      {% endblock %}
+    {% endif %}
+    {% endblock %}
+  </section>
+</div>
+{% endblock %}
+```
+
+
 
