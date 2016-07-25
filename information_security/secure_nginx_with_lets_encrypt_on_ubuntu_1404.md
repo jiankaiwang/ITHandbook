@@ -134,6 +134,9 @@ privkey.pem -> ../../archive/cdcopendatatest.no-ip.biz/privkey1.pem
 $ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 ```
 
+### Step.3 : Configure TLS/SSL on Web Server (Nginx)
+---
+
 
 
 
