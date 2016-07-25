@@ -149,13 +149,17 @@
       <p>{{ h.markdown_extract(group.notes, extract_length=40) }}</p>
     {% endif %}
   {% endblock %}
+  
+  {# customized : show the count of datasets #}
   {% block datasets %}
     {% if group.packages %}
-      <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', group.packages).format(num=group.packages) }}</strong>
+      {# customzied : get total dataset count in the current group #}
+      <strong class="count">{{ _('{num} Datasets').format(num=h.getLen(group.packages)) }}</strong>
     {% elif group.packages == 0 %}
       <span class="count">{{ _('0 Datasets') }}</span>
     {% endif %}
   {% endblock %}
+  
   {% block link %}
   <a href="{{ url }}" title="{{ _('View {name}').format(name=group.display_name) }}" class="media-view">
     <span>{{ _('View {name}').format(name=group.display_name) }}</span>
