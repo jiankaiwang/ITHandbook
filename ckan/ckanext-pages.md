@@ -588,7 +588,7 @@ sudo restart ckan
         {% block breadcrumb %}
             <ol class="breadcrumb">
                 {% snippet 'snippets/home_breadcrumb_item.html' %}
-                <li class="active">{% link_for c.page.title|truncate(35), controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + c.page.name %}</li>
+                <li class="active">{% link_for h.getLangLabel(c.page.ename,c.page.cname)|truncate(35), controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + c.page.name %}</li>
             </ol>
         {% endblock %}
         </div>
