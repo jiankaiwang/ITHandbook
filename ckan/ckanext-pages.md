@@ -175,8 +175,8 @@ def org_edit(self, id, page=None, data=None, errors=None, error_summary=None):
 ```
 
 * 修改 db.py 內容如下
-  1. 若有新增，則要加上 DROP TABLE ckanext_pages;
-  2. 若無新增，則再將 DROP TABLE ckanext_pages; 移除
+  1. 重新安裝時，若有新增欄位，則要加上 DROP TABLE ckanext_pages;
+  2. 重新安裝時，若無新增欄位，則再將 DROP TABLE ckanext_pages; 移除
 
 ```python
 def init_db(model):
