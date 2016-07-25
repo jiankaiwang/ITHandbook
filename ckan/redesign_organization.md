@@ -11,6 +11,8 @@
     |- snippets/
       |- organization_list.html  # main entry to call organization_item.html
       |- organization_item.html  # 顯示 organization 清單
+      |- info.html               # 各 organization 頁面內容框架 
+    |- read_base.html            # organization 頁面框架，呼叫 info.html
 ```
 
 ### 修改組織頁面下清單
@@ -76,3 +78,10 @@
   <li class="clearfix js-hide"></li>
 {% endif %}
 ```
+
+### 修改各 organization 頁面的內容
+---
+
+
+
+
