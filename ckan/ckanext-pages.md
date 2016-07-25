@@ -127,7 +127,7 @@ def _pages_list(context, data_dict):
 
 def _pages_update(context, data_dict):
   ...
-  items = ['title', 'ename', 'cname', 'content', 'econtent', 'name', 'private',
+    items = ['title', 'ename', 'cname', 'content', 'econtent', 'name', 'private',
              'order', 'page_type', 'publish_date']
   ...
 ```
