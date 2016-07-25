@@ -128,6 +128,12 @@ privkey.pem -> ../../archive/cdcopendatatest.no-ip.biz/privkey1.pem
 
 * In most conditions, you will configure your server to use ** fullchain.pem ** as the certificate file, and ** privkey.pem ** as the certificate key file.
 
+* Generate Strong Diffie-Hellman Group (2048-bit)
+
+```
+$ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+```
+
 
 
 
