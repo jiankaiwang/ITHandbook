@@ -12,7 +12,15 @@
 ### Step.1 : install Let's Encrypt Client
 ---
 
+* install Git and bc
 
+```bash
+# update the server's package
+$ sudo apt-get update
+
+# install necessary git and bc packages
+$ sudo apt-get -y install git bc
+```
 
 
 
