@@ -99,7 +99,8 @@ schema = {
 
 def _pages_list(context, data_dict):
   ...
-  # customized
+  
+    # customized
     for pg in out:
         parser = HTMLFirstImage()
         parser.feed(pg.content)
