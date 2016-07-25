@@ -197,11 +197,11 @@ def init_db(model):
 
   ...
 
-  # We will just try to create the table.  If it already exists we get an
-  # error but we can just skip it and carry on.
-  
-  # customized
-  sql = '''
+    # We will just try to create the table.  If it already exists we get an
+    # error but we can just skip it and carry on.
+		
+	# customized
+    sql = '''
                 CREATE TABLE ckanext_pages (
                     id text NOT NULL,
                     title text,
