@@ -6,7 +6,11 @@
 ---
 
 ```bash
-
+/usr/lib/ckan/default/src/ckan/ckan/templates
+  |- organization/
+    |- snippets/
+      |- organization_list.html  # main entry to call organization_item.html
+      |- organization_item.html  # 顯示 organization 清單
 ```
 
 ### 修改組織頁面下清單
