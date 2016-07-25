@@ -22,7 +22,7 @@ $ sudo apt-get update
 $ sudo apt-get -y install git bc
 ```
 
-* install ** letsencrypt ** from github
+* install ** letsencrypt ** from github to local /opt/letsencrypt
 
 ```bash
 $ sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
