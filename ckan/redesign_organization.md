@@ -11,8 +11,9 @@
     |- snippets/
       |- organization_list.html  # main entry to call organization_item.html
       |- organization_item.html  # 顯示 organization 清單
-      |- info.html               # 各 organization 頁面內容框架 
-    |- read_base.html            # organization 頁面框架，呼叫 info.html
+    |- read_base.html            # organization 頁面框架，呼叫 feeds.html 與 organization.html
+  |- snippets/
+    |- organization.html         # 各 organization 主要顯示框架
 ```
 
 ### 修改組織頁面下清單
