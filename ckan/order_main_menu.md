@@ -15,6 +15,7 @@
 * 修改內容如下
 
 ```bash
+...
 <header class="navbar navbar-static-top masthead">
   {% block header_debug %}
     {% if g.debug and not g.debug_supress_header %}
@@ -109,4 +110,5 @@
     </div>
   </div>
 </header>
+...
 ```
