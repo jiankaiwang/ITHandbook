@@ -191,6 +191,12 @@ server {
 $ sudo service nginx reload
 ```
 
+* Also, you can use third-party online software to check TLS/SSL certificate
+
+```bash
+https://www.ssllabs.com/ssltest/analyze.html?d=example.no-ip.biz
+```
+
 
 
 
