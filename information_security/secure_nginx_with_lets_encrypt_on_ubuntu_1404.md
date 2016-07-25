@@ -232,6 +232,12 @@ $ sudo vim /etc/crontab
 35 2 * * 1 root /etc/init.d/nginx reload
 ```
 
+### Step.5 Update the Let's Encrypt Client
+---
 
+```bash
+$ cd /opt/letsencrypt
+$ sudo git pull
+```
 
 
