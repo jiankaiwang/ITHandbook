@@ -18,7 +18,7 @@
    * [佈署](ckan/deployment.md)
        * [helper.py 設定](ckan/helper_py.md)
        * [Change Language Selector](ckan/change_language_selector.md)
-       * 開啟熱門排序
+       * [開啟熱門排序](ckan/popular_sorting.md)
    * [擴充](ckan/plugins.md)
        * [DataStore](ckan/datastore.md)
        * [DataPusher](ckan/datapusher.md)
