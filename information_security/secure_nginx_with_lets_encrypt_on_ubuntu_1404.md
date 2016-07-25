@@ -57,9 +57,26 @@ location ~ /.well-known {
 /usr/share/nginx/html
 ```
 
+* Reload Nginx Service
 
+```bash
+$ sudo service nginx reload
+```
 
+* Create a SSL Certificate
+  * specify our domain name with **-d** option
+  * if you want a single cert to work with multiple domain names (e.g. example.com or www.example.com, etc.), be sure to include all of them.
 
+```
+# the exmaple command is 
+./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d www.example.com
+```
+
+* the following is the example
+
+```
+
+```
 
 
 
