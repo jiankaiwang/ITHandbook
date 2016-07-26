@@ -41,7 +41,7 @@ server {
     listen 80;
     listen 443;
 
-    server_name cdcopendatatest.no-ip.biz;
+    server_name example.no-ip.biz;
 
     client_max_body_size 1000M;
     access_log /var/log/nginx/ckan_access.log;
@@ -49,8 +49,8 @@ server {
     charset utf8;
 
     ssl on;
-    ssl_certificate /etc/letsencrypt/live/cdcopendatatest.no-ip.biz/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/cdcopendatatest.no-ip.biz/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/example.no-ip.biz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.no-ip.biz/privkey.pem;
 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
@@ -80,12 +80,12 @@ server {
 ```bash
 
 ...
-ckan.site_url = https://cdcopendatatest.no-ip.biz/
+ckan.site_url = https://example.no-ip.biz/
 ...
 
 ...
 # 需要注意 solr 並不支援 https, 需用 http protocol
-solr_url = http://cdcopendatatest.no-ip.biz:8983/solr/ckan
+solr_url = http://example.no-ip.biz:8983/solr/ckan
 ...
 
 ```
