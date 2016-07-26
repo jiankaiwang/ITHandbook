@@ -89,4 +89,3 @@ solr_url = http://cdcopendatatest.no-ip.biz:8983/solr/ckan
 ...
 
 ```
-
