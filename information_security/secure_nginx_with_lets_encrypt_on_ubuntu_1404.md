@@ -9,14 +9,34 @@
 * own or control the registered domain name
 * (lowest) A Record points your domain to the public IP address of the server
 
+### Step.0 : install 
+---
+
+* install necessary python packages
+
+```
+# install packages
+$ pip install pyopenssl ndg-httpsclient pyasn1
+
+# upgrade packages
+$ pip install pyopenssl ndg-httpsclient pyasn1 --upgrade
+```
+
+| Note |
+| -- |
+| if warning messages are "snimissingwarning or insecureplatformwarning" on the process of obtaining the certificate, it would need the above install |
+
 ### Step.1 : install Let's Encrypt Client
 ---
 
 * install Git and bc
 
 ```bash
-# update the server's package
+# get latest package information
 $ sudo apt-get update
+
+# update the server's package
+$ sudo apt-get -s upgrade
 
 # install necessary git and bc packages
 $ sudo apt-get -y install git bc
