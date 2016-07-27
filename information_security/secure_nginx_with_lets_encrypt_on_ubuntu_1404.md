@@ -94,8 +94,10 @@ $ sudo service nginx reload
   * if you want a single cert to work with multiple domain names (e.g. example.com or www.example.com, etc.), be sure to include all of them.
 
 ```
-# the exmaple command is 
-./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d www.example.com
+# the exmaple command is the following
+# notice --webroot-path is the path for saving .well-known/acme-challenge information
+# also, the path is also for auto-renewal
+./letsencrypt-auto certonly -a webroot --webroot-path=<file_path> -d example.com -d www.example.com
 ```
 
 * the following is the example using example.no-ip.biz
