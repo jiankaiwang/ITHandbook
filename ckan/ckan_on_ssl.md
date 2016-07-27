@@ -8,11 +8,11 @@
 ```Bash
 server {
 
-        # 
+        # port 80 is also activated
         listen 80 default_server;
         listen [::]:80 default_server ipv6only=on;
 
-        # use ssl
+        # port 443 to use ssl protocol
         listen 443 ssl;
 
         root /usr/share/nginx/html;
@@ -35,6 +35,8 @@ server {
 
 ### 修改 nginx 服務中 ckan 的組態
 ---
+
+* 主要針對 ckan 設定 nginx 服務轉 port
 
 ```bash
 proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
