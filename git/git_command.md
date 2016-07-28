@@ -39,6 +39,10 @@ git config <--system|--global|--local> alias.<self_defined_command> <git_origina
 # 指定特定層級預設文字編輯器
 # editor_app_name : 編輯器名稱如 "\"C:\Program Files (x86)\Notepad++\notepad++.exe\"" (notepad++)
 git config <--system|--global|--local> core.editor <editor_app_name>
+
+# 設定歷史紀錄的過期時間
+# 預設 90 天，commit 不在分支線上則僅有 30 天
+git config <--system|--global|--local> <gc.reflogExpire|gc.reflogExpireUnreachable> <"90 days"|"never">
 ```
 
 * git 儲存庫創立
