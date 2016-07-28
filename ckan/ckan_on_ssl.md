@@ -49,9 +49,13 @@ server {
 proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
 
 server {
-    # it can not force to redirect prot 80 to 443
-    # solr service must run on ssl protocol
     listen 80;
+    server_name example.no-ip.biz;
+    return 301 https://$host$request_uri;
+}
+
+server {
+
     listen 443;
 
     # cakn server url
