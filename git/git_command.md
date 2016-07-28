@@ -181,7 +181,7 @@ git mv <oriFileName> <modifiedFileName>
 # -g : 顯示每一個 reflog 版本中完整的 commit 內容
 git log [-n <number>] [--pretty=oneline] [--abbrev-commit] [-g]
 
-# 查詢版本紀錄變化歷程 (自最新開始回推)
+# 查詢版本紀錄變化歷程 (自最新開始回推)，不會上傳至遠端儲存庫
 # 查詢特定版本或分支的歷史變化紀錄，如 HEAD|master|<branch name> 等
 # delete : 刪除特定歷史紀錄
 git reflog [delete] [HEAD|master|<branch name>]
