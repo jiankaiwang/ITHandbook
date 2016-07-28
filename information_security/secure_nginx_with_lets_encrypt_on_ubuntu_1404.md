@@ -234,14 +234,14 @@ $ /opt/letsencrypt/letsencrypt-auto renew
 | -- |
 | If renew the server certificate with multiple domain names, only the base domain would be renewal. |
 
-* Use ** crontab ** to schedule the renewal process
+* Use ** crontab ** to schedule the renewal process per two months
 
 ```bash
 $ sudo crontab -e
 
 # crontab entry
-30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
-35 2 * * 1 /etc/init.d/nginx reload
+0 0     1 */2 * /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
+0 0     1 */2 */etc/init.d/nginx reload
 ```
 
 or the following method
@@ -250,8 +250,8 @@ or the following method
 $ sudo vim /etc/crontab
 
 # crontab entry
-30 2 * * 1 root /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
-35 2 * * 1 root /etc/init.d/nginx reload
+0 0     1 */2 *   root    /opt/letsencrypt/letsencrypt-auto renew >> /var/log/lerenew.log
+0 0     1 */2 *   root    /etc/init.d/nginx reload
 ```
 
 ### Step.5 Update the Let's Encrypt Client
