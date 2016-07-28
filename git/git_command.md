@@ -182,8 +182,9 @@ git mv <oriFileName> <modifiedFileName>
 git log [-n <number>] [--pretty=oneline] [--abbrev-commit] [-g]
 
 # 查詢版本紀錄變化歷程 (自最新開始回推)
-# 查詢特定版本或分支的歷史變化紀錄，如
-git reflog [HEAD|master|<branch name>]
+# 查詢特定版本或分支的歷史變化紀錄，如 HEAD|master|<branch name> 等
+# delete : 刪除特定歷史紀錄
+git reflog [delete] [HEAD|master|<branch name>]
 
 # 建立暫存版本
 # 將所有已列入追蹤 (tracked) 的檔案建立暫存版
