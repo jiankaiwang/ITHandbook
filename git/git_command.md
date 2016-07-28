@@ -188,7 +188,11 @@ git log [-n <number>] [--pretty=oneline] [--abbrev-commit] [-g]
 # 查詢版本紀錄變化歷程 (自最新開始回推)，不會上傳至遠端儲存庫
 # 查詢特定版本或分支的歷史變化紀錄，如 HEAD|master|<branch name> 等
 # delete : 刪除特定歷史紀錄
+# expire : 刪除歷史紀錄
+# --expire : 設定時間或日期
+# --all : 要刪除的對象
 git reflog [delete] [HEAD|master|<branch name>]
+git reflog [expire] [--expire=now] [--all]
 
 # 建立暫存版本
 # 將所有已列入追蹤 (tracked) 的檔案建立暫存版
