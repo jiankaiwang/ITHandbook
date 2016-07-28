@@ -185,7 +185,7 @@ git mv <oriFileName> <modifiedFileName>
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
 
-# 查詢歷史版本紀錄變化
+# 查詢歷史版本紀錄變化 (自最新開始回推)
 git reflog
 
 # 建立暫存版本
@@ -214,7 +214,8 @@ git commit -m "message"
 
 # 重設儲存庫索引狀態
 # --hard : 並還原整個儲存庫
-git reset [--hard]
+# "<reflog tag>" : 參考紀錄標籤 (reflog)，如 "HEAD@{0}" 等
+git reset ["<reflog tag>"] [--hard]
 ```
 
 ###分支
