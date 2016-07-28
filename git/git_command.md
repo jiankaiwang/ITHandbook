@@ -104,11 +104,6 @@ git show <branch|hash code>
 git diff [commit|--cached commit]
 git diff <commit1> <commit2>
 
-# 還原一個檔案
-# branch : 自主/分支名稱
-# filename : 檔案名稱
-git checkout <branch> <filename>
-
 # 加入遠端變數
 # variable : 變數名稱
 # value : 値
@@ -225,6 +220,11 @@ git reset ["<reflog tag>"] [--hard]
 # 查詢目前分支，顯示出「參照名稱」(refs) 及目前主要分支為何 (前有 * 號)
 # 皆位於 .git\refs\heads
 git branch
+
+# 轉換主/分支
+# branch : 自主/分支名稱
+# filename : 檔案名稱，並還原一個檔案
+git checkout <branch> [<filename>]
 ```
 
 
