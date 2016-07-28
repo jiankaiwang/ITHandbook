@@ -178,10 +178,12 @@ git mv <oriFileName> <modifiedFileName>
 # -n <number> : 顯示近幾筆的歷史資料
 # --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
-git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
+# -g : 顯示每一個 reflog 版本中完整的 commit 內容
+git log [-n <number>] [--pretty=oneline] [--abbrev-commit] [-g]
 
 # 查詢歷史版本紀錄變化 (自最新開始回推)
-git reflog
+# 查詢特定版本或分支的歷史變化紀錄，如
+git reflog [HEAD|master|<branch name>]
 
 # 建立暫存版本
 # 將所有已列入追蹤 (tracked) 的檔案建立暫存版
