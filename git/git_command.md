@@ -185,6 +185,9 @@ git mv <oriFileName> <modifiedFileName>
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 git log [-n <number>] [--pretty=oneline] [--abbrev-commit]
 
+# 查詢歷史版本紀錄變化
+git reflog
+
 # 建立暫存版本
 # 將所有已列入追蹤 (tracked) 的檔案建立暫存版
 # -u : 包括所有已追蹤或未追蹤的檔案，皆建立暫存版
