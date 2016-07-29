@@ -9,7 +9,7 @@
 
 ```bash
 # 放置 GA 的位置
-$ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/google-analytics.js
+$ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/google-analytics.js
 ```
 
 ```javascript
