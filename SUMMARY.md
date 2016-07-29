@@ -46,7 +46,7 @@
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
        * [CKAN on SSL](ckan/ckan_on_ssl.md)
-       * 加入 Google Analytics
+       * [加入 Google Analytics](ckan/add_google_analytics.md)
    * [問題排除](ckan/trouble_shooting.md)
 * [Drupal](drupal/drupal.md)
    * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
