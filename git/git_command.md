@@ -235,8 +235,11 @@ git branch
 # 轉換主/分支
 # branch : 自主/分支名稱
 # filename : 檔案名稱，並還原一個檔案
-# -b : 切換至某一個分支，若無分支，則創建一個
 git checkout <branch> [<filename>]
+
+# 創建分支
+# -b : 切換至某一個分支，若無分支，則創建一個
+# branch name : 分支名稱
 git checkout -b <branch name>
 
 # 分支合併
