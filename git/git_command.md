@@ -242,8 +242,8 @@ git checkout <branch> [<filename>]
 # branch name : 分支名稱
 git checkout -b <branch name>
 
-# 分支合併
-git merge
+# 將分支 branch name 合併入現在分支中
+git merge <branch name>
 
 # 分支合併
 git branch
