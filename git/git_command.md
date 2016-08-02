@@ -230,7 +230,9 @@ git reset ["<reflog tag>"] [--hard]
 ```Bash
 # 查詢目前分支，顯示出「參照名稱」(refs) 及目前主要分支為何 (前有 * 號)
 # 皆位於 .git\refs\heads
-git branch
+# -d : 刪除分支
+# branch name : 分支名稱
+git branch [-d <branch name>]
 
 # 轉換主/分支
 # branch : 自主/分支名稱
@@ -246,7 +248,7 @@ git checkout -b <branch name>
 git merge <branch name>
 
 # 分支合併
-git branch
+git pull
 ```
 
 
