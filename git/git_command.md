@@ -69,7 +69,7 @@ git init [--bare]
 # 列出檔案完整清單(包含路徑)，僅列出已儲存在索引中
 git ls-files
 
-# 儲存庫狀態
+# 儲存庫狀態，包含合併衝突等狀況
 # -s : 精簡版呈現
 git status [-s]
 
@@ -236,6 +236,12 @@ git branch
 # branch : 自主/分支名稱
 # filename : 檔案名稱，並還原一個檔案
 git checkout <branch> [<filename>]
+
+# 分支合併
+git merge
+
+# 分支合併
+git branch
 ```
 
 
