@@ -17,12 +17,29 @@
     * 以地圖檢視 WMTS 服務圖層。支援 wmts 格式名稱定義。
     * 欲使用此功能，請在 ckan.plugins 加入 resource_proxy 與 wmts_view (2.2 含以下版本則為 wmts_preview)。
 
-###安裝
+### 安裝
 ---
-自 github ckeckout source 並安裝：
+
+* 自 github ckeckout source 並安裝：
+
 ```Bash
 $ cd /usr/lib/ckan/default/src
 $ git clone https://github.com/ckan/ckanext-geoview.git
 $ cd ckanext-geoview
 (pyenv) $ pip install -e .
 ```
+
+### 組態設定
+---
+
+* 因此 plugin 預設使用 MapQuest-OSM 作為底圖，並不需要 API Key 作為讀取底圖的內容，但此政策已經被修改，因此自 2016/7/11 起，已不在支援無 key 的底圖讀取。
+
+* 建議改用 Mapbox 作為底圖，可以透過修改 production.ini 來達成
+
+```bash
+
+```
+
+
+
+
