@@ -67,7 +67,8 @@ git init [--bare]
 
 ```Bash
 # 列出檔案完整清單(包含路徑)，僅列出已儲存在索引中
-git ls-files
+# -u : 列出合併版本衝突的 hash object
+git ls-files [-u]
 
 # 儲存庫狀態，包含合併衝突等狀況
 # -s : 精簡版呈現
