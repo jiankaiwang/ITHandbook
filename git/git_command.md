@@ -234,6 +234,10 @@ git reset ["<reflog tag>"] [--hard]
 # branch name : 分支名稱
 git branch [-d <branch name>]
 
+# 救回被誤刪的分支
+# obj id : object SHA1
+git branch [<branch name> <obj id>]
+
 # 轉換主/分支
 # branch : 自主/分支名稱
 # filename : 檔案名稱，並還原一個檔案
@@ -247,7 +251,7 @@ git checkout -b <branch name>
 # 將分支 branch name 合併入現在分支中
 git merge <branch name>
 
-# 分支合併
+# 分支直接合併入現在儲存庫，完全覆蓋
 git pull
 ```
 
