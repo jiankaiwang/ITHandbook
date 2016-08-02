@@ -238,7 +238,7 @@ git branch
 git checkout <branch> [<filename>]
 
 # 創建分支
-# -b : 切換至某一個分支，若無分支，則創建一個
+# -b : 創建並切換至某一個分支，若此分支已存在，則出現錯誤
 # branch name : 分支名稱
 git checkout -b <branch name>
 
