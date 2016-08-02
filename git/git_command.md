@@ -222,7 +222,8 @@ git commit -m "message"
 # 重設儲存庫索引狀態
 # --hard : 並還原整個儲存庫
 # "<reflog tag>" : 參考紀錄標籤 (reflog)，如 "HEAD@{0}" 等
-git reset ["<reflog tag>"] [--hard]
+# ORIG_HEAD : 固定字，指回到上一個版本
+git reset [--hard] ["<reflog tag>"|"ORIG_HEAD"] 
 ```
 
 ###分支
