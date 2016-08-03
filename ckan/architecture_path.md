@@ -76,6 +76,9 @@ paster serve /etc/ckan/default/development.ini
               |- public/
                 |- js/
                   |- ol2_preview.js         # 主要修改呈現地圖的 js 檔案
+                  |- vendor/
+                    |- ol-helpers/
+                      |- ol-helpers.js      # add layers
       |- ckanext-pages/
         |- ckanext/pages/
           |- actions.py                     # schema, __page_list, _page_update
