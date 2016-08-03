@@ -122,7 +122,7 @@ git remote add origin git@github.com:xxx/yyy.git
 git push -u origin <branch>
 ```
 
-###儲存庫管理
+###儲存庫管理與提交
 ---
 
 ```Bash
