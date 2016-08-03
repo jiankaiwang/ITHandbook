@@ -36,6 +36,8 @@ $ cd ckanext-geoview
 
 * 建議改用 Mapbox 作為底圖，可以透過修改 production.ini 來達成
 
+* **底下使用 ckanext-geoview 的 OpenLayers Viewer 功能**
+
 ```bash
 # 於 ckan plugin 中加入 resource_proxy geo_view
 ckan.plugins = resource_proxy geo_view
