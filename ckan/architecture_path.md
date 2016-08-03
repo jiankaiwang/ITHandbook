@@ -70,21 +70,22 @@ paster serve /etc/ckan/default/development.ini
           |- ckanext/scheming/
             |- customized_shema.json        # 新欄位設定檔案
             |- presets.json                 # 預定欄位設定檔
+        |- ckanext-geoview                  #
       |- ckanext-pages/
         |- ckanext/pages/
-          |- actions.py # schema, __page_list, _page_update
-          |- controller.py # org_edit, group_edit
-          |- db.py # init_db x 2 (sql 指令, 有新增要加上 DROP TABLE ckanext_pages; 無則刪除此行)
-          |- plugin.py (TextBoxView,, build_pages_nav_main x 2)  # 同時也是修改 page 與 blog 主選單
+          |- actions.py                     # schema, __page_list, _page_update
+          |- controller.py                  # org_edit, group_edit
+          |- db.py                          # init_db x 2 (sql 指令, 有新增要加上 DROP TABLE ckanext_pages; 無則刪除此行)
+          |- plugin.py                      # (TextBoxView, build_pages_nav_main x 2), 同時也是修改 page 與 blog 主選單
           |- theme/
             |- templates_main/
-              |- header.html	# 登入後的編輯窗格
+              |- header.html	            # 登入後的編輯窗格
               |- ckanext_pages/
-                |- page.html  # page 的網站地圖(注意 plugin 中的 after_map 定義), 主呈現頁面
-                |- blog.html  # blog 的網站地圖, 注意 plugin 中的 after_map 定義
-                |- blog.list  # blog 
+                |- page.html                # page 的網站地圖(注意 plugin 中的 after_map 定義), 主呈現頁面
+                |- blog.html                # blog 的網站地圖, 注意 plugin 中的 after_map 定義
+                |- blog.list                # blog 
                   |- snippets/pages_list.html # blog 與 pages 的列表
-                |- base_form.html  # 修改 page 或 blog 的編輯表格, 修改欄位
-        |- plugin.py                         # 修改主選單
+                |- base_form.html           # 修改 page 或 blog 的編輯表格, 修改欄位
+        |- plugin.py                        # 修改主選單
 ```
 
