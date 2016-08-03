@@ -37,7 +37,13 @@ $ cd ckanext-geoview
 * 建議改用 Mapbox 作為底圖，可以透過修改 production.ini 來達成
 
 ```bash
+# 於 ckan plugin 中加入 resource_proxy geo_view
+ckan.plugins = resource_proxy geo_view
 
+# 並於下方加入地圖組態
+ckanext.spatial.common_map.type = mapbox
+ckanext.spatial.common_map.mapbox.map_id = project-id
+ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 ```
 
 
