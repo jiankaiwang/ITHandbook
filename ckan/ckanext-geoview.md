@@ -53,6 +53,61 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 
 * 修改 ** geoview/public/js/ol2_preview.js ** 檔案
 
+* 修改 geojson 的 style
+
+```javascript
+
+    ...
+
+    OL_HELPERS.createGeoJSONLayer = function (url) {
+
+        var geojson = new OpenLayers.Layer.Vector(
+            "GeoJSON",
+            {
+                projection: EPSG4326,
+                strategies: [new OpenLayers.Strategy.Fixed()],
+                protocol: new OpenLayers.Protocol.HTTP({
+                    url: url,
+                    format: new OpenLayers.Format.GeoJSON()
+                }),
+                styleMap: new OpenLayers.StyleMap({'default':{
+                    /*
+                    * add text to layers
+                    strokeColor: "#00FF00",
+                    strokeOpacity: 1,
+                    strokeWidth: 1,
+                    fillColor: "#FF5500",
+                    fillOpacity: 0.5,
+                    label : "123",
+                    fontSize: "8px",
+                    fontFamily: "Courier New, monospace",
+                    labelXOffset: "0.5",
+                    labelYOffset: "0.5"
+                    */
+                    
+                    /*
+                    * add circle
+                    strokeColor: "rgba(100,100,100,1)",
+                    fillColor: "rgba(255,127,39,0.5)",
+                    strokeOpacity: 1,
+                    fillOpacity: 0.5,
+                    strokeWidth: 1,
+                    pointRadius: 5,
+                    graphicName: "circle"
+                    */
+                }})
+            }
+        );
+
+        //TODO add styles
+
+        return geojson
+    }
+    
+    ...
+    
+```
+
 
 
 
