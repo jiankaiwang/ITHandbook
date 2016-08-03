@@ -70,7 +70,12 @@ paster serve /etc/ckan/default/development.ini
           |- ckanext/scheming/
             |- customized_shema.json        # 新欄位設定檔案
             |- presets.json                 # 預定欄位設定檔
-        |- ckanext-geoview                  #
+        |- ckanext-geoview                  # geojson plugin 位置
+          |- ckanext/
+            |- geoview/
+              |- public/
+                |- js/
+                  |- ol2_preview.js         # 主要修改呈現地圖的 js 檔案
       |- ckanext-pages/
         |- ckanext/pages/
           |- actions.py                     # schema, __page_list, _page_update
