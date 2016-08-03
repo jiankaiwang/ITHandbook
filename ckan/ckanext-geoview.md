@@ -49,6 +49,15 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 ### 客製化地圖 : geo_view plugin
 ---
 
+* 修改 ** geoview/public/js/ol2_preview.js ** 檔案
+
+
+
+
+
+
+
+
 
 
 
