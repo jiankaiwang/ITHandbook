@@ -46,6 +46,9 @@ ckanext.spatial.common_map.mapbox.map_id = project-id
 ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 ```
 
+### 客製化地圖 : geo_view plugin
+---
+
 
 
 
