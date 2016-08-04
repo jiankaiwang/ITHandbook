@@ -53,7 +53,7 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 
 * 修改 ** geoview/public/js/ol2_preview.js ** 檔案
 
-* 修改 geojson 的 style
+* 修改 geojson 的 style 為 ** /js/vendor/ol-helpers/ol-helpers.js **
 
 ```javascript
 
