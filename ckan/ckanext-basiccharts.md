@@ -47,7 +47,7 @@ $ sudo restart ckan
 
 ```bash
 ckanext-basiccharts/ckanext/basiccharts/theme/public/
-  |- vendor/jquery.flot.js
+  |- vendor/jquery.flot.js                 # 主要設計各種圖表預設値
   |- vendor/jquery.flot.pie.js
   |- vendor/jquery.flot.time.js
   |- vendor/jquery.flot.categories.js
