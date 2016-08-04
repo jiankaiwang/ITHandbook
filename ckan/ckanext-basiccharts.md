@@ -60,6 +60,17 @@ ckanext-basiccharts/ckanext/basiccharts/theme/public/
   |- basiccharts.css
 ```
 
+* 修正 basiccharts 嵌入時發生 get() 未定義問題 (** basiccharts_view.js **)
+
+```javascript
+function setupFilters(defaultFilters) {
+  //var routeFilters = ckan.views.filters.get();
+  var routeFilters = {};
+
+  return $.extend({}, defaultFilters, routeFilters);
+}
+```
+
 * 修正內容
 
 ```javascript
