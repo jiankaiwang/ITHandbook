@@ -77,6 +77,38 @@ xaxis: {
     minTickSize: 1 // number or [number, "unit"], to make sure axis is integer, not float
 },
 
+series: {
+    points: {
+        show: false,
+        radius: 3,
+        lineWidth: 2, // in pixels
+        fill: true,
+        fillColor: "#ffffff",
+        symbol: "circle" // or callback
+    },
+    lines: {
+        // we don't put in show: false so we can see
+        // whether lines were actively disabled
+        lineWidth: 2, // in pixels
+        fill: false,
+        fillColor: null,
+        steps: false
+        // Omit 'zero', so we can later default its value to
+        // match that of the 'fill' option.
+    },
+    bars: {
+        show: false,
+        lineWidth: 0, // in pixels
+        barWidth: 0, // in units of the x axis
+        fill: true,
+        fillColor: "rgba(255,127,39,0.5)",
+        align: "left", // "left", "right", or "center"
+        horizontal: false,
+        zero: true
+    },
+    
+    ...
+},
 ...
 ```
 
