@@ -60,7 +60,18 @@ ckanext-basiccharts/ckanext/basiccharts/theme/public/
   |- basiccharts.css
 ```
 
+* 重新安裝並重新啟動
 
+```bash
+# 移動至 plugin 資料夾
+$ cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-basiccharts
+
+# 進行安裝
+$ python ./setup.py install
+
+# 重啟服務
+$ sudo restart ckan
+```
 
 
 
