@@ -65,6 +65,32 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
     |- js/ol2_preview.js                                # openlayers 主框架
 ```
 
+* 修改 mapbox 中 OSM 底圖樣式 : 修改 ** mapbox.outdoors ** 
+
+```javascript
+if (mapConfig.type == 'mapbox') {
+// MapBox base map
+if (!mapConfig['mapbox.map_id'] || !mapConfig['mapbox.access_token']) {
+  throw '[CKAN Map Widgets] You need to provide a map ID ([account].[handle]) and an access token when using a MapBox layer. ' +
+        'See http://www.mapbox.com/developers/api-overview/ for details';
+}
+
+// change mapbox map types
+urls = [
+'//a.tiles.mapbox.com/v4/mapbox.outdoors/${z}/${x}/${y}.png?access_token=' + mapConfig['mapbox.access_token'],
+'//b.tiles.mapbox.com/v4/mapbox.outdoors/${z}/${x}/${y}.png?access_token=' + mapConfig['mapbox.access_token'],
+'//c.tiles.mapbox.com/v4/mapbox.outdoors/${z}/${x}/${y}.png?access_token=' + mapConfig['mapbox.access_token'],
+'//d.tiles.mapbox.com/v4/mapbox.outdoors/${z}/${x}/${y}.png?access_token=' + mapConfig['mapbox.access_token'],
+];
+attribution = 'Mapbox &copy; OpenStreetMap';
+baseMapLayer = new OpenLayers.Layer.XYZ('MapBox', urls, {
+    sphericalMercator: true,
+    wrapDateLine: true,
+    attribution: attribution
+});
+} else if (mapConfig.type == 'custom') {
+```
+
 * 修改 geojson 的 style 為 ** /js/vendor/ol-helpers/ol-helpers.js **
 
 ```javascript
