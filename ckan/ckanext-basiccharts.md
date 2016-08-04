@@ -46,7 +46,18 @@ $ sudo restart ckan
 * 修改路徑如下
 
 ```bash
-
+ckanext-basiccharts/ckanext/basiccharts/theme/public/
+  |- vendor/jquery.flot.js
+  |- vendor/jquery.flot.pie.js
+  |- vendor/jquery.flot.time.js
+  |- vendor/jquery.flot.categories.js
+  |- vendor/jquery.flot.tooltip.js
+  |- vendor/jquery.flot.resize.js
+  |- vendor/queryStringToJSON.js
+  |- vendor/backend.ckan.js
+  |- basiccharts.js
+  |- basiccharts_view.js
+  |-basiccharts.css
 ```
 
 
