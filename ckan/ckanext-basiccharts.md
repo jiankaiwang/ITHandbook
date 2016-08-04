@@ -34,4 +34,8 @@ vim /etc/ckan/default/production.ini
 ckan.plugins = linechart barchart piechart basicgrid
 ```
 
+* 重新啟動服務即可
 
+```bash
+$ sudo restart ckan
+```
