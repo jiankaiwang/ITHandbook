@@ -59,7 +59,7 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
     |- css/ol_preview.css
     |- js/vendor/underscore/underscore.js
     |- js/vendor/openlayers2/OpenLayers.js
-    |- js/vendor/openlayers2/theme/default/style.css    # 定義地圖 css
+    |- js/vendor/openlayers2/theme/default/style.css    # 定義地圖 css, control sidebar (hidden)
     |- js/vendor/ol-helpers/EsriGeoJSON.js
     |- js/vendor/ol-helpers/ol-helpers.js               # 定義 node 樣式
     |- js/ol2_preview.js                                # openlayers 主框架
