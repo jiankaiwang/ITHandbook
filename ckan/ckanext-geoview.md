@@ -123,8 +123,7 @@ baseMapLayer = new OpenLayers.Layer.XYZ('MapBox', urls, {
                     labelYOffset: "0.5"
                     */
                     
-                    /*
-                    * add circle
+                    /* add circle */
                     strokeColor: "rgba(100,100,100,1)",
                     fillColor: "rgba(255,127,39,0.5)",
                     strokeOpacity: 1,
@@ -132,7 +131,6 @@ baseMapLayer = new OpenLayers.Layer.XYZ('MapBox', urls, {
                     strokeWidth: 1,
                     pointRadius: 5,
                     graphicName: "circle"
-                    */
                 }})
             }
         );
