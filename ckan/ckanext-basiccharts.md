@@ -10,7 +10,28 @@
 * 自 Github 上透過 https 進行安裝
 
 ```bash
+# 進入虛擬機
+. /usr/lib/ckan/default/bin/activate
 
+# 移動至 plugins 資料夾
+cd /usr/lib/ckan/default/src/ckan/ckanext
+
+# 下載 plugins
+git clone https://github.com/ckan/ckanext-basiccharts.git
+
+# 進行安裝
+cd ./ckanext-basiccharts
+python ./setup.py install
+```
+
+* 設定組態
+
+```bash
+# 正式機組態
+vim /etc/ckan/default/production.ini
+
+# 加入 plugins
+ckan.plugins = linechart barchart piechart basicgrid
 ```
 
 
