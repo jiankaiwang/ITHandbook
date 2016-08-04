@@ -60,6 +60,27 @@ ckanext-basiccharts/ckanext/basiccharts/theme/public/
   |- basiccharts.css
 ```
 
+* 修正內容
+
+```javascript
+...
+
+xaxis: {
+    
+    ...
+    
+    reserveSpace: null, // whether to reserve space even if axis isn't shown
+    tickLength: 0, // size in pixels of ticks, or "full" for whole line, no grid line
+    alignTicksWithAxis: null, // axis number or null for no sync
+    tickDecimals: 0, // no. of decimals, null means auto, to make sure no float number
+    tickSize: null, // number or [number, "unit"]
+    minTickSize: 1 // number or [number, "unit"], to make sure axis is integer, not float
+},
+
+...
+```
+
+
 * 重新安裝並重新啟動
 
 ```bash
