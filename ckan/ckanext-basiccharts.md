@@ -65,6 +65,8 @@ ckanext-basiccharts/ckanext/basiccharts/theme/public/
 ```javascript
 function setupFilters(defaultFilters) {
   //var routeFilters = ckan.views.filters.get();
+  
+  // not to get any filters in the beginning
   var routeFilters = {};
 
   return $.extend({}, defaultFilters, routeFilters);
