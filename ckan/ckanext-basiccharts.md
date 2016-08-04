@@ -57,7 +57,7 @@ ckanext-basiccharts/ckanext/basiccharts/theme/public/
   |- vendor/backend.ckan.js
   |- basiccharts.js
   |- basiccharts_view.js
-  |-basiccharts.css
+  |- basiccharts.css
 ```
 
 
