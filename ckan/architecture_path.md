@@ -75,6 +75,9 @@ paster serve /etc/ckan/default/development.ini
             |- basiccharts/
               |- basicgrid/
               |- theme/
+                |- public/
+                  |- resource.config        # 各功能引用 resource 的定義
+                |- templates/
         |- ckanext-geoview                  # geojson plugin 位置
           |- ckanext/
             |- geoview/
