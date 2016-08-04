@@ -51,7 +51,19 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
 ### 客製化地圖 : geo_view plugin
 ---
 
-* 修改 ** geoview/public/js/ol2_preview.js ** 檔案
+* 修改路徑，如下 (定義在 ** public/resource.config ** 中)
+
+```bash
+/usr/lib/ckan/default/src/ckan/ckanext/
+  |- ckanext-geoview/ckanext/geoview/public/
+    |- css/ol_preview.css
+    |- js/vendor/underscore/underscore.js
+    |- js/vendor/openlayers2/OpenLayers.js
+    |- js/vendor/openlayers2/theme/default/style.css    # 定義地圖 css
+    |- js/vendor/ol-helpers/EsriGeoJSON.js
+    |- js/vendor/ol-helpers/ol-helpers.js               # 定義 node 樣式
+    |- js/ol2_preview.js                                # openlayers 主框架
+```
 
 * 修改 geojson 的 style 為 ** /js/vendor/ol-helpers/ol-helpers.js **
 
