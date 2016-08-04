@@ -39,3 +39,28 @@ ckan.plugins = linechart barchart piechart basicgrid
 ```bash
 $ sudo restart ckan
 ```
+
+### 客製化此模組
+---
+
+* 修改路徑如下
+
+```bash
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
