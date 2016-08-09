@@ -128,6 +128,37 @@ series: {
 * 修正 piechart 內容 (更改 ** jquery.flot.pie.js ** 內容)
 
 ```javascript
+                // Count the number of slices with percentages below the combine
+                // threshold; if it turns out to be just one, we won't combine.
+
+                for (var i = 0; i < data.length; ++i) {
+                        var value = data[i].data[0][1];
+                        if (value / total <= options.series.pie.combine.threshold) {
+                                combined += value;
+                                numCombined++;
+                                if (!color) {
+                                        // color for combined categories
+                                        color = data[i].color;
+                                }
+                        }
+                }
+
+                for (var i = 0; i < data.length; ++i) {
+                        var value = data[i].data[0][1];
+                        if (numCombined < 2 || value / total > options.series.pie.combine.threshold) {
+                                newdata.push({
+                                        data: [[1, value]],
+                                        // color for each categories not in the combined
+                                        color: data[i].color,
+                                        label: data[i].label,
+                                        angle: value * Math.PI * 2 / total,
+                                        percent: value / (total / 100)
+                                });
+                        }
+                }
+
+                //...
+                
                 label: {
                         show: "auto",
                         formatter: function(label, slice) {
