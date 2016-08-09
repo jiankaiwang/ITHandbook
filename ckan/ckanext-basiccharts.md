@@ -48,7 +48,7 @@ $ sudo restart ckan
 ```bash
 ckanext-basiccharts/ckanext/basiccharts/theme/public/
   |- vendor/jquery.flot.js                 # 主要設計各種圖表預設値
-  |- vendor/jquery.flot.pie.js
+  |- vendor/jquery.flot.pie.js             # 修改 pie chart 主要設定
   |- vendor/jquery.flot.time.js
   |- vendor/jquery.flot.categories.js
   |- vendor/jquery.flot.tooltip.js
@@ -73,7 +73,7 @@ function setupFilters(defaultFilters) {
 }
 ```
 
-* 修正內容
+* 修正 barcharts 內容
 
 ```javascript
 ...
@@ -125,6 +125,11 @@ series: {
 ...
 ```
 
+* 修正 piechart 內容 (更改 ** jquery.flot.pie.js ** 內容)
+
+```javascript
+
+```
 
 * 重新安裝並重新啟動
 
