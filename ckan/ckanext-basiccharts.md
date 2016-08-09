@@ -128,7 +128,45 @@ series: {
 * 修正 piechart 內容 (更改 ** jquery.flot.pie.js ** 內容)
 
 ```javascript
+                label: {
+                        show: "auto",
+                        formatter: function(label, slice) {
+                                return "<div style='font-size:x-small;text-align:center;padding:2px;color:" + slice.color + ";'>" + label + "<br/>" + Math.round(slice.percent) + "%</div>";
+                        },      
+                        // formatter function
+                        // radius at which to place the labels (based on full calculated radius if <=1, or hard pixel value)
+                        radius: 1,      
+                        background: {
+                                color: null,
+                                opacity: 0
+                        },
+                        // percentage at which to hide the label (i.e. the slice is too narrow)
+                        threshold: 0    
+                },
+                combine: {
+                        // percentage at which to combine little slices into one larger slice
+                        // under 0.1 : combine to one category
+                        threshold: 0.1, 
+                        // color to give the new slice (auto-generated if null)
+                        color: null,    
+                        // label to give the new slice
+                        label: "Other"  
+                },
+                highlight: {
+                        // will add this functionality once parseColor is available
+                        //color: "#fff",                
+                        opacity: 0.5
+                }
+        }
+}
 
+
+,
+// allow interactive
+grid: {
+    hoverable: true,
+    clickable: true
+}
 ```
 
 * 重新安裝並重新啟動
