@@ -73,7 +73,7 @@ function setupFilters(defaultFilters) {
 }
 ```
 
-* 修正 barcharts 內容
+* 修正 barcharts 內容 (更改 ** jquery.flot.js ** 內容)
 
 ```javascript
 ...
