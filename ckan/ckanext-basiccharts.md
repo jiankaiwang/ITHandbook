@@ -90,6 +90,16 @@ xaxis: {
     minTickSize: 1 // number or [number, "unit"], to make sure axis is integer, not float
 },
 
+yaxis: {
+    autoscaleMargin: 0.02,
+    position: "left", // or "right"
+    // y axis format
+    tickFormatter: function(val, axis) {
+        if(val >= 1000) { return ("&nbsp;" + (val/1000) + "K" + "&nbsp;"); }
+        else { return val; }
+    }
+},
+
 series: {
     points: {
         show: false,
