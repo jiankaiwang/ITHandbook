@@ -168,7 +168,25 @@ series: {
                 }
 
                 //...
-                
+pie: {
+                show: false,
+                radius: "auto", // actual radius of the visible pie (based on full calculated radius if <=1, or hard pixel value)
+                innerRadius: 0, /* for donut */
+                startAngle: 5/4,
+                tilt: 1,
+                shadow: {
+                        left: 5,        // shadow left offset
+                        top: 15,        // shadow top offset
+                        alpha: 0.02     // shadow alpha
+                },
+                offset: {
+                        top: 0,
+                        left: "auto"
+                },
+                stroke: {
+                        color: "#fff",
+                        width: 1
+                },
                 label: {
                         show: "auto",
                         formatter: function(label, slice) {
