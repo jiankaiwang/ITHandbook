@@ -154,6 +154,9 @@ series: {
                                 }
                         }
                 }
+                
+                // show colors
+                var colorsPalette = ["#ff9966","#ff7733","#ff9933","#cc6600","#cc9900","#b38600"];
 
                 for (var i = 0; i < data.length; ++i) {
                         var value = data[i].data[0][1];
@@ -161,7 +164,8 @@ series: {
                                 newdata.push({
                                         data: [[1, value]],
                                         // color for each categories not in the combined
-                                        color: data[i].color,
+                                        //color: data[i].color,
+                                        color: colorsPalette[i % colorsPalette.length],
                                         label: data[i].label,
                                         angle: value * Math.PI * 2 / total,
                                         percent: value / (total / 100)
