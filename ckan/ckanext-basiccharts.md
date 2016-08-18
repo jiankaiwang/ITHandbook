@@ -225,13 +225,24 @@ pie: {
         }
 }
 
+// ...
 
-,
-// allow interactive
-grid: {
-    hoverable: true,
-    clickable: true
-}
+        ,
+        // allow interactive
+        grid: {
+            hoverable: true,
+            clickable: true
+        }
+};
+
+$.plot.plugins.push({
+        init: init,
+        options: options,
+        name: "pie",
+        version: "1.1"
+});
+
+// ...
 ```
 
 * 重新安裝並重新啟動
