@@ -65,7 +65,7 @@ ckanext.spatial.common_map.mapbox.access_token = pk.xxxx
     |- js/ol2_preview.js                                # openlayers 主框架
 ```
 
-* 修改 mapbox 中 OSM 底圖樣式 : 修改 ** mapbox.outdoors ** 
+* 修改 mapbox 中 OSM 底圖樣式 : 修改 ** mapbox.outdoors ** (ol2_preview.js)
 
 ```javascript
 if (mapConfig.type == 'mapbox') {
