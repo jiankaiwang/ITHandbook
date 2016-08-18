@@ -67,6 +67,8 @@ $ curl -X GET "http://127.0.0.1/api/3/action/datastore_search?resource_id=_table
 * 修改 ** ckanext/reclineview/theme/public/vendor/recline/recline.js ** 檔案 (因 datastore 是透過 plugin recline_view 來達成 map view 功能)
 
 ```javascript
+ // ...
+ 
   _setupMap: function(){
     var self = this;
     this.map = new L.Map(this.$map.get(0));
@@ -74,5 +76,7 @@ $ curl -X GET "http://127.0.0.1/api/3/action/datastore_search?resource_id=_table
     //var mapUrl = "//otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png";
     var mapUrl = "//api.tiles.mapbox.com/v4/<your id>/{z}/{x}/{y}.png?access_token=<your token>";
     var osmAttribution = 'Mapbox &copy; OpenStreetMap';
+ 
+  // ...
 ```
 
