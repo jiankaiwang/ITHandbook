@@ -23,7 +23,7 @@
 * 自 github ckeckout source 並安裝：
 
 ```Bash
-$ cd /usr/lib/ckan/default/src
+$ cd /usr/lib/ckan/default/src/ckan/ckanext/
 $ git clone https://github.com/ckan/ckanext-geoview.git
 $ cd ckanext-geoview
 (pyenv) $ pip install -e .
