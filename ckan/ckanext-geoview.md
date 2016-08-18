@@ -147,6 +147,13 @@ baseMapLayer = new OpenLayers.Layer.XYZ('MapBox', urls, {
 * 隱藏 Control box ** css/ol_preview.css **
 
 ```css
+#map {
+  width: 100%;
+  height: 450px;
+}
+
+/* ... */
+
 #data-preview .olControlLayerSwitcher {
      ...
       -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
@@ -154,6 +161,14 @@ baseMapLayer = new OpenLayers.Layer.XYZ('MapBox', urls, {
       
       /* hidden box */
       visibility: hidden;
+}
+
+/* ... */
+
+@media only screen and (max-width: 767px) {
+ #map{
+  width: 100%;
+ }
 }
 ```
 
