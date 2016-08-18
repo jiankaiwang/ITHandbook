@@ -61,5 +61,18 @@ $ curl -X GET "http://127.0.0.1/api/3/action/datastore_search?resource_id=_table
 {"help": "http://127.0.0.1:5000/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "_table_metadata", "fields": [{"type": "text", "id": "_id"}, {"type": "name", "id": "name"}, {"type": "oid", "id": "oid"}, {"type": "name", "id": "alias_of"}], "records": [{"_id": "1fab8662e5772995", "alias_of": "pg_views", "name": "_table_metadata", "oid": 18106}, {"_id": "21b5fe766665b205", "alias_of": "pg_tables", "name": "_table_metadata", "oid": 18106}], "_links": {"start": "/api/3/action/datastore_search?resource_id=_table_metadata", "next": "/api/3/action/datastore_search?offset=100&resource_id=_table_metadata"}, "total": 2}}
 ```
 
+### 修正 Data Explorer 中 MapQuest 問題
+---
 
+* 修改 ** ckanext/reclineview/theme/public/vendor/recline/recline.js ** 檔案 (因 datastore 是透過 plugin recline_view 來達成 map view 功能)
+
+```javascript
+  _setupMap: function(){
+    var self = this;
+    this.map = new L.Map(this.$map.get(0));
+
+    //var mapUrl = "//otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png";
+    var mapUrl = "//api.tiles.mapbox.com/v4/<your id>/{z}/{x}/{y}.png?access_token=<your token>";
+    var osmAttribution = 'Mapbox &copy; OpenStreetMap';
+```
 
