@@ -100,6 +100,8 @@ yaxis: {
     }
 },
 
+// ...
+
 series: {
     points: {
         show: false,
