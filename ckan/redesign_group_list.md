@@ -24,6 +24,16 @@
     
 ```
 
+* 依目前群組數顯示群組 (** snippet/group_item.html  **)
+
+```html
+{% set groups = h.get_featured_groups(count=h.getLen(groups)) %}
+
+{% for group in groups %}
+    <div class="span4 hp-category hp-category-mb">
+        {# ... #}
+```
+
 ### 修改首頁中的 group 清單
 ---
 
