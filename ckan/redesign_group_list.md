@@ -24,7 +24,7 @@
     
 ```
 
-* 依目前群組數顯示群組 (** snippets/featured_group.html  **)
+* 依目前群組數顯示群組 (** home/snippets/featured_group.html  **)
 
 ```html
 {% set groups = h.get_featured_groups(count=h.getLen(groups)) %}
