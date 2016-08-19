@@ -175,7 +175,8 @@
     <span>{{ _('View {name}').format(name=group.display_name) }}</span>
   </a>
   {% endblock %}
-  {% if group.user_member %}
+  {# customized : only system administrator could delete the groups #}
+  {% if c.userobj.sysadmin %}
     <input name="group_remove.{{ group.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this group') }}"/>
   {% endif %}
   {% endblock %}
