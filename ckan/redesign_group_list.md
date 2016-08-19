@@ -117,7 +117,7 @@
   {% block group_list_inner %}
 
   {# customized : use h.get_featured_groups() instead of groups #}
-  {% for group in h.get_featured_groups(count=5) %}
+  {% for group in h.get_featured_groups(count=h.getLen(groups)) %}
     {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
   {% endfor %}
   {% endblock %}
