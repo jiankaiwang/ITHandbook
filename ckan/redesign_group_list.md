@@ -119,7 +119,7 @@
 ### 修改群組頁面 (group/) 下的清單
 ---
 
-* 修改 ** group/snippets/group_list.html ** 如下
+* 修改 ** group/snippets/group_list.html ** 如下 (注意需要修正成底下內容，移除群組功能才會正確)
 
 ```html
 {% block group_list %}
@@ -127,8 +127,13 @@
   {% block group_list_inner %}
 
   {# customized : use h.get_featured_groups() instead of groups #}
-  {% for group in h.get_featured_groups(count=h.getLen(groups)) %}
-    {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
+  {# notice : count must be modified #}
+  {% for group in h.get_featured_groups(count=14) %}
+    {% for item in groups %}
+      {% if item.id == group.id %}
+      {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
   {% endblock %}
 </ul>
