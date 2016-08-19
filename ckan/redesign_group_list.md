@@ -128,7 +128,7 @@
 
   {# customized : use h.get_featured_groups() instead of groups #}
   {# notice : count must be modified #}
-  {% for group in h.get_featured_groups(count=14) %}
+  {% for group in h.get_featured_groups(count=200) %}
     {% for item in groups %}
       {% if item.id == group.id %}
       {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
