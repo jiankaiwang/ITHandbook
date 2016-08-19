@@ -109,7 +109,7 @@
 ### 修改群組頁面 (group/) 下的清單
 ---
 
-* 修改 ** group/snippet/group_list.html ** 如下
+* 修改 ** group/snippets/group_list.html ** 如下
 
 ```html
 {% block group_list %}
@@ -125,7 +125,7 @@
 {% endblock %}
 ```
 
-* 修改 ** group/snippet/group_item.html ** 如下
+* 修改 ** group/snippets/group_item.html ** 如下
 
 ```html
 {% set type = group.type or 'group' %}
