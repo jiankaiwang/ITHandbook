@@ -27,7 +27,7 @@
   {% block organization_list_inner %}
 
   {# customized : use h.get_featured_organizations() instead of organizations #}
-  {% for organization in h.get_featured_organizations(count=5) %}
+  {% for organization in h.get_featured_organizations(count=h.getLen(organizations)) %}
     {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
   {% endfor %}
    {% endblock %}
