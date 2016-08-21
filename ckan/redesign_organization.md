@@ -28,6 +28,7 @@
 
   {# customized : use h.get_featured_organizations() instead of organizations #}
   {# use cutomizedized function getLen() to show all organizations #}
+  {# 200 is the self-defined number #}
   {% for organization in h.get_featured_organizations(count=200) %}
     {% for item in organizations %}
       {% if item.id == organization.id %}
