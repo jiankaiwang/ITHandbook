@@ -28,10 +28,14 @@
 
   {# customized : use h.get_featured_organizations() instead of organizations #}
   {# use cutomizedized function getLen() to show all organizations #}
-  {% for organization in h.get_featured_organizations(count=h.getLen(organizations)) %}
-    {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+  {% for organization in h.get_featured_organizations(count=200) %}
+    {% for item in organizations %}
+      {% if item.id == organization.id %}
+      {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
-   {% endblock %}
+  {% endblock %}
 </ul>
 {% endblock %}
 ```
