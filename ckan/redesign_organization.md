@@ -27,6 +27,7 @@
   {% block organization_list_inner %}
 
   {# customized : use h.get_featured_organizations() instead of organizations #}
+  {# use cutomizedized function getLen() to show all organizations #}
   {% for organization in h.get_featured_organizations(count=h.getLen(organizations)) %}
     {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
   {% endfor %}
@@ -53,9 +54,10 @@
   {% endblock %}
 
   {# customized : original is organization.description, use plugins is organization.notes #}
+  {# show maxium 40 words #}
   {% block description %}
     {% if organization.notes %}
-      <p>{{ h.markdown_extract(organization.notes, extract_length=80) }}</p>
+      <p>{{ h.markdown_extract(organization.notes, extract_length=40) }}</p>
     {% endif %}
   {% endblock %}
 
