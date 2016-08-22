@@ -312,7 +312,28 @@
     {# ... #}
 ```
 
+* 修改群組頁面 (group/) 下的清單語言切換，修改 ** group/snippets/group_item.html **
 
+```html
+
+{# ... #}
+
+{% block image %}
+    <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" class="media-image">
+  {% endblock %}
+  {% block title %}
+    {# customized : notice group must be in function h.get_featured_groups() #}
+    <h3 class="media-heading">{{ h.getLangLabel(group.extras[1].value, group.display_name) }}</h3>
+  {% endblock %}
+  {% block description %}
+    {% if group.description %}
+      {# customized : notice group must be in function h.get_featured_groups() #}
+      <p>{{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description), extract_length=80) }}</p>
+    {% endif %}
+  {% endblock %}
+  
+{# ... #}
+```
 
 
 
