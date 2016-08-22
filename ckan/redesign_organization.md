@@ -241,7 +241,7 @@
 
         {% block organization_item_header_title %}
           {# customized #}
-          <h3 class="media-heading"><a href={{ url }}>{{ h.getLangLabel(organization.extras[1].value,organization.name) }}</a></h3>
+          <h3 class="media-heading"><a href={{ url }}>{{ h.getLangLabel(organization.extras[1].value,organization.title) }}</a></h3>
         {% endblock %}
         {% block organization_item_header_description %}
           {# customized #}
