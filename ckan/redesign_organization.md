@@ -189,9 +189,31 @@
  {% endif %}
  {{ form.markdown('extras__0__value', label=_('English Description'), id='field-extras-0', placeholder='A little information about my organization...', value=extra0value) }}
 
-
 ```
 
+* 語言切換，修改 ** snippets/organization.html **
+
+```html
+      {# ... #}
+
+      {# customized : show english or chinese #}
+      <h1 class="heading">{{ h.getLangLabel(organization.extras[1].value,organization.title) }}
+        {% if organization.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      </h1>
+      {% endblock %}
+      {% block description %}
+      {% if organization.description %}
+        <p>
+          {# customized : show english or chinese #}
+          {{ h.markdown_extract(h.getLangLabel(organization.extras[0].value,organization.description), 180) }}
+          {% link_for _('read more'), controller='organization', action='about', id=organization.name %}
+        </p>
+      {% else %}
+      
+      {# ... #}
+```
 
 
 
