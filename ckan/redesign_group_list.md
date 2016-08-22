@@ -252,7 +252,7 @@
 {% endblock %}
 ```
 
-### 增加英文標題與英文說明欄位
+### **原生不使用 ckanext 修改方式** 增加英文標題與英文說明欄位
 ---
 
 * 透過 data.extras  修改 ** group/snippets/group_form.html ** 檔案
