@@ -285,6 +285,33 @@
   {# ... #}
 ```
 
+* 各 group 頁面底下語言切換，修改 ** group/snippet/info.html **
+
+```html
+    {# ... #}
+    
+    {% block heading %}
+    <h1 class="heading">
+      {# customized #}
+      {{ h.getLangLabel(group.extras[1].value, group.display_name) }}
+      {% if group.state == 'deleted' %}
+        [{{ _('Deleted') }}]
+      {% endif %}
+    </h1>
+    {% endblock %}
+    {% block description %}
+    {% if group.description %}
+      <p>
+        {# customized #}
+        {{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description), 180) }}
+        {% link_for _('read more'), controller='group', action='about', id=group.name %}
+      </p>
+    {% endif %}
+    {% endblock %}
+    
+    {# ... #}
+```
+
 
 
 
