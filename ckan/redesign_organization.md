@@ -215,7 +215,24 @@
       {# ... #}
 ```
 
+* 修改組織頁面 (organization/) 底下清單語言切換，修改 ** organization/snippets/organization_item.html **
 
+```html
+  {# ... #}
+
+  {% block title %}
+    {# customized : notice must use h.get_featured_organizations() to fetch all information #}
+    <h3 class="media-heading">{{ h.getLangLabel(organization.extras[1].value, organization.display_name) }}</h3>
+  {% endblock %}
+  {% block description %}
+    {# customized : notice must use h.get_featured_organizations() to fetch all information #}
+    {% if organization.description %}
+      <p>{{ h.markdown_extract( h.getLangLabel(organization.extras[0].value, organization.description), extract_length=80) }}</p>
+    {% endif %}
+  {% endblock %}
+  
+  {# ... #}
+```
 
 
 
