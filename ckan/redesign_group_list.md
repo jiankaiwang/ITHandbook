@@ -283,6 +283,33 @@
   {{ form.markdown('extras__0__value', label=_('English Description'), id='field-extras-0', placeholder='A little information about group...', value=extra0value) }}
   
   {# ... #}
+  
+  {# remove the origin additional key-value pairs
+  {% block custom_fields %}
+    {% for extra in data.extras %}
+      {% set prefix = 'extras__%d__' % loop.index0 %}
+      {{ form.custom(
+        names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+        id='field-extras-%d' % loop.index,
+        label=_('Custom Field'),
+        values=(extra.key, extra.value, extra.deleted),
+        error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+      ) }}
+    {% endfor %}
+
+    {% for extra in range(data.extras|count, 3) %}
+      {% set index = (loop.index0 + data.extras|count) %}
+      {% set prefix = 'extras__%d__' % index %}
+      {{ form.custom(
+        names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+        id='field-extras-%d' % index,
+        label=_('Custom Field'),
+        values=(extra.key, extra.value, extra.deleted),
+        error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+      ) }}
+    {% endfor %}
+  {% endblock %}
+  #}
 ```
 
 * 各 group 頁面底下語言切換，修改 ** group/snippet/info.html **
