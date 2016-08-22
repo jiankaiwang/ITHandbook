@@ -39,6 +39,58 @@ $ cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/
 ### 設定必要組態檔
 ---
 
+* 設訂新的 group schema 內容，此 plugin 透過 json 來設定 schema，** ckanext/scheming/group_with_bookface.json **
+
+```javascript
+{
+  "scheming_version": 1,
+  "group_type": "group",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "fields": [
+    {
+      "field_name": "title",
+      "label": "中文名稱",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "中文名稱"
+    },
+    {
+      "field_name": "etitle",
+      "label": "English Name",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "group name in English"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "validators": "not_empty unicode name_validator group_name_validator",
+      "form_snippet": "slug.html",
+      "form_placeholder": "my-organization"
+    },
+    {
+      "field_name": "notes",
+      "label": "中文敘述",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "中文敘述"
+    },
+    {
+      "field_name": "enotes",
+      "label": "English Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "Description in English"
+    },
+    {
+      "field_name": "url",
+      "label": "Image URL",
+      "form_placeholder": "http://example.com/my-image.jpg"
+    }
+  ]
+}
+```
+
 * 設定新 data schema 列表，此 plugin 透過 json 來設定 schema，底下舉例為 customized_schema.json
 
 ```bash
