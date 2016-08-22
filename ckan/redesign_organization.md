@@ -234,8 +234,28 @@
   {# ... #}
 ```
 
+* 修改首頁底下清單語言切換，修改 ** snippets/organization_item.html **
 
+```
+       {# ... #}
 
+        {% block organization_item_header_title %}
+          {# customized #}
+          <h3 class="media-heading"><a href={{ url }}>{{ h.getLangLabel(organization.extras[1].value,organization.name) }}</a></h3>
+        {% endblock %}
+        {% block organization_item_header_description %}
+          {# customized #}
+          {% if organization.description %}
+            {% if truncate == 0 %}
+              <p>{{ h.markdown_extract( h.getLangLabel(organization.extras[0].value, organization.description))|urlize }}</p>
+            {% else %}
+              <p>{{ h.markdown_extract( h.getLangLabel(organization.extras[0].value, organization.description), truncate)|urlize }}</p>
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+        
+        {# ... #}
+```
 
 
 
