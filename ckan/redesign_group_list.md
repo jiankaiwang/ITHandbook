@@ -252,5 +252,44 @@
 {% endblock %}
 ```
 
+### 增加英文標題與英文說明欄位
+---
+
+* 透過 data.extras  修改 ** group/snippets/group_form.html ** 檔案
+
+```html
+  {# ... #}
+
+  {# notice : save as stack structure, first in, last out #}
+  {# Use data.extras list to save English title #}
+  {{ form.input('extras__1__key', value='ename', id='field-extras-1', classes=['hidden']) }}
+  {% if data.extras %}
+    {% set extra1value = data.extras[1].value %}
+  {% else %}
+    {% set extra1value = '' %}
+  {% endif %}
+  {{ form.input('extras__1__value', label=_('English Name'), id='field-extras-1', placeholder=_('Group in English'), value=extra1value, error=errors.title, classes=['control-full'], attrs=attrs) }}
+
+  {# ... #}
+
+  {# notice : save as stack structure, first in, last out #}
+  {# use data.extras list to save English description #}
+  {{ form.input('extras__0__key', value='edesc', id='field-extras-0', classes=['hidden']) }}
+  {% if data.extras %}
+    {% set extra0value = data.extras[0].value %}
+  {% else %}
+    {% set extra0value = '' %}
+  {% endif %}
+  {{ form.markdown('extras__0__value', label=_('English Description'), id='field-extras-0', placeholder='A little information about group...', value=extra0value) }}
+  
+  {# ... #}
+```
+
+
+
+
+
+
+
 
 
