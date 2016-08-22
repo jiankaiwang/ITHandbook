@@ -257,7 +257,19 @@
         {# ... #}
 ```
 
+* 修改 sitemap 的路徑語言切換，修改 ** organization/read_base.html **
 
+```html
+{# ... #}
+
+{% block breadcrumb_content %}
+  <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
+  {# customized #}
+  <li class="active">{% link_for h.getLangLabel(c.group_dict.extras[1].value, c.group_dict.display_name)|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
+{% endblock %}
+
+{# ... #}
+```
 
 
 
