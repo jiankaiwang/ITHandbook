@@ -335,7 +335,28 @@
 {# ... #}
 ```
 
+* 修改首頁底下的群組清單語言切換，修改 ** snippets/group_item.html **
 
+```html
+        {# ... #}
+
+        {% block group_item_header_title %}
+          {# customized #}
+          <h3 class="media-heading"><a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">{{ h.getLangLabel(group.extras[1].value, group.title) }}</a></h3>
+        {% endblock %}
+        {% block group_item_header_description %}
+          {% if group.description %}
+            {# customized #}
+            {% if truncate == 0 %}
+              <p>{{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description))|urlize }}</p>
+            {% else %}
+              <p>{{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description), truncate)|urlize }}</p>
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+
+        {# ... #}
+```
 
 
 
