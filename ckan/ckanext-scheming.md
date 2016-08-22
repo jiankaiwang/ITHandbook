@@ -91,6 +91,63 @@ $ cd /usr/lib/ckan/default/src/ckan/ckanext/ckanext-scheming/
 }
 ```
 
+* 設訂新的 organization schema 內容，此 plugin 透過 json 來設定 schema，** ckanext/scheming/org_with_dept_id.json **
+
+```javascript
+{
+  "scheming_version": 1,
+  "organization_type": "organization",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "fields": [
+    {
+      "field_name": "title",
+      "label": "中文名稱",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "組織中文名稱"
+    },
+    {
+      "field_name": "etitle",
+      "label": "English Name",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "Organization Name in English"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "validators": "not_empty unicode name_validator group_name_validator",
+      "form_snippet": "slug.html",
+      "form_placeholder": "my-organization"
+    },
+    {
+      "field_name": "notes",
+      "label": "中文描述",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "關於組織資訊 ...."
+    },
+    {
+      "field_name": "enotes",
+      "label": "English Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "A little information about my organization in English."
+    },
+    {
+      "field_name": "url",
+      "label": "Image URL",
+      "form_placeholder": "http://example.com/my-image.jpg"
+    },
+    {
+      "field_name": "department_id",
+      "label": "Department ID",
+      "form_placeholder": "e.g. 1042"
+    }
+  ]
+}
+```
+
 * 設定新 data schema 列表，此 plugin 透過 json 來設定 schema，底下舉例為 customized_schema.json
 
 ```bash
