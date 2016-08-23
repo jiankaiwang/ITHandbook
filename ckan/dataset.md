@@ -13,5 +13,6 @@
   |- package/
     |- resources.html              # dataset 框架，引用 package/snippets/resource_item.html
     |- snippets/
+      |- resource_item.html
 ```
 
