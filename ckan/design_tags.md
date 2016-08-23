@@ -35,6 +35,8 @@
 
 * 修改每一個 tags ， ** snippets/tag_list.html  **
 
+class tag-customized 被定義在 public/base/css/general.css 中
+
 ```html
 {#
 render a list of tags linking to the dataset search page
@@ -46,7 +48,7 @@ tags: list of tags
     {% for tag in tags %}
       <li>
         {# customized #}
-        <a class="{% block tag_list_item_class %}tag{% endblock %}" href="{% url_for controller='package', action='search', tags=tag.name %}"><i class="icon-tag"></i> {{ h.truncate(tag.display_name, 22) }}</a>
+        <a class="{% block tag_list_item_class %}tag{% endblock %} tag-customized" href="{% url_for controller='package', action='search', tags=tag.name %}"><i class="icon-tag"></i> {{ h.truncate(tag.display_name, 22) }}</a>
       </li>
     {% endfor %}
   </ul>
