@@ -357,7 +357,7 @@
 {% block breadcrumb_content %}
   {# customized #}
   <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
-  <li class="active">{% link_for h.getLangLabel(organization.etitle, organization.title)|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
+  <li class="active">{% link_for h.getLangLabel(c.group_dict.etitle, c.group_dict.title)|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
 {% endblock %}
 ```
 
