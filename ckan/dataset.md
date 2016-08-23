@@ -36,3 +36,28 @@
   {# ... #}
 ```
 
+* 修正 sitemap 路徑 ** snippets/base.html **
+
+```html
+{% block breadcrumb_content %}
+  {% if pkg %}
+    {# customizec #}
+    {% set dataset = h.getLangLabel(pkg.name, pkg.title) %}
+    {% if pkg.organization %}
+      {% set organization = h.getLangLabel(pkg.organization.name,pkg.organization.title) %}
+      <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
+      <li>{% link_for organization|truncate(30), controller='organization', action='read', id=pkg.organization.name %}</li>
+    {% else %}
+      <li>{% link_for _('Datasets'), controller='package', action='search' %}</li>
+    {% endif %}
+    <li{{ self.breadcrumb_content_selected() }}>{% link_for dataset|truncate(30), controller='package', action='read', id=pkg.name %}</li>
+  {% else %}
+    <li>{% link_for _('Datasets'), controller='package', action='search' %}</li>
+    <li class="active"><a href="">{{ _('Create Dataset') }}</a></li>
+  {% endif %}
+{% endblock %}
+```
+
+
+
+
