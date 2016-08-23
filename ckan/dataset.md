@@ -8,6 +8,7 @@
 ```bash
 /usr/lib/ckan/default/src/ckan/ckan/templates/
   |- snippets/
+    |- package_list.html             # 引用 package_item.html
     |- package_item.html             # 修改各資料集下的右側主要資訊頁面 
 ```
 
