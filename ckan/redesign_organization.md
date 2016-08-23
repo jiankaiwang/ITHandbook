@@ -309,6 +309,24 @@
 
 * 修改組織頁面 (organization/) 底下清單語言切換，修改 ** organization/snippets/organization_item.html **
 
+```html
+  {# ... #}
+
+  {% block title %}
+    {# customized #}
+    <h3 class="media-heading">{{ h.getLangLabel(organization.etitle, organization.title) }}</h3>
+  {% endblock %}
+
+  {# customized : original is organization.description, use plugins is organization.notes #}
+  {% block description %}
+    {# customized #}
+    {% if organization.notes %}
+      <p>{{ h.markdown_extract(h.getLangLabel(organization.enotes, organization.notes), extract_length=40) }}</p>
+    {% endif %}
+  {% endblock %}
+
+  {# ... #}
+```
 
 * 修改首頁底下清單語言切換，修改 ** snippets/organization_item.html **
 
