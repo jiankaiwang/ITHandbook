@@ -19,3 +19,21 @@
       |- license.html                # dataset 的 license 框架
 ```
 
+### 修正語言
+---
+
+* 修正 license 語言 ** snippets/license.html **
+
+```html
+  {# ... #}
+  
+  {% if 'license_url' in pkg_dict %}
+    {# customized #}
+    <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ h.getLicenseLabel(pkg_dict, "license_title") }}</a>
+  {% else %}
+    <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+  {% endif %}
+  
+  {# ... #}
+```
+
