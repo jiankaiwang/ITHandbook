@@ -16,4 +16,21 @@
       |- tag_list.html               # 呈現 tag 主體
 ```
 
+### 重新設計內容
+---
+
+* 修改 tags 主框架， ** package/snippets/tags.html  **
+
+```html
+{% if tags %}
+  <section class="tags">
+    <h3>{{ h.getLangLabel("Dataset Tags","資料集標籤") }}</h3>
+    {# customized
+      {% snippet 'snippets/tag_list.html', tags=tags, _class='tag-list well' %}
+    #}
+    {% snippet 'snippets/tag_list.html', tags=tags, _class='tag-list' %}
+  </section>
+{% endif %}
+```
+
 
