@@ -147,5 +147,3 @@ __allowed_functions__ = [
 
 
 
-
-
