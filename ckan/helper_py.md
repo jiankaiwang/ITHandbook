@@ -150,12 +150,12 @@ __allowed_functions__ = [
 # customized function
 # desc : get chinese and english title
 # return : specific title in chinese and english
-def getLicenseLabel(getLicense):
+def getLicenseLabel(getLicense, getColumn):
     register = model.Package.get_license_register()
     sorted_licenses = sorted(register.values(), key=lambda x: x.title)
     getTitle = ""
     for i in range(0, len(sorted_licenses), 1):
-        if sorted_licenses[i].title == getLicense["display_name"]:
+        if sorted_licenses[i].title == getLicense[getColumn]:
             getTitle = getLangLabel(sorted_licenses[i].etitle, sorted_licenses[i].title)
             break
     return getTitle
