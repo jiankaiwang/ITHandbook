@@ -480,7 +480,17 @@
 
 * 修改 sitemap 的路徑語言切換，修改 ** group/read_base.html **
 
-
+```html
+{# ... #}
+  
+{% block breadcrumb_content %}
+  <li>{% link_for _('Groups'), controller='group', action='index' %}</li>
+  {# customized #}
+  <li class="active">{% link_for  h.getLangLabel(c.group_dict.etitle, c.group_dict.title)|truncate(35), controller='group', action='read', id=c.group_dict.name %}</li>
+{% endblock %}
+  
+{# ... #}
+```
 
 
 
