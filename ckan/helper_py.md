@@ -82,6 +82,65 @@ __allowed_functions__ = [
 ]
 ```
 
+* 對各 organization 頁面底下的標籤進型語言切換
+
+先針對 help.py 進行設定，並加入 ** allowed_functions ** 中
+
+```Python
+# ...
+
+# customized function
+# desc : get organization or group title
+# ret : return English or Chinese title
+def getGroupStr(getItem):
+    check = ""
+    for group in get_featured_groups(200):
+        if group["title"] == getItem["display_name"]:
+            check = getLangLabel(group["etitle"],group["title"])
+            break
+    return check
+
+def getOrganizationStr(getItem):
+    check = ""
+    for org in get_featured_organizations(count=200):
+        if org["title"] == getItem["display_name"]:
+            check = getLangLabel(org["etitle"],org["title"])
+            break
+    return check
+
+def getGroupOrOrganizationLangStr(getTitle, getItem):
+    check = ""
+    if getTitle == "Organizations" or getTitle == u"組織":
+        check = getOrganizationStr(getItem)
+    elif getTitle == "Groups" or getTitle == u"群組":
+        check = getGroupStr(getItem)
+    else:
+        check = "N"
+    return check
+    
+# ...
+
+__allowed_functions__ = [
+  
+  # ...
+  
+    'list_dict_filter',
+    'new_activities',
+    'time_ago_from_timestamp',
+    'get_organization',
+    'has_more_facets',
+    'getLangLabel',
+    'getLen',
+    'strReplace',
+    'retGroupList',
+    'getGroupStr',
+    'getOrganizationStr',
+    'getGroupOrOrganizationLangStr',
+    # imported into ckan.lib.helpers
+  
+  # ...
+
+```
 
 
 
