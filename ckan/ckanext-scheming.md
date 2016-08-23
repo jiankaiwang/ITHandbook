@@ -332,7 +332,18 @@ vim ./customized_schema.json
       ],
       "form_snippet": "select.html",
       "display_snippet": "select.html"
-    }
+    },
+    {
+      "field_name": "data_lang",
+      "label": "資料集語系",
+      "choices": [
+        { "value": "chinese", "label": "僅中文" },
+        { "value": "english", "label": "僅英文" },
+        { "value": "chinese-english", "label": "中英文" }
+      ],
+      "form_snippet": "select.html",
+      "display_snippet": "select.html"
+    }    
   ],
   "resource_fields": [
     {
