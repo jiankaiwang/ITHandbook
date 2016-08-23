@@ -142,6 +142,50 @@ __allowed_functions__ = [
 
 ```
 
+* 修正 Licenses 語言切換
+
+```python
+# ...
+
+# customized function
+# desc : get chinese and english title
+# return : specific title in chinese and english
+def getLicenseLabel(getLicense):
+    register = model.Package.get_license_register()
+    sorted_licenses = sorted(register.values(), key=lambda x: x.title)
+    getTitle = ""
+    for i in range(0, len(sorted_licenses), 1):
+        if sorted_licenses[i].title == getLicense["display_name"]:
+            getTitle = getLangLabel(sorted_licenses[i].etitle, sorted_licenses[i].title)
+            break
+    return getTitle
+
+# ...
+
+__allowed_functions__ = [
+  
+  # ...
+  
+    'list_dict_filter',
+    'new_activities',
+    'time_ago_from_timestamp',
+    'get_organization',
+    'has_more_facets',
+    'getLangLabel',
+    'getLen',
+    'strReplace',
+    'retGroupList',
+    'getGroupStr',
+    'getOrganizationStr',
+    'getGroupOrOrganizationLangStr',
+    'getLicenseLabel',
+    # imported into ckan.lib.helpers
+  
+  # ...
+```
+
+
+
 
 
 
