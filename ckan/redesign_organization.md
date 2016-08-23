@@ -363,27 +363,6 @@
 
 * 各 organization 頁面底下 Tag 切換，修改 ** snippets/facet_list.html **，此同各 group 頁面底下 Tag 切換，修改 ** snippets/facet_list.html **，需注意已有定義在 helpers.py 中
 
-```html
-        {# ... #}
-   
-        <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
-          <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
-              {# customized #}
-              {% set newLabel = h.truncate(h.getGroupOrOrganizationLangStr(title, item), 22) %}
-              {% if newLabel != 'N' %}
-                <span>{{ newLabel }} {{ count }}</span>
-              {% else %}
-                {% if title == 'Licenses' %}
-                  <span>{{ h.getLicenseLabel(item,"display_name") }} {{ count }}</span>
-                {% else %}
-                  <span>{{ label_truncated }} {{ count }}</span>
-                {% endif %}
-              {% endif %}
-          </a>
-        </li>
-
-        {# ... #}
-```
 
 
 
