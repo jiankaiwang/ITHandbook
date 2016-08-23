@@ -648,10 +648,10 @@ $ sudo restart ckan
           <tr>
             <th scope="row" class="dataset-label">{{ h.getLangLabel("Metadata","欄位資訊") }}</th>
             {% if h.lang() == "en" %}
-                <td class="dataset-details">{{ _(pkg_dict.em_notes) }}</td>
-            {% elif h.lang() == "zh_TW" %}
-                <td class="dataset-details">{{ _(pkg_dict.cm_notes) }}</td>
-            {% endif %}
+		<td class="dataset-details">{{ _(pkg_dict.em_notes) }}</td>
+   	    {% elif h.lang() == "zh_TW" %}
+		<td class="dataset-details">{{ _(pkg_dict.cm_notes) }}</td>
+	    {% endif %}
           </tr>
         {% endif %}
 
@@ -666,10 +666,29 @@ $ sudo restart ckan
           </tr>
         {% endif %}
 
+        {% if pkg_dict.data_type %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Data Type","資料集類型") }}</th>
+            {% if pkg_dict.data_type == 'primitive' %}
+              <td class="dataset-details">{{ h.getLangLabel("Primitive","原始資料") }}</td>
+            {% elif pkg_dict.data_type == 'interfacing' %}
+              <td class="dataset-details">{{ h.getLangLabel("Interfacing","系統介接程式") }}</td>
+            {% elif pkg_dict.data_type == 'mobile' %}
+              <td class="dataset-details">{{ h.getLangLabel("Mobile","行動化應用軟體") }}</td>
+            {% else %}
+              <td class="dataset-details">{{ h.getLangLabel("Other","其他") }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+
         {% if pkg_dict.fee %}
           <tr>
-            <th scope="row" class="dataset-label">{{ h.getLangLabel("Fee","計費") }}</th>
-            <td class="dataset-details">{{ _(pkg_dict.fee) }}</td>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Fee","計費方式") }}</th>
+            {% if pkg_dict.fee == 'free' %}
+              <td class="dataset-details">{{ h.getLangLabel("Free","免費") }}</td>
+            {% else %}
+              <td class="dataset-details">{{ h.getLangLabel("Toll","計費") }}</td>
+            {% endif %}
           </tr>
         {% endif %}
 
@@ -682,27 +701,57 @@ $ sudo restart ckan
 
         {% if pkg_dict.author_email %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
-            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Contact","聯絡人") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=h.getLangLabel(pkg_dict.ea_author, pkg_dict.author)) }}</td>
           </tr>
         {% elif pkg_dict.author %}
           <tr>
-            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
-            <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Contact","聯絡人") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.getLangLabel(pkg_dict.ea_author, pkg_dict.author) }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.author_email %}
-          <tr>
-            <th scope="row" class="dataset-label">{{ _("Author Email") }}</th>
+	  <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Contact Email","聯絡人電子郵件") }}</th>
             <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author_email) }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.author_phone %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Contact Phone","聯絡人電話") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.getLangLabel("+886-" + pkg_dict.author_phone, pkg_dict.author_phone) }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.updated_freq %}
           <tr>
             <th scope="row" class="dataset-label">{{ h.getLangLabel("Updated Frequency","更新頻率") }}</th>
-            <td class="dataset-details">{{ pkg_dict.updated_freq }}</td>
+            {% if pkg_dict.updated_freq == 'year' %}
+              <td class="dataset-details">{{ h.getLangLabel("Year","年") }}</td>
+            {% elif pkg_dict.updated_freq == 'month' %}
+              <td class="dataset-details">{{ h.getLangLabel("Month","月") }}</td>
+            {% elif pkg_dict.updated_freq == 'day' %}
+              <td class="dataset-details">{{ h.getLangLabel("Day","日") }}</td>
+            {% elif pkg_dict.updated_freq == 'once' %}
+              <td class="dataset-details">{{ h.getLangLabel("Once","一次性") }}</td>
+            {% else %}
+              <td class="dataset-details">{{ h.getLangLabel("Non-scheduled","不定期") }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+  
+        {% if pkg_dict.data_lang %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ h.getLangLabel("Dataset Language","資料集語言") }}</th>
+            {% if pkg_dict.data_lang == 'chinese' %}
+              <td class="dataset-details">{{ h.getLangLabel("Only Chinese","僅中文") }}</td>
+            {% elif pkg_dict.data_lang == 'english' %}
+              <td class="dataset-details">{{ h.getLangLabel("Only English","僅英文") }}</td>
+            {% else %}
+              <td class="dataset-details">{{ h.getLangLabel("Both Chinese and English","中英文") }}</td>
+            {% endif %}
           </tr>
         {% endif %}
 
@@ -739,10 +788,10 @@ $ sudo restart ckan
             <td class="dataset-details" property="rdf:value">{{ value }}</td>
           </tr>
         {% endfor %}
-			{% endblock %}
-	
-		</tbody>
-	</table>
+      {% endblock %}
+
+    </tbody>
+  </table>
 </section>
 ```
 
