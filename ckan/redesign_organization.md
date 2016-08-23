@@ -371,9 +371,13 @@
               {# customized #}
               {% set newLabel = h.truncate(h.getGroupOrOrganizationLangStr(title, item), 22) %}
               {% if newLabel != 'N' %}
-              <span>{{ newLabel }} {{ count }}</span>
+                <span>{{ newLabel }} {{ count }}</span>
               {% else %}
-              <span>{{ label_truncated }} {{ count }}</span>
+                {% if title == 'Licenses' %}
+                  <span>{{ h.getLicenseLabel(item,"display_name") }} {{ count }}</span>
+                {% else %}
+                  <span>{{ label_truncated }} {{ count }}</span>
+                {% endif %}
               {% endif %}
           </a>
         </li>
