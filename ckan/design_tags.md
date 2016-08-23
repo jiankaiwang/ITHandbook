@@ -42,17 +42,17 @@ class tag-customized 被定義在 public/base/css/general.css 中
   /* override green.min.css */
   display: inline-block;
   margin-bottom: 4px;
-  color: #111111;
-  background-color: rgba(200,200,200,0.1);
+  color: rgba(20,20,20,0.8);
+  background-color: rgba(255,255,255,1);
   padding: 1px 10px;
   border: 1px solid rgba(50,50,50,0.8);
-  -webkit-border-radius: 10px;
+  -webkit-border-radius: 5px;
   -moz-border-radius: 100px;
   /* border-radius: 100px; */
   -webkit-box-shadow: inset 0 1px 0 #ffffff;
   -moz-box-shadow: inset 0 1px 0 #ffffff;
   box-shadow: inset 0 1px 0 #ffffff;
-  padding: 5px;
+  padding: 7px;
 }
 ```
 
