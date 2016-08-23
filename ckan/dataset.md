@@ -6,13 +6,13 @@
 ---
 
 ```bash
-/usr/lib/ckan/default/src/ckan/ckan/templates/
-  |- snippets/
-    |- package_list.html           # 引用 package_item.html
-    |- package_item.html           # 修改各資料集下的右側主要資訊頁面 
-  |- package/
-    |- resources.html              # dataset 框架，引用 package/snippets/resource_item.html
+/usr/lib/ckan/default/src/ckan/ckan/
+  |- templates/
     |- snippets/
-      |- resource_item.html
+      |- package_list.html           # 引用 package_item.html
+      |- package_item.html           # 修改各資料集下的右側主要資訊頁面 
+    |- package/
+      |- package/
+        |- read.html                 # 主要顯示頁面，修正標題處與描述，包含資源與標籤引用
 ```
 
