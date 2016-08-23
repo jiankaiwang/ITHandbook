@@ -274,7 +274,7 @@
 ### **ckanext-scheming** 增加英文標題與英文說明欄位
 ---
 
-* 語言切換，修改 ** snippets/organization.html **
+* 各 organization 頁面底下語言切換，修改 ** snippets/organization.html **
 
 ```html
 
