@@ -361,7 +361,7 @@
 {% endblock %}
 ```
 
-
+* 各 organization 頁面底下 Tag 切換，修改 ** snippets/facet_list.html **
 
 
 
