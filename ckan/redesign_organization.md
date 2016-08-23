@@ -330,6 +330,34 @@
 
 * 修改首頁底下清單語言切換，修改 ** snippets/organization_item.html **
 
+```html
+        {# ... #}
+        
+        {% block organization_item_header_title %}
+          {# customized #}
+          <h3 class="media-heading"><a href={{ url }}>{{ h.getLangLabel(organization.etitle, organization.title) }}</a></h3>
+        {% endblock %}
+        {% block organization_item_header_description %}
+          {% if organization.description %}
+          {# customized #}
+            {% if truncate == 0 %}
+              <p>{{ h.markdown_extract(h.getLangLabel(organization.enotes, organization.notes))|urlize }}</p>
+            {% else %}
+              <p>{{ h.markdown_extract(h.getLangLabel(organization.enotes, organization.notes), truncate)|urlize }}</p>
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+        
+        {# ... #}
+```
 
 * 修改 sitemap 的路徑語言切換，修改 ** organization/read_base.html **
+
+```html
+{% block breadcrumb_content %}
+  {# customized #}
+  <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
+  <li class="active">{% link_for h.getLangLabel(organization.etitle, organization.title)|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
+{% endblock %}
+```
 
