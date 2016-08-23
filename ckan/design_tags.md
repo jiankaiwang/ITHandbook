@@ -33,4 +33,23 @@
 {% endif %}
 ```
 
+* 修改每一個 tags ， ** snippets/tag_list.html  **
+
+```html
+{#
+render a list of tags linking to the dataset search page
+tags: list of tags
+#}
+{% set _class = _class or 'tag-list' %}
+{% block tag_list %}
+  <ul class="{{ _class }}">
+    {% for tag in tags %}
+      <li>
+        {# customized #}
+        <a class="{% block tag_list_item_class %}tag{% endblock %}" href="{% url_for controller='package', action='search', tags=tag.name %}"><i class="icon-tag"></i> {{ h.truncate(tag.display_name, 22) }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+```
 
