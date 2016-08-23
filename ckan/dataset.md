@@ -36,7 +36,7 @@
   {# ... #}
 ```
 
-* 修正 sitemap 路徑 ** snippets/base.html **
+* 修正 sitemap 路徑 ** package/base.html **
 
 ```html
 {% block breadcrumb_content %}
