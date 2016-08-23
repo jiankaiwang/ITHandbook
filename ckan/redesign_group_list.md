@@ -453,6 +453,30 @@
 
 * 修改首頁底下的群組清單語言切換，修改 ** snippets/group_item.html **
 
+```html
+        {# ... #}
+         
+        {# customized : group title #}
+        {% block group_item_header_title %}
+          {# customized #}
+          <h3 class="media-heading"><a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">{{ h.getLangLabel(group.etitle, group.title) }}</a></h3>
+        {% endblock %}
+
+        {# customized : group description #}
+        {# original : description is group.description ; use chanext plugins : description is group.notes #}
+        {% block group_item_header_description %}
+        {# customized #}
+          {% if group.notes %}
+            {% if truncate == 0 %}
+              <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes))|urlize }}</p>
+            {% else %}
+              <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), truncate)|urlize }}</p>
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+
+        {# ... #}
+```
 
 * 修改 sitemap 的路徑語言切換，修改 ** group/read_base.html **
 
