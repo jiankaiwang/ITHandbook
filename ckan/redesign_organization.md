@@ -159,7 +159,7 @@
   {% endblock %}
 ```
 
-### 增加英文標題與英文說明欄位
+### ** 原生非使用 ckanext 方式** 增加英文標題與英文說明欄位
 ---
 
 * 透過 data.extras  修改 ** organization/snippets/organization_form.html ** 檔案
@@ -271,5 +271,47 @@
 {# ... #}
 ```
 
+### **ckanext-scheming** 增加英文標題與英文說明欄位
+---
 
+* 語言切換，修改 ** snippets/organization.html **
+
+```html
+
+      {# ... #}
+  
+      {% block heading %}
+      {# customized #}
+      <h1 class="heading">{{ h.getLangLabel(organization.etitle, organization.title) }}
+        {% if organization.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      </h1>
+      {% endblock %}
+
+
+      {# customized : description is organization.notes to replace organization.description #}
+      {% block description %}
+      {% if organization.notes %}
+      {# customized #}
+        <p>
+          {{ h.markdown_extract(h.getLangLabel(organization.enotes, organization.notes), 180) }}
+          {% link_for _('read more'), controller='organization', action='about', id=organization.name %}
+        </p>
+      {% else %}
+        <p class="empty">{{ _('There is no description for this organization') }}</p>
+      {% endif %}
+      {% endblock %}
+  
+      {# ... #}
+
+```
+
+* 修改組織頁面 (organization/) 底下清單語言切換，修改 ** organization/snippets/organization_item.html **
+
+
+* 修改首頁底下清單語言切換，修改 ** snippets/organization_item.html **
+
+
+* 修改 sitemap 的路徑語言切換，修改 ** organization/read_base.html **
 
