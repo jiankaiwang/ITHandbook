@@ -15,5 +15,7 @@
       |- package/
         |- read.html                 # 主要顯示頁面，修正標題處與描述，包含資源與標籤引用
         |- read_base.html            # dataset 框架
+    |- snippets/
+      |- license.html                # dataset 的 license 框架
 ```
 
