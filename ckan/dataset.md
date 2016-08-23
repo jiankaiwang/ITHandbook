@@ -42,9 +42,9 @@
 {% block breadcrumb_content %}
   {% if pkg %}
     {# customizec #}
-    {% set dataset = h.getLangLabel(pkg.name, pkg.title) %}
+    {% set dataset = h.getLangLabel(pkg.e_title, pkg.c_title) %}
     {% if pkg.organization %}
-      {% set organization = h.getLangLabel(pkg.organization.name,pkg.organization.title) %}
+      {% set organization = h.getLangLabel(pkg.organization.name, pkg.organization.title) %}
       <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
       <li>{% link_for organization|truncate(30), controller='organization', action='read', id=pkg.organization.name %}</li>
     {% else %}
