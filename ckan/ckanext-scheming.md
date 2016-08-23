@@ -192,11 +192,11 @@ vim ./customized_schema.json
       "field_name": "title",
       "label": "website",
       "preset": "title",
-      "form_placeholder": "eg. A descriptive title"
+      "form_placeholder": "eg. A descriptive title in English"
     },
     {
       "field_name": "c_title",
-      "label": "Title in Chinese",
+      "label": "中文標題",
       "form_placeholder": "eg. 登革熱",
       "validators": "ignore_missing unicode package_version_validator"
     },
@@ -214,7 +214,7 @@ vim ./customized_schema.json
     },
     {
       "field_name": "cd_notes",
-      "label": "Description in Chinese",
+      "label": "中文資料集描述",
       "preset": "note_meta",
       "form_placeholder": "eg. 2003年起各地區、各年齡層、性別之病例數統計表"
     },
@@ -226,7 +226,7 @@ vim ./customized_schema.json
     },
     {
       "field_name": "cm_notes",
-      "label": "Metadata in Chinese",
+      "label": "中文欄位說明",
       "preset": "note_meta",
       "form_placeholder": "eg. 主要欄位有「確定病名」、「發病年份」、「發病月份」、「縣市」、「性別」、「年齡層」、「確定病例數」"
     },
@@ -238,13 +238,25 @@ vim ./customized_schema.json
     },
     {
       "field_name": "tag_string",
-      "label": "Tags",
+      "label": "中英文標籤",
       "preset": "tag_string_autocomplete",
       "form_placeholder": "eg. economy, mental health, government"
     },
     {
+      "field_name": "data_type",
+      "label": "資料集類型",
+      "choices": [
+        { "value": "primitive", "label": "原始資料" },
+        { "value": "interfacing", "label": "系統介接程式" },
+        { "value": "mobile", "label": "行動化應用軟體" },
+        { "value": "other", "label": "其他" }
+      ],
+      "form_snippet": "select.html",
+      "display_snippet": "select.html"
+    },
+    {
       "field_name": "license_id",
-      "label": "License",
+      "label": "授權方式",
       "form_snippet": "license.html",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
     },
@@ -255,17 +267,17 @@ vim ./customized_schema.json
     },
     {
       "field_name": "url",
-      "label": "Source",
-      "form_placeholder": "http://example.com/dataset.json",
+      "label": "資料說明頁面",
+      "form_placeholder": "http://www.dengue.gov.tw/",
       "display_property": "foaf:homepage",
       "display_snippet": "link.html"
     },
     {
       "field_name": "fee",
-      "label": "fee",
+      "label": "計費方式",
       "choices": [
-	{ "value": "toll", "label": "toll" },
-        { "value": "free", "label": "free" }
+        { "value": "toll", "label": "計費" },
+        { "value": "free", "label": "免費" }
       ],
       "form_snippet": "select.html",
       "display_snippet": "select.html"
@@ -278,33 +290,45 @@ vim ./customized_schema.json
     },
     {
       "field_name": "author",
-      "label": "Author",
-      "form_placeholder": "Joe Bloggs",
+      "label": "聯絡人",
+      "form_placeholder": "王先生",
+      "display_property": "dc:creator"
+    },
+    {
+      "field_name": "ea_author",
+      "label": "Contact in English",
+      "form_placeholder": "Mr. Wang",
+      "display_property": "dc:creator"
+    },
+    {
+      "field_name": "author_phone",
+      "label": "聯絡人電話",
+      "form_placeholder": "02-23959825#0000",
       "display_property": "dc:creator"
     },
     {
       "field_name": "author_email",
-      "label": "Author Email",
-      "form_placeholder": "joe@example.com",
+      "label": "聯絡人電子郵件",
+      "form_placeholder": "example@cdc.gov.tw",
       "display_property": "dc:creator",
       "display_snippet": "email.html",
       "display_email_name_field": "author"
     },
     {
       "field_name": "pub_time",
-      "label": "Published Date",
+      "label": "發布時間",
       "form_snippet": "date.html",
       "form_placeholder": "eg. 2016/07/20"
     },
     {
       "field_name": "updated_freq",
-      "label": "Updated Frequency",
+      "label": "更新頻率",
       "choices": [
-        { "value": "year", "label": "year" },
-        { "value": "month", "label": "month" },
-        { "value": "day", "label": "day" },
-        { "value": "once", "label": "once" },
-        { "value": "non-scheduled", "label": "non-scheduled" }
+        { "value": "year", "label": "年" },
+        { "value": "month", "label": "月" },
+        { "value": "day", "label": "日" },
+        { "value": "once", "label": "一次性" },
+        { "value": "non-scheduled", "label": "不定期" }
       ],
       "form_snippet": "select.html",
       "display_snippet": "select.html"
@@ -329,7 +353,7 @@ vim ./customized_schema.json
     },
     {
       "field_name": "format",
-      "label": "Format",
+			"label": "Format",
       "preset": "resource_format_autocomplete"
     }
   ]
