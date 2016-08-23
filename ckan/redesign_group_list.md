@@ -399,5 +399,64 @@
 {# ... #}
 ```
 
+### **ckanext-scheming** 增加英文標題與英文說明欄位
+---
+
+* 各 group 頁面底下語言切換，修改 ** group/snippet/info.html **
+
+```html
+    {# ... #}
+
+    {% block heading %}
+    <h1 class="heading">
+      {# customized #}
+      {{ h.getLangLabel(group.etitle, group.title) }}
+      {% if group.state == 'deleted' %}
+        [{{ _('Deleted') }}]
+      {% endif %}
+    </h1>
+    {% endblock %}
+    {# customized : original - description is group.description, use plugins - group.notes #}
+    {% block description %}
+    {% if group.notes %}
+      <p>
+        {# customized #}
+        {{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), 180) }}
+        {% link_for _('read more'), controller='group', action='about', id=group.name %}
+      </p>
+    {% endif %}
+    {% endblock %}
+
+    {# ... #}
+```
+
+* 修改群組頁面 (group/) 下的清單語言切換，修改 ** group/snippets/group_item.html **
+
+```html
+  {# ... #}
+  
+  {% block title %}
+    {# customized #}
+    <h3 class="media-heading">{{ h.getLangLabel(group.etitle, group.title) }}</h3>
+  {% endblock %}
+
+  {% block description %}
+    {# customized #}
+    {% if group.notes %}
+      {# customized #}
+      <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), extract_length=60) }}</p>
+    {% endif %}
+  {% endblock %}
+  
+  {# ... #}
+```
+
+* 修改首頁底下的群組清單語言切換，修改 ** snippets/group_item.html **
+
+
+* 修改 sitemap 的路徑語言切換，修改 ** group/read_base.html **
+
+
+
 
 
