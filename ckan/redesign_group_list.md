@@ -470,7 +470,7 @@
             {% if truncate == 0 %}
               <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes))|urlize }}</p>
             {% else %}
-              <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), 22)|urlize }}</p>
+              <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), 26)|urlize }}</p>
             {% endif %}
           {% endif %}
         {% endblock %}
