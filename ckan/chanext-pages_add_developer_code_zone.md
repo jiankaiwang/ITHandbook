@@ -49,3 +49,114 @@ main =
 sudo restart ckan
 ```
 
+### 設計程式碼區塊
+---
+
+* 設計 templates/snippets/developer.html
+
+```html
+<div class="row">
+<div class="col-lg-12" id="developerContainer">
+  <ul id="developerTab" class="nav nav-tabs nav-justified">
+    <li class="active">
+      <a href="#service-one" data-toggle="tab">
+        <h3><i class="icon-cloud-download"></i> {{ h.getLangLabel("Access Data","取得資料") }}</h3>
+      </a>
+    </li>
+    <li class="">
+      <a href="#service-two" data-toggle="tab">
+        <h3><i class="icon-info-sign"></i> {{ h.getLangLabel("Data Schema","取得綱目") }}</h3>
+      </a>
+    </li>
+    <li class="">
+      {#
+      <a href="#service-three" data-toggle="tab">
+        <h3><i class="icon-external-link"></i> {{ h.getLangLabel("option3","選項3") }}</h3>
+      </a>
+      #}
+    </li>
+    <li class="">
+      {#
+      <a href="#service-four" data-toggle="tab">
+        <h3><i class="icon-external-link"></i> {{ h.getLangLabel("option4","選項4") }}</h3>
+      </a>
+      #}
+    </li>
+    <li class="">
+      {#
+      <a href="#service-five" data-toggle="tab">
+        <h3><i class="icon-external-link"></i> {{ h.getLangLabel("option5","選項5") }}</h3>
+      </a>
+      #}
+    </li>
+  </ul>
+
+  <div id="myTabContent" class="tab-content-2">
+    <!-- o1 start -->
+    <div class="tab-pane fade active in" id="service-one">
+
+    <pre class="brush: python; gutter: false;">
+
+# use library
+import urllib
+
+# query string
+url = 'http://data.cdc.gov.tw/api/action/datastore_search?resource_id=fed8ae7f-e420-4f80-9824-62698b2236b6&limit=5&q=title:jones'
+
+# start to fetch data
+fileobj = urllib.urlopen(url)
+
+# print data content
+print fileobj.read()
+
+    </pre>
+
+
+    </div>
+    <!-- o1 end -->
+
+    <!-- o2 start -->
+    <div class="tab-pane fade" id="service-two">
+
+    </div>
+    <!-- o2 end -->
+
+    <!-- o3 start -->
+    <div class="tab-pane fade" id="service-three">
+
+    </div>
+    <!-- o3 end -->
+
+    <!-- o4 start -->
+    <div class="tab-pane fade" id="service-four">
+
+    </div>
+    <!-- o4 end -->
+
+    <!-- o5 start -->
+    <div class="tab-pane fade" id="service-five">
+
+    </div>
+    <!-- o5 end -->
+
+  </div>
+
+</div>
+</div>		
+```
+
+* 設計 css
+
+```
+vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
+```
+
+```css
+
+```
+
+* 設計 javascript
+
+
+
+
