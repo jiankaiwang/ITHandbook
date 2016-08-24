@@ -152,7 +152,39 @@ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
 ```
 
 ```css
+/*
+* developer.html
+*/
+.tab-content-2 > .tab-pane {
+  display: none;
+}
+.tab-content-2 > .active {
+  display: block;
+}
+#developerContainer {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+#developerTab li {
+  width: 20%;
+  text-align: center;
+}
 
+@media only screen and (max-width: 767px) {
+  /*
+  * developer.html
+  */
+  #developerContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #developerTab li {
+    width: 100%;
+    text-align: center;
+  }
+}
 ```
 
 * 設計 javascript
