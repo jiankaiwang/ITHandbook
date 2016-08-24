@@ -149,7 +149,7 @@ print fileobj.read()
 
 編輯 general.css 檔案
 
-```
+```bash
 vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
 ```
 
@@ -195,7 +195,7 @@ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
 
 編輯 general.js 檔案
 
-```
+```bash
 vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/custom/general.js
 ```
 
@@ -225,7 +225,37 @@ $(function () {
 });
 ```
 
+* 加入 developer 頁面中
 
+```bash
+vim /usr/lib/ckan/default/src/ckanext-pages/ckanext/pages/theme/templates_main/ckanext_pages/page.html
+```
+
+```html
+
+  {# ... #}
+  
+      <div class="ckanext-pages-content">
+        {% set editor = h.get_wysiwyg_editor() %}
+        {% if editor %}
+          <div>
+              {{c.page.content|safe}}
+          </div>
+        {% else %}
+          {# customized #}
+          {{ h.getLangLabel(h.render_content(c.page.econtent),h.render_content(c.page.content)) }}
+          {% if c.page.ename == "Suggestion" %}
+              {% snippet "snippets/disqus.html" %}
+          {% elif c.page.ename == "Developer" %}
+              {% snippet "snippets/developer.html" %}
+          {% endif %}
+        {% endif %}
+      </div>
+  
+  {# ... #}
+
+
+```
 
 
 
