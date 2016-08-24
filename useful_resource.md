@@ -34,6 +34,8 @@
   * [Disqus](https://disqus.com/)
   * ckanext-basiccharts ([原 ckan 模組](https://github.com/ckan/ckanext-basiccharts), [自製模組](https://github.com/jiankaiwang/ckanext-basiccharts))
 
+* Syntaxhighlighter ([Official](http://alexgorbatchev.com/SyntaxHighlighter/))
+
 ###Drupal
 ---
 
