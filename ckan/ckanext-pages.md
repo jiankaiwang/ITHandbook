@@ -690,8 +690,6 @@ sudo restart ckan
           {{ h.getLangLabel(h.render_content(c.page.econtent),h.render_content(c.page.content)) }}
           {% if c.page.ename == "Suggestion" %}
               {% snippet "snippets/disqus.html" %}
-          {% elif c.page.ename == "Developer" %}
-              {% snippet "snippets/developer.html" %}
           {% endif %}
         {% endif %}
       </div>
