@@ -45,6 +45,7 @@
        * [修改 organization 呈現清單](ckan/redesign_organization.md)
        * [修改 dataset 頁面](ckan/dataset.md)
        * [修改 tags 呈現](ckan/design_tags.md)
+       * 在 chanext-pages 中加入 developer 程式碼區塊
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
    * [系統維護](ckan/system_management.md)
