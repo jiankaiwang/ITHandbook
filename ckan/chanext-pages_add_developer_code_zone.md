@@ -43,3 +43,9 @@ main =
     syntaxhighlighter/shBrushPython.js
 ```
 
+後重啟服務即可
+
+```bash
+sudo restart ckan
+```
+
