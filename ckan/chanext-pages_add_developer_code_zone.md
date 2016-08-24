@@ -257,7 +257,7 @@ vim /usr/lib/ckan/default/src/ckanext-pages/ckanext/pages/theme/templates_main/c
 
 ```
 
-* 重啟服務即可
+* 重新安裝並重啟服務即可
 
 ```bash
 # 透過 setup.py 安裝
