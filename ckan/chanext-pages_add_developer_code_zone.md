@@ -147,9 +147,13 @@ print fileobj.read()
 
 * 設計 css
 
+編輯 general.css 檔案
+
 ```
 vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
 ```
+
+填入底下內容
 
 ```css
 /*
@@ -188,6 +192,37 @@ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
 ```
 
 * 設計 javascript
+
+編輯 general.js 檔案
+
+```
+vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/custom/general.js
+```
+
+填入底下內容，需要注意配合上方的 id
+
+```javascript
+/*
+* desc set SyntaxHighlighter
+*/
+function setSyntaxHighlighter() {
+  if(window.jQuery && $('#developerContainer').length) {
+    SyntaxHighlighter.all();
+  }
+}
+
+/*
+* desc : initialize homepage
+*/
+$(function () {
+  
+  // ...
+  
+  setSyntaxHighlighter();
+  
+});
+```
+
 
 
 
