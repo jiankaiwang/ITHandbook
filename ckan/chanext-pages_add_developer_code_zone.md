@@ -11,3 +11,22 @@
 
 * 將解壓縮後必要資源 ** styles/shCoreDefault.css ** 置於伺服器 ** public/base/css ** 底下
 
+* 將 js 加入 ** resource.config ** 中
+
+```bash
+. /usr/lib/ckan/default/bin/activate
+vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/resource.config
+```
+
+加入 main 底下
+
+```bash
+main =
+
+    ...
+
+    syntaxhighlighter/shCore.js
+    syntaxhighlighter/shBrushJScript.js
+    syntaxhighlighter/shBrushPython.js
+```
+
