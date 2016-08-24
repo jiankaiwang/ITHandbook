@@ -257,5 +257,16 @@ vim /usr/lib/ckan/default/src/ckanext-pages/ckanext/pages/theme/templates_main/c
 
 ```
 
+* 重啟服務即可
+
+```bash
+# 透過 setup.py 安裝
+cd /usr/lib/ckan/default/src/ckanext-pages/
+python ./setup.py install
+
+# 重啟服務
+sudo restart ckan
+```
+
 
 
