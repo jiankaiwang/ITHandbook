@@ -11,6 +11,19 @@
 
 * 將解壓縮後必要資源 ** styles/shCoreDefault.css ** 置於伺服器 ** public/base/css ** 底下
 
+* 將 css 加入 ** base.html 中來引用
+
+```bash
+. /usr/lib/ckan/default/bin/activate
+vim /usr/lib/ckan/default/src/ckan/ckan/templates/base.html
+```
+
+透過 link 方式加入
+
+```html
+<link rel="stylesheet" href="/base/css/shCoreDefault.css" />
+```
+
 * 將 js 加入 ** resource.config ** 中
 
 ```bash
