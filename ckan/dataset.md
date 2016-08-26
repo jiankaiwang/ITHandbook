@@ -93,7 +93,7 @@
 
 ```
 
-* 修正 ** facet_list.html ** 內容
+* 修正 ** facet_list.html ** 內容，需注意於 help.py 應定義 getGroupOrOrganizationLangStr() 函式
 
 ```html
   {# ... #}
