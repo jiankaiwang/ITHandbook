@@ -13,10 +13,8 @@
 /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 ```
 
-### 新增功能
+### 依目前使用的語言回傳該語言的字串
 ---
-
-* 依目前使用的語言回傳該語言的字串
 
 ```python
 # customized function
@@ -39,7 +37,8 @@ __allowed_functions__ = [
 ]
 ```
 
-* 回傳 List 內的元素總數
+### 回傳 List 內的元素總數
+---
 
 ```python
 # customized function
@@ -60,7 +59,8 @@ __allowed_functions__ = [
 ]
 ```
 
-* 取代子自串
+### 取代子自串
+---
 
 ```python
 # customized function
@@ -82,7 +82,8 @@ __allowed_functions__ = [
 ]
 ```
 
-* 對各 organization 頁面底下的標籤進型語言切換
+### 對各 organization 頁面底下的標籤進型語言切換
+---
 
 先針對 help.py 進行設定，並加入 ** allowed_functions ** 中
 
@@ -142,7 +143,8 @@ __allowed_functions__ = [
 
 ```
 
-* 修正 Licenses 語言切換
+### 修正 Licenses 語言切換
+---
 
 ```python
 # ...
