@@ -58,6 +58,60 @@
 {% endblock %}
 ```
 
+### 修正 dataset 頁面左側 filters (可加速 dataset 讀取速度)
+---
+
+* 修正路徑
+
+```bash
+/usr/lib/ckan/default/src/ckan/ckan/templates/
+  |- package/
+    |- search.html        # 呼叫 ../snippets/facet_list.html
+  |- snippets/
+    |- facet_list.html    # 實際 filter 位置
+```
+
+* 修正 ** search.html ** : 僅顯示 "Formats", "格式", "Tags", "標籤"
+
+```html
+
+{# ... #}
+
+{% block secondary_content %}
+<div class="filters">
+  <div>
+    {% for facet in c.facet_titles %}
+      {# customized : origin is {Organizations, Groups, Tags, Formats, Licenses} #}
+      {% if c.facet_titles[facet] in ["Formats", "格式", "Tags", "標籤"] %}
+      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
+</div>
+{% endblock %}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
