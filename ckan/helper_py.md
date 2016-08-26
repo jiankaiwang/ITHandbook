@@ -202,6 +202,18 @@ def checkChineseTag(getStr):
             return True
     return False
     
+#
+# desc : show the tags in the same lang environment
+# usage : in dataset page
+#
+def checkLangTag(getStr):
+    if lang() == "en" and not checkChineseTag(getStr):
+        return True
+    elif lang() == "zh_TW" and checkChineseTag(getStr):
+        return True
+    else:
+        return False    
+    
 # ...
 
 __allowed_functions__ = [
@@ -213,6 +225,7 @@ __allowed_functions__ = [
     'getGroupOrOrganizationLangStr',
     'getLicenseLabel',
     'checkChineseTag',
+    'checkLangTag',
 
 ```
 
