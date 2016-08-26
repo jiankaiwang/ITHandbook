@@ -184,7 +184,35 @@ __allowed_functions__ = [
   # ...
 ```
 
+### 偵測中文標籤
+---
 
+```python
+# ...
+
+#
+# desc : detect chinese or not
+# usage : in dataset page
+#
+def checkChineseTag(getStr):
+    for i in range(0,len(getStr),1):
+        if u'\u4e00' <= getStr[i] <= u'\u9fff':
+            return True
+    return False
+    
+# ...
+
+__allowed_functions__ = [
+    
+    # ...
+    
+    'getGroupStr',
+    'getOrganizationStr',
+    'getGroupOrOrganizationLangStr',
+    'getLicenseLabel',
+    'checkChineseTag',
+
+```
 
 
 
