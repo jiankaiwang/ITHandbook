@@ -93,6 +93,39 @@
 
 ```
 
+* 修正 ** facet_list.html ** 內容
+
+```html
+  {# ... #}
+
+  <nav>
+    <ul class="{{ nav_class or 'unstyled nav nav-simple nav-facet' }}">
+      {% for item in items %}
+        {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
+        {% set label = label_function(item) if label_function else item.display_name %}
+        {% set label_truncated = h.truncate(label, 22) if not label_function else label %}
+        {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
+          <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
+            <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
+                {# customized #}
+                {% set newLabel = h.truncate(h.getGroupOrOrganizationLangStr(title, item), 22) %}
+                {% if newLabel != 'N' %}
+                  <span>{{ newLabel }} {{ count }}</span>
+                {% else %}
+                  {% if title == 'Licenses' %}
+                    <span>{{ h.getLicenseLabel(item,"display_name") }} {{ count }}</span>
+                  {% else %}
+                    <span>{{ label_truncated }} {{ count }}</span>
+                  {% endif %}
+                {% endif %}
+            </a>
+          </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  
+  {# ... #}
+```
 
 
 
