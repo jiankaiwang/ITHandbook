@@ -93,7 +93,7 @@
 
 ```
 
-* 修正 ** facet_list.html ** 內容，需注意於 help.py 應定義 getGroupOrOrganizationLangStr() 函式
+* 修正 ** facet_list.html ** 內容，需注意於 help.py 應定義 getGroupOrOrganizationLangStr() 與 checkLangTag() 函式，偵測中英文函式
 
 ```html
   {# ... #}
@@ -103,6 +103,7 @@
       {% for item in items %}
         {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
         {% set label = label_function(item) if label_function else item.display_name %}
+        {% if title in ["Formats","格式"] or h.checkLangTag(label) %}
         {% set label_truncated = h.truncate(label, 22) if not label_function else label %}
         {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
           <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
@@ -120,6 +121,7 @@
                 {% endif %}
             </a>
           </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </nav>
