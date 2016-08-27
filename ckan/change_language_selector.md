@@ -24,7 +24,14 @@
 {% set locale_option = ["en","zh_TW"] %}
 {% for locale in h.get_available_locales() %}
   {% if locale in locale_option %}
-<li><a href="{% url_for current_url, locale=locale %}">{{ locale.display_name or locale.english_name }}</a></li>
+<li><a href="{% url_for current_url, locale=locale %}">
+{# customized #}
+{% if locale.english_name == "Chinese (Taiwan)" %}
+    {{ _('中文(臺灣)') }}
+{% else %}
+    {{ locale.display_name }}
+{% endif %}
+</a></li>
   {% endif %}
 {% endfor %}
 ```
