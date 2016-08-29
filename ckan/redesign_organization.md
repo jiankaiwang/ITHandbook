@@ -363,6 +363,24 @@
 
 * 各 organization 頁面底下 Tag 切換，修改 ** snippets/facet_list.html **，此同各 group 頁面底下 Tag 切換，修改 ** snippets/facet_list.html **，需注意已有定義在 helpers.py 中
 
+### 修正各 organization 頁面底下，tag filter 的項目 (可加速 loading 速度)
+---
 
+* 修正 ** templates/organization/read.html ** 內容
+
+```html
+
+{# ... #}
+
+{% block organization_facets %}
+  {% for facet in c.facet_titles %}
+    {# customized : origin is {Organizations, Groups, Tags, Formats, Licenses} #}
+    {% if c.facet_titles[facet] in ["Formats", "格式", "Tags", "標籤"] %}
+    {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+
+```
 
 
