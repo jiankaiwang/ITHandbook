@@ -119,5 +119,5 @@
    * [use rsync](linux/use_rsync.md)
    * [更改 python 預設版本 (CentOS)](linux/change_python_version_in_centos.md)
    * [Common Commands in CentOS](linux/common_commands_in_centos.md)
-   * LAMP in Ubuntu
+   * [LAMP in Ubuntu](linux/lamp_in_ubuntu.md)
 
