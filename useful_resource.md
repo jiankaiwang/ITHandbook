@@ -21,7 +21,7 @@
   1. [Website](http://www.campwoodsw.com/sourcemonitor.html)
   2. 嵌入 Jenkins 須使用 [msxsl.exe](https://www.microsoft.com/en-us/download/details.aspx?id=21714)
 * python-jenkins 
-  1. [0.4.13 ownload](python-jenkins 0.4.13)
+  1. [0.4.13 ownload](https://pypi.python.org/pypi/python-jenkins/0.4.13#downloads)
 
 ###CKAN
 ---
