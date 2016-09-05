@@ -13,6 +13,7 @@
    * [Jenkins 整合 FxCop 工具](jenkins/jenkins_fxcop.md)
    * [Jenkins 整合 Simian 工具](jenkins/jenkins_simian.md)
    * [Jenkins 整合 SourceMonitor 工具](jenkins/jenkins_sourcemonitor.md)
+   * Jenkins 整合 python-jenkins 工具
 * [CKAN](ckan/ckan.md)
    * [安裝](ckan/ckan_install.md)
    * [佈署](ckan/deployment.md)
