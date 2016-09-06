@@ -224,6 +224,13 @@ git commit -m "message"
 # "<reflog tag>" : 參考紀錄標籤 (reflog)，如 "HEAD@{0}" 等
 # ORIG_HEAD : 固定字，指回到上一個版本
 git reset [--hard] ["<reflog tag>"|"ORIG_HEAD"] 
+
+# 修正(undo)版本歷史紀錄
+# -n : 回復版本後，暫不 commit
+# --continue : 已完成所有操作，並建立一個新版本
+# --abort : 放棄本次復原動作，所有邊更狀態還原
+git revert [-n]
+git revert [--continue|--abort]
 ```
 
 ###分支
