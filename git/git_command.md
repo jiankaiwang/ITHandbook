@@ -226,7 +226,7 @@ git commit -m "message"
 git reset [--hard] ["<reflog tag>"|"ORIG_HEAD"] 
 
 # 修正(undo)版本歷史紀錄
-# -n : 回復版本後，暫不 commit
+# -n : 回復版本後，暫不 commit，之後只有 [--continue|--abort] 兩種選項
 # --continue : 已完成所有操作，並建立一個新版本
 # --abort : 放棄本次復原動作，所有邊更狀態還原
 git revert [-n]
