@@ -169,6 +169,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
 * 主要修正內容為 ** templates/user/new_user_form.html **，並加入下述程式碼；
 
 ```html
+  {# customized applied organization #}
   <div class="control-group control-medium">
     <label class="control-label" for="field-confirm-password">{{ h.getLangLabel("Requested Organization","請求加入單位") }}</label>
     <div class="controls ">
