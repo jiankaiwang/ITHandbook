@@ -269,7 +269,32 @@ def user_dictize(user, context, include_password_hash=False):
             'count_private_and_draft_datasets', False))
 ```
 
+* 顯示申請內容，修改 ** templates/user/read_base.html ** 內容
 
+```html
+      <!-- -->
+      
+      {% block user_info %}
+      <div class="info">
+        <dl>
+          {% if user.name.startswith('http://') or user.name.startswith('https://') %}
+            <dt>{{ _('Open ID') }}</dt>
+            <dd>{{ user.name|urlize(25) }}{# Be great if this just showed the domain #}</dd>
+          {% else %}
+            <dt>{{ _('Username') }}</dt>
+            <dd>{{ user.name }}</dd>
+          {% endif %}
+        </dl>
+        {% if user.organ %}
+        <dl>
+            <dt>{{ _('Organization') }}</dt>
+            <dd>{{ user.organ }}</dd>
+        </dl>
+        {% endif %}
+        {% if c.is_myself %} 
+
+        <!-- -->
+```
 
 
 
