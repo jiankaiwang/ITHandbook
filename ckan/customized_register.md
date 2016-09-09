@@ -213,7 +213,7 @@ from py2psql import *
     <div class="controls ">
     <select id="field-organ" name="organ" class="control-medium">
       {% for org in h.get_featured_organizations(count=200) %}
-        <option value="{{ org.name }}">{{ h.getLangLabel(org.etitle, org.title) }}</option>
+        <option value="{{ org.name }}" {% if org.name == h.getUserOrgan(data.id) %} selected{% endif %}>{{ h.getLangLabel(org.etitle, org.title) }}</option>
       {% endfor %}
       <option value="other">{{ h.getLangLabel("Others", "其他") }}</option>
     </select>
