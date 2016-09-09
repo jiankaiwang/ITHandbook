@@ -113,6 +113,10 @@ __allowed_functions__ = [
 ]
 ```
 
+```bash
+$ sudo restart ckan
+```
+
 
 
 
