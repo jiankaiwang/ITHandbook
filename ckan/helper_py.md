@@ -229,6 +229,33 @@ __allowed_functions__ = [
 
 ```
 
+### 取得 request (POST, GET) 的參數與値
+---
+
+```python
+#
+# desc : parse request body
+# retn : dict as key => value (&key=value in URL)
+#
+def parsePostRequestBodyAsList(getStr):
+    bodyDict = {}
+    parsePair = []
+    for pair in getStr.split("&"):
+        parsePair = pair.split("=")
+        bodyDict.setdefault(parsePair[0],parsePair[1])
+    return bodyDict
+
+#
+# desc : get value of key in request body
+#
+def getPostRequestParamValue(getStr, getParaKey):
+    getDict = parsePostRequestBodyAsList(getStr)
+    if getParaKey in getDict.keys():
+        return getDict[getParaKey]
+    else:
+        return ''
+```
+
 ### 加入新欄位於註冊選單中
 ---
 
