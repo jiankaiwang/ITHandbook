@@ -166,7 +166,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_memb
 $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
 ```
 
-* 主要修正內容為 ** templates/user/new_user_form.html **，並加入下述程式碼；
+* 主要修正內容為 ** templates/user/new_user_form.html **，並加入下述程式碼，便可依照目前組之選項自動調整；
 
 ```html
   {# customized applied organization #}
@@ -175,7 +175,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
     <div class="controls ">
     <select id="field-organ" name="organ" class="control-medium">
       {% for org in h.get_featured_organizations(count=200) %}
-        <option value="{{ org.name }}">{{ h.getLangLabel("en","tw") }}</option>
+        <option value="{{ org.name }}">{{ h.getLangLabel(org.e_title, org.c_title) }}</option>
       {% endfor %}
     </select>
     </div>
