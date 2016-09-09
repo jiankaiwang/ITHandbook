@@ -68,6 +68,9 @@ $ psql -U ckan_default
 
 # 查看目前所有使用者的資料
 => select * from public.user;
+
+# 先對所有使用者加入 organ，假設為 eic
+=> update public.user set organ = 'eic' where id = '' or 1 = 1;
 ```
 
 
