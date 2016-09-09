@@ -227,14 +227,14 @@ from py2psql import *
 # 加入 library
 from py2psql import *
 
-# 並於 user_create 函式下，於 .commit() 入 postgresql 後，加入新欄位內容與更改 user 狀態
+# 並於 user_update 函式下，於 .commit() 入 postgresql 後，加入新欄位內容
     # ....
     if not context.get('defer_commit'):
         model.repo.commit()
 
-    # modify user state and add value into organ
+    # update the organization
     p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
-    p2l.update({"state":"inactive", "organ":data_dict["organ"]}, {"name":data_dict["name"], "email":data_dict["email"]})
+    p2l.update({"organ":data_dict["organ"]},{"name":data_dict["name"], "email":data_dict["email"]})
     # ...
 ```
 
