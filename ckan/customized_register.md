@@ -32,4 +32,18 @@ local   all             all                                     md5
 $ sudo /etc/init.d/postgresql restart
 ```
 
+嘗試登入 CKAN PostgreSQL 資料庫
+
+```bash
+$ psql -U ckan_default
+```
+
+
+
+
+
+
+
+
+
 
