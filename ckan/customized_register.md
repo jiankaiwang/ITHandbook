@@ -201,6 +201,48 @@ from py2psql import *
     # ...
 ```
 
+### 於使用者修改內容中，加入申請單位欄位
+---
+
+* 主要修正內容為 ** templates/user/edit_user_form.html **，並加入下述程式碼，便可依照目前組之選項自動調整；
+
+```html
+  {# customized applied organization #}
+  <div class="control-group control-medium">
+    <label class="control-label" for="field-confirm-password">{{ h.getLangLabel("Applied Organization","申請加入組織") }}</label>
+    <div class="controls ">
+    <select id="field-organ" name="organ" class="control-medium">
+      {% for org in h.get_featured_organizations(count=200) %}
+        <option value="{{ org.name }}">{{ h.getLangLabel(org.etitle, org.title) }}</option>
+      {% endfor %}
+      <option value="other">{{ h.getLangLabel("Others", "其他") }}</option>
+    </select>
+    </div>
+  </div>
+```
+
+* 並於註冊後加新欄位內容入資料庫，並透過修正 state 欄位不進行自動登入，修正 ** ckan/ckan/logic/action/create.py **
+
+```python
+# 加入 library
+from py2psql import *
+
+# 並於 user_create 函式下，於 .commit() 入 postgresql 後，加入新欄位內容與更改 user 狀態
+    # ....
+    if not context.get('defer_commit'):
+        model.repo.commit()
+
+    # modify user state and add value into organ
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    p2l.update({"state":"inactive", "organ":data_dict["organ"]}, {"name":data_dict["name"], "email":data_dict["email"]})
+    # ...
+```
+
+
+
+
+
+
 
 
 
