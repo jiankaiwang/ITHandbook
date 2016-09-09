@@ -334,6 +334,8 @@ __allowed_functions__ = [
     'getLicenseLabel',
     'checkChineseTag',
     'checkLangTag',
+    'parsePostRequestBodyAsList',
+    'getPostRequestParamValue',    
     'getReq2OrgList',
     'getUserState',
     'setUserState',
