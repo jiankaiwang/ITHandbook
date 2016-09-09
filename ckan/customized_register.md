@@ -117,7 +117,45 @@ __allowed_functions__ = [
 $ sudo restart ckan
 ```
 
+### 加入待核可選單
+---
 
+* 於 templates/home/snippets/ 底下加入 requested_members.html
+
+```bash
+# snippet 選單
+$ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_members.html
+```
+
+內容如下，
+
+```html
+{% set organization = organization %}
+{% set members = members  %}
+
+<h3 class="page-heading">{{ h.getLangLabel("Requested to join the organization","請求加入此組織帳號") }}</h3>
+<table class="table table-header table-hover table-bordered">
+  <col width="30" />
+  <col width="30" />
+  <col width="40" />
+  <thead>
+    <tr>
+      <th scope="col">{{ _('Name') }}</th>
+      <th scope="col">{{ _('Fullname') }}</th>
+      <th scope="col">{{ _('Email') }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for name, fullname, email in h.getReq2OrgList(organization, c.members) %}
+    <tr>
+      <td> {{ name }} </td>
+      <td> {{ fullname }} </td>
+      <td> {{ email }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+```
 
 
 
