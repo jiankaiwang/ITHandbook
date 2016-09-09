@@ -287,7 +287,7 @@ def user_dictize(user, context, include_password_hash=False):
         </dl>
         {% if user.organ %}
         <dl>
-            <dt>{{ _('Organization') }}</dt>
+            <dt>{{ h.getLangLabel("Applied Organ","申請組織") }}</dt>
             <dd>{{ user.organ }}</dd>
         </dl>
         {% endif %}
