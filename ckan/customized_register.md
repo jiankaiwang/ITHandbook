@@ -241,7 +241,33 @@ from py2psql import *
 ### 於個人資料頁面中加入申請組織資料
 ---
 
+* 修正頁面回傳資料內容，修正 ** ckan/ckan/lib/dictization/model_dictize.py **，於 user_dictize 函式中取得資料庫資料回傳至前端
 
+```python
+from py2psql import *
+
+def user_dictize(user, context, include_password_hash=False):
+    if context.get('with_capacity'):
+        user, capacity = user
+        result_dict = d.table_dictize(user, context, capacity=capacity)
+    else:
+        result_dict = d.table_dictize(user, context)
+
+    password_hash = result_dict.pop('password')
+    del result_dict['reset_key']
+
+    result_dict['display_name'] = user.display_name
+    result_dict['email_hash'] = user.email_hash
+    result_dict['number_of_edits'] = user.number_of_edits()
+
+    # customize to get organ value
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    result_dict.setdefault('organ', p2l.select({"email": user.email},["organ"],asdict=True)[0]["organ"])
+
+    result_dict['number_created_packages'] = user.number_created_packages(
+        include_private_and_draft=context.get(
+            'count_private_and_draft_datasets', False))
+```
 
 
 
