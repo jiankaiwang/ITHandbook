@@ -342,28 +342,3 @@ __allowed_functions__ = [
     'getUserOrgan',
     
 ```
-
-### 註冊完後的顯示畫面 (以 logout 為主要處理模式)
----
-
-* 修改 ** templates/user/logout.html **
-
-```html
- <!-- -->
- 
-    <div class="module-content">
-      <h1 class="page-heading">
-        {% block page_heading %}{{ _('Logged Out') }}{% endblock %}
-      </h1>
-      <p>{% trans %}You are now logged out.{% endtrans %}</p>
-      <hr />
-      <h1 class="page-heading">
-        {{ h.getLangLabel("Platform Registering Complete","平台註冊完成") }}
-      </h1>
-      <p>{{ h.getLangLabel("After registering, please download the document, fill and send it to Information Management Office.","若您為第一次註冊，帳戶將暫時關閉，請您至底下連結下載表單填寫後交給資訊室，審核後方可啟用
-。") }}</p>
-      <a href="#">{{ h.getLangLabel("Document Download","文件下載") }}</a>
-    </div>
- 
- <!-- -->
-```
