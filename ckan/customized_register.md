@@ -49,8 +49,8 @@ $ psql -U ckan_default
 \list                                                   # 列出資料庫
 \dt                                                     # 列出資料表
 \d+ public.user                                         # 列出資料表綱目
-ALTER TABLE "public.user" ADD COLUMN organ text;        # 增加欄位
-ALTER TABLE "public.user" ALTER COLUMN organ TYPE text; # 改變欄位型態
+ALTER TABLE "user" ADD COLUMN organ text;               # 增加欄位
+ALTER TABLE "user" ALTER COLUMN organ TYPE text;        # 改變欄位型態
 \connect ckan_default                                   # 變更目前所在資料庫
 ```
 
@@ -61,7 +61,13 @@ ALTER TABLE "public.user" ALTER COLUMN organ TYPE text; # 改變欄位型態
 $ psql -U ckan_default
 
 # 增加 organ 欄位
-ALTER TABLE "public.user" ADD COLUMN organ TYPE text;
+=> ALTER TABLE "user" ADD COLUMN organ text;
+
+# 檢查是否新增欄位成功
+=> \d+ public.user
+
+# 查看目前所有使用者的資料
+=> select * from public.user;
 ```
 
 
