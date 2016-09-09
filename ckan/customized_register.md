@@ -312,7 +312,36 @@ def user_dictize(user, context, include_password_hash=False):
   {{ h.snippet('home/snippets/requested_members.html', organization=organization, members=c.members) }}
 ```
 
+### 於人員選單中加入啟用與關閉按鈕
+---
 
+* 增加內容於 ** templates/user/edit_user_form.html **，末端加入啟用與關閉按鈕
+
+```html
+    {# ... #}
+
+        {% set locale = h.dump_json({'content': _('Are you sure you want to delete this User?')}) %}
+        <a class="btn btn-danger pull-left" href="{% url_for controller='user', action='delete', id=data.id %}" data-module="confirm-action" data-module-i18n="{{ locale }}">{% block delete_button_text %}{{ _('Delete') }}{% endblock %}</a>
+      {% endif %}
+    {% endblock %}
+
+    {# add activate or inactivate button #}
+    {% if c.userobj.sysadmin %}
+      {% if h.getUserState(data.id) == "inactive" %}
+        {# current state is inactive #}
+        <button class="btn btn-success" type="submit" name="activate" value="on">{{ h.getLangLabel("Activate","啟用") }}</button>
+      {% else %}
+        {# current state is active #}
+        <button class="btn btn-danger" type="submit" name="inactivate" value="on">{{ h.getLangLabel("Inactivate","關閉") }}</button>
+      {% endif %}
+    {% endif %}
+
+    {% block generate_button %}
+      {% if h.check_access('user_generate_apikey', {'id': data.id})  %}
+        {% set locale = h.dump_json({'content': _('Are you sure you want to regenerate the API key?')}) %}
+        
+    {# ... #}
+```
 
 
 
