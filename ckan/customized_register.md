@@ -2,7 +2,9 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-### 修改 postgresql 資料庫
+* 增加一選項用來申請組織
+
+### 修改 postgresql 資料庫組態
 ---
 
 * 修正 login 的 peer authentication failed 問題，修正 conf 設定
@@ -38,6 +40,29 @@ $ sudo /etc/init.d/postgresql restart
 $ psql -U ckan_default
 ```
 
+### 修改 CKAN 使用 postgresql 的 table schema 用來儲存新欄位
+---
+
+* 基本操作 postgresql 資料庫指令 (可參考)
+
+```bash
+\list                                                   # 列出資料庫
+\dt                                                     # 列出資料表
+\d+ public.user                                         # 列出資料表綱目
+ALTER TABLE "public.user" ADD COLUMN organ text;        # 增加欄位
+ALTER TABLE "public.user" ALTER COLUMN organ TYPE text; # 改變欄位型態
+\connect ckan_default                                   # 變更目前所在資料庫
+```
+
+* 增加欄位
+
+```bash
+# 登入 postgresql
+$ psql -U ckan_default
+
+# 增加 organ 欄位
+ALTER TABLE "public.user" ADD COLUMN organ TYPE text;
+```
 
 
 
