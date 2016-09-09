@@ -96,6 +96,7 @@ $ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/py2
 
 ```python
 # 引用自定義 library
+import psycopg2
 from py2psql import *
 
 # 加入函式 : 完整參考 helpers.py
@@ -181,6 +182,15 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
     </select>
     </div>
   </div>
+```
+
+* 並於註冊後加新欄位內容入資料庫，並透過修正 state 欄位不進行自動登入，修正 ** ckan/ckan/logic/action/create.py **
+
+```python
+# 加入 library
+from py2psql import *
+
+
 ```
 
 
