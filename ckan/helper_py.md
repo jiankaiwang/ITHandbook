@@ -272,6 +272,13 @@ def setUserState(getID,setState):
     p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
     return p2l.update({"state":setState},{"id":getID})
 
+#
+# desc : get user organ
+#
+def getUserOrgan(getID):
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    data = p2l.select({"id":getID},["organ"],asdict=True)
+    return data[0]["organ"]
 
 # ...
 
@@ -288,6 +295,7 @@ __allowed_functions__ = [
     'getReq2OrgList',
     'getUserState',
     'setUserState',
+    'getUserOrgan',
     
 ```
 
