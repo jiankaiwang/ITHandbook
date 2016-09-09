@@ -49,7 +49,7 @@
        * [在 chanext-pages 中加入 developer 程式碼區塊](ckan/chanext-pages_add_developer_code_zone.md)
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
-       * 客製化註冊選單及避免自動註冊登入
+       * [客製化註冊選單及避免自動註冊登入](ckan/customized_register.md)
    * [系統維護](ckan/system_management.md)
        * [CKAN on SSL](ckan/ckan_on_ssl.md)
        * [加入 Google Analytics](ckan/add_google_analytics.md)
