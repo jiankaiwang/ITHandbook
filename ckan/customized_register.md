@@ -26,3 +26,10 @@ local   all             all                                     md5
 # ...
 ```
 
+修改後重啟服務
+
+```bash
+$ sudo /etc/init.d/postgresql restart
+```
+
+
