@@ -101,6 +101,8 @@ import psycopg2
 from py2psql import *
 
 # 加入函式 : 完整參考 helpers.py
+def parsePostRequestBodyAsList(getStr)
+def getPostRequestParamValue(getStr, getParaKey)
 def getReq2OrgList(getOrg, getCrtUser)
 def getUserState(getID)
 def setUserState(getID,setState)
@@ -108,6 +110,8 @@ def setUserState(getID,setState)
 # 加入 allowed function
 __allowed_functions__ = [
     '...',
+    'parsePostRequestBodyAsList',
+    'getPostRequestParamValue',
     'getReq2OrgList',
     'getUserState',
     'setUserState',  
