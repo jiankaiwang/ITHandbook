@@ -166,7 +166,20 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_memb
 $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
 ```
 
+* 主要修正內容為 ** templates/user/new_user_form.html **，並加入下述程式碼；
 
+```html
+  <div class="control-group control-medium">
+    <label class="control-label" for="field-confirm-password">{{ h.getLangLabel("Requested Organization","請求加入單位") }}</label>
+    <div class="controls ">
+    <select id="field-organ" name="organ" class="control-medium">
+      {% for org in h.get_featured_organizations(count=200) %}
+        <option value="{{ org.name }}">{{ h.getLangLabel("en","tw") }}</option>
+      {% endfor %}
+    </select>
+    </div>
+  </div>
+```
 
 
 
