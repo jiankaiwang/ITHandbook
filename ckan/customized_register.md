@@ -71,6 +71,7 @@ $ psql -U ckan_default
 
 # 先對所有使用者加入 organ，假設為 eic
 => update public.user set organ = 'eic' where id = '' or 1 = 1;
+=> update public.user set email = 'none@cdc.gov.tw' where email = '';
 ```
 
 ### 加入自定義對 PostgreSQL 資料庫處理類別
@@ -285,12 +286,12 @@ def user_dictize(user, context, include_password_hash=False):
             <dd>{{ user.name }}</dd>
           {% endif %}
         </dl>
-        {% if user.organ %}
+        {#{% if user.organ %}
         <dl>
             <dt>{{ h.getLangLabel("Applied Organ","申請組織") }}</dt>
             <dd>{{ user.organ }}</dd>
         </dl>
-        {% endif %}
+        {% endif %}#}
         {% if c.is_myself %} 
 
         <!-- -->
