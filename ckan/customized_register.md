@@ -221,7 +221,7 @@ from py2psql import *
   </div>
 ```
 
-* 並於註冊後加新欄位內容入資料庫，並透過修正 state 欄位不進行自動登入，修正 ** ckan/ckan/logic/action/create.py **
+* 並於修改個人資料後加新欄位內容入資料庫，修正 ** ckan/ckan/logic/action/update.py **
 
 ```python
 # 加入 library
