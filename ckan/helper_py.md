@@ -238,6 +238,10 @@ from py2psql import *
 
 # ...
 
+#
+# desc : get user list for requesting to organization
+# retn : list contains tuple
+#
 def getReq2OrgList(getOrg, getCrtUser):
     p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
     data = p2l.select({"organ":getOrg["name"]},["id","name","fullname","email"],asdict=True)
@@ -253,11 +257,17 @@ def getReq2OrgList(getOrg, getCrtUser):
                 retList.append(tmpTuple)
         return retList
 
+#
+# desc : get current user state
+#
 def getUserState(getID):
     p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
     data = p2l.select({"id":getID},["state"],asdict=True)
     return data[0]["state"]
 
+#
+# desc : set current user state
+#
 def setUserState(getID,setState):
     p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
     return p2l.update({"state":setState},{"id":getID})
@@ -275,6 +285,9 @@ __allowed_functions__ = [
     'getLicenseLabel',
     'checkChineseTag',
     'checkLangTag',
+    'getReq2OrgList',
+    'getUserState',
+    'setUserState',
     
 ```
 
