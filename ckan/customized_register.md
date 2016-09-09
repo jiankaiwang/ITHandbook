@@ -343,7 +343,50 @@ def user_dictize(user, context, include_password_hash=False):
     {# ... #}
 ```
 
+* 增加內容於 ** templates/user/edit_user_form.html **，頁首加入 POST 後的處理方式
 
+```html
+{# ... #}
+
+% import 'macros/form.html' as form %}
+
+{% if request.method == "POST" %}
+    {% if h.getPostRequestParamValue(request.body,"activate") == "on" %}
+        {% if h.setUserState(data.id, "active") == 1 %}
+        <div class="flash-messages">
+            <div class="alert fade in alert-success">
+                {{ h.getLangLabel("Account is already activated.","帳號已啟用") }}
+            </div>
+        </div>
+        {% else %}
+        <div class="flash-messages">
+            <div class="alert fade in alert-success">
+                {{ h.getLangLabel("Account activation went wrong.","帳號啟用出錯") }}
+            </div>
+        </div>
+        {% endif %}
+    {% elif h.getPostRequestParamValue(request.body,"inactivate") == "on" %}
+        {% if h.setUserState(data.id, "inactive") == 1 %}
+        <div class="flash-messages">
+            <div class="alert fade in alert-success">
+                {{ h.getLangLabel("Account is already inactivated.","帳號已關閉") }}
+            </div>
+        </div>
+        {% else %}
+        <div class="flash-messages">
+            <div class="alert fade in alert-success">
+                {{ h.getLangLabel("Account inactivation went wrong.","帳號關閉出錯") }}
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+<form id="user-edit-form" class="dataset-form form-horizontal" method="post" action="{{ action }}">
+  {{ form.errors(error_summary) }}
+
+{# ... #}
+```
 
 
 
