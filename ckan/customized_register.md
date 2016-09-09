@@ -91,7 +91,27 @@ $ sudo pip install psycopg2
 $ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/py2psql.py
 ```
 
+### 加入數項功能入 helpers.py
+---
 
+```python
+# 引用自定義 library
+from py2psql import *
+
+# 加入函式 : 完整參考 helpers.py
+def getReq2OrgList(getOrg, getCrtUser)
+def getUserState(getID)
+def setUserState(getID,setState)
+
+# 加入 allowed function
+__allowed_functions__ = [
+    '...',
+    'getReq2OrgList',
+    'getUserState',
+    'setUserState',  
+    '...'
+]
+```
 
 
 
