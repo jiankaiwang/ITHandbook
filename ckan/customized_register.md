@@ -142,9 +142,9 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_memb
   <col width="40" />
   <thead>
     <tr>
-      <th scope="col">{{ _('Name') }}</th>
-      <th scope="col">{{ _('Fullname') }}</th>
-      <th scope="col">{{ _('Email') }}</th>
+      <th scope="col">{{ h.getLangLabel("Name","帳號") }}</th>
+      <th scope="col">{{ h.getLangLabel("Fullname","名稱") }}</th>
+      <th scope="col">{{ h.getLangLabel("Email","電子郵件") }}</th>
     </tr>
   </thead>
   <tbody>
