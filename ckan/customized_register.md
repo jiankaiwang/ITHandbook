@@ -475,6 +475,10 @@ def user_dictize(user, context, include_password_hash=False):
 # ...
 ```
 
+* 重啟服務即可
 
+```bash
+$ sudo restart ckan
+```
 
 
