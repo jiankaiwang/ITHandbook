@@ -300,7 +300,17 @@ def user_dictize(user, context, include_password_hash=False):
 ### 於組織管理中加入待加入成員名單
 ---
 
+* 新增待加入組織清單，修改 ** templates/organization/members.html **
 
+```html
+ 
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {# add applied list #}
+  {{ h.snippet('home/snippets/requested_members.html', organization=organization, members=c.members) }}
+```
 
 
 
