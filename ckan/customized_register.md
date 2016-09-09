@@ -78,7 +78,7 @@ $ psql -U ckan_default
 
 * 參考 [Gitbook](https://jiankaiwang.gitbooks.io/seed/content/python/py2psqlpy.html)、或 [github](https://github.com/jiankaiwang/seed/blob/master/python/py2psql.py)。
 
-* 將此類別加入預設 python library 中，並安裝 psycopg2，並記得於 virtualenv 中加入 psycopg2
+* 將此類別加入預設 python library 中，並安裝 psycopg2，並記得於 virtualenv 中加入 psycopg2 (ckan 2.5.x 已上已預先安裝)
 
 ```bash
 # python 2.7 函式庫預設位置
