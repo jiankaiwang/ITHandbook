@@ -171,12 +171,13 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
 ```html
   {# customized applied organization #}
   <div class="control-group control-medium">
-    <label class="control-label" for="field-confirm-password">{{ h.getLangLabel("Requested Organization","請求加入單位") }}</label>
+    <label class="control-label" for="field-confirm-password">{{ h.getLangLabel("Applied Organization","申請加入組織") }}</label>
     <div class="controls ">
     <select id="field-organ" name="organ" class="control-medium">
       {% for org in h.get_featured_organizations(count=200) %}
-        <option value="{{ org.name }}">{{ h.getLangLabel(org.e_title, org.c_title) }}</option>
+        <option value="{{ org.name }}">{{ h.getLangLabel(org.etitle, org.title) }}</option>
       {% endfor %}
+      <option value="other">{{ h.getLangLabel("Others", "其他") }}</option>
     </select>
     </div>
   </div>
