@@ -254,6 +254,21 @@ def getPostRequestParamValue(getStr, getParaKey):
         return getDict[getParaKey]
     else:
         return ''
+        
+# ...
+
+__allowed_functions__ = [
+    
+    # ...
+    
+    'getGroupStr',
+    'getOrganizationStr',
+    'getGroupOrOrganizationLangStr',
+    'getLicenseLabel',
+    'checkChineseTag',
+    'checkLangTag',
+    'parsePostRequestBodyAsList',
+    'getPostRequestParamValue',
 ```
 
 ### 加入新欄位於註冊選單中
