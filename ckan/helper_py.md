@@ -229,7 +229,54 @@ __allowed_functions__ = [
 
 ```
 
+### 加入新欄位於註冊選單中
+---
 
+```python
+import psycopg2
+from py2psql import *
+
+# ...
+
+def getReq2OrgList(getOrg, getCrtUser):
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    data = p2l.select({"organ":getOrg["name"]},["id","name","fullname","email"],asdict=True)
+
+    if len(data) < 1:
+        return []
+    else:
+        retList = []
+        crtList = [item[0] for item in getCrtUser]
+        for item in data:
+            if item["id"] not in crtList:
+                tmpTuple = (item["name"], item["fullname"], item["email"])
+                retList.append(tmpTuple)
+        return retList
+
+def getUserState(getID):
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    data = p2l.select({"id":getID},["state"],asdict=True)
+    return data[0]["state"]
+
+def setUserState(getID,setState):
+    p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+    return p2l.update({"state":setState},{"id":getID})
+
+
+# ...
+
+__allowed_functions__ = [
+    
+    # ...
+    
+    'getGroupStr',
+    'getOrganizationStr',
+    'getGroupOrOrganizationLangStr',
+    'getLicenseLabel',
+    'checkChineseTag',
+    'checkLangTag',
+    
+```
 
 
 
