@@ -157,5 +157,19 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_memb
 </table>
 ```
 
+### 於註冊選單中加入新欄位
+---
+
+* 主要參考預設範本 ** /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html **
+
+```html
+$ vim /usr/lib/ckan/default/src/ckan/ckan/templates/macros/form.html
+```
+
+
+
+
+
+
 
 
