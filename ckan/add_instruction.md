@@ -8,8 +8,12 @@
 ```bash
 /usr/lib/ckan/default/src/
   |- ckanext-pages/ckanext/pages/theme/templates_main/ckanext_pages/page.html  # 引用位置
-  |- ckan/ckan/templates/home/
-    |- 
+  |- ckan/ckan/templates/snippets
+    |- instruction.html
+      |- register.html
+      |- document.html
+      |- admin_doc.html
+      |- contact.html      
 ```
 
 ### 引用方式
@@ -51,5 +55,39 @@
 ```bash
 
 ```
+
+### 內容
+---
+
+* 修改主要引用位置 ** instruction.html **
+
+```html
+<hr />
+{# register document #}
+{% snippet 'snippets/register.html' %}
+
+{% if c.user %}
+    {# only user can view #}
+    <hr />
+    {# document #}
+    {% snippet 'snippets/document.html' %}
+{% endif %}
+
+{% if c.userobj.sysadmin %}
+    {# only admin user can view #}
+    <hr />
+    {# admin document #}
+    {% snippet 'snippets/admin_doc.html' %}
+{% endif %}
+
+<hr />
+{# contact #}
+{% snippet 'snippets/contact.html' %}
+```
+
+
+
+
+
 
 
