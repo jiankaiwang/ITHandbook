@@ -29,8 +29,10 @@ ckan 預設將 ckan 使用者分成 3 組
 # 登入 PostgreSQL
 $ psql -U ckan_default
 
-# e-mail 設訂
+# e-mail 設定
 => update public.user set email = 'sd1@tw' where name = 'sd1';
+
+# 新增欄位設定
 => update public.user set organ = 'eic' where name = 'sd1';
 ```
 
