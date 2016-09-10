@@ -47,6 +47,7 @@
        * [修改 dataset 頁面](ckan/dataset.md)
        * [修改 tags 呈現](ckan/design_tags.md)
        * [在 chanext-pages 中加入 developer 程式碼區塊](ckan/chanext-pages_add_developer_code_zone.md)
+       * 修改 footer 內容
    * [主路徑架構](ckan/architecture_path.md)
    * [使用者管理](ckan/member.md)
        * [客製化註冊選單及避免自動註冊登入](ckan/customized_register.md)
