@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-### 將上方狀態列改成「English|中文(台灣)|登入|註冊」
+### 將上方狀態列改成「English|中文(台灣)|登入」
 ---
 
 * 將上方的 「登入|註冊」 bar 改成含有「English|中文(台灣)|登入|註冊」
@@ -91,7 +91,7 @@
 ...
 ```
 
-### 將下方狀態列改成「English|中文(台灣)|登入|註冊」
+### 將下方狀態列改成「English|中文(台灣)|註冊」
 ---
 
 * 但登入後僅保留 「English|中文(台灣)」
