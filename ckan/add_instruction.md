@@ -53,7 +53,9 @@
 * 重新安裝及重啟服務
 
 ```bash
-
+$ cd /usr/lib/ckan/default/src/ckanext-pages/
+$ python ./setup.py install
+$ sudo restart ckan
 ```
 
 ### 內容
