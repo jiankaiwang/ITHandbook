@@ -121,6 +121,7 @@
               {# cdc #}
               {% block header_account_notlogged %}
               {% snippet "snippets/customized_language_selector.html" %}
+              {# customized : registerion option #}
               {% if h.check_access('user_create') %}
                 <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
               {% endif %}
