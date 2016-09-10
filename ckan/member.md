@@ -31,6 +31,7 @@ $ psql -U ckan_default
 
 # e-mail 設訂
 => update public.user set email = 'sd1@tw' where name = 'sd1';
+=> update public.user set organ = 'eic' where name = 'sd1';
 ```
 
 
