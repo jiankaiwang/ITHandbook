@@ -410,41 +410,8 @@ def user_dictize(user, context, include_password_hash=False):
       <h1 class="page-heading">
       {{ h.getLangLabel("Hi! " + crtUser + " has been registered on the platform","您好，帳號 " + crtUser + " ! 已於平台註冊完成") }}
       </h1>
-      <p>{{ h.getLangLabel("After registering, please download the document, fill and send it to Information Management Office.","註冊完成
-後，帳戶將暫時關閉，請您至底下連結下載表單填寫後傳真給資訊室，審核後方可啟用。") }}</p>
-      <p>{{ h.getLangLabel("Tax : xx-xxxx-xxxx","傳真號碼 : xx-xxxx-xxxx") }}</p>
-      <p>{{ h.getLangLabel("Email : xxxx@xxx.xxx.xx","電子郵件 : xxxx@xxx.xxx.xx") }}</p>
-      <a href="#">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
-      <hr />
-       <h3 class="page-heading">{{ h.getLangLabel("Trouble Shooting","困難排除") }}</h3>
-        <table class="table table-header table-hover table-bordered">
-                <col width="30" />
-                <col width="20" />
-                <col width="25" />
-                <col width="25" />
-                <thead>
-                        <tr>
-                                <th scope="col">{{ h.getLangLabel("Service","負責內容") }}</th>
-                                <th scope="col">{{ h.getLangLabel("Name","單位姓名") }}</th>
-                                <th scope="col">{{ h.getLangLabel("Phone","電話") }}</th>
-                                <th scope="col">{{ h.getLangLabel("Email","電子郵件") }}</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                                <th scope="col">{{ h.getLangLabel("Register, Response","註冊, 回覆與跨組織聯繫") }}</th>
-                                <th scope="col">{{ h.getLangLabel("xxxxx","xxxxxx") }}</th>
-                                <th scope="col">{{ "xxxxxxxx" }}</th>
-                                <th scope="col">{{ "xxxxxxxx" }}</th>
-                        </tr>
-                        <tr>
-                                <th scope="col">{{ h.getLangLabel("Operatiom, DevOps","業務, 開發維運") }}</th>
-                                <th scope="col">{{ h.getLangLabel("xxxxxxx","xxxxxxxx") }}</th>
-                                <th scope="col">{{ "xxxxxxx" }}</th>
-                                <th scope="col">{{ "xxxxxxx" }}</th>
-                        </tr>
-                </tbody>
-        </table>
+      {# register document #}
+      {% snippet 'snippets/register.html' %}
     </div>
   </section>
 {% endblock %}
