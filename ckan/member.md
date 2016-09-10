@@ -22,3 +22,12 @@ ckan 預設將 ckan 使用者分成 3 組
 # 執行下列指令後便依程式執行進行密碼設定
 (pyenv) $ paster --plugin=ckan sysadmin add jkw -c /etc/ckan/default/development.ini
 ```
+
+4. 需要注意當有自訂欄位時，e-mail 為必要資訊，需透過 PostgreSQL 指定 email
+
+```bash
+# 登入 PostgreSQL
+$ psql -U ckan_default
+```
+
+
