@@ -413,6 +413,7 @@ def user_dictize(user, context, include_password_hash=False):
       </h1>
       {# register document #}
       {% snippet 'snippets/register.html' %}
+      <hr />
       {# contact document #}
       {% snippet 'snippets/contact.html' %}      
     </div>
