@@ -98,7 +98,7 @@
 ```bash
 /usr/lib/ckan/default/src/ckan/ckan/templates
   |- footer.html                  # footer 主要內容
-  |- header_in_footer.html        # 加入語言選項
+  |- header_in_footer.html        # 加入語言選項與註冊選項
 ```
 
 * 修改 ** header_in_footer.html ** 內容如下，修改後加入 footer.html 即可。
