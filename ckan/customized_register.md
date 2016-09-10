@@ -155,7 +155,8 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/home/snippets/requested_memb
     {% for name, fullname, email in h.getReq2OrgList(organization, c.members) %}
     <tr>
       <td> {{ name }} </td>
-      <td> {{ fullname }} </td>
+      {# prevent UTF8 coding issue, h.linked_user(name) must be used  #}
+      <td class="media"> {{ h.linked_user(name, maxlength=20) }} </td>
       <td> {{ email }} </td>
     </tr>
     {% endfor %}
