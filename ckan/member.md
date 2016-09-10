@@ -18,9 +18,9 @@ ckan 預設將 ckan 使用者分成 3 組
 其中第 1 類系統管理員的設置需要透過指令式進行指派，此與「安裝」 -> 「新增 CKAN 系統管理者」的指令相同，如下；
 
 ```Bash
-# 假設要新增的系統管理員帳號為 jkw
+# 假設要新增的系統管理員帳號為 sd1
 # 執行下列指令後便依程式執行進行密碼設定
-(pyenv) $ paster --plugin=ckan sysadmin add jkw -c /etc/ckan/default/development.ini
+(pyenv) $ paster --plugin=ckan sysadmin add sd1 -c /etc/ckan/default/development.ini
 ```
 
 4. 需要注意當有自訂欄位時，e-mail 為必要資訊，需透過 PostgreSQL 指定 email
@@ -28,6 +28,9 @@ ckan 預設將 ckan 使用者分成 3 組
 ```bash
 # 登入 PostgreSQL
 $ psql -U ckan_default
+
+# e-mail 設訂
+=> update public.user set email = 'sd1@tw' where name = 'sd1';
 ```
 
 
