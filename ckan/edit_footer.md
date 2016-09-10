@@ -50,12 +50,6 @@
         {% block footer_nav %}
           <ul class="unstyled">
               <li>
-                <i class="icon-phone"></i>  {{ h.getLangLabel("Phone : +886-2-23959825 #4032","電話 : 02-23959825 #4032") }}
-              </li>
-              <li>
-                <i class="icon-share-alt"></i>  {{ h.getLangLabel("Email : jkw@cdc.gov.tw","信箱 : jkw@cdc.gov.tw") }}
-              </li>
-              <li>
               {{ h.getLangLabel("No.6, Linsen S. Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)","10050 台北市中正區林森南路6號") }}
               </li>
               <li><a href="http://www.cdc.gov.tw">
