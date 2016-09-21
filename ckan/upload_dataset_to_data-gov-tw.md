@@ -29,6 +29,23 @@ CREATE TABLE ndcsync ( id serial primary key, cdcid text not null, ndcid text, s
 # progress  | text    |                                                      | extended |              |
 ```
 
+### 加入自定義類別 py2psql (py to psql) 及 REQUESTMETHOD
+---
+
+* py2psql : Python 與 PostgreSQL 溝通類別
+* REQUESTMETHOD : 透過 Python 傳送 GET/POST/PUT/DELETE 方法
+
+```bash
+# python 2.7 函式庫預設位置
+$ cd /usr/lib/python2.7/
+
+# 取得 py2psql 程式碼
+$ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/py2psql.py
+
+# 取得 PostgreSQL 程式碼
+$ sudo wget https://github.com/jiankaiwang/seed/blob/master/python/REQUESTMETHOD.py
+```
+
 ### 加入上傳 icon
 ---
 
