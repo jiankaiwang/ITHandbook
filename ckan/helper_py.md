@@ -862,5 +862,21 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
 #
 def actSYNC2NDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd):
     thread.start_new_thread(SYNCNDC, (dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd))
-    
+
+
+# ...
+
+__allowed_functions__ = [
+
+    # ...
+
+    'setUserState',
+    'getUserOrgan',
+    'getSysTime',
+    'transTime',
+    'syncNDCState',
+    'syncNDCInitDataset',
+    'SYNCNDC',
+    'actSYNC2NDC',
+
 ```
