@@ -2,6 +2,33 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
+### 於 PostgreSQL DB 中加入 ndcsync 表格紀錄同步狀態
+---
+
+```bash
+# 登入 postgresql service
+$ psql -U ckan_default
+
+# 進入 ckan 資料庫
+\connect ckan_default
+
+# 加入一張新表
+CREATE TABLE ndcsync ( id serial primary key, cdcid text not null, ndcid text, state text NOT NULL, operation text not null, beginning date, ending date, code text, progress text );
+
+# 表格綱目如下
+#  Column   |  Type   |                      Modifiers                       | Storage  | Stats target | Description
+#-----------+---------+------------------------------------------------------+----------+--------------+-------------
+# id        | integer | not null default nextval('ndcsync_id_seq'::regclass) | plain    |              |
+# cdcid     | text    | not null                                             | extended |              |
+# ndcid     | text    |                                                      | extended |              |
+# state     | text    | not null                                             | extended |              |
+# operation | text    | not null                                             | extended |              |
+# beginning | date    |                                                      | plain    |              |
+# ending    | date    |                                                      | plain    |              |
+# code      | text    |                                                      | extended |              |
+# progress  | text    |                                                      | extended |              |
+```
+
 ### 加入上傳 icon
 ---
 
