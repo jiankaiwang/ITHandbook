@@ -57,21 +57,7 @@ $ . /usr/lib/ckan/default/bin/activate
 $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 ```
 
-* 加入定義與內容如下
-
-```python
-# 加入函式庫
-
-from py2psql import *
-from REQUESTMETHOD import *
-import thread
-import time
-import datetime
-import urllib
-import urllib2
-import json
-
-```
+* 加入定義與內容可以參考 helpere.py
 
 ### 加入上傳 icon
 ---
