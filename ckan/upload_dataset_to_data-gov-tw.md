@@ -43,7 +43,20 @@ $ cd /usr/lib/python2.7/
 $ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/py2psql.py
 
 # 取得 REQUESTMETHOD 程式碼
-$ sudo wget https://github.com/jiankaiwang/seed/blob/master/python/REQUESTMETHOD.py
+$ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/REQUESTMETHOD.py
+```
+
+### 加入同步函式入 helpers.py
+---
+
+```python
+# 進入虛擬機
+$ . /usr/lib/ckan/default/bin/activate
+
+# 加入功能入 helpers.py
+$ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
+
+
 ```
 
 ### 加入上傳 icon
