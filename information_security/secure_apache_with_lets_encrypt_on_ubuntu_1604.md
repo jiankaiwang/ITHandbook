@@ -5,6 +5,9 @@
 ### Install Let's Encrypt Client
 ---
 
-
+```bash
+$ sudo apt-get update
+$ sudo apt-get install python-letsencrypt-apache
+```
 
 
