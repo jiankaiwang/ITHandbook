@@ -21,7 +21,7 @@ $ sudo letsencrypt --apache -d example.com
 ```
 
 ```bash
-# after install, use the website to test
+# after installation certificate, use the website to test
 https://www.ssllabs.com/ssltest/analyze.html?d=example.com&latest
 ```
 
