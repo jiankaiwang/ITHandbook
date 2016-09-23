@@ -37,7 +37,7 @@ $ sudo letsencrypt renew
 * renew on scheduling by crontab
 
 ```bash
-# edit the scheduling
+# book renewal
 $ sudo vim /etc/crontab
 
 # add the following command
