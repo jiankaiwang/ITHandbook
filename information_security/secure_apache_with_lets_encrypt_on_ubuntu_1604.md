@@ -18,8 +18,11 @@ $ sudo apt-get install python-letsencrypt-apache
 # if there is more than one domain, use the following command
 # sudo letsencrypt --apache -d example.com -d www.example.com
 $ sudo letsencrypt --apache -d example.com
+```
 
-
+```bash
+# after install, use the website to test
+https://www.ssllabs.com/ssltest/analyze.html?d=example.com&latest
 ```
 
 
