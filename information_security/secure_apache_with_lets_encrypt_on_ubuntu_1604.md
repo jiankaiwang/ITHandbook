@@ -25,4 +25,21 @@ $ sudo letsencrypt --apache -d example.com
 https://www.ssllabs.com/ssltest/analyze.html?d=example.com&latest
 ```
 
+### Set up Auto Renewal
+---
 
+* renew once
+
+```
+$ sudo letsencrypt renew
+```
+
+* renew on scheduling by crontab
+
+```bash
+# edit the scheduling
+$ sudo vim /etc/crontab
+
+# add the following command
+30 2    * * 1   root    /usr/bin/letsencrypt renew >> /var/log/le-renew.log
+```
