@@ -20,7 +20,7 @@
 * Notice command **adduser** is much helpful than useradd, including auto creating home directory, etc.
 
 ```Bash
-$ sudo adduser --home homePath aaount
+$ sudo adduser --home homePath account
 ```
 
 * The above commands are trying to add a new user with auto-set its home folder located on ** /home/user01 **. Next promote this user or a group to super_user privilege.
