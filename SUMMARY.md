@@ -88,7 +88,7 @@
    * [Nginx](network/nginx.md)
    * [Squid](network/squid.md)
    * [FTP](network/ftp.md)
-   * [FTP Server in CentOS](linux/ftp_server.md)
+   * [FTP Server in CentOS](network/ftp_server.md)
    * [vsFTPd in Ubuntu](network/vsftpd_in_ubuntu.md)
 * [Database](database/database.md)
    * [T-SQL (SQL Server)](database/t-sql_sql_server.md)
