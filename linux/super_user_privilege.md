@@ -17,6 +17,12 @@
 # passwd user01              # format passwd <username>
 ```
 
+* Notice command **adduser** is much helpful than useradd, including auto creating home directory, etc.
+
+```Bash
+$ sudo adduser --home homePath aaount
+```
+
 * The above commands are trying to add a new user with auto-set its home folder located on ** /home/user01 **. Next promote this user or a group to super_user privilege.
 
 ```Bash
@@ -64,3 +70,4 @@ And the same procedure with the test of the single user mentioned above.
 ```Bash
 # userdel -r user01                # format userdel -r <username>
 ```
+
