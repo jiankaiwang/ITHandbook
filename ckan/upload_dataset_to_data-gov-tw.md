@@ -5,8 +5,25 @@
 ### 確認 ckanext-scheming plugin 格式
 ---
 
-```
+* 於 dataset 綱目中確認資料類型為正確
 
+```bash
+    // ...
+
+    {
+      "field_name": "data_type",
+      "label": "資料集類型",
+      "choices": [
+        { "value": "rawData", "label": "原始資料" },
+        { "value": "services", "label": "系統介接程式" },
+        { "value": "apps", "label": "行動化應用軟體" },
+        { "value": "tools", "label": "其他" }
+      ],
+      "form_snippet": "select.html",
+      "display_snippet": "select.html"
+    },
+    
+    // ...
 ```
 
 ### 於 PostgreSQL DB 中加入 ndcsync 表格紀錄同步狀態
