@@ -198,6 +198,20 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 {# ... #}
 ```
 
+* 修改 CSS 樣式表，並加入底下樣式
+
+```bash
+$ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/css/general.css
+```
+
+```css
+/* upload to NDC */
+.sumbit-form {
+  display: inline-block;
+  margin: 0px;
+}
+```
+
 * 完成後的樣式範本如下；
 
 ![](../images/syncndc.png)
