@@ -749,7 +749,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
             ndcid = p2l.select({"cdcid": getPKG[u'id']},["ndcid"],asdict=True)
             delFromNDC = SENDREQUEST(\
                 tgtSrc + "/" + ndcid[0][u'ndcid'], \
-                {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                {"Authorization" : "api-key"}, \
                 {},\
                 "DELETE"\
             )
@@ -810,7 +810,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
                 # start post to NDC
                 post2NDC = SENDREQUEST(\
                     tgtSrc, \
-                    {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                    {"Authorization" : "api-key"}, \
                     postData.assemblePOSTOrPUTData(),\
                     "POST"\
                 )
@@ -873,7 +873,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
 
                 put2NDC = SENDREQUEST(\
                     tgtSrc + "/" + ndcid[0][u'ndcid'], \
-                    {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                    {"Authorization" : "api-key"}, \
                     putData.assemblePOSTOrPUTData(),\
                     "PUT"\
                 )
