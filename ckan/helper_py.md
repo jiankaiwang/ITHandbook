@@ -346,6 +346,8 @@ __allowed_functions__ = [
 ### 同步至 NDC
 ---
 
+* 透過 threading 方式及 lock 處理與國發會同步
+
 ```python
 # 加入函式庫
 
