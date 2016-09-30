@@ -195,7 +195,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 {# ... #}
 ```
 
-* 完成後的樣式為
+* 完成後的樣式範本如下；
 
-
+![](../images/syncndc.png)
 
