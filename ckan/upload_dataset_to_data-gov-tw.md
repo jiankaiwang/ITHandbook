@@ -89,7 +89,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 ### 加入上傳 icon
 ---
 
-* 修改 ** templates/package/read_base.html ** 頁面
+* 增加同步於或自國發會刪除資料集按鈕，修改 ** templates/package/read_base.html ** 頁面 (管理員有刪除權限)
 
 ```html
 
@@ -193,8 +193,9 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 {% endblock %}
 
 {# ... #}
-
 ```
+
+* 完成後的樣式為
 
 
 
