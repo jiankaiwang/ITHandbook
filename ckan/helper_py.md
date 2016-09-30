@@ -350,15 +350,14 @@ __allowed_functions__ = [
 # 加入函式庫
 
 from py2psql import *
-from REQUESTMETHOD import *
+from REQUESTMETHOD2 import *
 import thread
+import threading
 import time
 import datetime
-import urllib
 import urllib2
 import json
 
-# 加入實作方式為
 #
 # desc : system current time
 # retn : return time string
@@ -456,9 +455,18 @@ def syncNDCState(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, pkg):
             retState["clicking"] = "put"
             retState["note"] = "Success in " + transTime("date", data[0]["beginning"])
     elif data[0]["state"] == "deleted":
-        retState["show"] = "deleted"
-        retState["clicking"] = ""
-        retState["note"] = "Deleted on " + transTime("date", data[0]["beginning"])
+        # cond : re-POST after deleting dataset from NDC
+        # clicking action : no action
+        if data[0]["operation"] == "syncing":
+            retState["show"] = "sync"
+            retState["clicking"] = "sync"
+            retState["note"] = "Syncing (" + data[0]["progress"] + ") "
+        # cond : after doing deleting from NDC
+        # clicking action : re-POST
+        else:
+            retState["show"] = "deleted"
+            retState["clicking"] = "post"
+            retState["note"] = "Deleted on " + transTime("date", data[0]["beginning"])
 
     return retState
       
@@ -555,7 +563,7 @@ class ASSEMBLEDATA:
                     "resourceModified": str(self.__transformTime("modified",item[u'last_modified'] or item[u'created'])),\
                     "downloadURL": item[u'url'],\
                     "metadataSourceOfData": "",\
-                    "characterSetCode": ""
+                    "characterSetCode": "UTF-8"
                     }
             allResourceList.append(tmpRSC)
             index += 1
@@ -577,6 +585,9 @@ class ASSEMBLEDATA:
 
         # prepare package id string to XXXXXX
         for index in range(len(str(data[0]["id"])),6,1):
+            if index == 5:
+                tmpID = '9' + tmpID
+                continue
             tmpID = '0' + tmpID
 
         return tmpID
@@ -721,41 +732,57 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
 
     # POST Data preparation
     if tgtMtd == "delete":
+
+        try:
+
+            # object to record each steps for syncing with NDC
+            p2l = py2psql(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd)
                 
-        # write current state to NDC table in postgresql db server
-        p2l.update({\
-            "operation" : u"syncing".lower(), \
-            "progress" : u"50%", \
-            u"beginning" : datetime.datetime.now()\
-            },{"cdcid" : getPKG[u'id']})
-        
-        # start delete from NDC            
-        ndcid = p2l.select({"cdcid": getPKG[u'id']},["ndcid"],asdict=True)
-        delFromNDC = SENDREQUEST(\
-            tgtSrc + "/" + ndcid[0][u'ndcid'], \
-            {"Authorization" : "key"}, \
-            {},\
-            "DELETE"\
-        )
-        print delFromNDC.response()
-        
-        if delFromNDC.response()[u"success"]:
-            # success POST                
-            # write state to postgresql db server
+            # write current state to NDC table in postgresql db server
             p2l.update({\
-                "operation" : u"success".lower(), \
-                "state" : u"deleted", \
+                "operation" : u"syncing".lower(), \
+                "progress" : u"50%", \
+                u"beginning" : datetime.datetime.now()\
+                },{"cdcid" : getPKG[u'id']})
+        
+            # start delete from NDC            
+            ndcid = p2l.select({"cdcid": getPKG[u'id']},["ndcid"],asdict=True)
+            delFromNDC = SENDREQUEST(\
+                tgtSrc + "/" + ndcid[0][u'ndcid'], \
+                {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                {},\
+                "DELETE"\
+            )
+            #time.sleep(60)
+        
+            if json.loads(delFromNDC.response()["response"])['success']:
+            #if True:
+                # success POST                
+                # write state to postgresql db server
+                p2l.update({\
+                    "operation" : u"success".lower(), \
+                    "state" : u"deleted", \
+                    "code" : str(delFromNDC.response()["response"]), \
+                    "progress" : u"100%", \
+                    u"ending" : datetime.datetime.now()\
+                    },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
+            
+            else:
+                # failure POST
+                p2l.update({\
+                    "operation" : u"failure".lower(), \
+                    "code" : str(delFromNDC.response()["response"]), \
+                    "progress" : u"100%", \
+                    u"ending" : datetime.datetime.now()\
+                    },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})           
+
+        except:
+            p2l.update({\
+                "operation" : u"failure".lower(), \
+                "code" : u'unexcepted failure in delete', \
                 "progress" : u"100%", \
                 u"ending" : datetime.datetime.now()\
                 },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
-            
-        else:
-            # failure POST
-            p2l.update({\
-                "operation" : u"failure".lower(), \
-                "progress" : u"100%", \
-                u"ending" : datetime.datetime.now()\
-                },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})           
         
     elif tgtMtd == "check":
         
@@ -767,101 +794,155 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
         
         # take action based on clicking
         if getStatue["clicking"] == "post":
+
+            try:
             
-            # get post json data
-            postData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
+                # get post json data
+                postData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
             
-            # write current state to NDC table in postgresql db server
-            p2l.update({\
-                "operation" : u"syncing".lower(), \
-                "progress" : u"50%", \
-                u"beginning" : datetime.datetime.now()\
-                },{"cdcid" : getPKG[u'id']})
-            
-            # start post to NDC
-            post2NDC = SENDREQUEST(\
-                tgtSrc, \
-                {"Authorization" : "key"}, \
-                postData.assemblePOSTOrPUTData(),\
-                "POST"\
-            )
-            print post2NDC.response()
-            
-            if post2NDC.response()[u"success"]:
-                # success POST                
-                # write state to postgresql db server
+                # write current state to NDC table in postgresql db server
                 p2l.update({\
-                    "operation" : u"success".lower(), \
+                    "operation" : u"syncing".lower(), \
+                    "progress" : u"50%", \
+                    u"beginning" : datetime.datetime.now()\
+                    },{"cdcid" : getPKG[u'id']})
+            
+                # start post to NDC
+                post2NDC = SENDREQUEST(\
+                    tgtSrc, \
+                    {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                    postData.assemblePOSTOrPUTData(),\
+                    "POST"\
+                )
+                #time.sleep(3)
+            
+                #if u'error' not in json.loads(post2NDC.response()["response"]) or u'錯誤' not in json.loads(post2NDC.response()["response"]) or json.loads(post2NDC.response()["response"])['success']:
+                if json.loads(post2NDC.response()["response"])['success']:
+                    # success POST                
+                    # write state to postgresql db server
+                    p2l.update({\
+                        "operation" : u"success".lower(), \
+                        "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        "state" : u"existing", \
+                        "code" : str(post2NDC.response()["response"]), \
+                        "progress" : u"100%", \
+                        u"ending" : datetime.datetime.now()\
+                        },{"cdcid" : getPKG[u'id']})
+                
+                else:
+                    # failure POST
+                    p2l.update({\
+                        "operation" : u"failure".lower(), \
+                        "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        "code" : str(post2NDC.response()['response']), \
+                        "progress" : u"100%", \
+                        u"ending" : datetime.datetime.now()\
+                        },{"cdcid" : getPKG[u'id']})   
+            except:
+                # failure POST
+                p2l.update({\
+                    "operation" : u"failure".lower(), \
                     "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
-                    "state" : u"existing", \
+                    "code" : u'unexcepted failure in POST', \
                     "progress" : u"100%", \
                     u"ending" : datetime.datetime.now()\
                     },{"cdcid" : getPKG[u'id']})
-                
-            else:
-                # failure POST
-                p2l.update({\
-                    "operation" : u"failure".lower(), \
-                    "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
-                    "progress" : u"100%", \
-                    u"ending" : datetime.datetime.now()\
-                    },{"cdcid" : getPKG[u'id']})   
             
         elif getStatue["clicking"] == "put":
-            
-            # get put json data
-            putData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
-            
-            # write current state to NDC table in postgresql db server
-            p2l.update({\
-                "operation" : u"syncing".lower(), \
-                "progress" : u"50%", \
-                u"beginning" : datetime.datetime.now()\
-                },{"cdcid" : getPKG[u'id']})
-            
-            # start put to NDC            
-            ndcid = p2l.select({"cdcid": getPKG[u'id']},["ndcid"],asdict=True)
-            put2NDC = SENDREQUEST(\
-                tgtSrc + "/" + ndcid[0][u'ndcid'], \
-                {"Authorization" : "key"}, \
-                postData.assemblePOSTOrPUTData(),\
-                "PUT"\
-            )
-            print put2NDC.response()
-            
-            if put2NDC.response()[u"success"]:
-                # success POST                
-                # write state to postgresql db server
+
+
+            try:
+                # get put json data
+                putData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
+
+                # write current state to NDC table in postgresql db server
                 p2l.update({\
-                    "operation" : u"success".lower(), \
-                    "state" : u"existing", \
+                    "operation" : u"syncing".lower(), \
+                    "progress" : u"50%", \
+                    u"beginning" : datetime.datetime.now()\
+                    },{"cdcid" : getPKG[u'id']})
+
+                # start put to NDC
+                ndcid = p2l.select({"cdcid": getPKG[u'id']},["ndcid"],asdict=True)
+                p2l.update({\
+                    "operation" : u"syncing".lower(), \
+                    "code" : u'prepare to NDC', \
                     "progress" : u"100%", \
                     u"ending" : datetime.datetime.now()\
                     },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
-                
-            else:
-                # failure POST
+
+                put2NDC = SENDREQUEST(\
+                    tgtSrc + "/" + ndcid[0][u'ndcid'], \
+                    {"Authorization" : "bcf805cf-bc7f-3888-b7be-dd84fb4dbe0a"}, \
+                    putData.assemblePOSTOrPUTData(),\
+                    "PUT"\
+                )
+                #time.sleep(60)
                 p2l.update({\
-                    "operation" : u"failure".lower(), \
+                    "operation" : u"syncing".lower(), \
+                    "code" : u'syncing finishs execution, ready to write state', \
                     "progress" : u"100%", \
                     u"ending" : datetime.datetime.now()\
-                    },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})   
-            
+                    },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
+
+                if json.loads(put2NDC.response()["response"])['success']:
+                #if True:
+                    # success PUT
+                    # write state to postgresql db server
+                    p2l.update({\
+                        "operation" : u"success".lower(), \
+                        "state" : u"existing", \
+                        "code" : str(put2NDC.response()["response"]), \
+                        "progress" : u"100%", \
+                        "ending" : datetime.datetime.now()\
+                        },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
+                else:
+                    # failure PUT
+                    p2l.update({\
+                        "operation" : u"failure".lower(), \
+                        "code" : str(put2NDC.response()["response"]), \
+                        "progress" : u"100%", \
+                        "ending" : datetime.datetime.now()\
+                        },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})
+
+            except:
+                # failure PUT
+                p2l.update({\
+                    "operation" : u"failure".lower(), \
+                    "code" : u'PUT uncepted error', \
+                    "progress" : u"100%", \
+                    u"ending" : datetime.datetime.now()\
+                    },{"cdcid" : getPKG[u'id'], "ndcid" : ndcid[0][u'ndcid']})            
         else:
             # getStatue["clicking"] == "sync"
             # this state is in syncing
             # there is not necessary to take any further actions
             return
         
-        
+    # remove from locked object
+    link.acquire()
+    execThread.remove(getPKG[u'id'])
+    link.release()    
 
 #
 # desc : activate syncing to NDC by clicking
 # clicking beginning from here
 # exam : actSYNC2NDC("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg, "http://data.gov.tw/api/v1/rest/dataset", "check")
 #
+execThread = []
+link = threading.Lock()
 def actSYNC2NDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd):
-    thread.start_new_thread(SYNCNDC, (dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd))
+    #thread.start_new_thread(SYNCNDC, (dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd))
+    #SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd)
+
+    link.acquire()
+    
+    if getPKG['id'] not in execThread:
+        execThread.append(getPKG['id'])
+        t = threading.Thread(target=SYNCNDC, args=(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd))
+        t.start()
+
+    link.release()
 
 
 # ...
