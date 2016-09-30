@@ -68,6 +68,9 @@ $ cd /usr/lib/python2.7/
 # 取得 py2psql 程式碼
 $ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/py2psql.py
 
+# 取得 TEXTCODING 程式碼
+$ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/TEXTCODING.py
+
 # 取得 REQUESTMETHOD2 程式碼
 $ sudo wget https://raw.githubusercontent.com/jiankaiwang/seed/master/python/REQUESTMETHOD2.py
 ```
