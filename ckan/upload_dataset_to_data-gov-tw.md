@@ -2,6 +2,13 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
+### 確認 ckanext-scheming plugin 格式
+---
+
+```
+
+```
+
 ### 於 PostgreSQL DB 中加入 ndcsync 表格紀錄同步狀態
 ---
 
