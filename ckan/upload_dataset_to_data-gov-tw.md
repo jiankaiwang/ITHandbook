@@ -84,6 +84,7 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 ```
 
 * 加入定義與內容可以參考 helpere.py
+* 並需確認已有替換 Authorization 的 api-key
 
 ### 加入上傳 icon
 ---
@@ -94,25 +95,102 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 
 {# ... #}
 
+{% block content_action %}
+  {% if h.check_access('package_update', {'id':pkg.id }) %}
+
+  {#<button class="btn btn-warning">{{ request.method }} {{ request.body }}</button>#}
+
   {# customized : upload to NDC #}
   {% if request.method == "GET" %}
-    {# at the beginning, not submitting #}
-    <form method="post" name="upload" action="#" class="sumbit-form">
-      <button class="btn btn-primary" name="save" type="submit" style="display: inline-block;" value="DataGovTW">
-        <i class="icon-cloud-upload"></i>
-        {{ h.getLangLabel("Submit to Data.gov.tw", resourceStatus) }}
-      </button>
-    </form>
+      {% set state = h.syncNDCState("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg) %}
+      {% if state["show"] == "sync" %}
+          {# sync #}
+          <button class="btn btn-warning">
+              <i class="icon-repeat"></i>
+              {{ state["note"] }}
+          </button>
+          {# refresh for current state #}
+          <meta http-equiv="refresh" content="15;url={{ _('{0}dataset/{1}').format(h.url_for(controller='home', action='index'), pkg['name']) }}"></meta>
+      {% else %}
+          {# submit/success/failure #}
+          <form method="post" name="upload" action="#" class="sumbit-form">
+          {% if state["show"] == "submit" or state["show"] == "success" %}
+              {# the first submit or already submitted succefully #}
+              <button class="btn btn-primary" name="save" type="submit" style="display: inline-block;" value="DataGovTW">
+                  <i class="icon-cloud-upload"></i>
+                  {{ _('國發會({0})').format(state["note"]) }}
+              </button>
+          {% else %}
+              <button class="btn btn-danger" name="save" type="submit" style="display: inline-block;" value="DataGovTW">
+                  <i class="icon-cloud-upload"></i>
+                  {{ _('國發會({0})').format(state["note"]) }}
+              </button>
+          {% endif %}
+          </form>
+
+          {# allow delete #}
+          {% if c.userobj.sysadmin %}
+              {% if state["clicking"] != "put" %}
+                  {# not submitted to NDC yet #}
+                  <button class="btn btn-warning" name="delete" style="display: inline-block;">
+                      <i class="icon-exclamation-sign"></i>
+                      {{ h.getLangLabel("Unsubmitted","未建立") }}
+                  </button>
+              {% else %}
+                  {# only PUT (means already POST before) can be deleted #}
+                  <form method="post" name="uploadForDelete" action="#" class="sumbit-form">
+                      <button class="btn btn-danger" name="delete" type="submit" style="display: inline-block;" value="FromDataGovTW">
+                          <i class="icon-exclamation-sign"></i>
+                          {{ h.getLangLabel("Delete","刪除") }}
+                      </button>
+                  </form>
+              {% endif %}
+          {% endif %}
+      {% endif %}
+
   {% elif request.method == "POST" and h.getPostRequestParamValue(request.body, "save") == "DataGovTW" %}
-      <button class="btn btn-danger" name="save" type="submit" value="DataGovTW">
-        <i class="icon-repeat"></i>
-        {#{{ h.getLangLabel("Submitting","正在上傳") }}#}
-        {{ pkg }}
-      </button>
-      {# refresh for prepare data submitting #}
-      {#{% set activate = h.uploadToDataGovTWBody(pkg.id) %}#}
-      {#<meta http-equiv="refresh" content="15;url=#"></meta>i#}
+      {% set state = h.syncNDCState("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg) %}
+      {% if state["show"] == "sync" %}
+          {# sync #}
+          <button class="btn btn-warning" name="save" type="submit" style="display: inline-block;" value="noaction">
+              <i class="icon-repeat"></i>
+              {{ state["note"] }}
+          </button>
+      {% else %}
+          {# start sync to ndc : POST or PUT #}
+          {% set syncState = h.actSYNC2NDC("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg, "http://data.nat.gov.tw/api/v1/rest/dataset", "check") %}
+          <button class="btn btn-warning" name="save" type="submit" style="display: inline-block;" value="noaction">
+             <i class="icon-repeat"></i>
+             {{ _("Start Syncing") }}
+          </button>
+       {% endif %}
+
+       {# refresh for prepare data submitting #}
+       <meta http-equiv="refresh" content="3;url={{ _('{0}dataset/{1}').format(h.url_for(controller='home', action='index'), pkg['name']) }}"></meta>
+       {#<meta http-equiv="refresh" content="1;url={{ _('{0}dataset').format(h.url_for(controller='home', action='index')) }}"></meta>#}
+  {% elif request.method == "POST" and h.getPostRequestParamValue(request.body, "delete") == "FromDataGovTW" %}
+       {# delete both cdc and ndc #}
+       {% set actStatus = h.actSYNC2NDC("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg, "http://data.nat.gov.tw/api/v1/rest/dataset", "delete") %}
+       <button class="btn btn-warning">
+           <i class="icon-repeat"></i>
+           {{ _("Start Deleting") }}
+       </button>
+
+       {# refresh for deleting data #}
+       <meta http-equiv="refresh" content="3;url={{ _('{0}dataset/{1}').format(h.url_for(controller='home', action='index'), pkg['name']) }}"></meta>
+
   {% endif %}
+
+
+    {% link_for _('Manage'), controller='package', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
+  {% endif %}
+{% endblock %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
+  {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
+  {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+{% endblock %}
 
 {# ... #}
 
