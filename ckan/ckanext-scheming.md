@@ -246,10 +246,10 @@ vim ./customized_schema.json
       "field_name": "data_type",
       "label": "資料集類型",
       "choices": [
-        { "value": "primitive", "label": "原始資料" },
-        { "value": "interfacing", "label": "系統介接程式" },
-        { "value": "mobile", "label": "行動化應用軟體" },
-        { "value": "other", "label": "其他" }
+        { "value": "rawData", "label": "原始資料" },
+        { "value": "services", "label": "系統介接程式" },
+        { "value": "apps", "label": "行動化應用軟體" },
+        { "value": "tools", "label": "其他" }
       ],
       "form_snippet": "select.html",
       "display_snippet": "select.html"
