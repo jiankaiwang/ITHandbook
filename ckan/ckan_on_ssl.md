@@ -88,6 +88,7 @@ server {
     add_header Strict-Transport-Security max-age=15768000;
 
     # add the access directory to the block server
+    # notice root must be added to make sure authorization is correct
     location ~ /.well-known {
         root /usr/lib/ckan/default/src/ckan/ckan/public/;
         allow all;
