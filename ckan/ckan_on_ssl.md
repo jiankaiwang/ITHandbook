@@ -89,6 +89,7 @@ server {
 
     # add the access directory to the block server
     location ~ /.well-known {
+        root /usr/lib/ckan/default/src/ckan/ckan/public/;
         allow all;
     }
 
