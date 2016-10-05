@@ -87,7 +87,52 @@ $ sudo restart ckan
 {% snippet 'snippets/contact.html' %}
 ```
 
-* 新增"註冊文件" ** register.html **，參考「帳號審核清單」頁面
+* 新增"註冊文件" ** register.html **
+
+| 備註 |
+| -- |
+| 需參考「帳號審核清單」頁面 |
+
+```html
+<h3 class="page-heading">{{ h.getLangLabel("Rregistration document","註冊文件") }}</h3>
+<p>{{ h.getLangLabel("After registering, please download the document, fill and send it to Information Management Office.","註冊完成
+後，帳戶將暫時關閉，請您至底下連結下載表單填寫後傳真給本署資訊室，審核後方可啟用。") }}</p>
+<table class="table table-header table-hover table-bordered">
+  <col width="30" />
+  <col width="20" />
+  <col width="50" />
+    <thead>
+      <tr>
+        <th scope="col">{{ h.getLangLabel("Name","文件名稱") }}</th>
+        <th scope="col">{{ h.getLangLabel("Download","下載連結") }}</th>
+        <th scope="col">{{ h.getLangLabel("Note","備註") }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="col">{{ h.getLangLabel("Activate account","帳號開通") }}</th>
+        <th scope="col">
+
+        {% if reqBody != '' %}
+
+          {% set reqBody = reqBody %}
+          {% set accName = h.getPostRequestParamValue(reqBody, 'name') %}
+          {% set accOrgan = h.getPostRequestParamValue(reqBody, 'organ') %}
+
+          <a href="#" onclick="javascript:printDiv('新增帳號','{{ accName }}','{{ h.getAccInfo('fullName', accName) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', accOrgan) }}', '{{ h.getAccInfo('email', accName) }}' );">{{ h.getLangLabel("Document Download","帳號>審核文件下載") }}</a>
+
+        {% else %}
+
+          <a href="#" onclick="javascript:printDiv('', '', '', '', '', '' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
+
+        {% endif %}
+
+        </th>
+        <th scope="col">{{ h.getLangLabel("tax to 02-23959825 #3628 or email to smalla@cdc.gov.tw","傳真至 02-23959825 #3628 或寄至 smalla@cdc.gov.tw") }}</th>
+      </tr>
+    </tbody>
+</table>
+```
 
 * 新增"操作文件" ** document.html **
 
