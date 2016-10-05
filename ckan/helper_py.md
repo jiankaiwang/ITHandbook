@@ -987,7 +987,7 @@ def getAccInfo(option, getReq):
         data = p2l.select({"name": getPostRequestParamValue(getReq, "organ")},["title"],asdict=True)
         return unicode(data[0]["title"], 'utf-8')
         
-        
+# 加入允許清單        
 __allowed_functions__ = [
 
     'getAccInfo',
