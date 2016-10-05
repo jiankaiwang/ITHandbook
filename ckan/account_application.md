@@ -148,7 +148,7 @@ function printDiv(
 
         {% else %}
 
-          <a href="#" onclick="javascript:printDiv('新增帳號', '', '', '', '', '' );">{{ h.getLangLabel("Document Download","帳號審核>文件下載") }}</a>
+          <a href="#" onclick="javascript:printDiv('', '', '', '', '', '' );">{{ h.getLangLabel("Document Download","帳號審核>文件下載") }}</a>
 
         {% endif %}
         
