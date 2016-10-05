@@ -76,7 +76,7 @@ function printDiv(
   content += '<h5 style="text-align: right;">開放資料平台帳號申請/異動單 Ver.1.0</h5>';
   content += "</body></html>";
   document.body.innerHTML = content;
-  document.title = '開放資料帳號申請/變更單 - ' + fullName;
+  document.title = '開放資料帳號申請-變更單 - ' + fullName;
 
   // print Page
   window.print();
@@ -102,6 +102,8 @@ function printDiv(
 
 * 可以參考 helpers.py 定義與設定
 
+* 重啟 ckan 服務即可
+
 ### 加入註冊頁面中
 ---
 
@@ -122,6 +124,8 @@ function printDiv(
       
       <!-- -->
 ```
+
+* 類似結果如下圖
 
 
 
