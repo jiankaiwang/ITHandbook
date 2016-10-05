@@ -173,7 +173,7 @@ function printDiv(
       {# not activated or locked #}
       <button class="btn btn-warning" onclick="javascript:printDiv('新增帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Application","新增申請單") }}</button>
     {% else %}
-      <button class="btn btn-warning" onclick="javascript:printDiv('修改帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Change","邊更申請單") }}</button>
+      <button class="btn btn-warning" onclick="javascript:printDiv('修改帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Change","變更申請單") }}</button>
     {% endif %}
 
 
