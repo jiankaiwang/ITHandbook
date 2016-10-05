@@ -135,14 +135,11 @@ function printDiv(
 ```html
       <!-- -->
       
-      <tr>
         <th scope="col">{{ h.getLangLabel("Activate account","帳號開通") }}</th>
         <th scope="col">
           <a href="#" onclick="javascript:printDiv('新增帳號','{{ h.getPostRequestParamValue(reqBody, 'name') }}','{{ h.getAccInfo('fullName', reqBody) }}', '{{ h.getAccInfo('getDate', reqBody) }}', '{{ h.getAccInfo('org', reqBody) }}', '{{ h.getAccInfo('email', reqBody) }}' );"><i class="icon-download"></i> {{ h.getLangLabel("Download Application","申請單下載") }}</a>
         </th>
-        <th scope="col">{{ h.getLangLabel("tax to 02-23959825 #3628 or email to smalla@cdc.gov.tw","傳真至 02-23959825 #3628 或寄至 smalla@cdc.gov.tw") }}</th>
-      </tr>
-      
+
       <!-- -->
 ```
 
