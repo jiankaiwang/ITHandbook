@@ -153,5 +153,43 @@ function printDiv(
 
 ![](../images/ckan_acc_apply.png)
 
+### 加入帳號管理畫面中
+---
+
+* 加入功能於 templates/user/edit_user_form.html
+
+```html
+    {# ... #}
+    
+    {% block delete_button %}
+      {% if h.check_access('user_delete', {'id': data.id})  %}
+        {% set locale = h.dump_json({'content': _('Are you sure you want to delete this User?')}) %}
+        <a class="btn btn-danger pull-left" href="{% url_for controller='user', action='delete', id=data.id %}" data-module="confirm-action" data-module-i18n="{{ locale }}">{% block delete_button_text %}{{ _('Delete') }}{% endblock %}</a>
+      {% endif %}
+    {% endblock %}
+
+
+    {% if h.getUserState(data.id) == "inactive" %}
+      {# not activated or locked #}
+      <button class="btn btn-warning" onclick="javascript:printDiv('新增帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Application","新增申請單") }}</button>
+    {% else %}
+      <button class="btn btn-warning" onclick="javascript:printDiv('修改帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Change","邊更申請單") }}</button>
+    {% endif %}
+
+
+    {# add activate or inactivate button #}
+    {% if c.userobj.sysadmin %}
+      {% if h.getUserState(data.id) == "inactive" %}
+        {# current state is inactive #}
+        <button class="btn btn-success" type="submit" name="activate" value="on">{{ h.getLangLabel("Activate","啟用") }}</button>
+      {% else %}
+      
+      {# ... #}
+```
+
+
+
+
+
 
 
