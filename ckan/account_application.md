@@ -111,14 +111,37 @@ function printDiv(
 (default) $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/user/register_complete.html
 ```
 
-* 內容 (需配合上述 javascript)
+* 將 request body 傳入註冊頁面中 (修改 ** templates/user/register_complete.html ** )
+
+```html
+{% block primary_content %}
+  <section class="module">
+    <div class="module-content">
+      <h1 class="page-heading">
+      {{ h.getLangLabel("Hi! " + crtUser + " has been registered on the platform","您好，帳號 " + crtUser + " 已於平台註冊完成") }}
+      </h1>
+      {# register document, and send request.body #}
+      {% snippet 'snippets/register.html', reqBody = request.body %}
+      <hr />
+      {# contact document #}
+      {% snippet 'snippets/contact.html' %}
+    </div>
+  </section>
+{% endblock %}
+```
+
+* 加入列印選項，修改 ** templates/snippets/register.html ** (需配合上述 javascript)
 
 ```html
       <!-- -->
       
-      <a href="#" onclick="javascript:printDiv('新增帳號','{{ h.getPostRequestParamValue(request.body, 'name') }}','{{ h.getAccInfo('fullName', request.body) }}', '{{ h.getAccInfo('getDate', request.body) }}', '{{ h.getAccInfo('org', request.body) }}', '{{ h.getAccInfo('email', request.body) }}' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
-      <hr />
-       <h3 class="page-heading">{{ h.getLangLabel("Trouble Shooting","困難排除") }}</h3>
+      <tr>
+        <th scope="col">{{ h.getLangLabel("Activate account","帳號開通") }}</th>
+        <th scope="col">
+          <a href="#" onclick="javascript:printDiv('新增帳號','{{ h.getPostRequestParamValue(reqBody, 'name') }}','{{ h.getAccInfo('fullName', reqBody) }}', '{{ h.getAccInfo('getDate', reqBody) }}', '{{ h.getAccInfo('org', reqBody) }}', '{{ h.getAccInfo('email', reqBody) }}' );"><i class="icon-download"></i> {{ h.getLangLabel("Download Application","申請單下載") }}</a>
+        </th>
+        <th scope="col">{{ h.getLangLabel("tax to 02-23959825 #3628 or email to smalla@cdc.gov.tw","傳真至 02-23959825 #3628 或寄至 smalla@cdc.gov.tw") }}</th>
+      </tr>
       
       <!-- -->
 ```
