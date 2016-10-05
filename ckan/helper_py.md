@@ -963,3 +963,46 @@ __allowed_functions__ = [
     'actSYNC2NDC',
 
 ```
+
+### 帳號申請與變更表單
+---
+
+```python
+#
+# desc : get account info for account application
+#
+def getAccInfo(option, getReq):
+    if option == "fullName":
+        p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+        data = p2l.select({"name" : getPostRequestParamValue(getReq, "name")}, ["fullname"], asdict=True)
+        return unicode(data[0]["fullname"], 'utf-8')
+    elif option == "getDate":
+        return str(datetime.datetime.now())[0:10]
+    elif option == "email":
+        p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
+        data = p2l.select({"name" : getPostRequestParamValue(getReq, "name")}, ["email"], asdict=True)
+        return unicode(data[0]["email"], 'utf-8')
+    elif option == "org":
+        p2l = py2psql("127.0.0.1","5432","ckan_default","public.group","ckan_default","ckan")
+        data = p2l.select({"name": getPostRequestParamValue(getReq, "organ")},["title"],asdict=True)
+        return unicode(data[0]["title"], 'utf-8')
+        
+        
+__allowed_functions__ = [
+
+    'getAccInfo',
+
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+
