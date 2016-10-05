@@ -13,7 +13,7 @@
 * 於 javascript library 中建立要呈現的表單格式
 
 ```bash
-(default) $ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/custom/general.js
+(default) $ vim /usr/lib/ckan/default/src/ckan/ckan/public/base/javascript/custom/register.js
 ```
 
 * 函式內容如下
@@ -87,9 +87,7 @@ function printDiv(
 }
 ```
 
-| 註解 |
-| -- |
-| 需注意此 general.js 函式庫已定義在 resource.config 中 |
+* 加入此 register.js 入 resource.config 中
 
 ### 定義 helpers.py 函式
 ---
