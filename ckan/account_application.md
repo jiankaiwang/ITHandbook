@@ -102,7 +102,26 @@ function printDiv(
 
 * 可以參考 helpers.py 定義與設定
 
+### 加入註冊頁面中
+---
 
+* 列印選項
+
+```bash
+(default) $ vim /usr/lib/ckan/default/src/ckan/ckan/templates/user/register_complete.html
+```
+
+* 內容 (需配合上述 javascript)
+
+```html
+      <!-- -->
+      
+      <a href="#" onclick="javascript:printDiv('新增帳號','{{ h.getPostRequestParamValue(request.body, 'name') }}','{{ h.getAccInfo('fullName', request.body) }}', '{{ h.getAccInfo('getDate', request.body) }}', '{{ h.getAccInfo('org', request.body) }}', '{{ h.getAccInfo('email', request.body) }}' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
+      <hr />
+       <h3 class="page-heading">{{ h.getLangLabel("Trouble Shooting","困難排除") }}</h3>
+      
+      <!-- -->
+```
 
 
 
