@@ -137,7 +137,13 @@ function printDiv(
       
         <th scope="col">{{ h.getLangLabel("Activate account","帳號開通") }}</th>
         <th scope="col">
-          <a href="#" onclick="javascript:printDiv('新增帳號','{{ h.getPostRequestParamValue(reqBody, 'name') }}','{{ h.getAccInfo('fullName', reqBody) }}', '{{ h.getAccInfo('getDate', reqBody) }}', '{{ h.getAccInfo('org', reqBody) }}', '{{ h.getAccInfo('email', reqBody) }}' );"><i class="icon-download"></i> {{ h.getLangLabel("Download Application","申請單下載") }}</a>
+        
+        {% set reqBody = reqBody %}
+        {% set accName = h.getPostRequestParamValue(reqBody, 'name') %}
+        {% set accOrgan = h.getPostRequestParamValue(reqBody, 'organ') %}
+
+        <a href="#" onclick="javascript:printDiv('新增帳號','{{ accName }}','{{ h.getAccInfo('fullName', accName) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', accOrgan) }}', '{{ h.getAccInfo('email', accName) }}' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
+        
         </th>
 
       <!-- -->
