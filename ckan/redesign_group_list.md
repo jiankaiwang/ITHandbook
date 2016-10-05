@@ -377,7 +377,11 @@
             {% if truncate == 0 %}
               <p>{{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description))|urlize }}</p>
             {% else %}
-              <p>{{ h.markdown_extract(h.getLangLabel(group.extras[0].value, group.description), truncate)|urlize }}</p>
+              {% if h.lang() == "zh_TW" %}
+                <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), 16)|urlize }}</p>
+              {% elif h.lang() == "en" %}
+                <p>{{ h.markdown_extract(h.getLangLabel(group.enotes, group.notes), 30)|urlize }}</p>
+              {% endif %}
             {% endif %}
           {% endif %}
         {% endblock %}
