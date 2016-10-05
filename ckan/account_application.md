@@ -168,7 +168,7 @@ function printDiv(
       {% endif %}
     {% endblock %}
 
-
+    {# print application form #}
     {% if h.getUserState(data.id) == "inactive" %}
       {# not activated or locked #}
       <button class="btn btn-warning" onclick="javascript:printDiv('新增帳號','{{ data.name }}','{{ h.getAccInfo('fullName', data.name) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', data.organ) }}', '{{ h.getAccInfo('email', data.name) }}' );">{{ h.getLangLabel("Application","新增申請單") }}</button>
