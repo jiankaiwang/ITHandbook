@@ -91,5 +91,20 @@ function printDiv(
 | -- |
 | 需注意此 general.js 函式庫已定義在 resource.config 中 |
 
+### 定義 helpers.py 函式
+---
+
+* 伺服器用來取得資料庫內容
+
+```bash
+(default) $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
+```
+
+* 可以參考 helpers.py 定義與設定
+
+
+
+
+
 
 
