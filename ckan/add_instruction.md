@@ -66,7 +66,7 @@ $ sudo restart ckan
 ```html
 <hr />
 {# register document #}
-{% snippet 'snippets/register.html' %}
+{% snippet 'snippets/register.html', reqBody = '' %}
 
 {% if c.user %}
     {# only user can view #}
