@@ -127,7 +127,7 @@ function printDiv(
 
 * 類似結果如下圖
 
-
+![](../images/ckan_acc_apply.png)
 
 
 
