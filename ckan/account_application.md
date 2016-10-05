@@ -138,11 +138,19 @@ function printDiv(
         <th scope="col">{{ h.getLangLabel("Activate account","帳號開通") }}</th>
         <th scope="col">
         
-        {% set reqBody = reqBody %}
-        {% set accName = h.getPostRequestParamValue(reqBody, 'name') %}
-        {% set accOrgan = h.getPostRequestParamValue(reqBody, 'organ') %}
+        {% if reqBody != '' %}
 
-        <a href="#" onclick="javascript:printDiv('新增帳號','{{ accName }}','{{ h.getAccInfo('fullName', accName) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', accOrgan) }}', '{{ h.getAccInfo('email', accName) }}' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
+          {% set reqBody = reqBody %}
+          {% set accName = h.getPostRequestParamValue(reqBody, 'name') %}
+          {% set accOrgan = h.getPostRequestParamValue(reqBody, 'organ') %}
+
+          <a href="#" onclick="javascript:printDiv('新增帳號','{{ accName }}','{{ h.getAccInfo('fullName', accName) }}', '{{ h.getAccInfo('getDate', '') }}', '{{ h.getAccInfo('org', accOrgan) }}', '{{ h.getAccInfo('email', accName) }}' );">{{ h.getLangLabel("Document Download","帳號審核文件下載") }}</a>
+
+        {% else %}
+
+          <a href="#" onclick="javascript:printDiv('新增帳號', '', '', '', '', '' );">{{ h.getLangLabel("Document Download","帳號審核>文件下載") }}</a>
+
+        {% endif %}
         
         </th>
 
