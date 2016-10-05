@@ -87,4 +87,9 @@ function printDiv(
 }
 ```
 
+| 註解 |
+| -- |
+| 需注意此 general.js 函式庫已定義在 resource.config 中 |
+
+
 
