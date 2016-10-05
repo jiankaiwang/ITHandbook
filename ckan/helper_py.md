@@ -974,17 +974,17 @@ __allowed_functions__ = [
 def getAccInfo(option, getReq):
     if option == "fullName":
         p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
-        data = p2l.select({"name" : getPostRequestParamValue(getReq, "name")}, ["fullname"], asdict=True)
+        data = p2l.select({"name" : getReq}, ["fullname"], asdict=True)
         return unicode(data[0]["fullname"], 'utf-8')
     elif option == "getDate":
         return str(datetime.datetime.now())[0:10]
     elif option == "email":
         p2l = py2psql("127.0.0.1","5432","ckan_default","public.user","ckan_default","ckan")
-        data = p2l.select({"name" : getPostRequestParamValue(getReq, "name")}, ["email"], asdict=True)
+        data = p2l.select({"name" : getReq}, ["email"], asdict=True)
         return unicode(data[0]["email"], 'utf-8')
     elif option == "org":
         p2l = py2psql("127.0.0.1","5432","ckan_default","public.group","ckan_default","ckan")
-        data = p2l.select({"name": getPostRequestParamValue(getReq, "organ")},["title"],asdict=True)
+        data = p2l.select({"name": getReq},["title"],asdict=True)
         return unicode(data[0]["title"], 'utf-8')
         
 # 加入允許清單        
