@@ -78,11 +78,11 @@
 * [Information Security](information_security/information_security.md)
    * [SSH Protocol on Ubuntu](information_security/ssh_protocol_on_ubuntu.md)
    * [Autologin SSH in RSA](information_security/autologin_ssh_in_rsa.md)
+   * CSR from OpenSSL
    * [SSL in Azure Web APP](information_security/ssl_in_azure_web_app.md)
    * [WebGoat](information_security/webgoat.md)
    * [Secure Nginx with Let's Encrypt on Ubuntu 14.04](information_security/secure_nginx_with_lets_encrypt_on_ubuntu_1404.md)
    * [Secure Apache with Let's Encrypt on Ubuntu 16.04](information_security/secure_apache_with_lets_encrypt_on_ubuntu_1604.md)
-   * CSR from OpenSSL
 * [Network](network/network.md)
    * [DHCP Server On CentOS](network/dhcp_server_on_centos.md)
    * [DHCP Client On Windows](network/dhcp_client_on_windows.md)
