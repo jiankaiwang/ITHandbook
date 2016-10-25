@@ -2,7 +2,7 @@
     "plugins" : [ "mathjax","autocover","include-codeblock","addcssjs" ],  
     "pluginsConfig": {
         "autocover": {
-              "title": "IT and IoT System",
+              "title": "IT Developer Handbook",
               "author": "J.K. Wang",
               "font": {
                   "size": null,
