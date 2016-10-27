@@ -138,8 +138,36 @@ $ sudo service nginx restart
 此資料夾位於 /usr/share/nginx/html，而內含有如 default.html 與 50x.html 等預設的 html 文件
 
 
+### nginx 設定 Access-Control-Allow-Origin
+---
 
+* 底下是 site-availables 底下其中一組態範例
 
+```ini
+server {
+    listen 9080;
+
+    server_name 127.0.0.1;
+
+    client_max_body_size 1000M;
+    access_log /var/log/nginx/ckan_access.log;
+    error_log /var/log/nginx/ckan_error.log error;
+    charset utf8;
+
+    location / {
+        add_header Access-Control-Allow-Origin *;
+        include uwsgi_params;
+        uwsgi_pass unix:///tmp/ckan_socket.sock;
+        uwsgi_param SCRIPT_NAME '';
+    }
+}
+```
+
+於 **location /** 底下設置即可
+
+```ini
+add_header Access-Control-Allow-Origin *
+```
 
 
 
