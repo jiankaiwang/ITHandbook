@@ -32,7 +32,7 @@
        * [ckanext-pages](ckan/ckanext-pages.md)
        * [Disqus](ckan/disqus.md)
        * [ckanext-basiccharts](ckan/ckanext-basiccharts.md)
-       * Page-View-Tracking
+       * [Page-View-Tracking](ckan/page-view-tracking.md)
    * [客製化頁面](ckan/customized.md)
        * [使用 CSS](ckan/use_customized_css.md)
        * [使用 Javascript](ckan/use_customized_javascript.md)
