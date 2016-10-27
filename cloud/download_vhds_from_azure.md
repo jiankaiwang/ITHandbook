@@ -34,8 +34,9 @@ Save-AzureVhd
 
 ```
 # example 
+# -OverWrite : overwrite file if it exists
 $sourceVHD = "https://example.blob.core.windows.net/exmaple/example.vhd"
 $destinationVHD = "D:\example\example.vhd"
-Save-AzureVhd -Source $sourceVHD -LocalFilePath $destinationVHD -NumberOfThreads 5
+Save-AzureVhd -Source $sourceVHD -LocalFilePath $destinationVHD -NumberOfThreads 5 -OverWrite
 ```
 
