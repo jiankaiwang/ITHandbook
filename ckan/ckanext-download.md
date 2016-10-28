@@ -40,6 +40,28 @@
 {# ... #}
 ```
 
-* 修改首頁的「熱門資料」標籤
+* 修改首頁的「熱門資料」標籤，**templates/home/snippets/customized_popular.html**
+
+```html
+{% set intro = g.site_intro_text %}
+
+<div class="box" style="padding-bottom: 20px;">
+  <header class="hp-header-bg">
+    {% if intro %}
+      {{ h.render_markdown(intro) }}
+    {% else %}
+      <h3 class="page-heading module-content">
+      {{ h.getLangLabel("Recently Popular Data","近期熱門資料") }}
+      </h3>
+    {% endif %}
+  </header>
+
+  {# customized #}
+  {% block home_image %}
+  {% snippet 'snippets/popular_data.html' %}
+  {% endblock %}
+
+</div>
+```
 
 
