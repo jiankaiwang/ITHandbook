@@ -95,6 +95,7 @@ server {
     }
 
     location / {
+        add_header Access-Control-Allow-Origin *;
         include uwsgi_params;
         uwsgi_pass unix:///tmp/ckan_socket.sock;
         uwsgi_param SCRIPT_NAME '';
