@@ -30,8 +30,8 @@
           (_('Name Ascending'), 'title_string asc'),
           (_('Name Descending'), 'title_string desc'),
           (_('Last Modified'), 'metadata_modified desc'),
-          (_('Recently Popular'), 'views_recent desc') if g.tracking_enabled else (false, false),
-          (_('Popular'), 'views_total desc') if g.tracking_enabled else (false, false) ]
+          ( h.getLangLabel('Recently Popular','近期熱門'), 'views_recent desc') if g.tracking_enabled else (false, false),
+          ( h.getLangLabel('Popular','熱門'), 'views_total desc') if g.tracking_enabled else (false, false) ]
         %}
         {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
       {% endblock %}
