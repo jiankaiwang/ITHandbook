@@ -12,4 +12,5 @@
 * 修正 plugin 中 **templates/snippets/package_item.html**
 
 
-* 修正增加「排序依照」中的選項，
+* 修正增加「排序依照」中的選項 ** templates/package/search.html **
+
