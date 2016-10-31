@@ -11,7 +11,7 @@
 . /usr/lib/ckan/default/bin/activate
 cd /usr/lib/ckan/default/src/ckan/ckanext
 git clone https://github.com/jiankaiwang/ckanext-download.git
-cd /ckanext-download
+cd ./ckanext-download
 python ./setup.py develop
 ```
 
@@ -58,7 +58,7 @@ $ paster serve /etc/ckan/default/development.ini
 . /usr/lib/ckan/default/bin/activate
 cd /usr/lib/ckan/default/src/ckan/ckanext
 git clone https://github.com/jiankaiwang/ckanext-download.git
-cd /ckanext-download
+cd ./ckanext-download
 python ./setup.py install
 ```
 
