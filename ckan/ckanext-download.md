@@ -2,9 +2,54 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-### 安裝 plugin
+### 安裝 plugin 至開發測試版
 ---
 
+* 安裝
+
+```bash
+. /usr/lib/ckan/default/bin/activate
+cd /usr/lib/ckan/default/src/ckan/ckanext
+git clone https://github.com/jiankaiwang/ckanext-download.git
+cd /ckanext-download
+python ./setup.py develop
+```
+
+* 組態設定，假設開發版使用組態檔為 **/etc/ckan/default/development.ini**
+
+```bash
+$ vim /etc/ckan/default/development.ini
+```
+
+並加入底下組態
+
+```ini
+ckan.plugins = download
+ckan.download.psqlUrl = postgresql://(dbuser):(dbpass)@(dbhost)/(dbname)
+```
+
+若要加入 template snippet 檢視
+
+```ini
+ckan.download.template = true
+```
+
+若有 view_tracking (參考 [http://docs.ckan.org/en/latest/maintaining/tracking.html](http://docs.ckan.org/en/latest/maintaining/tracking.html) 設定)
+
+```
+[app:main]
+ckan.tracking_enabled = true
+```
+
+* 透過 **paster serve** 開始開發版
+
+```bash
+$ paster serve /etc/ckan/default/development.ini
+```
+
+* 透過瀏覽器並檢視 port 5000 即可
+
+### 
 
 ### 修正 template 以搭配其他 plugins
 ---
