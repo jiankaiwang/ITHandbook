@@ -49,7 +49,53 @@ $ paster serve /etc/ckan/default/development.ini
 
 * 透過瀏覽器並檢視 port 5000 即可
 
-### 
+### 安裝 plugin 至正式版
+---
+
+* 安裝
+
+```bash
+. /usr/lib/ckan/default/bin/activate
+cd /usr/lib/ckan/default/src/ckan/ckanext
+git clone https://github.com/jiankaiwang/ckanext-download.git
+cd /ckanext-download
+python ./setup.py install
+```
+
+* 組態設定，假設開發版使用組態檔為 **/etc/ckan/default/production.ini**
+
+```bash
+$ vim /etc/ckan/default/production.ini
+```
+
+並加入底下組態
+
+```ini
+ckan.plugins = download
+ckan.download.psqlUrl = postgresql://(dbuser):(dbpass)@(dbhost)/(dbname)
+```
+
+若要加入 template snippet 檢視
+
+```ini
+ckan.download.template = true
+```
+
+若有 view_tracking (參考 [http://docs.ckan.org/en/latest/maintaining/tracking.html](http://docs.ckan.org/en/latest/maintaining/tracking.html) 設定)
+
+```
+[app:main]
+ckan.tracking_enabled = true
+```
+
+* 重啟服務即可，假設建置在 nginx 伺服器之上
+
+```bash
+sudo service ckan restart
+sudo service nginx restart
+```
+
+* 透過瀏覽器並檢視 port 5000 即可
 
 ### 修正 template 以搭配其他 plugins
 ---
