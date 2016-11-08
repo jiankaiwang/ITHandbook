@@ -169,7 +169,7 @@
   {% block datasets %}
     {% if group.packages %}
       {# customzied : get total dataset count in the current group #}
-      <strong class="count">{{ _('{num} Datasets').format(num=h.getLen(group.packages)) }}</strong>
+      <strong class="count">{{ _('{num} Datasets').format(num=group.package_count) }}</strong>
     {% elif group.packages == 0 %}
       <span class="count">{{ _('0 Datasets') }}</span>
     {% endif %}
