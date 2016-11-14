@@ -824,7 +824,8 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
                     # write state to postgresql db server
                     p2l.update({\
                         "operation" : u"success".lower(), \
-                        "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        #"ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        "ndcid" : json.loads(post2NDC.response()["response"])['result']['identifier'], \
                         "state" : u"existing", \
                         "code" : str(post2NDC.response()["response"]), \
                         "progress" : u"100%", \
@@ -835,7 +836,8 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
                     # failure POST
                     p2l.update({\
                         "operation" : u"failure".lower(), \
-                        "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        #"ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                        "ndcid" : json.loads(post2NDC.response()["response"])['result']['identifier'], \
                         "code" : str(post2NDC.response()['response']), \
                         "progress" : u"100%", \
                         u"ending" : datetime.datetime.now()\
@@ -844,7 +846,8 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
                 # failure POST
                 p2l.update({\
                     "operation" : u"failure".lower(), \
-                    "ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                    #"ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
+                    "ndcid" : u'', \
                     "code" : u'unexcepted failure in POST', \
                     "progress" : u"100%", \
                     u"ending" : datetime.datetime.now()\
