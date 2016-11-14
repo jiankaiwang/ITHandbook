@@ -587,9 +587,9 @@ class ASSEMBLEDATA:
 
         # prepare package id string to XXXXXX
         for index in range(len(str(data[0]["id"])),6,1):
-            if index == 5:
-                tmpID = '9' + tmpID
-                continue
+            #if index == 5:
+            #    tmpID = '9' + tmpID
+            #    continue
             tmpID = '0' + tmpID
 
         return tmpID
