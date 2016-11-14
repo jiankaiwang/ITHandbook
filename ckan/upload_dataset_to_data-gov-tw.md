@@ -103,6 +103,9 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 
   {#<button class="btn btn-warning">{{ request.method }} {{ request.body }}</button>#}
 
+{# only admin can sync with NDC #}
+{% if c.userobj.sysadmin %}
+
   {# customized : upload to NDC #}
   {% if request.method == "GET" %}
       {% set state = h.syncNDCState("127.0.0.1", "5432", "ckan_default", "public.ndcsync", "ckan_default", "ckan", pkg) %}
@@ -132,7 +135,6 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
           </form>
 
           {# allow delete #}
-          {% if c.userobj.sysadmin %}
               {% if state["clicking"] != "put" %}
                   {# not submitted to NDC yet #}
                   <button class="btn btn-warning" name="delete" style="display: inline-block;">
@@ -148,7 +150,6 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
                       </button>
                   </form>
               {% endif %}
-          {% endif %}
       {% endif %}
 
   {% elif request.method == "POST" and h.getPostRequestParamValue(request.body, "save") == "DataGovTW" %}
@@ -184,6 +185,8 @@ $ vim /usr/lib/ckan/default/src/ckan/ckan/lib/helpers.py
 
   {% endif %}
 
+{# admin #}
+{% endif %}
 
     {% link_for _('Manage'), controller='package', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
   {% endif %}
