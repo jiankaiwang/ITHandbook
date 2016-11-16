@@ -580,10 +580,12 @@ class ASSEMBLEDATA:
         p2l = py2psql(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd)
     
         # select conditions
-        data = p2l.select({"cdcid":self.__pkg[u"id"]},["id"],asdict=True)
+        #data = p2l.select({"cdcid":self.__pkg[u"id"]},["id"],asdict=True)
+        p2l.execsql("select max(ndcid) as crtid from ndcsync;", True, {})        
 
         # set id
-        tmpID = str(data[0]["id"])
+        #tmpID = str(data[0]["id"])
+        tmpID = (int)(p2l.status()['data'][0]['crtid'].split('-')[1]) + 1
 
         # prepare package id string to XXXXXX
         for index in range(len(str(data[0]["id"])),6,1):
