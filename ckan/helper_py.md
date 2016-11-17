@@ -941,6 +941,8 @@ link = threading.Lock()
 def actSYNC2NDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd):
     #thread.start_new_thread(SYNCNDC, (dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd))
     #SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd)
+    
+    global execThread, link
 
     link.acquire()
     
