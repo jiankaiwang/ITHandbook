@@ -599,7 +599,7 @@ class ASSEMBLEDATA:
 
             # set id
             #tmpID = str(data[0]["id"])
-            tmpID = str((int)(p2l.status()['data'][0]['ndcid'].split('-')[1]) + 1)
+            tmpID = str((int)(p2l.status()['data'][0]['ndcid'].split('-')[1]))
 
         # prepare package id string to XXXXXX
         for index in range(len(str(tmpID)),6,1):
