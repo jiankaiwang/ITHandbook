@@ -578,17 +578,31 @@ class ASSEMBLEDATA:
     def __getPKGID(self, dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd):
         # connect to postgresql
         p2l = py2psql(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd)
-    
-        # select conditions
-        #data = p2l.select({"cdcid":self.__pkg[u"id"]},["id"],asdict=True)
-        p2l.execsql("select max(ndcid) as crtid from ndcsync;", True, {})        
 
-        # set id
-        #tmpID = str(data[0]["id"])
-        tmpID = (int)(p2l.status()['data'][0]['crtid'].split('-')[1]) + 1
+        tmpID = ""
+
+        if method == "post":
+
+            # select conditions
+            #data = p2l.select({"cdcid":self.__pkg[u"id"]},["id"],asdict=True)
+            p2l.execsql("select max(ndcid) as crtid from ndcsync;", True, {})
+
+            # set id
+            #tmpID = str(data[0]["id"])
+            tmpID = str((int)(p2l.status()['data'][0]['crtid'].split('-')[1]) + 1)
+
+        elif method == "put":
+
+            # select conditions
+            #data = p2l.select({"cdcid":self.__pkg[u"id"]},["ndcid"],asdict=True)
+            p2l.execsql("select ndcid from ndcsync where cdcid = %(cid)s;", True, {'cid' : self.__pkg[u'id']})
+
+            # set id
+            #tmpID = str(data[0]["id"])
+            tmpID = str((int)(p2l.status()['data'][0]['ndcid'].split('-')[1]) + 1)
 
         # prepare package id string to XXXXXX
-        for index in range(len(str(data[0]["id"])),6,1):
+        for index in range(len(str(tmpID)),6,1):
             #if index == 5:
             #    tmpID = '9' + tmpID
             #    continue
@@ -601,7 +615,7 @@ class ASSEMBLEDATA:
     # -------------------------------------------------------
     
     # constructor
-    def __init__(self, dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG):
+    def __init__(self, dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, method):
         # constant
         self.__categoryCode = "B00"
         self.__publisherOrgCode = "A21010000I"
@@ -616,7 +630,7 @@ class ASSEMBLEDATA:
         self.__pkg = getPKG
 
         # database id, must be after self.__pkg = getPKG
-        self.__dbID = self.__getPKGID(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd)
+        self.__dbID = self.__getPKGID(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, method)
 
     # assemble POST or PUT data
     def assemblePOSTOrPUTData(self):       
@@ -802,7 +816,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
             try:
             
                 # get post json data
-                postData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
+                postData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, "post")
             
                 # write current state to NDC table in postgresql db server
                 p2l.update({\
@@ -860,7 +874,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
 
             try:
                 # get put json data
-                putData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG)
+                putData = ASSEMBLEDATA(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, "put")
 
                 # write current state to NDC table in postgresql db server
                 p2l.update({\
