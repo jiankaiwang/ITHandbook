@@ -20,3 +20,27 @@ Document Root must be a directory
 ```Bash
 # restorecon -r /var/www/html
 ```
+
+### Cache Setting (CentOS)
+---
+
+* No Caching in specific file, the rule is set on the configuration file
+
+```bash
+$ sudo vim /etc/httpd/conf/no-cache.conf
+```
+
+* the rule in the no-cache.conf
+
+```ini
+<filesMatch "\.(jpg|png|gif|ppt|pptx|doc|docx|zip|rar|xls|xlsx)$">
+  FileETag None
+  <ifModule mod_headers.c>
+     Header unset ETag
+     Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+     Header set Pragma "no-cache"
+     Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </ifModule>
+</filesMatch>
+```
+
