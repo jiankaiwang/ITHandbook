@@ -32,8 +32,11 @@ $ psql -U ckan_default
 # e-mail 設定
 => update public.user set email = 'sd1@tw' where name = 'sd1';
 
-# 新增欄位設定
+# 新增欄位設定 (若有增加組織選擇模組時才需更新)
 => update public.user set organ = 'eic' where name = 'sd1';
+
+# 設定全名
+update public.user set fullname = 'sd1' where name = 'sd1';
 ```
 
 
