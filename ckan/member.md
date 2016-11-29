@@ -39,7 +39,13 @@ $ psql -U ckan_default
 update public.user set fullname = 'sd1' where name = 'sd1';
 ```
 
-5. 重新設定密碼
+5. 移除管理員權限
+
+```bash
+(pyenv) $ paster --plugin=ckan sysadmin remove sd1 -c /etc/ckan/default/development.ini
+```
+
+6. 重新設定密碼
 
 ```bash
 (pyenv) $ paster --plugin=ckan user setpass USERNAME -c YOUR_CONFIG_FILE
