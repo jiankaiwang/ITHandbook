@@ -39,4 +39,9 @@ $ psql -U ckan_default
 update public.user set fullname = 'sd1' where name = 'sd1';
 ```
 
+5. 重新設定密碼
+
+```bash
+(pyenv) $ paster --plugin=ckan user setpass USERNAME -c YOUR_CONFIG_FILE
+```
 
