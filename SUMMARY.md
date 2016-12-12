@@ -103,6 +103,7 @@
        * [Database Backup and Restore](database/database_backup_and_restore.md)
    * [Import MySQL databases into SQL Server databases](database/import_mysql_databases_into_sql_server_databases.md)
    * [MongoDB](database/mongodb.md)
+       * Installation
 * [Virtualization](virtualization/virtualization.md)
    * [Docker](virtualization/docker.md)
 * [Windows](windows/windows.md)
