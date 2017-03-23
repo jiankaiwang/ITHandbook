@@ -172,7 +172,7 @@ git add [.|<file>]
 # 完整刪除實體資料
 # file : 含有完整路徑的檔案名稱
 # -r <folder> : 刪除資料夾
-# --cached <file> : 刪除索引中檔案，而不刪除實體檔案
+# --cached <file> : 刪除索引中檔案(即移除追蹤)，而不刪除實體檔案
 git rm <file>
 git rm -r <folder>
 git rm --cached <file>
@@ -228,7 +228,9 @@ git commit [--amend] -m "message" [--author="name <name@eg.com>"]
 # --hard : 並還原整個儲存庫
 # "<reflog tag>" : 參考紀錄標籤 (reflog)，如 "HEAD@{0}" 等
 # ORIG_HEAD : 固定字，指回到上一個版本
+# filename : 檔案名稱
 git reset [--hard] ["<reflog tag>"|"ORIG_HEAD"] 
+git reset head ["filename"]
 
 # 修正(undo)版本歷史紀錄
 # -n : 回復版本後，暫不 commit，之後只有 [--continue|--abort] 兩種選項
