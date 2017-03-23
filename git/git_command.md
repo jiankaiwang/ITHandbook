@@ -184,10 +184,11 @@ git mv <oriFileName> <modifiedFileName>
 
 # 查詢歷史紀錄
 # -n <number> : 顯示近幾筆的歷史資料
+# --graph : 圖式化表示
 # --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 # -g : 顯示每一個 reflog 版本中完整的 commit 內容
-git log [-n <number>] [--pretty=oneline] [--abbrev-commit] [-g]
+git log [-n <number>] [--graph] [--pretty=oneline] [--abbrev-commit] [-g]
 
 # 查詢版本紀錄變化歷程 (自最新開始回推)，不會上傳至遠端儲存庫
 # 查詢特定版本或分支的歷史變化紀錄，如 HEAD|master|<branch name> 等
@@ -225,11 +226,13 @@ git stash [clear|drop "<stash version>"]
 git commit [--amend] -m "message" [--author="name <name@eg.com>"]
 
 # 重設儲存庫索引狀態
+# --soft : 僅修正儲存庫的資料，不影響索引與資料夾中資料
+# --mixed (預設) : 修正儲存庫與索引，但不影響資料夾中資料
 # --hard : 並還原整個儲存庫
 # "<reflog tag>" : 參考紀錄標籤 (reflog)，如 "HEAD@{0}" 等
 # ORIG_HEAD : 固定字，指回到上一個版本
 # filename : 檔案名稱
-git reset [--hard] ["<reflog tag>"|"ORIG_HEAD"] 
+git reset [--soft|--mixed|--hard] ["<reflog tag>"|"ORIG_HEAD"] 
 git reset head ["filename"]
 
 # 修正(undo)版本歷史紀錄
