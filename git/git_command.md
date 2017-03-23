@@ -10,9 +10,9 @@
 ```Bash
 # 組態設定
 # --list : 列表
-#  | --system : 列出系統層級，屬於本機所有使用者的預設値
-#  | --global : 列出使用者層級設定，屬於使用者專屬的設定値
-#  | --local : 本 git 儲存庫的專屬設定
+#  | --system : 列出系統層級，屬於本機所有使用者的預設値 (Git 安裝檔資料夾 etc/gitconfig)
+#  | --global : 列出使用者層級設定，屬於使用者專屬的設定値 (登入帳號 home/directory 中 .gitconfig 檔)
+#  | --local : 本 git 儲存庫的專屬設定 (資料夾下 .git 中 .config 檔案)
 git config [--list [--system|--global|--local]]
 
 # 取得組態的値
@@ -43,6 +43,9 @@ git config <--system|--global|--local> core.editor <editor_app_name>
 # 設定歷史紀錄的過期時間
 # 預設 90 天，commit 不在分支線上則僅有 30 天
 git config <--system|--global|--local> <gc.reflogExpire|gc.reflogExpireUnreachable> <"90 days"|"never">
+
+# 圖形化查看介面
+gitk
 ```
 
 * git 儲存庫創立
@@ -216,8 +219,10 @@ git stash [pop|apply ["<stash version>"]]
 git stash [clear|drop "<stash version>"]
 
 # 提交版本紀錄
+# --amend : 修改準備提交的 commit 內容
 # -m "message" : 提交時的標題
-git commit -m "message"
+# --author="name <email>" : 提交者姓名, 格式需符合
+git commit [--amend] -m "message" [--author="name <name@eg.com>"]
 
 # 重設儲存庫索引狀態
 # --hard : 並還原整個儲存庫
