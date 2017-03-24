@@ -81,8 +81,11 @@ git status [-s]
 git --version
 
 # 重新封裝老舊檔案
+# --aggressive : 完整清理 (不建議經常進行)
 # --prune : 並清空垃圾或殘留檔案
-git gc [--prune]
+# --prune=<date> : default 2 weeks ago
+# --auto : Git 自行判定是否需要清理
+git gc [--aggressive|--auto|--prune|--prune=<date>|--no-prune]
 
 # 檢查 git 維護下的檔案系統是否完整
 git fsck
@@ -106,11 +109,13 @@ git cat-file [-p|-t] <branch|hash code>
 git show <branch|hash code>
 
 # 比對檔案或版本差異，比對「工作目錄」與「索引」之間的差異
+# diff : git 原始工具比較
+# difftool : 另外比對工具 (可以透過 git config 進行設定)
 # commit : 比對儲存庫與該指定 commit 之間的差異
 # --cached commit : 當前索引與指定 commit 之間的差異
 # commit1 commit2 : 比對兩個不同 commit 的版本差異
-git diff [commit|--cached commit]
-git diff <commit1> <commit2>
+git <diff|difftool> [commit|--cached commit]
+git <diff|difftool> <commit1> <commit2>
 
 # 加入遠端變數
 # variable : 變數名稱
@@ -167,7 +172,8 @@ git tag [<tag_name> -a -m "<desc>"|<tag_name> <object_id> -a -m "<desc>"]
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
-git add [.|<file>]
+# -A : 所有資料夾下的變更皆成立
+git add [-A] <.|<file>>
 
 # 完整刪除實體資料
 # file : 含有完整路徑的檔案名稱
@@ -257,7 +263,7 @@ git branch [-d <branch name>]
 # obj id : object SHA1
 git branch [<branch name> <obj id>]
 
-# 轉換主/分支
+# 轉換主/分支，或還原檔案某一版本
 # branch : 自主/分支名稱
 # filename : 檔案名稱，並還原一個檔案
 git checkout <branch> [<filename>]
@@ -273,6 +279,29 @@ git merge <branch name>
 # 分支直接合併入現在儲存庫，完全覆蓋
 git pull
 ```
+
+### 檔案管理
+---
+
+```bash
+# 搜尋字串
+# -i : 不分大小寫
+# -l : 列出檔案
+# -c : 共幾行數
+# -e : 多筆字串搜尋
+# --and : 搜尋邏輯操作子
+# commit : 針對的 commit 版本
+git grep [-c|-l|-i] <searching> [commit]
+git grep -e <searching-1> [[--and] -e <searching-2>] [commit]
+
+# 編輯人員
+# -L : 限定 line 範圍
+# start : 啟始行數
+# end : 結束行數
+# filename : 檔案名稱
+git blame [-L [start,end|end]] <filename>
+```
+
 
 
 
