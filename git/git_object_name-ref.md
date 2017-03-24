@@ -23,4 +23,9 @@
 
 ![](../images/git_relative_object_name.png)
 
+###Git 比對
+---
+
+![](../images/git-diff.png)
+
 
