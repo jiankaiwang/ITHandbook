@@ -194,7 +194,15 @@ git mv <oriFileName> <modifiedFileName>
 # --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 # -g : 顯示每一個 reflog 版本中完整的 commit 內容
-git log [-n <number>] [--graph] [--pretty=oneline] [--abbrev-commit] [-g]
+# --author : 顯示篩選提交者
+# --after | --before : 依時間進行篩選
+git log [-n <number>|--graph|--pretty=oneline|--abbrev-commit|-g|--shortstat|--numstat]
+git log [--author=<word>|--after="YYYY-MM-DD HH:MM"|--before="YYYY-MM-DD HH:MM"]
+
+# 依提交者的字母順序依序列出提交檔案
+# --numbered : 依提交檔案數進行排序
+# --summary : 簡短列出提交結果
+git shortlog [--numbered|-n] [--summary|-s]
 
 # 查詢版本紀錄變化歷程 (自最新開始回推)，不會上傳至遠端儲存庫
 # 查詢特定版本或分支的歷史變化紀錄，如 HEAD|master|<branch name> 等
