@@ -45,7 +45,8 @@ git config <--system|--global|--local> core.editor <editor_app_name>
 git config <--system|--global|--local> <gc.reflogExpire|gc.reflogExpireUnreachable> <"90 days"|"never">
 
 # 圖形化查看介面
-gitk
+# --all : 顯示所有 branch (含 detached branch)
+gitk [--all]
 ```
 
 * git 儲存庫創立
@@ -194,9 +195,11 @@ git mv <oriFileName> <modifiedFileName>
 # --pretty=oneline : 精簡化歷史紀錄，僅呈現出主題與描述
 # --abbrev-commit : 將 commit 物件的 hash code 進行縮減呈現
 # -g : 顯示每一個 reflog 版本中完整的 commit 內容
+# --all : 顯示所有分支 (含 detached branch)
+# --decorate : 顯示主分支訊息
 # --author : 顯示篩選提交者
 # --after | --before : 依時間進行篩選
-git log [-n <number>|--graph|--pretty=oneline|--abbrev-commit|-g|--shortstat|--numstat]
+git log [-n <number>|--graph|--pretty=oneline|--abbrev-commit|-g|--shortstat|--numstat|--all|--decorate]
 git log [--author=<word>|--after="YYYY-MM-DD HH:MM"|--before="YYYY-MM-DD HH:MM"]
 
 # 依提交者的字母順序依序列出提交檔案
@@ -261,25 +264,39 @@ git revert [--continue|--abort]
 ---
 
 ```Bash
+# 創建一個新分支
+# commit SHA或節點名稱參照 : 若無指定，則為最新的 commit
+git branch <branch name> [commit SHA或節點名稱參照]
+
+# 創建分支另一方法 (創建後直接轉換至該分支)
+# -b : 創建並切換至某一個分支，若此分支已存在，則出現錯誤
+# branch name : 分支名稱
+git checkout -b <branch name> [commit SHA或節點名稱參照]
+
+# 修改分支名稱
+git branch -m <new name>
+
 # 查詢目前分支，顯示出「參照名稱」(refs) 及目前主要分支為何 (前有 * 號)
 # 皆位於 .git\refs\heads
-# -d : 刪除分支
+# -d : 刪除分支，未合併時會出現錯誤
+# -D : 強制刪除分支，不論是否有合併
 # branch name : 分支名稱
-git branch [-d <branch name>]
+# --list : 列出分支名稱
+# searching name : 要搜尋的名稱
+git branch [-d|-D <branch name>] [--list [searching name]]
 
 # 救回被誤刪的分支
 # obj id : object SHA1
 git branch [<branch name> <obj id>]
 
 # 轉換主/分支，或還原檔案某一版本
+# -f : 強制轉換分支，
+#   |- 若原分支 tracked 檔案有修改但未儲存至儲存庫時，會提示錯誤
+#   |- 可以透過 -f 強制覆蓋，則該 tracked 檔案變更會遺失
+# . : 用檔案庫直接覆蓋，避免不同分支不同內容但相同檔名下，有修改時的錯誤
 # branch : 自主/分支名稱
 # filename : 檔案名稱，並還原一個檔案
-git checkout <branch> [<filename>]
-
-# 創建分支
-# -b : 創建並切換至某一個分支，若此分支已存在，則出現錯誤
-# branch name : 分支名稱
-git checkout -b <branch name>
+git checkout [-f|.] <branch> [<filename>]
 
 # 將分支 branch name 合併入現在分支中
 git merge <branch name>
