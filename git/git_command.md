@@ -173,8 +173,10 @@ git tag [<tag_name> -a -m "<desc>"|<tag_name> <object_id> -a -m "<desc>"]
 # 加入變更後的檔案準備提交
 # . : 所有檔案皆加入
 # <file> : 僅加入此資料
-# -A : 所有資料夾下的變更皆成立
-git add [-A] <.|<file>>
+# . : 資料夾底下的新增與修改檔案將會加入儲存庫
+# -u : 資料夾底下的刪除檔案於儲存庫中停止更新
+# -A : 所有資料夾下的變更皆成立 (包含新增、修改與刪除的檔案)
+git add [.|-u|-A] <.|<file>>
 
 # 完整刪除實體資料
 # file : 含有完整路徑的檔案名稱
@@ -311,8 +313,13 @@ git cherry-pick [[-n] <commit 節點>] [--continue|--abort]
 
 # 回復至某一節點或參考名稱的「前一版本」
 # 不同於 checkout, revert 不會刪除檔案庫內容, 而會產生新 commit 節點
-# 可能會出現衝突問題
+# 可能會出現衝突問題，透過 git mergetool 與 git revert --continue 處理
 git revert [<commit 節點|參考名稱>|--abort]
+
+# 持續性合併 master 或其他分支以維持架構
+# 但會破壞分支的 commit 歷史紀錄
+# 可能會出現衝突問題，透過 git mergetool 與 git revert --continue 處理
+git rebase [<master|分支名稱>|--continue|--abort]
 
 # 分支直接合併入現在儲存庫，完全覆蓋
 git pull
