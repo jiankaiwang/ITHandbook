@@ -299,7 +299,20 @@ git branch [<branch name> <obj id>]
 git checkout [-f|.] <branch> [<filename>]
 
 # 將分支 branch name 合併入現在分支中
-git merge <branch name>
+# --no-ff : 執行 3-way merge，merge 時會產生一個新的 commit 節點
+# --abort : 放棄本次 merge，資料庫與檔案皆回到 merge 前
+git merge [[--no-ff] <branch name>] [--abort]
+
+# 合併某一 commit 入此分支
+# -n : 不建立新節點
+# --continue : 已修改完衝突點，繼續合併
+# --abort : 放棄合併
+git cherry-pick [[-n] <commit 節點>] [--continue|--abort]
+
+# 回復至某一節點或參考名稱的「前一版本」
+# 不同於 checkout, revert 不會刪除檔案庫內容, 而會產生新 commit 節點
+# 可能會出現衝突問題
+git revert [<commit 節點|參考名稱>|--abort]
 
 # 分支直接合併入現在儲存庫，完全覆蓋
 git pull
