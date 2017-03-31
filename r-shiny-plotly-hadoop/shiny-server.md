@@ -21,11 +21,14 @@ sudo apt-get install r-base-dev
 # install shiny package into R core
 sudo su -c "R -e \"install.packages('shiny', repo='https://cran.rstudio.com')\""
 
-# install necessary packages for shiny server and all of its dependencies
+# install gdebi core for .deb
 sudo apt-get install gdebi-core
 
 # download installer
 wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.1.834-amd64.deb
+
+# install installer
+sudo gdebi shiny-server-1.5.1.834-amd64.deb
 ```
 
 * Configuration

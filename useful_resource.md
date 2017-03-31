@@ -6,6 +6,7 @@
 ---
 
 * [git official website](https://git-scm.com/downloads)
+* [smartGit](http://www.syntevo.com/)
 
 ###Jenkins
 ---
@@ -54,7 +55,7 @@
   * [Plotly Public](https://plot.ly/feed/)
   * [With Shiny](https://plot.ly/r/shiny-tutorial/)
 * [Hadoop official link](http://hadoop.apache.org/)
-  *
+
 
 ###Cloud Computing
 ---

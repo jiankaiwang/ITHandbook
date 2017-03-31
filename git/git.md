@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-###安裝 Git 於 Linux
+###安裝 Git 於 CentOS 7
 ---
 
 * 取得必要安裝檔案：
@@ -47,4 +47,14 @@ $ sudo make install install-doc install-html
 ```Bash
 git --version
 ```
+
+### Install git on ubuntu 16.04
+---
+
+```bash
+sudo apt-get install git
+```
+
+
+
 
