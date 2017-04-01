@@ -44,6 +44,11 @@ git config <--system|--global|--local> core.editor <editor_app_name>
 # 預設 90 天，commit 不在分支線上則僅有 30 天
 git config <--system|--global|--local> <gc.reflogExpire|gc.reflogExpireUnreachable> <"90 days"|"never">
 
+# 預設 push 方式
+# simple : 僅更新目前分支至遠端資料庫
+# matching : 更新所有曾經 push 至遠端資料庫的分支至遠端資料庫
+git config <--system|--global|--local> push.default <simple|matching>
+
 # 圖形化查看介面
 # --all : 顯示所有 branch (含 detached branch)
 gitk [--all]
@@ -125,10 +130,11 @@ git remote add <variable> <value>
 # 範例如下
 git remote add <github_url> <remote github repository URL>
 
-# 發布到 github
-# branch : 主/分支名稱
+# 發布到 remote repository
+# -u : 紀錄 local / remote repository 分支對應關係
+# branch : 要 push 到 remote 的分支名稱
 git remote add origin git@github.com:xxx/yyy.git
-git push -u origin <branch>
+git push [-u|--set-upstream] origin <branch>
 ```
 
 ###儲存庫管理與提交
@@ -321,8 +327,15 @@ git revert [<commit 節點|參考名稱>|--abort]
 # 可能會出現衝突問題，透過 git mergetool 與 git revert --continue 處理
 git rebase [<master|分支名稱>|--continue|--abort]
 
-# 分支直接合併入現在儲存庫，完全覆蓋
-git pull
+# 從遠端資料庫取得資料，但尚未更新分支內容
+# --all : 更新所有分支
+git fetch [--all]
+
+# 將遠端資料庫合併入現在儲存庫
+# 預設 git pull = git fetch + git merge
+# --all : 一次取得該分支的所有資料
+# -r | --rebase : 用 rebase 方式取代原本 git pull 中的 git merge 方式
+git pull [--all] [-r|--rebase]
 ```
 
 ### 檔案管理
