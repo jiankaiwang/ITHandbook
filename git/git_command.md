@@ -101,8 +101,12 @@ git fsck
 ---
 
 ```Bash
-# 自裸儲存庫取得一份致當前(現在)目錄
-git clone [Repo_URL]
+# 自儲存庫取得一份致當前(現在)目錄
+# remote URL : 遠端資料庫位置
+# local URL : 本地資料庫位置
+# --bare : 自一資料庫複製出一份裸資料庫，可做為遠端資料庫用
+git clone <remote URL> <local URL>
+git clone [--bare] [project URL] <Repo_URL>
 
 # 查看 commit 物件內容，包含 tree 物件
 # -p : 查看此 commit 內容
@@ -123,18 +127,38 @@ git show <branch|hash code>
 git <diff|difftool> [commit|--cached commit]
 git <diff|difftool> <commit1> <commit2>
 
-# 加入遠端變數
+# 加入遠端資料庫變數，需要透過 git remote update 更新與建立追蹤資訊
 # variable : 變數名稱
 # value : 値
+# remote repository name : 遠端資料庫名稱，預設為 origin
+# remote repository URL : 遠端資料庫位置
 git remote add <variable> <value>
-# 範例如下
-git remote add <github_url> <remote github repository URL>
+git remote add <remote repository name> <remote repository URL>
+# 範例
+git remote add origin git@github.com:xxx/yyy.git
+
+# 修改遠端資料庫名稱
+git remote rename <old name> <new name>
+
+# 修改遠端資料庫位置
+git remote set-url <remote repository name> <new URL>
+
+# 更新 remote 資訊
+# 包含由 local 資料庫複製出的遠端資料庫，兩者對應關係
+git remote update
+
+# 顯示遠端資料庫資訊
+# show : 顯示完整遠端資料庫訊息
+# -v : 清單顯示遠端資料庫
+git remote [show <repository name>|-v]
 
 # 發布到 remote repository
 # -u : 紀錄 local / remote repository 分支對應關係
-# branch : 要 push 到 remote 的分支名稱
-git remote add origin git@github.com:xxx/yyy.git
-git push [-u|--set-upstream] origin <branch>
+# remote repository name : 遠端資料庫名稱
+# local branch : 要 push 到 remote 的 local 分支名稱
+# --delete : 刪除遠端資料庫某一分支
+git push [-u|--set-upstream] <remote repository name> <local branch>
+git push <remote repository name> --delete <remote branch name>
 ```
 
 ###儲存庫管理與提交
