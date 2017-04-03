@@ -384,6 +384,25 @@ git grep -e <searching-1> [[--and] -e <searching-2>] [commit]
 git blame [-L [start,end|end]] <filename>
 ```
 
+### Git Server
+---
+
+```bash
+# 於目前位置建立 git server
+# 目前位置可以是 git 工作資料夾或是 bare 型態資料庫
+# --export-all : 開放目前位置底下所有 git 資料庫
+#  |- 若不想開放所有資料庫，於要開放資料庫底下新增名為 git-daemon-export-ok 的空檔案
+# --enable=receive-pack : 允許修改資料庫
+# --base-path : 要開放資的資料夾路徑
+# --port : 要監聽的網路 port，預設是 9418
+#  |- 透過 git clone git://URL or IP:port/repository path
+# --verbose : 運作時顯示重要訊息
+# & : 背景運行
+# troubleshooting
+#   |- hang on writing object(100%) : git config --global sendpack.sideband false
+git daemon [--export-all] [--enable=receive-pack] [--base-path='資料夾路徑'] 
+git daemon [--port=portNumber] [--verbose] [&]
+```
 
 
 
