@@ -7,6 +7,7 @@
   * [git 物件 - 名稱與參照](git/git_object_name-ref.md)
   * [git 常用指令](git/git_command.md)
   * [建立 GitLab 私有資料庫伺服器](git/construct-gitlab-server.md)
+  * [Construct a Git Server over HTTP/HTTPS](git/construct-a-git-server-over-httphttps.md)
 * [Jenkins](jenkins/jenkins.md)
   * [初論](jenkins/introduction.md)
   * [安裝 Plugin](jenkins/install_plugin.md)
