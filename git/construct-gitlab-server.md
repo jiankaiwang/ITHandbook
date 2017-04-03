@@ -9,6 +9,7 @@
 
 ```bash
 # install necessary dependencies
+# while installing postfix, choose the option 'Internet Site' 
 sudo apt-get install curl openssh-server ca-certificates postfix
 
 # add GitLab Package sever and install the server
@@ -22,3 +23,12 @@ sudo gitlab-ctl reconfigure
 # redirect to reset the apssword at the first time
 # default user account is root
 ```
+
+* troubleshooting
+    * while changing network setting of VirtualBox, the command **sudo gitlab-ctl reconfigure** must be reconfigured
+
+
+
+
+
+
