@@ -104,9 +104,10 @@ git fsck
 # 自儲存庫取得一份致當前(現在)目錄
 # remote URL : 遠端資料庫位置
 # local URL : 本地資料庫位置
+# -c http.sslVerify=false : skip ssl check 
 # --bare : 自一資料庫複製出一份裸資料庫，可做為遠端資料庫用
 git clone <remote URL> <local URL>
-git clone [--bare] [project URL] <Repo_URL>
+git clone [-c http.sslVerify=false] [--bare] [project URL] <Repo_URL>
 
 # 查看 commit 物件內容，包含 tree 物件
 # -p : 查看此 commit 內容

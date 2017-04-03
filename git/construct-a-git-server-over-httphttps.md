@@ -115,4 +115,38 @@ git clone http://127.0.0.1/git/<資料庫名稱> <local Repo Path>
 git push -u <remote repo name> <local branch name>
 ```
 
+### Apache Server on Ubuntu 16.04 Over HTTPS (Continued ...)
+---
+
+* Main Installiation and Setting are the same with HTTP above
+
+* Generate SSL Certificate
+
+```bash
+# generate private key 
+# input a customized pass phrase
+# method : des3
+# length : 2048
+openssl genrsa -des3 -out server.key 2048
+
+# generate certificate request file (and input all its information)
+openssl req -new -key server.key -out server.csr
+
+# generate signature file / Certificate file
+# time peroid : 10 years (365 * 10)
+openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
+
+# rename for generating a rsa prikey
+mv ./server.key ./server.key.old
+
+# regenerate a RSA Private Key
+openssl rsa -in server.key.old -out server.key
+```
+
+
+
+
+
+
+
 
