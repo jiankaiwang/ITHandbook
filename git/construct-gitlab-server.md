@@ -27,6 +27,18 @@ sudo gitlab-ctl reconfigure
 * troubleshooting
     * while changing network setting of VirtualBox, the command **sudo gitlab-ctl reconfigure** must be reconfigured
 
+### Access the GitLab 
+---
+
+* git operation
+
+```
+# http example
+git clone http://test@192.168.3.19/test/test.git ./Desktop/test
+
+# ssh example
+git clone git@192.168.3.19:test/test.git ./Desktop/test
+```
 
 
 
