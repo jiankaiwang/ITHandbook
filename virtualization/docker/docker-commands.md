@@ -32,6 +32,22 @@ docker images [--format "<regular>"]
 # 查看鏡像 commit 版本歷史
 docker history <Repository>:<Tag>
 
+# 對 Dockerfile 進行建構
+# -t : 指定新建構的鏡像名稱
+# . : 表示將當前目錄打包送至 Docker Engine 進行建構
+# -f : 指定要進行建構鏡像的路徑及檔名
+# URL : 支援直接自 URL 進行建構，如 git repository
+# gzip|bzip2|xz : 支援來自壓縮檔的建構
+# - < : 表式來字標準輸入
+docker build <[-t <Repository>:<Tag> .|-f <path/filename>|<URL>|<gzip|bzip2|xz>| - < <fileName>]>
+# 支援 pipeline 方式進行建構
+# 但此方式不支援如 COPY 等上下文的建構方式
+cat Dockerfile | docker build -
+
+# 建立不需進行打包入 Docker 進行建構的忽略規則，類似 .gitignore
+touch .dockerignore
+vim .dockerignore
+
 # 刪除鏡像
 # 刪除虛懸鏡像 : $(docker images -q -f dangling=true) 
 docker rmi <Repository>:<Tag>
@@ -41,6 +57,49 @@ docker rmi $(docker images -q -f dangling=true)
 ### Dockerfile
 ---
 
+```bash
+# 指定基礎鏡像
+# scratch : 空白鏡像，後續第一項指令作為第一層
+From <Repository>:<Tag>
+From scratch
+
+# 執行指令，執行完後即 commit 成新一層
+# 寫法應為一次 Run 一整個相關操作的步驟，且清除無關文件
+# shell : 即 batch 指令
+# exec : 類似函式調用方式，即 ["可執行腳本", "傳入參數1", "傳入參數2"]
+# 範例 :
+# RUN buildDeps='gcc libc6-dev make' \
+#     && 'apt-get update' \
+#     && apt-get install -y $buildDeps \
+#     && apt-get purge -y --auto-remove $buildDeps
+Run <shell|exec>
+
+# 執行指令，不同於 Run 的是 Cmd 為容器運行時執行指令
+# Docker 運行指令
+# shell : 即 batch 指令
+# exec : 類似函式調用方式，即 ["可執行腳本", "傳入參數1", "傳入參數2"]
+# params : ["參數1", "參數2"]
+#   |- 如果指令為 shell 格式，則命令會被包裝成 sh -c 執行，且格式被解析為 JSON 數組
+#   |- 如 echo $HOME 指令被解析成 CMD ["sh", "-c", "echo $HOME"]
+Cmd <shell|exec|params>
+
+# 執行指令，設定容器組態來準備運行其他指令，與 Cmd 相同在容器運行時執行指令
+# 不同於 Cmd，Entrypoint 讓鏡像變成像命令一樣使用，且可以運行 Cmd 前作一些準備工作
+# shell : 即 batch 指令
+# exec : 類似函式調用方式，即 ["可執行腳本", "傳入參數1", "傳入參數2"]
+Entrypoint <shell|exec> 
+
+# 將 local 當時上下文 (Context) 目錄的文件複製進鏡像內的位置
+# 目標路徑可以不需事先創建
+# Source : 來源檔案，當時上下文目錄檔案
+# Target : 目的位置，鏡像內絕對位置
+# 範例 : Copy package.json /usr/src/app/path
+Copy <Source>[ <Source 2> [<Source 3>]] <Target>
+
+# 將當時上下文 (Context) 目錄的 local 文件加入進鏡像
+# Add 相較 Copy 有更多的功能，如自解壓縮等，但語義在不同來源上有很多差異，並不建議使用
+Add <Source> <Target>
+```
 
 ### Containers
 ---
