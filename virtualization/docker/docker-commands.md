@@ -38,6 +38,10 @@ docker rmi <Repository>:<Tag>
 docker rmi $(docker images -q -f dangling=true)
 ```
 
+### Dockerfile
+---
+
+
 ### Containers
 ---
 
