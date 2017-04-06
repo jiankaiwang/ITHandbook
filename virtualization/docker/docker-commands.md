@@ -63,6 +63,17 @@ docker rmi $(docker images -q -f dangling=true)
 From <Repository>:<Tag>
 From scratch
 
+# 將 local 當時上下文 (Context) 目錄的文件複製進鏡像內的位置
+# 目標路徑可以不需事先創建
+# Source : 來源檔案，當時上下文目錄檔案
+# Target : 目的位置，鏡像內絕對位置
+# 範例 : Copy package.json /usr/src/app/path
+Copy <Source>[ <Source 2> [<Source 3>]] <Target>
+
+# 將當時上下文 (Context) 目錄的 local 文件加入進鏡像
+# Add 相較 Copy 有更多的功能，如自解壓縮等，但語義在不同來源上有很多差異，並不建議使用
+Add <Source> <Target>
+
 # 執行指令，執行完後即 commit 成新一層
 # 寫法應為一次 Run 一整個相關操作的步驟，且清除無關文件
 # shell : 即 batch 指令
@@ -89,16 +100,23 @@ Cmd <shell|exec|params>
 # exec : 類似函式調用方式，即 ["可執行腳本", "傳入參數1", "傳入參數2"]
 Entrypoint <shell|exec> 
 
-# 將 local 當時上下文 (Context) 目錄的文件複製進鏡像內的位置
-# 目標路徑可以不需事先創建
-# Source : 來源檔案，當時上下文目錄檔案
-# Target : 目的位置，鏡像內絕對位置
-# 範例 : Copy package.json /usr/src/app/path
-Copy <Source>[ <Source 2> [<Source 3>]] <Target>
+# 設定環境變數，或如 batch 中宣告之變數
+# key : 變數名
+# value : 設定的値
+Env <key> <value>
+Env <key1>=<value1>[ <key2>=<value2>[ <key3>=<value3>]]
 
-# 將當時上下文 (Context) 目錄的 local 文件加入進鏡像
-# Add 相較 Copy 有更多的功能，如自解壓縮等，但語義在不同來源上有很多差異，並不建議使用
-Add <Source> <Target>
+# 建構環境變數
+# 與 Env 不同的是建構鏡像後 Arg 所建立的變數於容器運行不會存在
+# 但 docker history 指令仍可以看到
+# 可以用 docker build --build-arg <key1>=<value1> 於建構時進行覆蓋
+Arg <key1>=<value1>
+
+# 定義匿名資料卷
+# 預先指定某些目錄掛載為匿名卷，即使運行終使用者忘記掛載，也不會向容器寫入大量數據
+# Path : 容器中的路徑，如 /data，容器運行時，任何向 /data 寫入訊息皆不會記錄進儲存庫
+Volume <Path>
+Volume ["<Path1>", "<Path2>", ...]
 ```
 
 ### Containers
@@ -106,15 +124,21 @@ Add <Source> <Target>
 
 ```bash
 # 以鏡像為基礎運行一個容器
-# -i : interactive 介面交互操作
-# -t : terminal
-# --rm : 容器關閉後隨即刪除
-# --name : 指定容器一個名稱
+# options
+#   |- -i : 介面交互操作
+#   |- -t : terminal
+#   |- --rm : 容器關閉後隨即刪除
+#   |- --name : 指定容器一個名稱
+#   |- -d : run on the daemon (background)
+#   |- -p : Port forwarding
+#   |- -v : 掛載資料卷
+#     |- volName : 資料卷名稱
+#     |- path : 容器掛載位置
 # Exec : 執行指令
-# -d : run on the daemon (background)
-# -p : Port forwarding
+docker run [options] <Repository>:<Tag> <Exec>
 docker run [-i] [-t] [--rm] [--name <name>] <Repository>:<Tag> <Exec>
 docker run [-d] [-p <host Port>:<container Port>] <Repository>:<Tag> <Exec>
+docker run [-v <volName>:<path>] <Repository>:<Tag> <Exec>
 
 # 進入在背景運行的容器
 # -i : 交互操作
