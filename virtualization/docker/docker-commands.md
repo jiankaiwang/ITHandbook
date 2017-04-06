@@ -50,8 +50,6 @@ docker rmi $(docker images -q -f dangling=true)
 # Exec : 執行指令
 # -d : run on the daemon (background)
 # -p : Port forwarding
-# 範例 :
-# docker run -it --rm
 docker run [-i] [-t] [--rm] [--name <name>] <Repository>:<Tag> <Exec>
 docker run [-d] [-p <host Port>:<container Port>] <Repository>:<Tag> <Exec>
 
