@@ -283,10 +283,30 @@ docker push <Repository>/<Tag>
 # sudo docker run -d -p 5000:5000 -v /opt/data/registry:/tmp/registry registry
 #   |- 預設倉庫被創建於容器的 /tmp/registry 底下
 #   |- 透過 -v 將上傳的鏡像放置於本地 /opt/data/registry 位置
+# Private Docker Hub 服務確認範例
+#   |- 取得 Docker-API-Version : 
+#      curl -v http://localhost:5000/v2/
+#   |- 取得 ubuntu/latest (已 push 成功後) 的資訊 :
+#      curl http://localhost:5000/v2/ubuntu/manifests/latest
 docker pull registry:latest
 docker run -d \
     [-p <host-port>:<container-port>] [-v <local-path>:<contaniner-path>] \
     registry 
+    
+# 標記要上傳至 Private Docker Hub 的 image
+# Local-Repository : 本地鏡像
+# Hub <IP|URL> : 私有 Docker 註冊器 IP 或 URL
+# 範例：
+# |- docker tag hello-world:latest localhost:5000/hw:latest
+docker tag <Local-Repository>[:<Tag>] <Hub <IP|URL>[:Port]/[<User|Repository>[:<Tag>]]>
+
+# 上傳已標記的鏡像
+# 範例：
+# |- docker push localhost:5000/hw:latest
+# 查看倉庫中鏡像：
+# |- $ curl -v http://localhost:5000/v2/<name>/manifests/<reference>
+# |- 範例 : curl -v http://localhost:5000/v2/hw/manifests/latest
+docker push <Tagged-Image>
 ```
 
 
