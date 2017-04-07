@@ -275,8 +275,19 @@ docker push <Repository>/<Tag>
 
 # Docker hub 支援 Automated Builds (自動創建)
 # 目前支援 Github 與 Bitbucket，當有新 commit 時，會自動創建
-```
 
+# 構建私有的鏡像倉庫，背景運行及映射 port 至宿主 OS
+# docker-registry 為 docker 官方提供的工具
+# <host-port>:<container-port> : 映射容器端口至宿主端口
+# 範例：
+# sudo docker run -d -p 5000:5000 -v /opt/data/registry:/tmp/registry registry
+#   |- 預設倉庫被創建於容器的 /tmp/registry 底下
+#   |- 透過 -v 將上傳的鏡像放置於本地 /opt/data/registry 位置
+docker pull registry:latest
+docker run -d \
+    [-p <host-port>:<container-port>] [-v <local-path>:<contaniner-path>] \
+    registry 
+```
 
 
 
