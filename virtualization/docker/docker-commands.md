@@ -237,8 +237,16 @@ docker inspect --format <format> <sha/name>
 docker logs <Sha|Name>
 
 # 導出容器，不同於 Commit 為 export 並不會儲存成新的鏡像
-
 docker export <Sha|Name>
+
+# 導入容器快照成鏡像
+# 注意 :
+# |- 若用 docker export 的容器快照為來源，則 docker import 與 docker load 匯入結果不同
+# |- docker load 會僅載入鏡像部分，因 docker export 並沒有 commit 的結果，
+# |- docker load 會損失容器儲存層(尚未 commit 入鏡像部分會遺失)
+# - 為標準輸入，常配合 pipeline 使用
+# |- 如 cat ubuntu.tar | docker import - ubuntu:latest
+docker import <URL|Path|-> <Repository>[:<Tag>]
 
 # 移除終止的容器
 # container Sha/Name : 容器　SHA 碼或是名稱
