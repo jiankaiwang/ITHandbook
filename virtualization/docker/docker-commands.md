@@ -25,9 +25,10 @@ docker pull [options] [Docker Registry URL] <Repository>:<Tag>
 # label name : 鏡像標籤名
 # --format : 依格式顯示
 #   |- regular 定義格式，如 table {{.ID}}\t{{.Repository}}\t{{.Tag}}
+# --digests : 摘要 (SHA)
 docker images [-a] [-q] [-f dangling=true] [Repository name]
 docker images [-f [since=<Repository>:<Tag>|label=<label name>]]
-docker images [--format "<regular>"]
+docker images [--format "<regular>"] [--digests]
 
 # 查看鏡像 commit 版本歷史
 docker history <Repository>:<Tag>
@@ -44,14 +45,31 @@ docker build <[-t <Repository>:<Tag> .|-f <path/filename>|<URL>|<gzip|bzip2|xz>|
 # 但此方式不支援如 COPY 等上下文的建構方式
 cat Dockerfile | docker build -
 
+# 直接匯入一個壓縮包形成鏡像
+# Tar : 壓縮檔，如 gzip, bzip2 等
+# URL : 連結
+# - : 標準輸入
+docker import [options] <Tar|URL|-> [<Repository>[ :<Tag>]]
+
 # 建立不需進行打包入 Docker 進行建構的忽略規則，類似 .gitignore
 touch .dockerignore
 vim .dockerignore
 
+# 保存鏡像，可以配合 pipeline
+# pipeline:
+#   |- 如 " | gzip > fileName.tar.gz "
+docker save <Repository>[ :<Tag>] [pipeline]
+
+# 載入鏡像
+# -i : 輸入字串
+# 範例 :
+# docker save <镜像名稱> | bzip2 | pv | ssh <用户名>@<主机名> 'cat | docker load'
+docker load -i <fileName>
+
 # 刪除鏡像
-# 刪除虛懸鏡像 : $(docker images -q -f dangling=true) 
-docker rmi <Repository>:<Tag>
-docker rmi $(docker images -q -f dangling=true)
+# 刪除虛懸鏡像 : [-f dangling=true]
+docker rmi <<Repository>:<Tag>|<SHA>>
+docker rmi $(docker images -q [Repository Name|-f dangling=true])
 ```
 
 ### Dockerfile
@@ -117,6 +135,33 @@ Arg <key1>=<value1>
 # Path : 容器中的路徑，如 /data，容器運行時，任何向 /data 寫入訊息皆不會記錄進儲存庫
 Volume <Path>
 Volume ["<Path1>", "<Path2>", ...]
+
+# 聲明容器使用端口，並不等於和 Host Port 對映
+# Port : 端口，如 80
+Expose <port>[ <port2>]
+
+# 改變之後各層工作目錄位置
+# Path : 目錄位置，若無會自動建立
+Workdir <Path>
+
+# 改變之後各層當前用戶
+# 轉換身份，建議用 gosu 指令
+# Name : 用戶名，需事先建立 (e.g. useradd)
+User <Name>
+
+# 檢查容器健康狀況，僅能出現一次，多寫僅最後一次指令生效
+# --interval=<Peroid> : 檢查狀況的期間
+# --timeout=<Time> : 執行檢查期間，超過視成失敗
+# --retries=<Count> : 連續幾次失敗後，檢查視為 unhealthy
+# shell : 即 batch 指令
+# exec : 類似函式調用方式，即 ["可執行腳本", "傳入參數1", "傳入參數2"]
+# Cmd 指令回傳値代表檢查狀況，0 : 成功，1 : 失敗，2 : 保留 (建議不使用)
+# 可以透過 docker ps -a 來看目前檢查狀況
+# 亦可以透過 docker inspect <sha/name> | python -m json.tool
+Healthcheck [--interval=<Peroid>|--timeout=<Time>|--retries=<Count>] Cmd <Shell|Exec>
+
+# 僅於基礎鏡像才執行的指令
+Onbuild <Cmd|Run|Copy| ...>
 ```
 
 ### Containers
@@ -136,9 +181,10 @@ Volume ["<Path1>", "<Path2>", ...]
 #     |- path : 容器掛載位置
 # Exec : 執行指令
 docker run [options] <Repository>:<Tag> <Exec>
-docker run [-i] [-t] [--rm] [--name <name>] <Repository>:<Tag> <Exec>
-docker run [-d] [-p <host Port>:<container Port>] <Repository>:<Tag> <Exec>
-docker run [-v <volName>:<path>] <Repository>:<Tag> <Exec>
+docker run \
+    [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>] \
+    [-d] [-p <host Port>:<container Port>] \
+    <Repository>:<Tag> <Exec>
 
 # 進入在背景運行的容器
 # -i : 交互操作
@@ -155,6 +201,10 @@ docker diff <sha/name>
 #   |- 作者 : --author <Name <Email>>
 #   |- 訊息 : --message <info>
 docker commit [options] <Container SHA/NAME> [<Repository>[:Tag]]
+
+# 查看目前容器狀況
+# --format : 輸出格式，例如 {{json .State.Health}}
+docker inspect --format <format> <sha/name> 
 
 # 移除終止的容器
 # container Sha/Name : 容器　SHA 碼或是名稱
