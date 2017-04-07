@@ -250,7 +250,10 @@ docker import <URL|Path|-> <Repository>[:<Tag>]
 
 # 移除終止的容器
 # container Sha/Name : 容器　SHA 碼或是名稱
-docker rm <container Sha/Name>
+# -f : 刪除運行中的容器
+# $(docker ps -a -q) : 刪除所有容器，默認不刪除運行中容器
+docker rm [-f] <container Sha/Name>
+docker rm $(docker ps -a -q)
 ```
 
 
