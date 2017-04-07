@@ -168,6 +168,11 @@ Onbuild <Cmd|Run|Copy| ...>
 ---
 
 ```bash
+# 查看目前所有容器資訊
+# -a : 所有容器，不論是否運行中
+# -q : 僅顯示容器摘要碼
+docker ps [-a|-q]
+
 # 以鏡像為基礎運行一個容器
 # options
 #   |- -i : 介面交互操作
@@ -180,11 +185,16 @@ Onbuild <Cmd|Run|Copy| ...>
 #     |- volName : 資料卷名稱
 #     |- path : 容器掛載位置
 # Exec : 執行指令
-docker run [options] <Repository>:<Tag> <Exec>
+docker run [options] <Repository>:<Tag> [Exec]
 docker run \
     [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>] \
     [-d] [-p <host Port>:<container Port>] \
     <Repository>:<Tag> <Exec>
+
+# 啟動已終止的容器
+# Sha : 容器摘要碼
+# Name : 容器名稱
+docker start <Sha|Name>
 
 # 進入在背景運行的容器
 # -i : 交互操作
@@ -192,6 +202,21 @@ docker run \
 # 範例 :
 # docker exec -it webserver bash
 docker exec [-i] [-t] <sha/name> <exec>
+
+# 進入在背景運行的容器，和 exec 不同的是
+# |- attach 為唯一執行個體，僅管多個 attach 仍會同步內容
+# |- attach 僅在容器啟動時工作目錄為 /bin/bash 下才能使用，否則需用 exec 轉換
+docker attach <Sha|Name>
+
+# 終止容器運行
+# Sha : 容器摘要碼
+# Name : 容器名稱
+docker stop <Sha|Name>
+
+# 重啟容器運行
+# Sha : 容器摘要碼
+# Name : 容器名稱
+docker restart <Sha|Name>
 
 # 容器儲存層變動紀錄
 docker diff <sha/name>
@@ -205,6 +230,15 @@ docker commit [options] <Container SHA/NAME> [<Repository>[:Tag]]
 # 查看目前容器狀況
 # --format : 輸出格式，例如 {{json .State.Health}}
 docker inspect --format <format> <sha/name> 
+
+# 獲取容器輸出的訊息，包含背景運行的輸出
+# Sha : 容器摘要碼
+# Name : 容器名稱
+docker logs <Sha|Name>
+
+# 導出容器，不同於 Commit 為 export 並不會儲存成新的鏡像
+
+docker export <Sha|Name>
 
 # 移除終止的容器
 # container Sha/Name : 容器　SHA 碼或是名稱
