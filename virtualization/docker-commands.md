@@ -256,6 +256,26 @@ docker rm [-f] <container Sha/Name>
 docker rm $(docker ps -a -q)
 ```
 
+### Repository
+---
+
+```bash
+# 登入 Repository Registry (如 Docker Hub)
+# 帳戶訊息存放於本地目錄的 .dockercfg
+docker login
+
+# 搜尋倉庫中的鏡像
+# stars=N : 搜尋幾顆星以上的儲存庫
+docker search [--filter=<stars=N>] <Repository>
+
+# 將鏡像推送到 Repository Registry
+# Repository : 儲存庫名，可能為軟體名或使用者名
+# Tag : 標籤，可能為版本或軟體名
+docker push <Repository>/<Tag>
+
+# Docker hub 支援 Automated Builds (自動創建)
+# 目前支援 Github 與 Bitbucket，當有新 commit 時，會自動創建
+```
 
 
 
