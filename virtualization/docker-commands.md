@@ -300,13 +300,18 @@ docker run -d \
 # |- docker tag hello-world:latest localhost:5000/hw:latest
 docker tag <Local-Repository>[:<Tag>] <Hub <IP|URL>[:Port]/[<User|Repository>[:<Tag>]]>
 
-# 上傳已標記的鏡像
+# 上傳已標記的鏡像至 Private Docker Hub
 # 範例：
 # |- docker push localhost:5000/hw:latest
 # 查看倉庫中鏡像：
 # |- $ curl -v http://localhost:5000/v2/<name>/manifests/<reference>
 # |- 範例 : curl -v http://localhost:5000/v2/hw/manifests/latest
 docker push <Tagged-Image>
+
+# 自 Private Docker Hub 下載已標記的鏡像
+# 範例：
+# |- docker pull localhost:5000/hw:latest
+docker pull <Tagged-Image>
 ```
 
 
