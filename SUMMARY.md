@@ -138,5 +138,4 @@
   * [Common Commands in CentOS](linux/common_commands_in_centos.md)
   * [LAMP in Ubuntu](linux/lamp_in_ubuntu.md)
 * [VR](vr/vr.md)
-* [Cardboard](vr/cardboard.md)
 
