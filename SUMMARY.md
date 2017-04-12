@@ -137,4 +137,6 @@
   * [更改 python 預設版本 \(CentOS\)](linux/change_python_version_in_centos.md)
   * [Common Commands in CentOS](linux/common_commands_in_centos.md)
   * [LAMP in Ubuntu](linux/lamp_in_ubuntu.md)
+* [VR](vr/vr.md)
+* [Cardboard](vr/cardboard.md)
 
