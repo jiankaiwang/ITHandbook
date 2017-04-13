@@ -180,7 +180,9 @@ docker ps [-a|-q]
 #   |- --rm : 容器關閉後隨即刪除
 #   |- --name : 指定容器一個名稱
 #   |- -d : run on the daemon (background)
-#   |- -p : Port forwarding
+#   |- -p : Port forwarding，指定端口
+#     |- binding-IP : 要綁定的 IP 或 URL (例如 127.0.0.1)，未填則默認所有位置
+#   |- -P : Port forwarding，非指定端口，隨機分派宿主端口
 #   |- -v : 掛載資料卷
 #     |- volName : 資料卷 Host 位置
 #     |- path : 容器掛載位置
@@ -190,7 +192,7 @@ docker ps [-a|-q]
 docker run [options] <Repository>:<Tag> [Exec]
 docker run \
     [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>[:auth]] \
-    [--volumes-from <sha/name>] [-d] [-p <host Port>:<container Port>]\
+    [--volumes-from <sha/name>] [-d] [-P] [[-p [<binding-IP>:]<host Port>:<container Port>[:<TCP|UDP>]]*]\
     <Repository>:<Tag> <Exec>
 
 # 啟動已終止的容器
@@ -237,6 +239,9 @@ docker inspect --format <format> <sha/name>
 # Sha : 容器摘要碼
 # Name : 容器名稱
 docker logs <Sha|Name>
+
+# 查看容器映射宿主網路端口狀況
+docker port <Sha|Name>
 
 # 導出容器，不同於 Commit 為 export 並不會儲存成新的鏡像
 docker export <Sha|Name>
