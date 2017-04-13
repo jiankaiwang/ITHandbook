@@ -188,11 +188,16 @@ docker ps [-a|-q]
 #     |- path : 容器掛載位置
 #     |- auth : 容器讀取權限，如 ro (read-only)
 #   |- --volumes-from : 掛載來自其他 container 的資料卷 (資料共用)
+#   |- --link : 容器間互連
+#     |- Sha/Name : 要連接的 container Sha 或 name
+#     |- alias : 此連線的別名
 # Exec : 執行指令
 docker run [options] <Repository>:<Tag> [Exec]
 docker run \
     [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>[:auth]] \
-    [--volumes-from <sha/name>] [-d] [-P] [[-p [<binding-IP>:]<host Port>:<container Port>[:<TCP|UDP>]]*]\
+    [--volumes-from <sha/name>] [-d] [-P] \
+    [[-p [<binding-IP>:]<host Port>:<container Port>[:<TCP|UDP>]]*]\
+    [--link <name>:<alias>]\
     <Repository>:<Tag> <Exec>
 
 # 啟動已終止的容器
