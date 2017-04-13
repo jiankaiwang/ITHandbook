@@ -180,7 +180,7 @@ docker ps [-a|-q]
 #   |- --rm : 容器關閉後隨即刪除
 #   |- --name : 指定容器一個名稱
 #   |- -d : run on the daemon (background)
-#   |- -p : Port forwarding，指定端口
+#   |- -p : Port forwarding，指定端口，可以指派多組
 #     |- binding-IP : 要綁定的 IP 或 URL (例如 127.0.0.1)，未填則默認所有位置
 #   |- -P : Port forwarding，非指定端口，隨機分派宿主端口
 #   |- -v : 掛載資料卷
