@@ -185,11 +185,12 @@ docker ps [-a|-q]
 #     |- volName : 資料卷 Host 位置
 #     |- path : 容器掛載位置
 #     |- auth : 容器讀取權限，如 ro (read-only)
+#   |- --volumes-from : 掛載來自其他 container 的資料卷 (資料共用)
 # Exec : 執行指令
 docker run [options] <Repository>:<Tag> [Exec]
 docker run \
     [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>[:auth]] \
-    [-d] [-p <host Port>:<container Port>] \
+    [--volumes-from <sha/name>] [-d] [-p <host Port>:<container Port>]\
     <Repository>:<Tag> <Exec>
 
 # 啟動已終止的容器
