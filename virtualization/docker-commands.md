@@ -182,12 +182,13 @@ docker ps [-a|-q]
 #   |- -d : run on the daemon (background)
 #   |- -p : Port forwarding
 #   |- -v : 掛載資料卷
-#     |- volName : 資料卷名稱
+#     |- volName : 資料卷 Host 位置
 #     |- path : 容器掛載位置
+#     |- auth : 容器讀取權限，如 ro (read-only)
 # Exec : 執行指令
 docker run [options] <Repository>:<Tag> [Exec]
 docker run \
-    [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>] \
+    [-i] [-t] [--rm] [--name <name>] [-v <volName>:<path>[:auth]] \
     [-d] [-p <host Port>:<container Port>] \
     <Repository>:<Tag> <Exec>
 
@@ -251,8 +252,9 @@ docker import <URL|Path|-> <Repository>[:<Tag>]
 # 移除終止的容器
 # container Sha/Name : 容器　SHA 碼或是名稱
 # -f : 刪除運行中的容器
+# -v : 刪除資料卷
 # $(docker ps -a -q) : 刪除所有容器，默認不刪除運行中容器
-docker rm [-f] <container Sha/Name>
+docker rm [-f|-v] <container Sha/Name>
 docker rm $(docker ps -a -q)
 ```
 
@@ -313,6 +315,12 @@ docker push <Tagged-Image>
 # |- docker pull localhost:5000/hw:latest
 docker pull <Tagged-Image>
 ```
+
+
+
+
+
+
 
 
 
