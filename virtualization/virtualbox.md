@@ -14,5 +14,6 @@
 # Cmd : 
 # |- format : Policy-Name,type,Host-IP,Host-Port,Guest-IP,Guest-Port
 # |- 如 guestssh,tcp,,2222,,22
-VBoxManage [modifyvm|controlvm] "VM name" --natpf1 "<Cmd>"
+VBoxManage modifyvm "VM name" --natpf1 "<Cmd>"
+VBoxManage controlvm "VM name" natpf1 "<Cmd>"
 ```
