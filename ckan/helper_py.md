@@ -853,7 +853,7 @@ def SYNCNDC(dbHost, dbPort, dbDB, dbTB, dbUser, dbPwd, getPKG, tgtSrc, tgtMtd, *
                     p2l.update({\
                         "operation" : u"failure".lower(), \
                         #"ndcid" : postData.assemblePOSTOrPUTData()["identifier"], \
-                        "ndcid" : json.loads(post2NDC.response()["response"])['result']['identifier'], \
+                        "ndcid" : json.loads(post2NDC.response()["response"])['error']['identifier'], \
                         "code" : str(post2NDC.response()['response']), \
                         "progress" : u"100%", \
                         u"ending" : datetime.datetime.now()\
