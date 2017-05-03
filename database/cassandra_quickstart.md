@@ -113,7 +113,20 @@ cd /var/lib/cassandra
     * The logging properties is located on `logback.xml`.
     * It will log at `INFO` level into a file called `system.log`, and at `DEBUG` level into a file called `debug.log`.
 
+### CQL and Querying
+---
 
+* connect to the Cassandra Node
+
+```bash
+$ cqlsh localhost
+```
+
+* query default cluster and listen_address
+
+```sql
+cqlsh > select cluster_name, listen_address from system.local;
+```
 
 
 
