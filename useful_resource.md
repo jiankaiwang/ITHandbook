@@ -75,6 +75,7 @@
 ---
 
 * [MongoDB Official](https://docs.mongodb.com/)
+* [Cassandra Official](http://cassandra.apache.org/)
 
 ###Virtualization
 ---

@@ -108,6 +108,7 @@
   * [MongoDB](database/mongodb.md)
     * [Installation & Activation](database/installation.md)
   * [Cassandra](database/cassandra.md)
+    * [Quickstart](database/cassandra_quickstart.md)
 * [Virtualization](virtualization/virtualization.md)
   * [Docker](virtualization/docker.md)
     * [Docker Commands](virtualization/docker-commands.md)
