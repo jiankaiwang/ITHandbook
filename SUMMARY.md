@@ -107,6 +107,7 @@
   * [Import MySQL databases into SQL Server databases](database/import_mysql_databases_into_sql_server_databases.md)
   * [MongoDB](database/mongodb.md)
     * [Installation & Activation](database/installation.md)
+  * [Cassandra](database/cassandra.md)
 * [Virtualization](virtualization/virtualization.md)
   * [Docker](virtualization/docker.md)
     * [Docker Commands](virtualization/docker-commands.md)
