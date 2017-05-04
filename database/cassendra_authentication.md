@@ -13,7 +13,10 @@
 authenticator: PasswordAuthenticator
 ```
 
-* increase the `replication factor` to prevent the only one node (default node count is 1) going down, and no longer login the service again. A replication factor of 1 means that there is only one copy of each row in the cluster. A replication factor of 2 means two copies of each row, where each copy is on a different node.
+### Increase replication factor
+---
+
+* increase the `replication factor` to prevent the only one node (default node count is 1) going down, refer to [more info](https://jiankaiwang.gitbooks.io/itsys/content/database/cassandra_data_replication.html)
 
 ```bash
 # login the cassendra service
@@ -28,7 +31,7 @@ and use the following procedures to increase the replication factors
  * dc : data center
  */
 cqlsh > ALTER KEYSPACE system_auth WITH REPLICATION =
-  {'class' : 'NetworkTopologyStrategy', 'dc1' : 3, 'dc2' : 2};
+  {'class' : 'NetworkTopologyStrategy', 'datacenter1' : 3 };
 ```
 
 after increase the replication factors, on each affected node, run `nodetool repair`
@@ -37,9 +40,27 @@ after increase the replication factors, on each affected node, run `nodetool rep
 $ nodetool repair
 ```
 
+start `cqlsh` and check replication factor of the `system_auth`
 
+```bash
+# login the cassandra service
+$ cqlsh localhost
 
+# check replication factor
+cqlsh > describe system_auth;
 
+# ...
+# CREATE KEYSPACE system_auth WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter1': '3'}  AND durable_writes = true;
+# ...
+```
+
+* restart the cassandra service
+
+```bash
+$ service cassandra restart
+```
+
+### 
 
 
 

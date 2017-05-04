@@ -31,7 +31,6 @@ The total number of replicas across the cluster is referred to as the replicatio
 
 ![](/images/cassandra_strategies.jpg)
 
-
 * SimpleStrategy
 
 ![](/images/cassandra_simplestrategy.jpg)
