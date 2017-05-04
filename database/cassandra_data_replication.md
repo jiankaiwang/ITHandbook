@@ -24,11 +24,21 @@ The total number of replicas across the cluster is referred to as the replicatio
     * NetworkTopologyStrategy places replicas in the same datacenter by walking the ring clockwise until reaching the first node in another rack. 
     * NetworkTopologyStrategy attempts to place replicas on distinct racks because nodes in the same rack (or similar physical grouping) often fail at the same time due to power, cooling, or network issues.
 
+### Visualization
+---
+
+* Data center, Rock and Node
+
+![](/images/cassandra_strategies.jpg)
 
 
+* SimpleStrategy
 
+![](/images/cassandra_simplestrategy.jpg)
 
+* NetworkTopologyStrategy
 
+![](/images/cassandra_networktopologystrategy.jpg)
 
 
 
