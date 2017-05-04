@@ -109,6 +109,8 @@
     * [Installation & Activation](database/installation.md)
   * [Cassandra](database/cassandra.md)
     * [Quickstart](database/cassandra_quickstart.md)
+    * [Configuration Authentication](database/cassendra_authentication.md)
+    * [Data Replication](database/cassandra_data_replication.md)
 * [Virtualization](virtualization/virtualization.md)
   * [Docker](virtualization/docker.md)
     * [Docker Commands](virtualization/docker-commands.md)
