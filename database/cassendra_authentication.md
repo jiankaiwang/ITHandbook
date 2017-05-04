@@ -60,7 +60,16 @@ cqlsh > describe system_auth;
 $ service cassandra restart
 ```
 
-### 
+### Create a new cqlsh user
+---
+
+```bash
+# start and login cqlsh
+$ cqlsh -u cassandra -p cassandra
+
+# Create another superuser, not named cassandra.
+
+```
 
 
 
