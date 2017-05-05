@@ -16,10 +16,15 @@ cqlsh > CREATE KEYSPACE examplekp WITH replication = {'class': 'SimpleStrategy',
 
 ```sql
 # create a NetworkTopologyStrategy with 1 RF in datacenter1
-cqlsh > CREATE KEYSPACE examplekp WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter1' : '1'};
+# DURABLE_WRITES : data written to the keyspace goes through the commit log (default is true)
+cqlsh > CREATE KEYSPACE examplekp WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter1' : '1'} AND DURABLE_WRITES = true;
 ```
 
+* Verify the keyspace
 
+```sql
+cqlsh > describe examplekp;
+```
 
 
 
