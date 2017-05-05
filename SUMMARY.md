@@ -111,6 +111,7 @@
     * [Quickstart](database/cassandra_quickstart.md)
     * [Data Replication](database/cassandra_data_replication.md)
     * [Configuration Authentication](database/cassendra_authentication.md)
+    * [keyspace](database/cassandra_keyspace.md)
     * [Add a datacenter](database/cassandra_add_datacenter.md)
 * [Virtualization](virtualization/virtualization.md)
   * [Docker](virtualization/docker.md)
