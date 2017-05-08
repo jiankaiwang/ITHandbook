@@ -115,6 +115,10 @@ $ sudo service iptables-persistent restart
 
 * Check the Cluster Status
 
+| Note |
+|--|
+| You have to configure all nodes with the same procedure listed above. |
+
 ```bash
 # After we configure all nodes, type the command to check the status.
 $ sudo nodetool status
@@ -123,6 +127,18 @@ $ sudo nodetool status
 $ cqlsh your_server_ip 9042
 ```
 
+If the configuration of all nodes is ready, the following information would be shown.
+
+```bash
+jkw@UbuntuServer1604:~$ nodetool status
+Datacenter: dc1
+===============
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address       Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  192.168.3.15  157.27 KiB  256          0.0%              100f1a69-dfe3-4d1c-a88b-dce46e608729  rack1
+UN  192.168.3.16  205.87 KiB  256          0.0%              49444441-10d0-4817-bb15-734f291c0702  rack1
+```
 
 
 
