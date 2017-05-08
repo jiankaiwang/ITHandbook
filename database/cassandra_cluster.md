@@ -122,9 +122,6 @@ $ sudo service iptables-persistent restart
 ```bash
 # After we configure all nodes, type the command to check the status.
 $ sudo nodetool status
-
-# connect to the cassandra server
-$ cqlsh your_server_ip 9042
 ```
 
 If the configuration of all nodes is ready, the following information would be shown.
@@ -140,7 +137,13 @@ UN  192.168.3.15  157.27 KiB  256          0.0%              100f1a69-dfe3-4d1c-
 UN  192.168.3.16  205.87 KiB  256          0.0%              49444441-10d0-4817-bb15-734f291c0702  rack1
 ```
 
+You can retrieve the datacenter by the `cqlsh` command.
 
+```bash
+# connect to the cassandra server
+# your_server_ip can be 192.168.3.15 or 192.168.3.16
+$ cqlsh your_server_ip 9042
+```
 
 
 
