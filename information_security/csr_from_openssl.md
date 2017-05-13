@@ -17,8 +17,8 @@ $ openssl genrsa -out private.key 2048
 
 ```bash
 # private.key 為上一步產生私鑰
-# example.csr 為產生的檔案
-$ openssl req -new -sha256 -key private.key -out example.csr
+# certreq.csr 為產生的檔案
+$ openssl req -new -sha256 -key private.key -out certreq.csr
 ```
 
 * 執行會出現底下資訊需要填入
@@ -58,7 +58,7 @@ An optional company name []:
 ---
 
 ```bash
-$ openssl x509 -req -in example.csr -signkey private.key -out certificate.psm
+$ openssl x509 -req -in certreq.csr -signkey private.key -out certificate.pem
 ```
 
 
