@@ -13,7 +13,7 @@
 $ openssl genrsa -out private.key 2048
 ```
 
-### 配合使用私鑰產生 CSR (certificate signing request)
+### 配合使用私鑰產生 CSR (certificate signing request) : 證書簽名
 
 ```bash
 # private.key 為上一步產生私鑰
@@ -53,4 +53,20 @@ A challenge password []:
 # 公司別稱，可不填
 An optional company name []:
 ```
+
+### 產生證書文件 (透過 private key 與 證書簽名 .csr)
+---
+
+```bash
+$ openssl x509 -req -in example.csr -signkey private.key -out certificate.psm
+```
+
+
+
+
+
+
+
+
+
 
