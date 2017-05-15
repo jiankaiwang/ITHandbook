@@ -115,6 +115,8 @@
     * [Cluster](database/cassandra_cluster.md)
     * [Node](database/cassandra_node.md)
     * [Add a datacenter](database/cassandra_add_datacenter.md)
+* [Storage](storage/storage.md)
+  * [Owncloud](storage/owncloud.md)
 * [Virtualization](virtualization/virtualization.md)
   * [Docker](virtualization/docker.md)
     * [Docker Commands](virtualization/docker-commands.md)
