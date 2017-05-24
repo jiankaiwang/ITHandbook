@@ -21,7 +21,7 @@ sudo gitlab-ctl reconfigure
 
 # access by the browser at port 80
 # redirect to reset the apssword at the first time
-# default user account is root
+# default user account is admin
 ```
 
 * troubleshooting
@@ -40,7 +40,27 @@ git clone http://test@192.168.3.19/test/test.git ./Desktop/test
 git clone git@192.168.3.19:test/test.git ./Desktop/test
 ```
 
+### Reset Administrator Password
+---
 
+```bash
+# login to gitlab-ce console
+$ sudo gitlab-rails console production
+
+# find administrator
+> user = User.where(id: 1).first
+
+# [Optional] : find a specific account
+> user = User.find_by(email: 'admin@local.host')
+
+# reset password, both of the following commands must be executed
+# rule : at least 8 characters
+> user.password = 'secret_pass'
+> user.password_confirmation = 'secret_pass'
+
+# save the password
+> user.save!
+```
 
 
 
