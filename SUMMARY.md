@@ -128,6 +128,7 @@
 * [3S](3s/3s.md)
   * [QGIS](3s/qgis.md)
   * [Mapbox](3s/mapbox.md)
+  * [OSRM Backend Service](3s/osrm-backend.md)
 * [Mobile](mobile/mobile.md)
   * [React Native](mobile/react_native.md)
   * [Corona](mobile/corona.md)
