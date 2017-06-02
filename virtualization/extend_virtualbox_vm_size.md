@@ -30,6 +30,29 @@ $ VBoxManage modifyhd "cloned.vdi" --resize 51200
 $ VBoxManage clonehd "cloned.vdi" "resized.vmdk" --format vmdk
 ```
 
+### [Optional] Modify the registry
+
+* in windows
+
+```bash
+# virtualbox configuration file
+C:\Users\username\.VirtualBox\VirtualBox.xml
+```
+
+* modify the following part
+
+```xml
+...
+
+<MachineRegistry>
+    ...
+    <MachineEntry uuid="{record new uuid while format hd}" src="D:\code\VirtualBox\(name of vbox)\(name of vbox).vbox"/>
+    ...
+</MachineRegistry>
+
+...
+```
+
 ### Extend the current space
 ---
 
