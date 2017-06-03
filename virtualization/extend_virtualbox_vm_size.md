@@ -30,12 +30,12 @@ $ VBoxManage modifyhd "cloned.vdi" --resize 51200
 $ VBoxManage clonehd "cloned.vdi" "resized.vmdk" --format vmdk
 ```
 
-### [Optional] Modify the registry
+### Modify the registry
 
 * in windows
 
 ```bash
-# virtualbox configuration file
+# virtualbox registry file
 C:\Users\username\.VirtualBox\VirtualBox.xml
 ```
 
@@ -51,6 +51,39 @@ C:\Users\username\.VirtualBox\VirtualBox.xml
 </MachineRegistry>
 
 ...
+```
+
+### Modify the vbox
+
+* in windows : modify the virtualbox configuration file under the same vmdk
+
+* modify the following part with new uuid
+
+```xml
+<VirtualBox xmlns="http://www.virtualbox.org/" version="1.16-windows">
+  <Machine uuid="{(new uuid)}" name="ubuntu_server" OSType="Ubuntu_64" snapshotFolder="Snapshots" lastStateChange="2017-06-02T15:31:43Z">
+    <MediaRegistry>
+      <HardDisks>
+        <HardDisk uuid="{(new uuid)}" location="ubuntu_16.04_server-disk.vmdk" format="VMDK" type="Normal"/>
+      </HardDisks>
+      <DVDImages>
+        <Image uuid="{bad944e0-384f-4ebc-b517-acf209a4b70b}" location="D:/gparted-live-0.28.1-1-amd64.iso"/>
+      </DVDImages>
+    </MediaRegistry>
+    <ExtraData>
+    
+    ...
+    
+    <StorageControllers>
+      <StorageController name="IDE" type="PIIX4" PortCount="2" useHostIOCache="true" Bootable="true"/>
+      <StorageController name="SATA" type="AHCI" PortCount="30" useHostIOCache="false" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3">
+        <AttachedDevice type="HardDisk" hotpluggable="false" port="0" device="0">
+          <Image uuid="{(new uuid)}"/>
+        </AttachedDevice>
+      </StorageController>
+    </StorageControllers>
+  </Machine>
+</VirtualBox>
 ```
 
 ### Extend the current space
