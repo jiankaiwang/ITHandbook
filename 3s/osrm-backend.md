@@ -5,11 +5,12 @@
 ### Build a Service
 ---
 
-* Download the necessary data (taiwan-latest.osm)
+* Install necessary packages
 
 ```bash
-# get taiwan data as an example
-$ wget http://download.geofabrik.de/asia/taiwan-latest.osm.pbf
+$ sudo apt install build-essential git cmake pkg-config \
+libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev \
+libzip-dev libboost-all-dev lua5.2 liblua5.2-dev libtbb-dev
 ```
 
 * install the service
@@ -27,6 +28,13 @@ $ cd build
 $ cmake ..
 $ cmake --build .
 $ sudo cmake --build . --target install
+```
+
+* Download the necessary data (taiwan-latest.osm)
+
+```bash
+# get taiwan data as an example
+$ wget http://download.geofabrik.de/asia/taiwan-latest.osm.pbf
 ```
 
 * Prepare osm resource and start the routing service
