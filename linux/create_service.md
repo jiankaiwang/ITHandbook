@@ -20,6 +20,8 @@ $ touch new_service.sh
 # Short-Description: start firewall
 ### END INIT INFO
 
+# Step.1.2 : chmod with executable
+$ chmod a+x new_service.sh
 
 # Step.2 : move to /etc/init.d and name it as new_service_name
 $ sudo mv new_service.sh /etc/init.d/new_service_name
