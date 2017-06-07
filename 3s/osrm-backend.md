@@ -42,7 +42,7 @@ $ wget http://download.geofabrik.de/asia/taiwan-latest.osm.pbf
 ```bash
 # profiles/car.lua in git repository
 # uncompress the file
-$ osrm-extract taiwan-latest.osm.pbf -p profiles/car.lua
+$ osrm-extract taiwan-latest.osm.pbf -p ../profiles/car.lua
 
 # prepare node information
 $ osrm-contract taiwan-latest.osrm
