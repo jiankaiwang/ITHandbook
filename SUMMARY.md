@@ -75,6 +75,7 @@
     * [VirtualBox \(.vmdk\) 發布到 Microsoft Azure VM](cloud/virtualbox_vmdk_to_microsoft_azure_vm.md)
     * [Copy VHD between storage account](cloud/copy_vhd_between_storage_account.md)
     * [Download VHDs from AZURE](cloud/download_vhds_from_azure.md)
+    * [Adjust Swap Size in Azure VM](cloud/adjust_azure_swap.md)
   * [OpenShift](cloud/openshift.md)
     * [安裝 rhc 於 Windows 7](cloud/install_rhc_on_win7.md)
     * [Use OpenShift by linux shell script](cloud/use_openshift_by_linux_sh_script.md)
