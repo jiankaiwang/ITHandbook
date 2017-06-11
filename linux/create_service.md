@@ -27,5 +27,5 @@ $ chmod a+x new_service.sh
 $ sudo mv new_service.sh /etc/init.d/new_service_name
 
 # Step.3 : update the start level
-$ sudo update-rc.d new_service_name start 0 1 2 3 4 5
+$ sudo update-rc.d new_service_name {enable|disable} {S|2|3|4|5}
 ```
