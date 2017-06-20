@@ -13,7 +13,8 @@ $ sudo vim /etc/sudoers
 * add command alias
 
 ```conf
-Cmnd_Alias    CMD = /path/to/your/script
+# notice the CMD must be uppercase
+Cmnd_Alias    CMD=/path/to/your/script
 ```
 
 * add the privilege
