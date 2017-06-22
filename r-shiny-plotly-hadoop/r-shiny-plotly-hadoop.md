@@ -1,4 +1,4 @@
-# R, Shiny, Plotly 與 Hadoop
+# R, Shiny, Plotly 與 Big Data
 
 <script type="text/javascript" src="../js/general.js"></script>
 
