@@ -21,7 +21,6 @@
 ---
 
 * Refer to the [page on CRAN](https://cran.r-project.org/bin/linux/ubuntu/README.html)
-
 * Notice the **"Secure APT"** issues.
 
 
