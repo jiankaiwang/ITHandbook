@@ -76,3 +76,82 @@ storage:
 > "C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --remove
 ```
 
+### Linux
+---
+
+* Procedures
+
+```bash
+
+```
+
+* NAT Port forwarding (must be done if you use VM)
+
+```bash
+# edit the configuration file
+$ sudo vim /etc/mongod.conf
+
+# add binding IP
+# default IP in VirtualBox is 10.0.2.15
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1,10.0.2.15
+```
+
+* Authorization
+
+```javascript
+# login the mongod server by the mongo client
+# create a admin
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+# create a client
+use test
+db.createUser(
+  {
+    user: "myTester",
+    pwd: "xyz123",
+    roles: [ { role: "readWrite", db: "test" },
+             { role: "read", db: "reporting" } ]
+  }
+)
+```
+
+```bash
+# start the mongod server
+$ mongod --auth --port 27017 --dbpath /data/db1
+
+# or add the setting to conf file and run without additional parameters
+$ sudo vim /etc/mongod.conf
+
+# add the following code
+security:
+    authorization: enabled
+```
+
+```bash
+# login the server as account admin
+$ mongo --port 27017 -u "myUserAdmin" -p "abc123" --authenticationDatabase "admin"
+
+# login the server as account myTester
+$ mongo --port 27017 -u "myTester" -p "xyz123" --authenticationDatabase "test"
+```
+
+```javascript
+# switch to the authorization database
+use test
+db.auth("myTester", "xyz123" )
+```
+
+
+
+
+
