@@ -1,0 +1,82 @@
+# Redis
+
+<script type="text/javascript" src="../js/general.js"></script>
+
+* refer to the [page](https://redis.io/topics/quickstart)
+
+### Install on Ubuntu 16.04
+---
+
+* install steps
+
+```bash
+$ wget http://download.redis.io/redis-stable.tar.gz
+$ tar xvzf redis-stable.tar.gz
+$ cd redis-stable
+$ make
+
+# check whether the build works
+$ make test
+```
+
+* all binaries built completely would exist on **redis-stable/src** folder
+
+| binary | description |
+|--|--|
+| **redis-server** | the Redis Server itself |
+| **redis-sentinel** | the Redis Sentinel executable (monitoring and failover) |
+| **redis-cli** | the command line interface utility to talk with Redis |
+| **redis-benchmark** | used to check Redis performances |
+| **redis-check-aof** and **redis-check-dump** | useful in the rare event of corrupted data files |
+
+* Copy both Redis server and the command line interface to the proper places
+
+```bash
+$ sudo cp src/redis-server /usr/local/bin/
+$ sudo cp src/redis-cli /usr/local/bin/
+```
+
+### Start and Login the server
+---
+
+* start the server
+
+```bash
+# without configuration
+$ redis-server
+
+# with configuration
+$ redis-server /path/to/your/config/file
+```
+
+* check the server is still available
+
+```bash
+# this should return a message "PONG"
+$ redis-cli ping
+```
+
+* login the server
+
+```bash
+$ redis-cli
+```
+
+### Basic Data Types
+---
+
+| type | description |
+|--|--|
+| **Binary-safe strings** | for example, images, etc. (max size : 512 MB) |
+| **Lists** | collections of string elements sorted according to the order of insertion |
+| **Sets** | collections of unique, unsorted string elements |
+| **Sorted sets** | similar to Sets but where every string element is associated to a floating number value, called score |
+| **Hashes** | very similar to Ruby or Python hashes |
+| **Bit arrays** (or **simply bitmaps**) | an array of bits |
+| **HyperLogLogs** | used to check Redis performances |
+
+
+
+
+
+
