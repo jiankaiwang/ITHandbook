@@ -67,7 +67,7 @@ $ redis-cli
 
 | type | description |
 |--|--|
-| **Binary-safe strings** | for example, images, etc. (max size : 512 MB) |
+| **Binary-safe strings** | Redis keys are binary safe, from string data type to image data type. (max size : 512 MB) |
 | **Lists** | collections of string elements sorted according to the order of insertion |
 | **Sets** | collections of unique, unsorted string elements |
 | **Sorted sets** | similar to Sets but where every string element is associated to a floating number value, called score |
