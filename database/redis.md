@@ -75,8 +75,21 @@ $ redis-cli
 | **Bit arrays** (or **simply bitmaps**) | an array of bits |
 | **HyperLogLogs** | used to check Redis performances |
 
+### Security Redis
+---
 
+* Default conf file path : **/install/root/path/redis_stable/redis.conf**
+    * bind 127.0.0.1 : default bind ip
+    * port 6379 : default service port
+    * requirepass : to authenticate using the AUTH command
 
+* Set Auth
 
+```sql
+/* set the password */
+> CONFIG SET requirepass "examplePWD"
 
+/*  */
+> Auth examplePWD
+```
 
