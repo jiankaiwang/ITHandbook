@@ -156,4 +156,5 @@
   * [Execute shell script without passwd](linux/sudoers_nopasswd.md)
 * [VR](vr/vr.md)
   * [GoogleVR](vr/googlevr.md)
+* [AR](ar/ar.md)
 
