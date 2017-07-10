@@ -157,4 +157,5 @@
 * [VR](vr/vr.md)
   * [GoogleVR](vr/googlevr.md)
 * [AR](ar/ar.md)
+  * [Vuforia](ar/vuforia.md)
 
