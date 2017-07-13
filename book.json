@@ -16,6 +16,9 @@
               "background": {
                   "color": "#FFF"
               }
+        },
+        "mathjax":{
+            "forceSVG": true
         }
     },
     "addcssjs": {
