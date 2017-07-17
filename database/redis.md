@@ -15,6 +15,9 @@ $ tar xvzf redis-stable.tar.gz
 $ cd redis-stable
 $ make
 
+# install at least tcl 8.5 version
+$ sudo apt-get install tcl8.5-dev
+
 # check whether the build works
 $ make test
 ```
