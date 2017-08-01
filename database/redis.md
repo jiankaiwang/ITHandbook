@@ -82,7 +82,7 @@ $ redis-cli
 ---
 
 * Default conf file path : **/install/root/path/redis_stable/redis.conf**
-    * bind 127.0.0.1 : default bind ip
+    * bind 127.0.0.1 : default bind ip or 0.0.0.0 for all interfaces
     * port 6379 : default service port
     * requirepass : modify foobared with "examplePWD"
     * daemonize : modify no with yes
