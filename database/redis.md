@@ -78,10 +78,66 @@ $ redis-cli
 | **Bit arrays** (or **simply bitmaps**) | an array of bits |
 | **HyperLogLogs** | used to check Redis performances |
 
-### Security Redis
+### Configure Redis
 ---
 
 * Default conf file path : **/install/root/path/redis_stable/redis.conf**
     * bind 127.0.0.1 : default bind ip
     * port 6379 : default service port
     * requirepass : modify foobared with "examplePWD"
+    * daemonize : modify no with yes
+
+### Run at startup as the service
+---
+
+* Create a configuration file
+
+```bash
+$ sudo vim /etc/systemd/system/redis.service
+```
+
+* Write the following content
+    * **Notice the daemonize in the configuration must be no.**
+    * the [Unit] section by adding a description and defining a requirement that networking be available before starting this service
+    * the [Service] section, we need to specify the service's behavior. For security purposes, we should not run our service as root
+    * the [Install] section, we can define the systemd target that the service should attach to if enabled
+
+```conf
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+User=redis
+Group=redis
+ExecStart=/usr/local/bin/redis-server /path/to/your/redis-stable/redis.conf
+ExecStop=/usr/local/bin/redis-cli shutdown
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+* Create the Redis User, Group and Directories
+
+```bash
+sudo adduser --system --group --no-create-home redis
+sudo mkdir /var/lib/redis
+sudo chown redis:redis /var/lib/redis
+sudo chmod 770 /var/lib/redis
+```
+
+* Control the service
+
+```bash
+sudo systemctl start redis
+sudo systemctl status redis
+```
+
+
+
+
+
+
+
+
