@@ -130,8 +130,15 @@ sudo chmod 770 /var/lib/redis
 * Control the service
 
 ```bash
+# 服務管理
 sudo systemctl start redis
+sudo systemctl stop redis
+sudo systemctl restart redis
 sudo systemctl status redis
+
+# 開機啟動
+sudo systemctl enable redis
+sudo systemctl disable redis
 ```
 
 
