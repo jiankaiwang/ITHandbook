@@ -85,7 +85,8 @@ $ redis-cli
     * bind 127.0.0.1 : default bind ip or 0.0.0.0 for all interfaces
     * port 6379 : default service port
     * requirepass : modify foobared with "examplePWD"
-    * daemonize : modify no with yes
+    * daemonize : modify no with yes (standalone), but keep no in daemon (background service)
+    * stop-writes-on-bgsave-error : modify no with yes to avoid MISCONF issue.
 
 ### Run at startup as the service
 ---
