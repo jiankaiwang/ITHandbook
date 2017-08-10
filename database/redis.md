@@ -86,7 +86,7 @@ $ redis-cli
     * port 6379 : default service port
     * requirepass : modify foobared with "examplePWD"
     * daemonize : modify no with yes (standalone), but keep no in daemon (background service)
-    * stop-writes-on-bgsave-error : modify no with yes to avoid MISCONF issue.
+    * stop-writes-on-bgsave-error : modify to no to avoid MISCONF issue.
 
 ### Run at startup as the service
 ---
