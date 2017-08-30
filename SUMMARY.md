@@ -105,6 +105,7 @@
 * [Database](database/database.md)
   * [T-SQL \(SQL Server\)](database/t-sql_sql_server.md)
     * [資料庫的使用者](database/create_a_db_owner.md)
+    * [Network Configuration](database/network_conf.md)
   * [MySQL](database/mysql.md)
     * [Basis Command](database/basis_command.md)
     * [Database Backup and Restore](database/database_backup_and_restore.md)
