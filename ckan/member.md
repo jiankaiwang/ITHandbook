@@ -63,3 +63,13 @@ update public.user set fullname = 'sd1' where name = 'sd1';
 # 假設要刪除的使用者為 sd1
 (pyenv) $ paster --plugin=ckan user remove sd1 -c /etc/ckan/default/development.ini
 ```
+
+* 需要注意更新使用者時，要加入 fullname
+
+```
+# 登入 PostgreSQL
+$ psql -U ckan_default
+
+# 設定 fullname
+=> update public.user set fullname = 'sd1_fullname' where name = 'sd1';
+```
