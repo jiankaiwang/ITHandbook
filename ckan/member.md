@@ -51,3 +51,15 @@ update public.user set fullname = 'sd1' where name = 'sd1';
 (pyenv) $ paster --plugin=ckan user setpass USERNAME -c YOUR_CONFIG_FILE
 ```
 
+###資料提供者 / 消耗資料與加值資料者
+---
+
+* 新增與刪除一般使用者
+
+```bash
+# 假設要新增的使用者為 sd1
+(pyenv) $ paster --plugin=ckan user add sd1 -c /etc/ckan/default/development.ini
+
+# 假設要刪除的使用者為 sd1
+(pyenv) $ paster --plugin=ckan user remove sd1 -c /etc/ckan/default/development.ini
+```
