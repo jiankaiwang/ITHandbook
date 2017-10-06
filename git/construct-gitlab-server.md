@@ -19,6 +19,9 @@ sudo apt-get install gitlab-ce
 # configure and start gitlab
 sudo gitlab-ctl reconfigure
 
+# restart the service
+sudo gitlab-ctl restart
+
 # access by the browser at port 80
 # redirect to reset the apssword at the first time
 # default user account is admin
