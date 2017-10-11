@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "mathjax","autocover","include-codeblock","addcssjs" ],  
+    "plugins" : [ "autocover","addcssjs" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT Developer Handbook",
@@ -17,11 +17,8 @@
                   "color": "#FFF"
               }
         },
-        "mathjax":{
-            "forceSVG": true
+        "addcssjs": {
+          "js": ["js/general.js"]
         }
-    },
-    "addcssjs": {
-      "js": ["js/general.js"]
     }
 }
