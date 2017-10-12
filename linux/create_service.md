@@ -61,15 +61,12 @@ WantedBy=multi-user.target
 
 * Execution Command (execStr)
 
-if the pid is not necessary,
-`/usr/local/bin/exec /path/to/your/ini.conf > /var/tmp/name.log & 2>&1`
-or the pid conserved,
-`/usr/local/bin/exec /path/to/your/ini.conf > /var/tmp/name.log & 2>/var/log/name.pid`
+if the pid is not necessary, `/usr/local/bin/exec /path/to/your/ini.conf > /var/tmp/name.log & 2>&1`
+; or the pid conserved, `/usr/local/bin/exec /path/to/your/ini.conf > /var/tmp/name.log & 2>/var/log/name.pid`
 
 * Stop Execution (stopExec)
 
-if there was the pid file
-`kill -9 $(cat /var/tmp/name.pid)`
+if there was the pid file `kill -9 $(cat /var/tmp/name.pid)`
 
 * Control the service
 
