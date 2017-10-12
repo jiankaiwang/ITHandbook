@@ -139,6 +139,7 @@
 * [Mobile](mobile/mobile.md)
   * [React Native](mobile/react_native.md)
   * [Corona](mobile/corona.md)
+  * Date and Time
 * [Linux](linux/linux.md)
   * [Control Apache Log on CentOS](linux/control_apache_log_on_centos.md)
   * [Backup strategies](linux/backup_strategies.md)
@@ -158,6 +159,7 @@
   * [LAMP in Ubuntu](linux/lamp_in_ubuntu.md)
   * [Create a Service in Linux](linux/create_service.md)
   * [Execute shell script without passwd](linux/sudoers_nopasswd.md)
+  * [Date and Time](linux/date_time.md)
 * [VR](vr/vr.md)
   * [GoogleVR](vr/googlevr.md)
 * [AR](ar/ar.md)
