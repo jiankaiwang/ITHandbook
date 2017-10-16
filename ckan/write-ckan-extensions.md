@@ -29,6 +29,25 @@ $ cd /usr/lib/ckan/default/src/ckanext-cdcframe
 
 * add in helpers.py
 
+```python
+from pylons import config
+import ckan.plugins as plugins
+
+# use the env function
+import ckan.lib.helpers as h
+
+# customized function
+# desc : return a string based on current language selected, english or chinese
+# para : a english string and a chinese string
+def getLangLabel(en,tw):
+    if h.lang() == "en":
+        return en
+    elif h.lang() == "zh_TW":
+        return tw
+
+...
+```
+
 * add in plugins.py
 
 ```python
