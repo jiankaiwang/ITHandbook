@@ -104,7 +104,7 @@ class CdcframePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'cdcframe')
 ```
 
-* edit or create the extension's `templates/base.html` and use `{% resource %}` to import the css
+* edit or create the extension's `templates/base.html` and use `resource` to import the css
 
 ```html
 {% ckan_extends %}
