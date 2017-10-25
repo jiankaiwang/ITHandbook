@@ -129,7 +129,31 @@
   {# ... #}
 ```
 
+### 修改 datatset 底下頁面
+---
 
+* 修改 templates/snippets/package_item.html
+
+```html
+...
+
+{% set truncate = truncate or 180 %}
+{% set truncate_title = truncate_title or 80 %}
+
+{# customized : modify titles on dataset list under page dataset/ #}
+{# {% set title = package.title or package.name %} #}
+{% set title = h.markdown_extract(h.getLangLabel(package.e_title, package.c_title), extract_length=80) %}
+
+{# customized : modify descriptions on dataset list under page dataset/ #}
+{% set notes = h.markdown_extract(h.getLangLabel(package.ed_notes, package.cd_notes), extract_length=100) %}
+
+{% block package_item %}
+  <li class="{{ item_class or "dataset-item" }}">
+    {% block content %}
+      <div class="dataset-content">
+      
+      ...
+```
 
 
 
