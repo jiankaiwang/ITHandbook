@@ -486,10 +486,10 @@ class ASSEMBLEDATA:
     __categoryCode = "B00"
     __publisherOrgCode = "A21010000I"
     __publisherOID = "2.16.886.101.20003.20065.20021"
-    __organization = u'衛生福利部'
+    __organization = u'衛生福利部疾病管制署'
     __publisher = u'衛生福利部疾病管制署'
-    __license = u'政府資料開放平臺資料使用規範'
-    __licenseURL = 'http://data.gov.tw/?q=principle'
+    __license = u'政府資料開放授權條款－第1版'
+    __licenseURL = '/license'
     __spatial = u'臺灣'
     __dbID = ''
 
@@ -504,13 +504,13 @@ class ASSEMBLEDATA:
                 return u'付費'
         elif option == "freq":
             if value == u"day":
-                return u'日'
+                return u'每日'
             elif value == u"month":
-                return u'月'
+                return u'每月'
             elif value == u"year":
-                return u'年'
+                return u'每年'
             elif value == u"once":
-                return u'一次性'
+                return u'不更新'
             elif value == u"non-scheduled":
                 return u'不定期'
 
@@ -620,10 +620,10 @@ class ASSEMBLEDATA:
         self.__categoryCode = "B00"
         self.__publisherOrgCode = "A21010000I"
         self.__publisherOID = "2.16.886.101.20003.20065.20021"
-        self.__organization = u'衛生福利部'
+        self.__organization = u'衛生福利部疾病管制署'
         self.__publisher = u'衛生福利部疾病管制署'
-        self.__license = u'政府資料開放平臺資料使用規範'
-        self.__licenseURL = 'http://data.gov.tw/?q=principle'
+        self.__license = u'政府資料開放授權條款－第1版'
+        self.__licenseURL = '/license'
         self.__spatial = u'臺灣'
 
         # outer resource
