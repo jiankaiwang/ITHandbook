@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "autocover","addcssjs" ],  
+    "plugins" : [ "autocover","addcssjs","versions" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT Developer Handbook",
@@ -19,6 +19,9 @@
         },
         "addcssjs": {
           "js": ["js/general.js"]
+        },
+        "versions": {
+            "type": "branches"
         }
     }
 }
