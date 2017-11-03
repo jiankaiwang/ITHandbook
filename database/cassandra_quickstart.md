@@ -5,7 +5,7 @@
 ### Prerequisties
 ---
 
-* Oracle Java 8 or OpenJDK 8
+* Oracle Java 8+ or OpenJDK 8+
 
 ```bash
 # add oracle java 8 repository
@@ -20,10 +20,11 @@ $ sudo apt-get install oracle-java8-installer
 # verify the java version
 $ java -version
 
-# configurate java environment
+# (optional) configurate java environment
 $ sudo apt-get install oracle-java8-set-default
 
 # edit the environment and set the next two line
+# remember to signout for environment variable settings
 $ sudo vim /etc/environment 
 
 # add the following to the environment
