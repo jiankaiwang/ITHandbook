@@ -53,7 +53,7 @@ $ sudo make altinstall
 ---
 
 ```bash
-# add Apache Repository of Cassandra 3.6
+# add Apache Repository of Cassandra 3.6+
 $ echo "deb http://www.apache.org/dist/cassandra/debian 36x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 
 # add Apache Cassandra Repository Key
