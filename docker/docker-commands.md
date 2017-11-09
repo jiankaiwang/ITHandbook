@@ -1,9 +1,6 @@
 # Docker Commands
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Images
----
+## Images
 
 ```bash
 # 取得鏡像
@@ -72,8 +69,7 @@ docker rmi <<Repository>:<Tag>|<SHA>>
 docker rmi $(docker images -q [Repository Name|-f dangling=true])
 ```
 
-### Dockerfile
----
+## Dockerfile
 
 ```bash
 # 指定基礎鏡像
@@ -164,8 +160,7 @@ Healthcheck [--interval=<Peroid>|--timeout=<Time>|--retries=<Count>] Cmd <Shell|
 Onbuild <Cmd|Run|Copy| ...>
 ```
 
-### Containers
----
+## Containers
 
 ```bash
 # 查看目前所有容器資訊
@@ -271,8 +266,7 @@ docker rm [-f|-v] <container Sha/Name>
 docker rm $(docker ps -a -q)
 ```
 
-### Repository
----
+## Repository
 
 ```bash
 # 登入 Repository Registry (如 Docker Hub)

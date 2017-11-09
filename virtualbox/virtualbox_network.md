@@ -1,9 +1,6 @@
 # VirtualBox Networking
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Summary
----
+## Summary
 
 | Interface | VM - Host | VM1 - VM2 | VM > Internet | VM < Internet |
 |--|--|--|--|--|

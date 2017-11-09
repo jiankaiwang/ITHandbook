@@ -1,9 +1,6 @@
 # Extend HD Size on VirtualBox
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### LVM Introduction
----
+## LVM Introduction
 
 * LVM component
     * 物理卷 Physical volume (PV) : 實體 HD
@@ -16,8 +13,7 @@
 ![](/images/lvm.jpg)
 
 
-### Extend the VMDK size
----
+## Extend the VMDK size
 
 ```bash
 # first clone a new hd as vdi format
@@ -30,7 +26,7 @@ $ VBoxManage modifyhd "cloned.vdi" --resize 51200
 $ VBoxManage clonehd "cloned.vdi" "resized.vmdk" --format vmdk
 ```
 
-### Modify the registry
+## Modify the registry
 
 * in windows
 
@@ -53,7 +49,7 @@ C:\Users\username\.VirtualBox\VirtualBox.xml
 ...
 ```
 
-### Modify the vbox
+## Modify the vbox
 
 * in windows : modify the virtualbox configuration file under the same vmdk
 
@@ -86,13 +82,11 @@ C:\Users\username\.VirtualBox\VirtualBox.xml
 </VirtualBox>
 ```
 
-### Extend the current space
----
+## Extend the current space
 
 * by [GParted.iso](http://gparted.org/) as Extended for LVM format
 
-### Extend the LVM on the filesystem
----
+## Extend the LVM on the filesystem
 
 ```bash
 # check current space of each filesystems
