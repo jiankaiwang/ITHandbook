@@ -1,11 +1,8 @@
 # Add a datacenter to a cluster
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 * Refer to [official webpage](http://docs.datastax.com/en/archived/cassandra/2.0/cassandra/operations/ops_add_dc_to_cluster_t.html)
 
-### Procedure
----
+## Procedure
 
 * Make sure all datacenter use the same cassandra version
 

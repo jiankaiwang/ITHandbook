@@ -1,9 +1,6 @@
 # Installation & Activation
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Windows
----
+## Windows
 
 * 安裝 MongoDB Community Edition (MongoDB for Windows 64-bit)
    * 注意安裝路徑建議於 C:\Program Files\MongoDB\Server\3.2\
@@ -76,8 +73,7 @@ storage:
 > "C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --remove
 ```
 
-### Linux
----
+## Linux
 
 * Refer to the [webpage](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
 

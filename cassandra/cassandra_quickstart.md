@@ -1,9 +1,6 @@
 # Quickstart
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Prerequisties
----
+## Prerequisties
 
 * Oracle Java 8+ or OpenJDK 8+
 
@@ -49,8 +46,7 @@ $ sudo ./configure
 $ sudo make altinstall
 ```
 
-### Install on Ubuntu 16.04
----
+## Install on Ubuntu 16.04
 
 ```bash
 # add Apache Repository of Cassandra 3.6+
@@ -66,8 +62,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y cassandra
 ```
 
-### Cassandra service default settings
----
+## Cassandra service default settings
 
 ```bash
 # start|stop|restart the service
@@ -86,8 +81,7 @@ cd /var/log/cassandra/
 cd /var/lib/cassandra
 ```
 
-### Cassandra configuration
----
+## Cassandra configuration
 
 * Most of Configuration is defined via yaml properties on `/etc/cassandra/cassandra.yaml` (refer to [official document](http://cassandra.apache.org/doc/latest/getting_started/configuring.html))
 
@@ -114,8 +108,7 @@ cd /var/lib/cassandra
     * The logging properties is located on `logback.xml`.
     * It will log at `INFO` level into a file called `system.log`, and at `DEBUG` level into a file called `debug.log`.
 
-### CQL and Querying
----
+## CQL and Querying
 
 * connect to the Cassandra Node
 

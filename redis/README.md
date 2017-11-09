@@ -1,7 +1,5 @@
 # Redis
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 * refer to the [page](https://redis.io/topics/quickstart)
 
 ### Install on Ubuntu 16.04

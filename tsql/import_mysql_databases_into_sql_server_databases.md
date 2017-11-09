@@ -1,15 +1,11 @@
 # Import MySQL databases into SQL Server databases
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###安裝必要資源
----
+## 安裝必要資源
 
 * [MySQL ODBC Connector (link)](https://dev.mysql.com/downloads/connector/odbc/)
 * [SQL Server Migration Assistant, SSMA (link)](https://blogs.msdn.microsoft.com/ssma/)
 
-###移轉流程如下
----
+## 移轉流程如下
 
 1. 取得 MySQL 帳號、密碼與 URL (Source)
 2. 取得 SQL Server 帳號、密碼與 URL (Target)
@@ -17,8 +13,7 @@
 4. 透過 「Convert Schema」 將 MySQL DB 的 table schema 轉換到 SQL Server 中
 5. 透過 「Migrate Date」 將 MySQL DB 中的 Tables 複製到 SQL Server 中
 
-###細部流程如下
----
+## 細部流程如下
 
 * 假設 MySQL Server 帳號、密碼與 URL 分別為 employee_reader, employee, abc.xyz.com
 

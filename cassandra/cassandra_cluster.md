@@ -1,14 +1,10 @@
 # Cluster
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Main Architecture
----
+## Main Architecture
 
 ![](/images/cassandra_arch.jpg)
 
-### Create a cluster
----
+## Create a cluster
 
 * Deleting default data
 

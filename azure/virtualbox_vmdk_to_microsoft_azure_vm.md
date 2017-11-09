@@ -1,7 +1,5 @@
 # VirtualBox (.vmdk) 發布到 Microsoft Azure VM
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 很多時候開發團隊會在本機或組織內將服務以 local VM 進行開發，例如 VirtualBox 或是 VMware 等，但隨著雲端技術的演進，便需要將此 local VM 上到雲端，例如 Azure 等。因此本篇將介紹如何將建立在 VirtualBox 的 VM (副檔名為 .vmdk) 轉換到 Azure VM (.vhd)。
 
 過程主要包含三個步驟；
@@ -9,8 +7,7 @@
 2. 透過 Azure SDK (PowerShell) 上傳 .vhd 虛擬機檔案 : 透過建立儲存體方式存入
 3. 透過網頁來部署虛擬機 : 建立虛擬機並連結含有虛擬機檔案的儲存體
 
-###將 .vmdk 檔案轉換成 .vhd 檔案
----
+## 將 .vmdk 檔案轉換成 .vhd 檔案
 
 有下列三種方式來轉換
 
@@ -26,8 +23,7 @@ MVMC 工具僅支援少數幾種 VM ，如 VMware vSphere, VMware vCenter 等，
 
 * 透過第三方共享軟體 WinImage ([Offical Download Website](http://www.winimage.com/download.htm))
 
-###透過 Azure SDK (PowerShell) 進行 .vhd 檔案上傳
----
+## 透過 Azure SDK (PowerShell) 進行 .vhd 檔案上傳
 
 下載必要工具 (PowerShell) 與 Azure SDK；
 
@@ -63,8 +59,7 @@ Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -L
 PS C:\Users> Add-AzureVhd -Destination "https://opendataportal.blob.core.windows.net/opendata/ckan2.vhd" -LocalFilePath "D:\download\ckan2.vhd"
 ```
 
-###透過 Azure 網頁連結儲存體並部署虛擬機
----
+## 透過 Azure 網頁連結儲存體並部署虛擬機
 
 首先需先將剛上傳的 .vhd 檔案轉換成一個 VM 可以使用的 Image，可以透過兩種方式來達成；
 

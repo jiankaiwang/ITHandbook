@@ -1,9 +1,6 @@
 # RHC Commands
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###OpenShift Account, Namespace or Domain
----
+## OpenShift Account, Namespace or Domain
 
 | Command | Explanation |
 | -- | -- | -- |
@@ -11,8 +8,7 @@
 | rhc account | 關於目前使用帳號的資訊 |
 | rhc domain-show | 包含目前使用的服務概況 |
 
-###創造 OpenShift 應用程式
----
+## 創造 OpenShift 應用程式
 
 | Command | Explanation |
 | -- | -- |

@@ -1,11 +1,8 @@
 # Data Replication
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 Cassandra stores replicas on multiple nodes to ensure reliability and fault tolerance. A replication strategy determines the nodes where replicas are placed. 
 
-### Replication factor
----
+## Replication factor
 
 The total number of replicas across the cluster is referred to as the replication factor. All replicas are equally important; there is no primary or master replica. **Generally the replication factor should not exceed the number of nodes in the cluster.**
 
@@ -14,8 +11,7 @@ The total number of replicas across the cluster is referred to as the replicatio
 
 * Replication factor of 2 : means two copies of each row, where each copy is on a different node.
 
-### QUORUM Level (Mininum Node Number)
----
+## QUORUM Level (Mininum Node Number)
 
 * **QUORUM** level : When replication factor exceeds the number of nodes, writes are rejected, but reads are served as long as the desired consistency level can be met.
 
@@ -25,8 +21,7 @@ $$
 QUORUM Level = \frac{replication factor}{2} + 1 = Mininum Node Number
 $$
 
-### Replication strategies
----
+## Replication strategies
 
 * **SimpleStrategy** : Use only for a single datacenter and one rack. **If you ever intend more than one datacenter, use the `NetworkTopologyStrategy`.**
     * SimpleStrategy places the first replica on a node determined by the partitioner. Additional replicas are placed on the next nodes clockwise in the ring without considering topology.
@@ -35,8 +30,7 @@ $$
     * NetworkTopologyStrategy places replicas in the same datacenter by walking the ring clockwise until reaching the first node in another rack. 
     * NetworkTopologyStrategy attempts to place replicas on distinct racks because nodes in the same rack (or similar physical grouping) often fail at the same time due to power, cooling, or network issues.
 
-### Visualization
----
+## Visualization
 
 * Data center, Rock and Node
 

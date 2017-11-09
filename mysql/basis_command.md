@@ -1,16 +1,12 @@
 # Basis Command
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###Download, install, activate and set MySQL service activated after boot
----
+## Download, install, activate and set MySQL service activated after boot
 
 | Linux(CentOS 6 x86_64) | Windows 7 |
 | -- | -- |
 | # yum install mysql<br># /etc/init.d/mysqld restart<br># chkconfig --level 15 mysqld on | Installer from MySQL official website.<br> Click the installer to install MySQL server. |
 
-###Show the users, Create user accessing MySQL server and delete user from it
----
+## Show the users, Create user accessing MySQL server and delete user from it
 
 If the following message showed after using root as a database user for a service or application, for example, joomla web-service. 
 
@@ -82,8 +78,7 @@ The basic format of deleting the user which can access MySQL server is:
 mysql > drop user '<username>'@'Host';
 ```
 
-###Show databases of MySQL server, Create and Delete a database in MySQL server
----
+## Show databases of MySQL server, Create and Delete a database in MySQL server
 
 The command to show the total databases within the MySQL Server:
 
@@ -115,8 +110,7 @@ Show the tables from the database named temp:
 mysql > show tables from temp;
 ```
 
-###Show tables from database, Create and delete a table from a database
----
+## Show tables from database, Create and delete a table from a database
 
 Show the tables from a database:
 
@@ -193,8 +187,7 @@ Optimize the table into the best status:
 mysql > optimize table t2;
 ```
 
-###Insert, delete, update entries into the database
----
+## Insert, delete, update entries into the database
 
 Insert a entry into the table:
 
@@ -248,8 +241,7 @@ The basic format of updating the data is:
 delete from (table) where (conditions);
 ```
 
-###Other commands
----
+## Other commands
 
 The executing environment:
 

@@ -1,22 +1,17 @@
 # Copy VHD between storage account
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 將 .vhd 從一個 storage account 移至另一個 storage account
 
-###必要資源
----
+## 必要資源
 
 * Microsoft Azure SDKs : 需要 AzCopy.exe 執行指令
 
-###建立儲存體帳戶與 blob
----
+## 建立儲存體帳戶與 blob
 
 * 於 Azure 上建立儲存體帳戶，並輸入儲存體名稱 (如 dest.core.windows.net)
 * 於此儲存體中，點擊服務中的「Blob」，並新增「容器」，並注意存取類型為「Blob」
 
-###取得來源與目的儲存體 Url 與存取金鑰
----
+## 取得來源與目的儲存體 Url 與存取金鑰
 
 * 取得 URL 方式如下
 
@@ -26,8 +21,7 @@
 
 ![](../images/storage_key.png)
 
-###透過 AzCopy.exe 來將 vhd 檔案進行複製
----
+## 透過 AzCopy.exe 來將 vhd 檔案進行複製
 
 * 假設必要參數如下：
 * source : https://xxx.blob.core.windows.net/xxx1/

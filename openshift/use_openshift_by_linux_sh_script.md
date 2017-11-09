@@ -1,11 +1,9 @@
 # Use OpenShift by linux shell script
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 因 OpenShift 服務底層為 Git 管理，因此可以透過簡單的 Shell script 佈署與更新服務。
 
-###Shell Script 執行 Git clone 及 push
----
+## Shell Script 執行 Git clone 及 push
+
 透過 vim 創造一個 shell script 檔案，並將下列 shell script 貼上
 
 ```Bash

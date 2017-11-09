@@ -1,9 +1,6 @@
 # Adjust thw swap size in VM hosted on Azure
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Procedures
----
+## Procedures
 
 * edit the configuration
 

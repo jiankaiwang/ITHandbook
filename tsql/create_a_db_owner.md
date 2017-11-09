@@ -1,9 +1,7 @@
 # 資料庫的使用者
 
-<script type="text/javascript" src="../js/general.js"></script>
+## 前提
 
-###前提
----
 * 大部分的資料庫使用涉及資料庫的四個基本操作，Create、Read(Query)、Update 及 Deiete，此類型的資料庫使用者多為擁有者角色。
 
 * 本文下例建立在幾個前提之下：
@@ -11,8 +9,8 @@
   * 含有一個能進入資料庫伺服器的管理員
   * 部分操作在 SQL Server 2014 Management Studio 上完成
 
-###先創立一個可以登入伺服器的使用者
----
+## 先創立一個可以登入伺服器的使用者
+
 * 必須先建立一個能夠登入此資料庫伺服器的使用者，此時此使用者並無指定有哪一資料庫的權限。
 
 * 進入 SQL Server 2014 Management Studio 後，對登入的資料庫伺服器點擊右鍵 > 新增查詢，然後鍵入下方 SQL 指令
@@ -24,8 +22,8 @@ CREATE LOGIN dbuser
 GO
 ```
 
-###建立可以使用此伺服器上資料庫的使用者
----
+## 建立可以使用此伺服器上資料庫的使用者
+
 * 進入 SQL Server 2014 Management Studio 後，對該資料庫伺服器點擊右鍵 > 新增查詢，然後鍵入下方 SQL 指令
 
 ```Sql

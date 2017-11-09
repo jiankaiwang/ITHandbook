@@ -1,11 +1,8 @@
 # Configure Cassandra Authentication
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 * refer to [official page](http://docs.datastax.com/en/cassandra/2.1/cassandra/security/security_config_native_authenticate_t.html)
 
-### Configurate the authenticator option
----
+## Configurate the authenticator option
 
 * edit `/etc/cassandra/cassandra.yaml`
 
@@ -15,8 +12,7 @@
 authenticator: PasswordAuthenticator
 ```
 
-### Increase replication factor
----
+## Increase replication factor
 
 * increase the `replication factor` to prevent the only one node (default node count is 1) going down, refer to [more info](https://jiankaiwang.gitbooks.io/itsys/content/database/cassandra_data_replication.html)
 
@@ -67,8 +63,7 @@ cqlsh > describe system_auth;
 $ service cassandra restart
 ```
 
-### Create a new cqlsh user
----
+## Create a new cqlsh user
 
 ```bash
 # start and login cqlsh

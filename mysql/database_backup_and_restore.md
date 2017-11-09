@@ -1,9 +1,6 @@
 # Database Backup and Restore
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###備份 mysql database
----
+## 備份 mysql database
 
 備份單一資料庫
 
@@ -21,8 +18,7 @@ $ mysqldump --opt -u [uname] -p [pass] [dbname] > [backupDB.sql]
 $  mysqldump -u root -p --all-databases > alldb_backup.sql
 ```
 
-###以壓縮方式備份 mysql database
----
+## 以壓縮方式備份 mysql database
 
 使用 gzip 進行壓縮
 
@@ -36,8 +32,7 @@ $ mysqldump -u [uname] -p[pass] [dbname] | gzip -9 > [backupDB.sql.gz]
 $ gunzip [backupDB.sql.gz]
 ```
 
-###回復 mysql database
----
+## 回復 mysql database
 
 回覆入新的資料庫：
 
@@ -51,8 +46,7 @@ $ mysql -u [uname] -p [db_to_restore] < [backupDB.sql]
 $ mysqlimport -u [uname] -p[pass] [dbname] [backupfile.sql]
 ```
 
-###回復被壓縮的 mysql database
----
+## 回復被壓縮的 mysql database
 
 ```Sql
 $ gunzip < [backupfile.sql.gz] | mysql -u [uname] -p [pass] [dbname]

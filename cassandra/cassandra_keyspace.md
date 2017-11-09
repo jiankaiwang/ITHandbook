@@ -1,9 +1,6 @@
 # Keyspace
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Create a keyspace
----
+## Create a keyspace
 
 * Strategy.1 : create a keyspace named `examplekp` on `SimpleStrategy ` with `1` RF.
 
