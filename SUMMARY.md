@@ -65,7 +65,7 @@
     * [透過 API 上傳至國發會](ckan/upload_dataset_to_data-gov-tw.md)
   * [Write CKAN Extensions](ckan/write_ckan_extensions.md)
   * [問題排除](ckan/trouble_shooting.md)
-* [Drupal](drupal/drupal.md)
+* [Drupal](drupal/README.md)
   * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
 * [R, Shiny, Plotly 與 Big Data](r-shiny-plotly-hadoop/r-shiny-plotly-bigdata.md)
   * [Shiny Server](r-shiny-plotly-hadoop/shiny-server.md)

@@ -1,9 +1,12 @@
 # Change Language Selector
 
-<script type="text/javascript" src="../js/general.js"></script>
+## 透過佈署檔案設定方式
 
-### 透過隱藏其他語言選擇列方式
----
+```bash
+$ sudo vim /etc/ckan/default/production.ini
+```
+
+## 透過隱藏其他語言選擇列方式
 
 * 路徑
 

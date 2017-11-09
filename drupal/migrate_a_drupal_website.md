@@ -1,9 +1,8 @@
 # Migrate a drupal website
 
-<script type="text/javascript" src="../js/general.js"></script>
+Drupal migration is a common issue while upgrading software or handware.
 
-###完整備份網站資料夾，並移至另一主機
----
+## 完整備份網站資料夾，並移至另一主機
 
 舉例而言，若 drupal 網站放置於 /var/www/html/nexus 下，則需要將整個網站進行備份，並放置於 jkw 的桌面上
 
@@ -34,8 +33,7 @@ $ tar -jxv -f ./nexus.tar.bz2 -C ./nexus
 $ sudo cp -r ./nexus /var/www/html
 ```
 
-###設定權限與 SELinux
----
+## 設定權限與 SELinux
 
 ```Bash
 # 將使用此資料夾權限設定給 apache
@@ -51,8 +49,7 @@ $ ls -alZ /var/www/html/nexus
 $ sudo restorecon -Rv /var/www/html/nexus
 ```
 
-###設定資料庫與 htaccess
----
+## 設定資料庫與 htaccess
 
 假設原資料庫是透過 sqlite 進立於 sites/default/file/.ht.sqlite，而 htaccess 建立於 sites/default/file/.htaccess，需要將此兩項設定權限為全部皆可讀寫；
 
@@ -64,8 +61,7 @@ $ sudo chmod 777 /var/www/html/nexus/sites/default/file/.ht.sqlite
 $ sudo chmod 777 /var/www/html/nexus/sites/default/file/.htaccess 
 ```
 
-###重新取得資料庫設定
----
+## 重新取得資料庫設定
 
 因新的網站需要使用新的設定，可以直接刪除 sites/default/setting.php 檔案，並重新讓 drupal 進行設定即可：
 
