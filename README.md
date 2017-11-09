@@ -31,12 +31,10 @@
     * Windows : 實作或研究多種 Windows-based 議題，包含 IIS、BIOS 等。
     * Linux : 實作或研究多種 Linux 設置或開發環境遇到的議題或解決方案。
 
-* GIS / GPS* 實作或研究 GPS、GIS 或 RS 解析、使用等議題。
+* GIS / GPS
+    * QGIS
+    * Web-based Libraries
+    * OpenStreetMap
 
-### Mobile
----
-
-* 研究或討論如 Android、iOS 等行動裝置軟硬體環境議題。
-
-* 研究透過多種開發工具建立軟體開發環境。
+* Developing on Mobile Environment
 
