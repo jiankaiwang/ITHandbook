@@ -8,7 +8,7 @@
     * [Git](git/README.md) : 分散式開發版本管理最佳工具。
     * [Jenkins](jenkins/README.md) : 著名持續性整合工具。
 
-* Data Server Template
+* Web / Data Server Template
     * CKAN : Python-based Open Data Server Template
     * [Drupal](drupal/README.md) : PHP-based Web Server
     
@@ -17,7 +17,10 @@
     * [Hadoop Architecture](hadoop/README.md)
     * [SDACK](spark/README.md) : Spark / Docker / Akka / Cassandra / Kafka
 
-* Cloud Computing : 自我服務為雲端服務重要特徵，以 Microsoft Azure、RedHat OpenShift、Google Cloud Platform 等公有雲服務為主，並搭配 OpenStack 建立私有雲達到複合型 IT 或 IoT 架構。
+* Cloud Computing 
+    * Microsoft Azure
+    * RedHat OpenShift
+    * OpenStack 
 
 * Information Security :  實作與研究多項資訊安全議題，包含如 SSL、RSA 或 WebGoat 等。
 
