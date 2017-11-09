@@ -13,9 +13,9 @@
     * [Drupal](drupal/README.md) : PHP-based Web Server
     
 * IT Architecture of Data Science
-    * R (Shiny, Plotly) : 以數學、統計為主的動態語言，透過 shiny 相關 package 建立網頁資料呈現，配合 plotly 達到使用者互動性操作。
-    * Hadoop Architecture
-    * SDACK : Spark / Docker / Akka / Cassandra / Kafka
+    * [R Architecture](r_architecture/README.md) : 以數學、統計為主的動態語言，透過 shiny 相關 package 建立網頁資料呈現，配合 plotly 達到使用者互動性操作。
+    * [Hadoop Architecture](hadoop/README.md)
+    * [SDACK](spark/README.md) : Spark / Docker / Akka / Cassandra / Kafka
 
 * Cloud Computing : 自我服務為雲端服務重要特徵，以 Microsoft Azure、RedHat OpenShift、Google Cloud Platform 等公有雲服務為主，並搭配 OpenStack 建立私有雲達到複合型 IT 或 IoT 架構。
 
