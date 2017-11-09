@@ -1,9 +1,8 @@
 # git 常用指令
 
-<script type="text/javascript" src="../js/general.js"></script>
+The following is the list for common git commands.
 
-###git 管理環境
----
+## git 管理環境
 
 * git 工具組態設定
 
@@ -97,8 +96,7 @@ git gc [--aggressive|--auto|--prune|--prune=<date>|--no-prune]
 git fsck
 ```
 
-###發布、取得、回復或同步儲存庫
----
+## 發布、取得、回復或同步儲存庫
 
 ```Bash
 # 自儲存庫取得一份致當前(現在)目錄
@@ -162,8 +160,7 @@ git push [-u|--set-upstream] <remote repository name> <local branch>
 git push <remote repository name> --delete <remote branch name>
 ```
 
-###儲存庫管理與提交
----
+## 儲存庫管理與提交
 
 ```Bash
 # 找出 blob 物件的 hash code
@@ -293,8 +290,7 @@ git revert [-n]
 git revert [--continue|--abort]
 ```
 
-###分支
----
+## 分支
 
 ```Bash
 # 創建一個新分支
@@ -363,8 +359,7 @@ git fetch [--all]
 git pull [--all] [-r|--rebase]
 ```
 
-### 檔案管理
----
+## 檔案管理
 
 ```bash
 # 搜尋字串
@@ -385,8 +380,7 @@ git grep -e <searching-1> [[--and] -e <searching-2>] [commit]
 git blame [-L [start,end|end]] <filename>
 ```
 
-### Git Server
----
+## Git Server
 
 ```bash
 # 於目前位置建立 git server

@@ -1,7 +1,5 @@
 # git 資料結構 - 索引結構
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 * 索引 : 紀錄「有哪些檔案即將要被提交到下一個 commit 版本中」，若是要提交一個新的版本到 Git 儲存庫，必需要先更新索引狀態，變更提交才會成立。
 
 * 索引於許多文章的別名：
@@ -14,8 +12,7 @@
 
 因此，指令 ** git diff --cached ** 與 ** git diff --staged ** 便是同義。
 
-###操作檔案索引
----
+## 操作檔案索引
 
 ![](../images/git_file_status.png)
 

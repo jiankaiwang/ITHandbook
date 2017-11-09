@@ -1,14 +1,10 @@
 # git 物件 - 名稱與參照
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###Git 物件名稱與參照
----
+## Git 物件名稱與參照
 
 ![](../images/git_object-name-ref.png)
 
-###Git 物件的相對參照
----
+## Git 物件的相對參照
 
 * 相對名稱表示 : 
 ```text
@@ -23,8 +19,7 @@
 
 ![](../images/git_relative_object_name.png)
 
-###Git 比對
----
+## Git 比對
 
 ![](../images/git-diff.png)
 
