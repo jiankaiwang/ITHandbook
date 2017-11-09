@@ -38,8 +38,8 @@
     * [Docker](docker/README.md)
 
 * Operation System
-    * Windows : 實作或研究多種 Windows-based 議題，包含 IIS、BIOS 等。
-    * Linux : 實作或研究多種 Linux 設置或開發環境遇到的議題或解決方案。
+    * [Windows](windows/README.md)
+    * [Linux](linux/README.md)
 
 * GIS / GPS
     * QGIS
