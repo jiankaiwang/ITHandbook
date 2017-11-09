@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Git](git/git.md)
+* [Git](git/README.md)
   * [git 安裝](git/gitinstall.md)
   * [git 資料結構 - 索引結構](git/git_data_structure_index.md)
   * [git 物件 - 名稱與參照](git/git_object_name-ref.md)
