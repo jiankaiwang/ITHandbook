@@ -1,9 +1,8 @@
 # 建立 Gitlab CE 為私有 Git 資料庫伺服器
 
-<script type="text/javascript" src="../js/general.js"></script>
+Generally, developing teams don't use open git service (e.g. github, bitbucket, gitlab, etc.) as their primary servers. The private git server is necessary for the internal development or deployment.
 
-### Ubuntu 16.04 
----
+## Ubuntu 16.04 
 
 * Installation : [reference](https://about.gitlab.com/downloads/)
 
@@ -30,8 +29,7 @@ sudo gitlab-ctl restart
 * troubleshooting
     * while changing network setting of VirtualBox, the command **sudo gitlab-ctl reconfigure** must be reconfigured
 
-### Access the GitLab 
----
+## Access the GitLab 
 
 * git operation
 
@@ -43,8 +41,7 @@ git clone http://test@192.168.3.19/test/test.git ./Desktop/test
 git clone git@192.168.3.19:test/test.git ./Desktop/test
 ```
 
-### Reset Administrator Password
----
+## Reset Administrator Password
 
 ```bash
 # login to gitlab-ce console
