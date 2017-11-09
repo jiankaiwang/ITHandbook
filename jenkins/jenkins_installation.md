@@ -1,13 +1,8 @@
-# Jenkins
+# Jenkins Installation
 
-<script type="text/javascript" src="../js/general.js"></script>
+Jenkins provides you with lots of installation methods, including default installation, war file, docker container, etc.
 
-###安裝 Jenkins 於 Linux
----
-
-| 註解 |
-| -- |
-| 可於 Jenkis 官網依不同環境安裝，底下以 CentOS 7 環境為主 |
+## On CentOS 7
 
 * 選擇 [Downloads]，選擇 [Weekly Release]，選擇 [Red hat/Fedora/CentOS]，進入[說明頁面](RedHat Linux RPM packages for Jenkins)
 
@@ -47,8 +42,7 @@ $ sudo vim /var/lib/jenkins/secrets/initialAdminPassword
 http://localhost:8080/
 ```
 
-###啟動 Jenkins.war 
----
+## by WAR file
 
 ```
 # http

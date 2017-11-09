@@ -1,20 +1,13 @@
 # 安裝 Plugin
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###安裝方式
----
+## 安裝方式
 
 * 此為 Jenkins 環境的工具，並非專指任一個專案，故回到 Jenkins 首頁。
-
 * 選擇左側「管理 Jenkins」，選擇「管裡外掛程式」
-
 * 選擇「可用的」，並選擇要安裝 plugin
-
 * 點擊「下載並於重新啟動後安裝」即可。
 
-###Embeddable build status
----
+## Embeddable build status
 
 | 項目 | 內容 |
 | -- | -- |
@@ -24,10 +17,7 @@
 
 * 建立目前專案建置狀況，並可以顯示標籤於網站中。
 
-
-
-###HTML Publisher Plugin
----
+## HTML Publisher Plugin
 
 | 項目 | 內容 |
 | -- | -- |
@@ -37,8 +27,7 @@
 
 * 可以提供許多沒有內建顯示於網頁的 plugin，有一個簡易的顯示器，如 ** Source Monitor **。
 
-###Report Violations
----
+## Report Violations
 
 | 項目 | 內容 |
 | -- | -- |
