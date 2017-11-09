@@ -130,6 +130,7 @@
 * [VirtualBox](virtualbox/README.md)
   * [Extend VM HD Size on VirtualBox](virtualbox/extend_virtualbox_vm_size.md)
   * [Virtualbox Networking](virtualbox/virtualbox_network.md)
+* [Linux](linux/README.md)
 * [Windows](windows/windows.md)
   * [Reset locked BIOS password](windows/reset_locked_bios_password.md)
   * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
