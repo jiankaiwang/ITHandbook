@@ -33,7 +33,9 @@
     * Cassandra
     * Redis
 
-* Virtualization : 實作或研究多種虛擬化技術，包含全虛擬或半虛擬技術等議題。
+* Virtualization
+    * VirtualBox
+    * Docker
 
 * Operation System
     * Windows : 實作或研究多種 Windows-based 議題，包含 IIS、BIOS 等。

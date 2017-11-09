@@ -133,8 +133,8 @@
 * [Windows](windows/windows.md)
   * [Reset locked BIOS password](windows/reset_locked_bios_password.md)
   * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
-* [3S](3s/3s.md)
-  * [QGIS](3s/qgis.md)
-  * [Mapbox](3s/mapbox.md)
-  * [OSRM Backend Service](3s/osrm-backend.md)
+* [GIS / GPS](gis_gps/README.md)
+  * [QGIS](gis_gps/qgis.md)
+  * [Mapbox](gis_gps/mapbox.md)
+  * [OSRM Backend Service](gis_gps/osrm-backend.md)
 

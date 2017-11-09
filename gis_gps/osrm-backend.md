@@ -1,9 +1,6 @@
 # OSRM Backend Service
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-### Build a Service
----
+## Build a Service
 
 * Install necessary packages
 
