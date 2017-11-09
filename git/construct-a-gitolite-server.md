@@ -6,8 +6,7 @@
 
 <script type="text/javascript" src="../js/general.js"></script>
 
-### Ubuntu 14.04
----
+## Ubuntu 14.04
 
 * Install Git
 

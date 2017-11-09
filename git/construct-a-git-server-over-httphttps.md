@@ -1,9 +1,8 @@
 # 建構以 HTTP/HTTPS 作為協定的 Git Server
 
-<script type="text/javascript" src="../js/general.js"></script>
+The following is the introduction to constructing the git server over HTTP or HTTPS protocol.
 
-### Apache Server on Ubuntu 16.04 Over HTTP
----
+## Apache Server on Ubuntu 16.04 Over HTTP
 
 * install dependencies
 
@@ -115,8 +114,7 @@ git clone http://127.0.0.1/git/<資料庫名稱> <local Repo Path>
 git push -u <remote repo name> <local branch name>
 ```
 
-### Apache Server on Ubuntu 16.04 Over HTTPS (Continued ...)
----
+## Apache Server on Ubuntu 16.04 Over HTTPS (Continued ...)
 
 * Main Installiation and Setting are the same with HTTP above
 
