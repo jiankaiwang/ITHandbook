@@ -1,7 +1,8 @@
 # Git Installation
 
+The following are git installation on different operation systems.
+
 ## on CentOS 7
----
 
 * 取得必要安裝檔案：
   1. Git 主要安裝檔 : [Linux-based Tarballs](https://www.kernel.org/pub/software/scm/git/)
@@ -47,7 +48,6 @@ git --version
 ```
 
 ## on Ubuntu 16.04
----
 
 ```bash
 sudo apt-get install git
