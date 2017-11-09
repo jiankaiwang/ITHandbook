@@ -160,8 +160,4 @@
   * [Create a Service in Linux](linux/create_service.md)
   * [Execute shell script without passwd](linux/sudoers_nopasswd.md)
   * [Date and Time](linux/date_time.md)
-* [VR](vr/vr.md)
-  * [GoogleVR](vr/googlevr.md)
-* [AR](ar/ar.md)
-  * [Vuforia](ar/vuforia.md)
 
