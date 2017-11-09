@@ -1,9 +1,7 @@
-# Owncloud
+# Owncloud Installation
 
-<script type="text/javascript" src="../js/general.js"></script>
 
-### Install LAMP On Ubuntu 16.04
----
+## Install LAMP On Ubuntu 16.04
 
 ```bash
 $ sudo apt-get update
@@ -38,8 +36,7 @@ $ sudo apt-get install mysql-server
 
 * Create a user and database in the MySQL Server.
 
-### Install Owncloud Server
----
+## Install Owncloud Server
 
 * Install the owncloud server
 
