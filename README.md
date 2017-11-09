@@ -6,7 +6,7 @@
 
 * Version Control / Continous Integration
     * [Git](git/README.md) : 分散式開發版本管理最佳工具。
-    * Jenkins : 著名持續性整合工具。
+    * [Jenkins](jenkins/README.md) : 著名持續性整合工具。
 
 * Data Server Template
     * CKAN : Python-based Open Data Server Template

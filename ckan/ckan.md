@@ -1,7 +1,5 @@
 # CKAN
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 CKAN 是著名的開放原始碼資料入口平台（Data Portal Platform），由非營利的 [CKAN Association](http://ckan.org/about/association/)
 支持發展。
 
