@@ -1,9 +1,14 @@
 # Write CKAN Extensions
 
-<script type="text/javascript" src="../js/general.js"></script>
 
-### Create a new extension
----
+
+CKAN is the template-based platform. All of the customization is recommanded to be done by extensions.
+
+
+
+## Create a new extension
+
+
 
 ```bash
 $ . /usr/lib/ckan/default/bin/activate
@@ -14,18 +19,26 @@ $ paster --plugin=ckan create -t ckanext ckanext-cdcframe
 $ cd /usr/lib/ckan/default/src/ckanext-cdcframe
 ```
 
-### Modify the page
----
+
+
+## Modify the page
+
+
 
 * the same path corresponding to the template folder
 
-### Add the page
----
+
+
+## Add the page
+
+
 
 * add the resource
 
-### Add Functions
----
+
+
+## Add Functions
+
 
 * add in helpers.py
 
@@ -80,8 +93,11 @@ class CdcmainlibPlugin(plugins.SingletonPlugin):
                }
 ```
 
-### Add CSS/JS Resource by fanstatic
-----
+
+
+## Add CSS/JS Resource by fanstatic
+
+
 
 * create a css/js under `fanstatic` folder
 
@@ -122,6 +138,55 @@ class CdcframePlugin(plugins.SingletonPlugin):
 ```
 
 
+
+## Add Static Files on Public
+
+
+
+* Create a `public` folder under `ckanext-(theme)/ckanext/(theme)/`.
+
+```shell
+ckanext-(theme)
+	|- ckanext
+		|- (theme)
+			|- fanstatic
+			|- public
+			|- templates
+			|- tests
+			|- __init__.py
+			|- plugin.py
+```
+
+* Add the static file into the public folder, e.g. example.jpg.
+* Edit the `plugin.py` (add a public directory).
+
+```python
+import ckan.plugins as plugins
+import ckan.plugins.toolkit as toolkit
+
+
+class CdcframePlugin(plugins.SingletonPlugin):
+    plugins.implements(plugins.IConfigurer)
+
+    # IConfigurer
+
+    def update_config(self, config_):
+        toolkit.add_template_directory(config_, 'templates')
+        
+        # make sure to add a public directory naming public
+        toolkit.add_public_directory(config_, 'public')
+        
+        toolkit.add_resource('fanstatic', '(theme)')
+```
+
+* Edit the configuration file `ini`, e.g. `/etc/ckan/default/production.ini`.
+
+```shell
+# (theme) settings
+extra_public_paths = /usr/lib/ckan/default/src/ckanext-(theme)/ckanext/(theme)/public
+```
+
+* Restart the ckan service.
 
 
 
