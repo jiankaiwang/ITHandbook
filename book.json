@@ -22,6 +22,9 @@
         },
         "versions": {
             "type": "branches"
+        },
+        "mathjax":{
+            "forceSVG": true
         }
     }
 }
