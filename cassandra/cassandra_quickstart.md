@@ -1,6 +1,6 @@
 # Quickstart
 
-
+The following is the installation and the configuration of Cassandra.
 
 ## Prerequisties
 
@@ -66,22 +66,22 @@ $ sudo apt-get install -y cassandra
 
 ## Cassandra service default settings
 
+* Cassandra runs as the service.
+
 ```bash
-# start|stop|restart the service
-$ sudo service cassandra start/stop/restart
-
-# verify whether cassandra service is running
-$ nodetool status
-
-# default location of the configuration
-cd /etc/cassandra
-
-# default location of log directories
-cd /var/log/cassandra/
-
-# default location of data directories
-cd /var/lib/cassandra
+$ sudo service cassandra start|stop|restart|status
+$ sudo systemctl start|stop|restart|status cassandra
 ```
+
+* Cassandra provides a tool for controling nodes.
+
+```bash
+$ nodetool status
+```
+
+* default location of the configuration : **/etc/cassandra**
+* default location of log directories : **/var/log/cassandra/**
+* default location of data directories : **/var/lib/cassandra**
 
 ## Cassandra configuration
 
@@ -109,20 +109,6 @@ cd /var/lib/cassandra
     * Cassandra uses `logback` as the logger.
     * The logging properties is located on `logback.xml`.
     * It will log at `INFO` level into a file called `system.log`, and at `DEBUG` level into a file called `debug.log`.
-
-## CQL and Querying
-
-* connect to the Cassandra Node
-
-```bash
-$ cqlsh localhost
-```
-
-* query default cluster and listen_address
-
-```sql
-cqlsh > select cluster_name, listen_address from system.local;
-```
 
 
 
