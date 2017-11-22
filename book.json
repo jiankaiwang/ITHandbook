@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "autocover","addcssjs","versions","-mathjax" ],  
+    "plugins" : [ "autocover","addcssjs","versions","mathjax" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT Developer Handbook",
