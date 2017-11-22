@@ -1,5 +1,5 @@
 {
-    "plugins" : [ "autocover","addcssjs","versions","mathjax" ],  
+    "plugins" : [ "autocover","addcssjs","versions","katex" ],  
     "pluginsConfig": {
         "autocover": {
               "title": "IT Developer Handbook",
@@ -22,9 +22,6 @@
         },
         "versions": {
             "type": "branches"
-        },
-        "mathjax":{
-            "forceSVG": true
         }
     }
 }
