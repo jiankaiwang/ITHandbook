@@ -113,7 +113,7 @@
 * [MongoDB](mongodb/README.md)
   * [Installation & Activation](mongodb/installation.md)
 * [Cassandra](cassandra/README.md)
-  * [Quickstart](cassandra/cassandra_quickstart.md)
+  * [Installation](cassandra/cassandra_installation.md)
   * [Data Replication](cassandra/cassandra_data_replication.md)
   * [Architecture](cassandra/architecture.md)
   * [Authentication](cassandra/cassendra_authentication.md)

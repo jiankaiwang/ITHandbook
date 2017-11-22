@@ -3,7 +3,7 @@
 
 ## Content
 
-* [Quick Start](cassandra_quickstart.md)
+* [Installation](cassandra_installation.md)
 * [Replication Strategy](cassandra_data_replication.md)
 * [Architecture](architecture.md)
 * [Authentication](cassendra_authentication.md)

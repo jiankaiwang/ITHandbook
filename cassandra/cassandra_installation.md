@@ -1,4 +1,4 @@
-# Quickstart
+# Installation
 
 The following is the installation and the configuration of Cassandra.
 
