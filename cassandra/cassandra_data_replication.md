@@ -34,15 +34,15 @@ $$
 
 * Data center, Rock and Node
 
-![](/images/cassandra_strategies.jpg)
+![](../images/cassandra_strategies.jpg)
 
 * SimpleStrategy
 
-![](/images/cassandra_simplestrategy.jpg)
+![](../images/cassandra_simplestrategy.jpg)
 
 * NetworkTopologyStrategy
 
-![](/images/cassandra_networktopologystrategy.jpg)
+![](../images/cassandra_networktopologystrategy.jpg)
 
 
 
