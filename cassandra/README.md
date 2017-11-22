@@ -3,6 +3,7 @@
 
 ## Content
 
+* [Quick Start](cassandra_quickstart.md)
 * [Replication Strategy](cassandra_data_replication.md)
 * [Architecture](cassandra_cluster.md)
 * [Authorization](cassendra_authentication.md)
