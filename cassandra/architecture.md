@@ -132,7 +132,16 @@ $ sudo ufw allow in 9042
 $ sudo ufw enable
 ```
 
+## Query the node
 
+* It is easy to query the node by command `cqlsh`.
+
+```bash
+$ cqlsh <host URL|IP>
+
+# more options
+$ cqlsh <host URL|IP> <Port> -u <acc> -p <pass>
+```
 
 
 
