@@ -65,6 +65,7 @@
     * [透過 API 上傳至國發會](ckan/upload_dataset_to_data-gov-tw.md)
   * [Write CKAN Extensions](ckan/write_ckan_extensions.md)
   * [問題排除](ckan/trouble_shooting.md)
+  * [Minor Upgrade](ckan/minor_upgrade.md)
 * [Drupal](drupal/README.md)
   * [Migrate a drupal website](drupal/migrate_a_drupal_website.md)
 * [R Architecture](r_architecture/README.md)
