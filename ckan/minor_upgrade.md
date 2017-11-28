@@ -109,9 +109,9 @@ $ virtualenv default -p /usr/bin/python
 
 ```shell
 $ . /usr/lib/ckan/default/bin/activate
-$ wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
-$ dpkg --info python-ckan_2.5-trusty_amd64.deb
-$ sudo dpkg -i python-ckan_2.5-trusty_amd64.deb
+(pyenv) $ wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
+(pyenv) $ dpkg --info python-ckan_2.5-trusty_amd64.deb
+(pyenv) $ sudo dpkg -i python-ckan_2.5-trusty_amd64.deb
 ```
 
 ## (Re-)install Packages
@@ -149,6 +149,75 @@ $ sudo dpkg -i python-ckan_2.5-trusty_amd64.deb
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-scheming.git
 (pyenv) $ cd ./ckanext-scheming
 (pyenv) $ pip install -e .
+```
+
+* Install the extension ckanext-basiccharts.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-basiccharts
+(pyenv) $ cd /usr/lib/ckan/default/src/ckan/ckanext/
+(pyenv) $ rm -rf ./ckanext-basiccharts
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-basiccharts.git
+(pyenv) $ cd ./ckanext-basiccharts
+(pyenv) $ pip install -e .
+```
+
+* Install the extension ckanext-geoview.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-geoview
+(pyenv) $ cd /usr/lib/ckan/default/src/ckan/ckanext/
+(pyenv) $ rm -rf ./ckanext-geoview
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-geoview.git
+(pyenv) $ cd ./ckanext-geoview
+(pyenv) $ pip install -e .
+```
+
+* Install the extension ckanext-pages.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-pages
+(pyenv) $ cd /usr/lib/ckan/default/src/
+(pyenv) $ rm -rf ./ckanext-pages
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-pages.git
+(pyenv) $ cd ./ckanext-pages
+(pyenv) $ pip install -e .
+```
+
+* Install the extension ckanext-cdcmainlib.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-cdcmainlib
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-cdcmainlib
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcmainlib.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdcmainlib
+(pyenv) $ pip install .
+```
+
+Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
+
+```conf
+# cdcmainlib configuration
+ckan.cdcmainlib.psqlUrl = postgresql://ckan_default:ckan@localhost/ckan_default
+```
+
+* Install the extension ckanext-cdcframe.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-cdcframe
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-cdcframe
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcframe.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdcframe
+(pyenv) $ pip install .
+```
+
+Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
+
+```conf
+# cdcframe configuration
+extra_public_paths = /usr/lib/ckan/default/src/ckanext-cdcframe/ckanext/cdcframe/public
 ```
 
 ## Rebuild the CKAN Service
