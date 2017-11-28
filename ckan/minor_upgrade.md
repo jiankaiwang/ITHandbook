@@ -132,6 +132,7 @@ $ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/dev-requirements.txt
 (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/pip-requirements-docs.txt
 (pyenv) $ pip install ckantoolkit
+(pyenv) $ pip install Flask
 
 # Install necessary headers.
 (pyenv) $ sudo apt-get install --install-recommends linux-generic-hwe-16.04
