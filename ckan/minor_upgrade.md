@@ -220,14 +220,157 @@ Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
 extra_public_paths = /usr/lib/ckan/default/src/ckanext-cdcframe/ckanext/cdcframe/public
 ```
 
-## Rebuild the CKAN Service
+* Install the extension ckanext-cdcregistration.
 
+```shell
+(pyenv) $ pip uninstall -y ckanext-cdcregistration
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-cdcregistration
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcregistration.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdcregistration
+(pyenv) $ pip install .
+```
+
+* Install the extension ckanext-cdctondc.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-cdctondc
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-cdctondc
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdctondc.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdctondc
+(pyenv) $ pip install .
+```
+
+Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
+
+```conf
+# cdctondc configuration
+ckan.cdctondc.psqlUrl = postgresql://ckan_default:ckan@localhost/ckan_default
+ckan.cdctondc.apikey = APIKEY
+ckan.cdctondc.apiUrl = APIURL
+```
+
+* Install the extension ckanext-cdccushomepage.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-cdccushomepage
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-cdccushomepage
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdccushomepage.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdccushomepage
+(pyenv) $ pip install .
+```
 
 ## Edit the CAKN Configuration
 
+Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
+
+* Add the plugins
+
+```conf
+ckan.plugins = scheming_datasets stats text_view image_view recline_view datastore datapusher scheming_groups scheming_organizations resource_proxy pages linechart barchart piechart basicgrid geo_view cdcmainlib cdcframe cdcregistration cdctondc cdccushomepage download
+```
+
+* Set email Notification on **production.ini**.
+
+```conf
+ckan.activity_streams_email_notifications = True
+```
+
+Set email notification on crontab.
+
+```conf
+paster --plugin=ckan post -c /etc/ckan/default/production.ini /api/action/send_email_notifications > /dev/null
+```
+
+* SMTP Settings
+
+```conf
+#email_to = you@yourdomain.com
+#error_email_from = paste@localhost
+smtp.server = smtp.gmail.com
+smtp.starttls = True
+smtp.user = email
+smtp.password = password for the email
+smtp.mail_from = email
+```
+
+* Language Settings
+
+```conf
+ckan.locale_default = zh_TW
+ckan.locale_order = en pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv
+ckan.locales_offered = en zh_TW
+ckan.locales_filtered_out = en_GB
+```
+
+* Google recaptcha
+
+```conf
+ckan.recaptcha.version = 2
+ckan.recaptcha.publickey = publickey
+ckan.recaptcha.privatekey = privatekey
+```
+
+* Google Analytics
+
+```conf
+ckan.template_footer_end = <!-- Google Analytics --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'INFO', 'auto');
+  ga('send', 'pageview');</script><!-- /Google Analytics -->
+```
+
+* Remove the public data.
+
+```shell
+(pyenv) $ rm -f /usr/lib/ckan/default/src/ckan/ckan/public/data/*
+(pyenv) $ ll /usr/lib/ckan/default/src/ckan/ckan/public/data/
+```
+
+## Rebuild the CKAN Service
+
+* Build a ckan script on **/usr/lib/ckan/default/ckan.sh**.
+
+```bash
+#!/bin/bash
+. /usr/lib/ckan/default/bin/activate
+uwsgi --ini-paste /etc/ckan/default/production.ini
+```
+
+* Build a ckan service on **/etc/systemd/system/ckan.service**.
+
+```bash
+[Unit]
+Description=Taiwan CDC Open Data
+After=network.target
+
+[Service]
+User=jkw
+Group=www-data
+ExecStart=/usr/lib/ckan/default/ckan.sh
+Restart=always
+WorkingDirectory=/usr/lib/ckan/default
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ## Restart the CKAN Service
 
-
+```shell
+(pyenv) $ sudo systemctl start ckan
+(pyenv) $ sudo systemctl status ckan
+(pyenv) $ sudo systemctl enable ckan
+```
 
 ## Validate the CKAN Version
+
+* Surf the webpage whose url is **http://127.0.0.1:12280/api/util/status**.
+
+
+
+
