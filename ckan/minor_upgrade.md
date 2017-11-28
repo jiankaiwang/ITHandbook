@@ -236,10 +236,11 @@ extra_public_paths = /usr/lib/ckan/default/src/ckanext-cdcframe/ckanext/cdcframe
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcregistration.git
 ```
 
-And it is important to modify the CKAN core registration base.
+It is necessary to edit the **register.js**.
+
+Second, it is important to modify the CKAN core registration base.
 
 [https://github.com/jiankaiwang/ckanext-cdcregistration](https://github.com/jiankaiwang/ckanext-cdcregistration)
-
 Finish the installation after editing the above changes.
 
 ```shell
@@ -277,6 +278,8 @@ ckan.cdctondc.apiUrl = APIURL
 (pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdccushomepage
 (pyenv) $ pip install .
 ```
+
+Edit the iframe source on `denguens1.html`.
 
 * Install the extension ckanext-download.
 
