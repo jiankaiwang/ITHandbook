@@ -143,6 +143,13 @@ $ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ sudo apt-get --auto-remove --yes remove python-openssl
 (pyenv) $ pip install pyOpenSSL
 
+# fix the version upgrade issues
+(pyenv) $ pip install -U setuptools
+(pyenv) $ pip install --upgrade pyramid
+(pyenv) $ pip freeze | grep -i 'webob'
+(pyenv) $ pip uninstall webob
+(pyenv) $ pip install 'webob>=1.0.7,<1.0.9'
+
 # install uwsgi
 (pyenv) $ pip install uwsgi
 ```
