@@ -126,6 +126,13 @@ $ . /usr/lib/ckan/default/bin/activate
 * Install the necessary libraries.
 
 ```shell
+# Install necessary requirements.
+(pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.in
+(pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
+(pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/dev-requirements.txt
+(pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/pip-requirements-docs.txt
+(pyenv) $ pip install ckantoolkit
+
 # Install necessary headers.
 (pyenv) $ sudo apt-get install --install-recommends linux-generic-hwe-16.04
 
@@ -262,6 +269,17 @@ ckan.cdctondc.apiUrl = APIURL
 (pyenv) $ pip install .
 ```
 
+* Install the extension ckanext-cdccushomepage.
+
+```shell
+(pyenv) $ pip uninstall -y ckanext-download
+(pyenv) $ cd /usr/lib/ckan/default/src
+(pyenv) $ rm -rf ./ckanext-download
+(pyenv) $ git clone https://github.com/jiankaiwang/ckanext-download.git
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-download
+(pyenv) $ pip install .
+```
+
 ## Edit the CAKN Configuration
 
 Edit the ckan configuration, e.g. **/etc/ckan/default/production.ini**.
@@ -316,12 +334,11 @@ ckan.recaptcha.privatekey = privatekey
 * Google Analytics
 
 ```conf
+# one line only
 ckan.template_footer_end = <!-- Google Analytics --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'INFO', 'auto');
-  ga('send', 'pageview');</script><!-- /Google Analytics -->
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'INFO', 'auto');ga('send', 'pageview');</script><!-- /Google Analytics -->
 ```
 
 * Remove the public data.
@@ -339,6 +356,12 @@ ckan.template_footer_end = <!-- Google Analytics --><script>(function(i,s,o,g,r,
 #!/bin/bash
 . /usr/lib/ckan/default/bin/activate
 uwsgi --ini-paste /etc/ckan/default/production.ini
+```
+
+Set the script with execution authorization.
+
+```bash
+$ chmod a+x /usr/lib/ckan/default/ckan.sh
 ```
 
 * Build a ckan service on **/etc/systemd/system/ckan.service**.
@@ -360,6 +383,14 @@ WantedBy=multi-user.target
 ```
 
 ## Restart the CKAN Service
+
+* Run as the development version.
+
+```shell
+(pyenv) $ paster serve /etc/ckan/default/production.ini
+```
+
+* Run as the production version.
 
 ```shell
 (pyenv) $ sudo systemctl start ckan
