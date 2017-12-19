@@ -1,9 +1,6 @@
 # Nginx
 
-<script type="text/javascript" src="../js/general.js"></script>
-
-###狀況/問題
----
+## 狀況/問題
 
 * 當我們僅有一個 IP，一個實體主機，卻需要同時利用多虛擬機來提供不同服務時
 
@@ -15,8 +12,7 @@
 
 * 利用不同 port 來分開處理不同的服務
 
-###利用不同 DNS 的例子
----
+## 利用不同 DNS 的例子
 
 有兩虛擬機伺服器 (VM1,VM2) 分別有兩個網址
 
@@ -32,8 +28,7 @@
 
 * 利用 nginx 的 domain vhost 偵測連入的網址，若是 abc.example.com.tw 則轉向 VM1，若是 def.example.com.tw 則轉向 VM2
 
-###利用不同 port 的例子
----
+## 利用不同 port 的例子
 
 而很多實施例則是利用不同 port 來達成，如下有兩台虛擬機，資訊分別如下：
 
@@ -49,7 +44,7 @@
 
 * 而兩台虛擬機上皆有 apache 提供正向伺服器的服務
 
-###安裝 nginx，舉 CentOS 6.4 為例
+## 安裝 nginx，舉 CentOS 6.4 為例
 ---
 
 先在負責軟體更新與安裝的資料夾下，編輯 nginx 相關的安裝資料
@@ -90,8 +85,7 @@ rpm -ql nginx
 sudo service nginx restart
 ```
 
-###設置反向代理位址
----
+## 設置反向代理位址
 
 設定 nginx 反向代理的檔案位置為 /etc/nginx，而底下有兩個資料夾；
 
@@ -132,14 +126,11 @@ $ sudo service nginx restart
 
 若是設置上沒有問題，但仍然不能 access，可以嘗試朝 firewall 的方面來處理
 
-###nginx 提供的首頁與網站放置資料夾
----
+## nginx 提供的首頁與網站放置資料夾
 
 此資料夾位於 /usr/share/nginx/html，而內含有如 default.html 與 50x.html 等預設的 html 文件
 
-
-### nginx 設定 Access-Control-Allow-Origin
----
+## nginx 設定 Access-Control-Allow-Origin
 
 * 底下是 site-availables 底下其中一組態範例
 
@@ -169,7 +160,50 @@ server {
 add_header Access-Control-Allow-Origin *
 ```
 
+## 安裝於 Ubuntu
 
+* 底下舉 ubuntu 16.04 為例
+
+```shell
+$ sudo apt-get update
+$ sudo apt-get install nginx nginx-extras php php-fpm
+```
+
+* Check the fastcgi pass configuration.
+
+```shell
+# the following is the default setting
+# listen = /run/php/php7.0-fpm.sock
+$ cat /etc/php/7.0/fpm/pool.d/www.conf | grep 'listen ='
+```
+
+* Edit the configuration.
+
+```shell
+$ sudo vim /etc/nginx/sites-available/default
+```
+
+* And add the following block to the configuration.
+
+```conf
+server {
+    listen 80;
+    root /usr/share/nginx/html;
+    server_name example.com;
+    index index.php index.html;
+    access_log /var/log/nginx/jiankaiwang.access.log;
+    error_log /var/log/nginx/jiankaiwang.error.log;
+
+    # pass the PHP scripts to FastCGI server listening on the php-fpm socket
+    location ~* \.php$ {
+        try_files $uri =404;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+```
 
 
 
