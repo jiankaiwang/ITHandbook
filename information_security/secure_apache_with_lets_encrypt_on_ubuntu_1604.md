@@ -1,17 +1,16 @@
 # Secure Apache with Let's Encrypt on Ubuntu 16.04
 
-<script type="text/javascript" src="../js/general.js"></script>
 
-### Install Let's Encrypt Client
----
 
+## Install Let's Encrypt Client
 ```bash
 $ sudo apt-get -s update
 $ sudo apt-get install python-letsencrypt-apache
 ```
 
-### Set up the SSL Certificate
----
+
+
+## Set up the SSL Certificate
 
 ```bash
 # example.com as the certificate domain for the single domain
@@ -25,8 +24,9 @@ $ sudo letsencrypt --apache -d example.com
 https://www.ssllabs.com/ssltest/analyze.html?d=example.com&latest
 ```
 
-### Set up Auto Renewal
----
+
+
+## Set up Auto Renewal
 
 * renew once
 
@@ -42,4 +42,14 @@ $ sudo vim /etc/crontab
 
 # add the following command
 30 2    * * 1   root    /usr/bin/letsencrypt renew >> /var/log/le-renew.log
+```
+
+
+
+## Set up Manual Renewal
+
+* manually setup the renewal
+
+```shell
+$ ./certbot-auto certonly --manual -d example.com
 ```

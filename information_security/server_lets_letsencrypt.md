@@ -1,10 +1,8 @@
 # Server on Let's Encrypt
 
-<script type="text/javascript" src="../js/general.js"></script>
 
-### Let's Encrypt Service
----
 
+## Let's Encrypt Service
 * get the certificate
 
 ```bash
@@ -28,9 +26,7 @@ s = BaseHTTPServer.HTTPServer(('', 80), SimpleHTTPServer.SimpleHTTPRequestHandle
 s.serve_forever()"
 ```
 
-### On Nodejs
----
-
+## On Nodejs
 ```javascript
 var https = require('https');
 var fs = require('fs');
@@ -47,9 +43,7 @@ https.createServer(options, function (req, res) {
 }).listen(8000);
 ```
 
-### On Apache
----
-
+## On Apache
 ```conf
 LoadModule ssl_module libexec/apache2/mod_ssl.so
 Listen 443
@@ -62,9 +56,7 @@ Listen 443
 </VirtualHost>
 ```
 
-### On Nginx
----
-
+## On Nginx
 ```conf
 server {
     listen              443 ssl;
