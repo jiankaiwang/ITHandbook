@@ -5,6 +5,7 @@ The minor upgrade on ckan is to upgrade ckan in the limited changes, for example
 ## Stop CKAN Service
 
 ```shell
+$ . /usr/lib/ckan/default/bin/activate
 $ sudo service ckan stop
 $ sudo service ckan status
 ```
@@ -14,13 +15,17 @@ $ sudo service ckan status
 * Edit the nginx network configuration.
 
 ```shell
+# temporarily move the file to another directory
+$ sudo mv /etc/nginx/sites-available/ckan /etc/nginx
+$ sudo cp /etc/nginx/ckan /etc/nginx/sites-available/ckan
 $ sudo vim /etc/nginx/sites-available/ckan
 ```
 
 * Edit the following nginx configuration to the ckan service.
 
 ```conf
-...
+proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=cache:30m max_size=250m;
+
 server {
     listen 80;
     # Temporarily reset the server_name for upgrading the system.
@@ -33,6 +38,7 @@ server {
     charset utf8;
 
     location / {
+    	add_header Access-Control-Allow-Origin *;
         include uwsgi_params;
         uwsgi_pass unix:///tmp/ckan_socket.sock;
         uwsgi_param SCRIPT_NAME '';
@@ -41,7 +47,6 @@ server {
     # Temporarily remove the 301 permanently moved statue.
     #return 301 https://$host$request_uri;
 }
-...
 ```
 
 * Restart the service.
@@ -76,9 +81,15 @@ $ sudo service ckan restart
 $ sudo service ckan status
 ```
 
-* Surf the url (localhost:12280, or 127.0.0.1:12280, etc.) from the browser to check whether the portal is available.
+* Surf the url (localhost:12280, or **127.0.0.1:12280**, etc.) from the browser to check whether the portal is available.
 
 ## Upgrade Environment
+
+* Stop the ckan service for upgrading ubuntu OS.
+
+```shell
+$ sudo service ckan stop
+```
 
 * Upgrade the linux core and others softwares.
 
@@ -90,28 +101,32 @@ $ sudo service ckan status
 # Nginx : N (O), Keey the original version.
 # PostgreSQL : Keep the local version currently installed.
 # apt conf : Keep the local version currently installed.
+# remove unnecessary package : y
 $ sudo do-release-upgrade
 ```
 
 ## Upgrade CAKN
 
-* Create a new python virtualenv due to python upgrade.
-
-```shell
-$ cd /usr/lib/ckan
-$ rm -rf ./default/bin
-$ rm -rf ./default/lib/
-$ virtualenv --no-site-packages default/
-$ virtualenv default -p /usr/bin/python
-```
-
 * Download the latest CKAN version.
 
 ```shell
 $ . /usr/lib/ckan/default/bin/activate
-(pyenv) $ wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
+(pyenv) $ sudo wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
 (pyenv) $ dpkg --info python-ckan_2.5-trusty_amd64.deb
+
+# configuration file (nginx) : N
 (pyenv) $ sudo dpkg -i python-ckan_2.5-trusty_amd64.deb
+```
+
+* Create a new python virtualenv due to python upgrade (Ubuntu OS Upgrade).
+
+```shell
+$ deactivate
+$ cd /usr/lib/ckan
+$ rm -rf ./default/bin
+$ rm -rf ./default/lib
+$ virtualenv --no-site-packages default/
+$ virtualenv default -p /usr/bin/python
 ```
 
 ## (Re-)install Packages
@@ -119,6 +134,7 @@ $ . /usr/lib/ckan/default/bin/activate
 * Install the core ckan package.
 
 ```shell
+(pyenv) $ cd /usr/lib/ckan
 (pyenv) $ sudo chown jkw:jkw -R /usr/lib/ckan
 (pyenv) $ pip install -e ./default/src/ckan
 ```
@@ -244,9 +260,9 @@ extra_public_paths = /usr/lib/ckan/default/src/ckanext-cdcframe/ckanext/cdcframe
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcregistration.git
 ```
 
-It is necessary to edit the **register.js**.
+It is necessary to edit the **register.js** (the form for registering).
 
-Second, it is important to modify the CKAN core registration base.
+Second, it is important to modify the CKAN core registration base. (Preparation 4 to 7 step)
 
 [https://github.com/jiankaiwang/ckanext-cdcregistration](https://github.com/jiankaiwang/ckanext-cdcregistration)
 Finish the installation after editing the above changes.
@@ -287,7 +303,17 @@ ckan.cdctondc.apiUrl = APIURL
 (pyenv) $ pip install .
 ```
 
-Edit the iframe source on `denguens1.html`.
+Edit the iframe source on `denguens1.html` (under ckanext/cdccushomepage/templates/home/snippets).
+
+[**optional**] Remove the **featured_group** section on ckanext/cdccushomepage/templates/home/layout1.html.
+
+If you remove the section, the extension is needed to re-install and system is also needed to re-start.
+
+```python
+{% block featured_group %}
+	{#{% snippet 'home/snippets/featured_group.html' %}#}
+{% endblock %}
+```
 
 * Install the extension ckanext-download.
 
@@ -313,7 +339,7 @@ ckan.plugins = scheming_datasets stats text_view image_view recline_view datasto
 * Set email Notification on **production.ini**.
 
 ```conf
-ckan.activity_streams_email_notifications = True
+ckan.activity_streams_email_notifications = true
 ```
 
 Set email notification on crontab.
@@ -340,7 +366,7 @@ smtp.mail_from = email
 ckan.locale_default = zh_TW
 ckan.locale_order = en pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv
 ckan.locales_offered = en zh_TW
-ckan.locales_filtered_out = en_GB
+ckan.locales_filtered_out = zh_TW
 ```
 
 * Google recaptcha
