@@ -10,12 +10,14 @@ $ sudo service ckan stop
 $ sudo service ckan status
 ```
 
-## Establish New Network Configuration
+## Establish Localhost Network Configuration
 
 * Edit the nginx network configuration.
 
 ```shell
 # temporarily move the file to another directory
+# assume the ckan network setting is located on /etc/nginx/sites-available/ckan
+$ ls -al /etc/nginx/sites-available/ckan
 $ sudo mv /etc/nginx/sites-available/ckan /etc/nginx
 $ sudo cp /etc/nginx/ckan /etc/nginx/sites-available/ckan
 $ sudo vim /etc/nginx/sites-available/ckan
@@ -91,12 +93,23 @@ $ sudo service ckan status
 $ sudo service ckan stop
 ```
 
+* [**optional**] Upgrade necessary packages to the latest version.
+
+```shell
+# The required dependency 'apt (>= 1.0.1ubuntu2.13)' is not installed.
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt update
+sudo apt dist-upgrade
+sudo apt-get -y install apt
+```
+
 * Upgrade the linux core and others softwares.
 
 ```shell
 # Another ssh connection is established on port 1022.
 # Upgrade glibc : Yes
-# Restart Services during package uogrades without asking : No.
+# Restart Services during package upgrades without asking : No.
 # Restart Services to Upgrade (postgresql, nginx, ...) : OK
 # Nginx : N (O), Keey the original version.
 # PostgreSQL : Keep the local version currently installed.
@@ -105,13 +118,13 @@ $ sudo service ckan stop
 $ sudo do-release-upgrade
 ```
 
-## Upgrade CAKN
+## Upgrade CKAN
 
 * Download the latest CKAN version.
 
 ```shell
 $ . /usr/lib/ckan/default/bin/activate
-(pyenv) $ sudo wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
+(pyenv) $ wget http://packaging.ckan.org/python-ckan_2.5-trusty_amd64.deb
 (pyenv) $ dpkg --info python-ckan_2.5-trusty_amd64.deb
 
 # configuration file (nginx) : N
@@ -124,8 +137,11 @@ $ . /usr/lib/ckan/default/bin/activate
 $ deactivate
 $ cd /usr/lib/ckan
 $ rm -rf ./default/bin
-$ rm -rf ./default/lib
+$ sudo rm -rf ./default/lib
+$ ls -al ./default
 $ virtualenv --no-site-packages default/
+
+# you may run 'rm -rf /usr/lib/ckan/default/bin/python' first
 $ virtualenv default -p /usr/bin/python
 ```
 
@@ -134,6 +150,7 @@ $ virtualenv default -p /usr/bin/python
 * Install the core ckan package.
 
 ```shell
+$ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ cd /usr/lib/ckan
 (pyenv) $ sudo chown jkw:jkw -R /usr/lib/ckan
 (pyenv) $ pip install -e ./default/src/ckan
@@ -149,12 +166,10 @@ $ virtualenv default -p /usr/bin/python
 (pyenv) $ pip install -r /usr/lib/ckan/default/src/ckan/pip-requirements-docs.txt
 (pyenv) $ pip install ckantoolkit
 (pyenv) $ pip install Flask
+(pyenv) $ pip install urllib3
 
 # Install necessary headers.
 (pyenv) $ sudo apt-get install --install-recommends linux-generic-hwe-16.04
-
-# Install necessary package urllib3.
-(pyenv) $ pip install urllib3
 
 # ssl issues due to the old package
 (pyenv) $ sudo apt-get --auto-remove --yes remove python-openssl
@@ -179,6 +194,11 @@ $ virtualenv default -p /usr/bin/python
 (pyenv) $ rm -rf ./ckanext-scheming
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-scheming.git
 (pyenv) $ cd ./ckanext-scheming
+```
+
+Change the url on disqus.html (under ckanext/scheming/templates/snippets/disqus.html).
+
+```shell
 (pyenv) $ pip install -e .
 ```
 
@@ -265,6 +285,14 @@ It is necessary to edit the **register.js** (the form for registering).
 Second, it is important to modify the CKAN core registration base. (Preparation 4 to 7 step)
 
 [https://github.com/jiankaiwang/ckanext-cdcregistration](https://github.com/jiankaiwang/ckanext-cdcregistration)
+
+Third, remove the organization option (其他).
+
+```shell
+$ vim ckanext/cdcregistration/templates/user/new_user_form.html
+$ vim ckanext/cdcregistration/templates/user/edit_user_form.html
+```
+
 Finish the installation after editing the above changes.
 
 ```shell
@@ -300,7 +328,6 @@ ckan.cdctondc.apiUrl = APIURL
 (pyenv) $ rm -rf ./ckanext-cdccushomepage
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdccushomepage.git
 (pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdccushomepage
-(pyenv) $ pip install .
 ```
 
 Edit the iframe source on `denguens1.html` (under ckanext/cdccushomepage/templates/home/snippets).
@@ -313,6 +340,11 @@ If you remove the section, the extension is needed to re-install and system is a
 {% block featured_group %}
 	{#{% snippet 'home/snippets/featured_group.html' %}#}
 {% endblock %}
+```
+
+```shell
+(pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdccushomepage
+(pyenv) $ pip install .
 ```
 
 * Install the extension ckanext-download.
@@ -366,7 +398,7 @@ smtp.mail_from = email
 ckan.locale_default = zh_TW
 ckan.locale_order = en pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv
 ckan.locales_offered = en zh_TW
-ckan.locales_filtered_out = zh_TW
+ckan.locales_filtered_out = en_GB
 ```
 
 * Google recaptcha
@@ -448,6 +480,18 @@ WantedBy=multi-user.target
 
 * Surf the webpage whose url is **http://127.0.0.1:12280/api/util/status**.
 
+
+## Reset the Nginx Setting
+
+```shell
+# remove the temporarily nginx setting
+$ sudo rm -rf /etc/nginx/sites-available/ckan
+# set the origin nginx setting
+$ sudo mv /etc/nginx/ckan /etc/nginx/sites-available
+# restart the service
+$ sudo systemctl restart nginx
+$ sudo systemctl status nginx
+```
 
 
 

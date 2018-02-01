@@ -59,6 +59,7 @@
   * [使用者管理](ckan/member.md)
     * [客製化註冊選單及避免自動註冊登入](ckan/customized_register.md)
     * [帳號審核清單](ckan/account_application.md)
+    * [Log 分析](ckan/log_analyzer.md)
   * [系統維護](ckan/system_management.md)
     * [CKAN on SSL](ckan/ckan_on_ssl.md)
     * [加入 Google Analytics](ckan/add_google_analytics.md)
