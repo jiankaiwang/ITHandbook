@@ -73,6 +73,7 @@
   * [Shiny Server](r_architecture/shiny-server.md)
   * [Shiny UI](r_architecture/shiny-ui.md)
   * [Plotly](r_architecture/plotly.md)
+  * [Rstudio Server](r_architecture/rstudio-server.md)
 * [Hadoop](hadoop/README.md)
 * [Spark](spark/README.md)
 * [Azure](azure/README.md)
