@@ -167,6 +167,7 @@ $ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ pip install ckantoolkit
 (pyenv) $ pip install Flask
 (pyenv) $ pip install urllib3
+(pyenv) $ pip install uwsgi
 
 # Install necessary headers.
 (pyenv) $ sudo apt-get install --install-recommends linux-generic-hwe-16.04
@@ -181,9 +182,6 @@ $ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ pip freeze | grep -i 'webob'
 (pyenv) $ pip uninstall webob
 (pyenv) $ pip install 'webob>=1.0.7,<1.0.9'
-
-# install uwsgi
-(pyenv) $ pip install uwsgi
 ```
 
 * Install the extension ckanext-scheming.
@@ -280,7 +278,7 @@ extra_public_paths = /usr/lib/ckan/default/src/ckanext-cdcframe/ckanext/cdcframe
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdcregistration.git
 ```
 
-It is necessary to edit the **register.js** (the form for registering).
+It is necessary to edit the **register.js** (the form for registering, ckanext/cdcregistration/fanstatic/register.js).
 
 Second, it is important to modify the CKAN core registration base. (Preparation 4 to 7 step)
 
@@ -329,6 +327,19 @@ ckan.cdctondc.apiUrl = APIURL
 (pyenv) $ git clone https://github.com/jiankaiwang/ckanext-cdccushomepage.git
 (pyenv) $ cd /usr/lib/ckan/default/src/ckanext-cdccushomepage
 ```
+
+Change the visualization api server to redis server (under ckanext/cdccushomepage/fanstatic/general.js).
+
+```javascript
+dengueYearCountData('https://od.cdc.gov.tw:8080/opendataplatform/?s=dengue&v=a1');
+diarrheaPieData('https://od.cdc.gov.tw:8080/opendataplatform/?s=diarrheapiechart&v=a1');
+influLCBody("https://od.cdc.gov.tw:8080/opendataplatform/?s=influlinechart&v=a1");
+dengueLineChartBody('https://od.cdc.gov.tw:8080/opendataplatform/?s=dengue&v=a2');
+entrovirusLBCBody('https://od.cdc.gov.tw:8080/opendataplatform/?s=enterovirus&v=a1');
+hivBCDraw('https://od.cdc.gov.tw:8080/opendataplatform/?s=hivbc&v=a1');
+```
+
+And run **ckanext/cdccushomepage/fanstatic/combine.sh** to combine all javascript resources.
 
 Edit the iframe source on `denguens1.html` (under ckanext/cdccushomepage/templates/home/snippets).
 
