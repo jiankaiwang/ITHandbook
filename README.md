@@ -14,7 +14,7 @@
     
 * IT Architecture of Data Science
     * [R Architecture](r_architecture/README.md) : 以數學、統計為主的動態語言，透過 shiny 相關 package 建立網頁資料呈現，配合 plotly 達到使用者互動性操作。
-    * [Python Architecture]
+    * [Python Architecture](python_architecture/README.md)
     * [Hadoop Architecture](hadoop/README.md)
     * [SDACK](spark/README.md) : Spark / Docker / Akka / Cassandra / Kafka
 
