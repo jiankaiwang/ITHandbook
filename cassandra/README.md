@@ -4,6 +4,7 @@
 ## Content
 
 * [Installation](cassandra_installation.md)
+* [Qickstart](quickstart.md)
 * [Replication Strategy](cassandra_data_replication.md)
 * [Architecture](architecture.md)
 * [Authentication](cassendra_authentication.md)
