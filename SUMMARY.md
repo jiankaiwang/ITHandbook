@@ -74,6 +74,9 @@
   * [Shiny UI](r_architecture/shiny-ui.md)
   * [Plotly](r_architecture/plotly.md)
   * [Rstudio Server](r_architecture/rstudio-server.md)
+* [Python Architecture](python_architecture/README.md)
+  * Anaconda
+    * [Jupyter Notebook Server](python_architecture/jupyter_server.md)
 * [Hadoop](hadoop/README.md)
 * [Spark](spark/README.md)
 * [Azure](azure/README.md)
