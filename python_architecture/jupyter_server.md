@@ -1,9 +1,10 @@
-# Jupyter Notebook Server
+# Jupyter Notebook Server for Single User
 
 
 
 * reference
   *  http://jupyter-notebook.readthedocs.io/en/4.x/public_server.html
+
 
 
 

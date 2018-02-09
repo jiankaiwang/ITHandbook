@@ -76,7 +76,8 @@
   * [Rstudio Server](r_architecture/rstudio-server.md)
 * [Python Architecture](python_architecture/README.md)
   * Anaconda
-    * [Jupyter Notebook Server](python_architecture/jupyter_server.md)
+    * [Jupyter Notebook Server for Single User](python_architecture/jupyter_server.md)
+    * [Jupyter Notebook Server for Multiple Users](python_architecture/jupyter_server_multiple_users.md)
 * [Hadoop](hadoop/README.md)
 * [Spark](spark/README.md)
 * [Azure](azure/README.md)

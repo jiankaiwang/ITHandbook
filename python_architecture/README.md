@@ -5,5 +5,6 @@
 ## Content
 
 * Anaconda
-  * [Jupyter Notebook Server](python_architecture/jupyter_server.md): Establish a jupyter notebook server.
+  - [Jupyter Notebook Server for Single User](jupyter_server.md)
+  - [Jupyter Notebook Server for Multiple Users](jupyter_server_multiple_users.md)
 
