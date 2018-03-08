@@ -39,7 +39,7 @@
     * [VirtualBox](virtualbox/README.md)
     * [Docker](docker/README.md)
 
-* Operation System
+* Operation System Management and Configuration
     * [Windows](windows/README.md)
     * [Linux](linux/README.md)
 

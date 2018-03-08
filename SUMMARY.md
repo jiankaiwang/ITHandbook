@@ -159,6 +159,7 @@
   * [Super User Privilege](linux/super_user_privilege.md)
   * [Use crontab](linux/use_crontab.md)
   * [use rsync](linux/use_rsync.md)
+  * [Mount the Resource](linux/mount.md)
 * [Windows](windows/windows.md)
   * [Reset locked BIOS password](windows/reset_locked_bios_password.md)
   * [IIS Express On Windows Vista](windows/iis_express_on_windows_vista.md)
