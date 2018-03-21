@@ -31,3 +31,12 @@ sudo vim /etc/fstab
 sudo mount -a
 ```
 
+*    allow read and write for all users
+
+```ini
+# add the following configuration
+# rsize : read bytes
+# wsize : write bytes
+//IP/path /media/sf_folder cifs user=user,pass=pass,rsize=8192,wsize=8192,file_mode=0777,dir_mode=0777 0 0
+```
+
