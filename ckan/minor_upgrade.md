@@ -200,6 +200,84 @@ Change the url on disqus.html (under ckanext/scheming/templates/snippets/disqus.
 (pyenv) $ pip install -e .
 ```
 
+* Install the extension datapusher.
+
+```
+$ . /usr/lib/ckan/default/bin/activate
+$ cd /usr/lib/ckan/datapusher/src/datapusher
+(pyenv) $ pip install -e .
+(pyenv) $ pip install -r requirements.txt
+```
+
+Execute the datapusher.
+
+```
+(pyenv) $ cd /usr/lib/ckan/datapusher/src/datapusher
+(pyenv) $ JOB_CONFIG='/usr/lib/ckan/datapusher/src/datapusher/deployment/datapusher_settings.py' python wsgi.py
+```
+
+Edit the datapusher setting for using the uwsgi and edit the content.
+
+```bash
+(pyenv) $ vim /usr/lib/ckan/datapusher/src/datapusher/wsgi.py
+```
+
+```python
+import ckanserviceprovider.web as web
+import datapusher.jobs as jobs
+import os
+# check whether jobs have been imported properly
+assert(jobs.push_to_datastore)
+os.environ['JOB_CONFIG'] = '/usr/lib/ckan/datapusher/src/datapusher/deployment/datapusher_settings.py'
+web.init()
+web.app.run(web.app.config.get('HOST'), web.app.config.get('PORT'))
+```
+
+Create a datapusher execution script and edit the following content.
+
+```bash
+touch /usr/lib/ckan/datapusher/src/datapusher/datapusher.sh
+chmod +x /usr/lib/ckan/datapusher/src/datapusher/datapusher.sh
+vim /usr/lib/ckan/datapusher/src/datapusher/datapusher.sh
+```
+
+```bash
+#!/bin/bash
+. /usr/lib/ckan/default/bin/activate
+uwsgi --ini /etc/ckan/default/datapusher.ini
+```
+
+Create a datapusher.service.
+
+```bash
+(pyenv) $ sudo vim /etc/systemd/system/datapusher.service
+```
+
+```ini
+[Unit]
+Description=CKAN Datapusher
+After=network.target
+
+[Service]
+User=jkw
+Group=www-data
+ExecStart=/usr/lib/ckan/datapusher/src/datapusher/datapusher.sh
+Restart=always
+WorkingDirectory=/usr/lib/ckan/datapusher
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+$ sudo systemctl status datapusher.service
+$ sudo systemctl start datapusher.service
+$ sudo systemctl enable datapusher.service
+$ sudo systemctl restart datapusher.service
+```
+
+Browser the http://localhost:8800/ to check whether the datapusher is running.
+
 * Install the extension ckanext-basiccharts.
 
 ```shell
