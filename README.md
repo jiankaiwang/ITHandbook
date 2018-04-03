@@ -11,7 +11,7 @@
 * Web / Data Server Template
     * CKAN : Python-based Open Data Server Template
     * [Drupal](drupal/README.md) : PHP-based Web Server
-    
+
 * IT Architecture of Data Science
     * [R Architecture](r_architecture/README.md) : 以數學、統計為主的動態語言，透過 shiny 相關 package 建立網頁資料呈現，配合 plotly 達到使用者互動性操作。
     * [Python Architecture](python_architecture/README.md)
@@ -38,6 +38,7 @@
 * Virtualization
     * [VirtualBox](virtualbox/README.md)
     * [Docker](docker/README.md)
+    * [Kubernetes](kubernetes/readme.md)
 
 * Operation System Management and Configuration
     * [Windows](windows/README.md)

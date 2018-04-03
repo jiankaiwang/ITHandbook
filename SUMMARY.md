@@ -134,6 +134,8 @@
 * [Docker](docker/README.md)
   * [Docker Commands](docker/docker-commands.md)
   * [Virtualization Compare](docker/virtualization.md)
+* [Kubernetes](kubernetes/README.md)
+  * [Minikube 介紹](kubernetes/minikube.md)
 * [VirtualBox](virtualbox/README.md)
   * [Extend VM HD Size on VirtualBox](virtualbox/extend_virtualbox_vm_size.md)
   * [Virtualbox Networking](virtualbox/virtualbox_network.md)
