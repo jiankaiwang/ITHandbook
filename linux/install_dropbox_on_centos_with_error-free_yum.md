@@ -1,6 +1,6 @@
 # Install dropbox on CentOS with error-free yum
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###install Dropbox On CentOS7
 ---

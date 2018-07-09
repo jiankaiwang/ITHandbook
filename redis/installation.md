@@ -79,7 +79,7 @@ $ redis-cli
     * bind 127.0.0.1 : default bind ip or 0.0.0.0 for all interfaces
     * port 6379 : default service port
     * requirepass : modify foobared with "examplePWD"
-    * daemonize : modify no with yes (standalone), but keep no in daemon (background service)
+    * daemonize : modify no with yes (standalone), but keep `no` in daemon (background service)
     * stop-writes-on-bgsave-error : modify to no to avoid MISCONF issue.
 
 ## Run at startup as the service
@@ -96,7 +96,7 @@ $ sudo vim /etc/systemd/system/redis.service
     * the [Service] section, we need to specify the service's behavior. For security purposes, we should not run our service as root
     * the [Install] section, we can define the systemd target that the service should attach to if enabled
 
-```conf
+```ini
 [Unit]
 Description=Redis In-Memory Data Store
 After=network.target
@@ -119,6 +119,7 @@ sudo adduser --system --group --no-create-home redis
 sudo mkdir /var/lib/redis
 sudo chown redis:redis /var/lib/redis
 sudo chmod 770 /var/lib/redis
+sudo passwd redis
 ```
 
 * Control the service

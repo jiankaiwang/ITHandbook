@@ -1,6 +1,6 @@
 # Backup strategies
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 There are several policies to backup the data, such like the **incremental backup**, **differential backup** and **mirror backup**. The following are some figures to simply introduce these three policies for backup;
 

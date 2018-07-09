@@ -1,6 +1,6 @@
 # Set Network Configuration
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ** Use cmd ifconfig to make sure the name representing network interface. **
 

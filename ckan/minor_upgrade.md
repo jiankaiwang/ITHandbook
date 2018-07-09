@@ -551,7 +551,7 @@ WantedBy=multi-user.target
 * Run as the development version.
 
 ```shell
-(pyenv) $ paster serve /etc/ckan/default/production.ini
+(pyenv) $ paster serve /etc/ckan/default/development.ini
 ```
 
 * Run as the production version.
@@ -581,3 +581,6 @@ $ sudo systemctl status nginx
 
 
 
+## Others
+
+* Notice if python version is changed during the upgrading ckan, it is necessary to update the virtual envionment for let's encrypt service.

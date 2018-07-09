@@ -1,6 +1,6 @@
 # Create a Service in Linux
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### Procedures and automatically start at the beginning of boot
 ---

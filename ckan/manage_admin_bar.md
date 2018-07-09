@@ -1,6 +1,6 @@
 # 調整管理狀態列
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### 將上方狀態列改成「English|中文(台灣)|登入」
 ---

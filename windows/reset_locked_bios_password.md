@@ -1,6 +1,6 @@
 # Reset locked BIOS password
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 前言：遺失進入 BIOS 的密碼，且已連續輸入三次錯誤而取得已鎖住密碼的提示
 

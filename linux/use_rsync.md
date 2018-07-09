@@ -1,6 +1,6 @@
 # use rsync
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###Introduction and Background
 ---

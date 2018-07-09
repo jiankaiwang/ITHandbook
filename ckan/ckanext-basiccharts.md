@@ -1,7 +1,5 @@
 # ckanext-basiccharts
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 * 提供包含 linechart, barchart, piechart 與 basicgrid 等功能。
 
 ### 安裝與設定組態

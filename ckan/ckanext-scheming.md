@@ -1,6 +1,6 @@
 # ckanext-scheming
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 * ckanext-scheming source 
   * 原 ckan 模組 : [https://github.com/ckan/ckanext-scheming](https://github.com/ckan/ckanext-scheming) 

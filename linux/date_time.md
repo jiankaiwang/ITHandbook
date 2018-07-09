@@ -1,8 +1,4 @@
 # Date and Time in Linux
----
-
-<script type="text/javascript" src="../js/general.js"></script>
-
 ### Time Zone
 ---
 

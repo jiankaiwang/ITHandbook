@@ -1,6 +1,6 @@
 # httpd trouble shooting
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###httpd.conf line 292 error
 ---

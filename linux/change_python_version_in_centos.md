@@ -1,6 +1,6 @@
 # 更改 python 預設版本 (CentOS)
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###安裝新版本的 python
 ---

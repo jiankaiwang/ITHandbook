@@ -1,6 +1,6 @@
 # httpd on dropbox
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###become one of the apache
 ---

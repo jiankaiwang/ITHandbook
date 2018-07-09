@@ -1,6 +1,6 @@
 # helper.py 設定
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### 背景
 ---

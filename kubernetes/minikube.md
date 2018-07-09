@@ -52,6 +52,7 @@ $ minikube [version]
 
 ```bash
 $ minikube start
+$ minikube dashboard
 $ minikube status
 ```
 
@@ -91,10 +92,20 @@ users:
 
 
 
-透過 `kubectl run` 在 minikube 上運行一個 google 提供的 **hello-minikube docker image**
+Kubectl 工具資訊
+
+```shell
+$ Kubectl version
+```
+
+
+
+透過 `kubectl run` 在 minikube 上運行一個 google 提供的 **hello-minikube** docker image
 
 ```bash
 $ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.8 --port=8080
+$ kubectl get deployments
+$ kubectl get pods -o wide
 ```
 
 
@@ -103,7 +114,8 @@ $ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.8 --p
 
 ```bash
 $ kubectl expose deployment hello-minikube --type=NodePort
-$ minikube service hello-minikube --url
+$ minikube service hello-minikube [--url]
+$ kubectl get service
 ```
 
 
@@ -144,4 +156,133 @@ Request Body:
 ```
 
 
+
+Scaling 服務，建立另一 Pod，或關閉其餘的 Pod 至要求的數目。
+
+```shell
+$ kubectl scale deployment/hello-minikube --replicas=2
+$ minikube service hello-minikube --url
+$ kubectl get pods -o wide
+```
+
+
+
+Rolling 版本，與 Container 相同，可以透過 `tag` 來升版或降版。
+
+```shell
+# $ kubectl rollout undo deployments/medium-api
+$ kubectl set image deployment/hello-minikube hello-minikube=google_containers/echoserver:1.7
+$ kubectl rollout status deployment/hello-minikube
+```
+
+
+
+相關指令
+
+```shell
+# Logs
+$ kubectl logs --follow <POD-NAME>
+
+# Execute Commands
+$ kubectl exec <POD-NAME> -it -- ls
+
+# Kill
+$ kubectl delete service hello-minikube
+$ kubectl delete deployment hello-minikube
+$ minikube stop
+```
+
+
+
+## 部署服務
+
+
+
+kubectl 可以透過定義好的 YAML 格式檔來執行。
+
+```shell
+# 先匯出服務指令檔
+$ kubectl get services hello-minikube -o yaml > ./service.yaml
+
+# 透過指令檔來創造服務
+$ kubectl create -f ./service.yaml
+```
+
+`YAML` 格式如下
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-05-25T07:59:36Z
+  labels:
+    run: hello-minikube
+  name: hello-minikube
+  namespace: default
+  resourceVersion: "4399"
+  selfLink: /api/v1/namespaces/default/services/hello-minikube
+  uid: 9169b810-5ff1-11e8-87a0-080027154fee
+spec:
+  clusterIP: 10.100.148.10
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31982
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: hello-minikube
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+```
+
+
+
+Kubernetes 將整套系統稱為 Chart，類似 npm 中的 `package.json`。可以透過工具 Helm 來協助建立 YAML 檔案來部署服務，可以至網頁 https://github.com/kubernetes/helm/releases/ 下載。
+
+```shell
+$ helm version
+$ kubectl config current-context
+# minikube
+$ helm init --service-account tiller --kube-context minikube
+```
+
+若要使用現有的 chart 資源，如下 Wordpress 範例 (使用官方 Chart Repository [KubeApps](https://hub.kubeapps.com/charts?q=wordpress))
+
+```shell
+$ helm repo update
+$ helm install stable/wordpress
+```
+
+
+
+ 建立自訂的 Chart.ymal.
+
+```shell
+$ helm create mcs-lite
+$ helm install . --dry-run --debug
+$ helm install . --name mcs-lite
+```
+
+
+
+部署版本管理
+
+```shell
+$ helm ls
+$ helm upgrade mcs-lite .
+# rollback to previous version
+$ helm rollback mcs-lite 1
+```
+
+
+
+打包整個服務
+
+```shell
+$ helm package . --debug -d ./charts
+$ helm install ./charts/mcs-lite-0.1.0.tgz
+```
 

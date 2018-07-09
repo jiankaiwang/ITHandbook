@@ -1,6 +1,6 @@
 # IIS Express On Windows Vista
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###於 windows vista 下創立一個簡單的伺服器
 ---

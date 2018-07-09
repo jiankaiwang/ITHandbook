@@ -1,6 +1,6 @@
 # ckanext-download
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### 安裝 plugin 至開發測試版
 ---

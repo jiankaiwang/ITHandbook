@@ -1,15 +1,14 @@
 # 帳號審核清單
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### 使用時機
----
 
 * 當該組織需有效性管理帳號時，可以透過申請單方式進行
 
-### 透過前端 javascript 建立列印表單
----
 
+
+### 透過前端 javascript 建立列印表單
 * 於 javascript library 中建立要呈現的表單格式
 
 ```bash
@@ -90,8 +89,6 @@ function printDiv(
 * 加入此 register.js 入 resource.config 中
 
 ### 定義 helpers.py 函式
----
-
 * 伺服器用來取得資料庫內容
 
 ```bash
@@ -103,8 +100,6 @@ function printDiv(
 * 重啟 ckan 服務即可
 
 ### 加入註冊頁面中
----
-
 * 列印選項
 
 ```bash
@@ -162,8 +157,6 @@ function printDiv(
 ![](../images/ckan_acc_apply.png)
 
 ### 加入帳號管理畫面中
----
-
 * 加入功能於 templates/user/edit_user_form.html
 
 ```html

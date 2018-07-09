@@ -1,6 +1,6 @@
 # Page-View-Tracking
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### Configuration
 ---

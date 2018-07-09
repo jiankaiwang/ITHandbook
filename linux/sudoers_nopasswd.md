@@ -1,7 +1,7 @@
 # Execute a sudo shell script without password
 ---
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ### Procedures
 ---

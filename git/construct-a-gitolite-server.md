@@ -4,8 +4,6 @@
 	* establishing authorizations of User/Project
 	* establishing write/read authorization of branchs/tags
 
-<script type="text/javascript" src="../js/general.js"></script>
-
 ## Ubuntu 14.04
 
 * Install Git
@@ -17,7 +15,7 @@ sudo apt-get install git
 # configure git 
 git config --global user.email test@example.com
 git config --global user.name test
-``` 
+```
 
 * Install Gitolite Server
 

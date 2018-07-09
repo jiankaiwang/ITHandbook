@@ -1,6 +1,6 @@
 # 擴充
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 * DataStore 是一個內建於 CKAN 的擴充套件 (extension)，透過一獨立資料庫儲存上傳至 CKAN 之結構資料內容（CSV 或 XLS 檔案，無論為上傳至本機的檔案或僅有連結）。
 

@@ -1,6 +1,6 @@
 # install ruby and rubygem
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###install ruby
 ---

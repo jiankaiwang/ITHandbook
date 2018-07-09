@@ -1,6 +1,6 @@
 # 客製化註冊選單及避免自動註冊登入
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 * 增加一選項用來申請組織
 

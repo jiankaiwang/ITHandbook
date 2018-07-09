@@ -1,6 +1,6 @@
 # 使用 CSS
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 CKAN 的網頁模板是透過 Python Template Engine, Jinja 來設計，但仍是透過 inline-code 方式嵌入 html page 的方式作呈現，因此可以直接透過連結方法在 CKAN 的 page 中使用 CSS。
 

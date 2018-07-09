@@ -1,6 +1,6 @@
 # change group of the current user
 
-<script type="text/javascript" src="../js/general.js"></script>
+
 
 ###Look up the group
 ---
