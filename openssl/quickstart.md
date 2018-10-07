@@ -2,9 +2,7 @@
 
 
 
-### Certificate Authority
-
-------
+## Certificate Authority
 
 - Certificate Authority (CA), including
   - generating a private key 
@@ -14,9 +12,8 @@
 $ openssl req -new -x509 -days <duration> -extensions v3_ca -keyout ca.key -out ca.crt
 ```
 
-### Server
+## Server
 
-------
 
 - Server Side
 
@@ -35,9 +32,8 @@ $ openssl req -out server.csr -key server.key -new
 $ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days <duration>
 ```
 
-### Client
+## Client
 
-------
 
 - Client Side
 
@@ -55,11 +51,9 @@ $ openssl req -out client.csr -key client.key -new
 $ openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days <duration>
 ```
 
-### Flow
+## Flow
 
-------
-
-![](C:/Users/acer4755g/GitBook/Library/jiankaiwang/itsys/images/ssl-tls.png)
+![](../images/ssl-tls.png)
 
 
 
