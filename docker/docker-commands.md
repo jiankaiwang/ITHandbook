@@ -55,7 +55,7 @@ vim .dockerignore
 # 保存鏡像，可以配合 pipeline
 # pipeline:
 #   |- 如 " | gzip > fileName.tar.gz "
-docker save <Repository>[ :<Tag>] [pipeline]
+docker save <Repository>[:<Tag>] [pipeline]
 
 # 載入鏡像
 # -i : 輸入字串
