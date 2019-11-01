@@ -78,8 +78,9 @@ The following are topics in the handbook, from backend to frontend, from center 
 * Mobile
     * Android Studio : android IDE
     * React Native : the framework for both android or iOS
-* Data Streaming
-    *  [Kafka](kafka/) : it handles real-time data streaming
+* Batch / Streaming Data
+    * [Apache Beam](apache_beam/) processes both batch or streaming data on most execution engines.
+    * [Kafka](kafka/) : it handles real-time data streaming
 * Remote Procedure Call
 
     * [Google RPC](grpc/) : a powerful tool to create a server with Protobuf files
