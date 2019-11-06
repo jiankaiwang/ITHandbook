@@ -13,8 +13,9 @@ kubectl
 		deployment <hello-server> [--type="LoadBalancer"]
 	get 
 		service <hello-server>
-		deployment
+		deployment [-o wide]
 		pods [-o wide]
+		svc <deployment-name>
 	scale <hello-server> [--replicas=2]
 	set 
 		image <deployment/hello-minikube> <hello-minikube=google_containers/echoserver:1.7>
