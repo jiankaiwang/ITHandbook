@@ -27,5 +27,4 @@ Kubernetes 主要由三部分組成，**Cluster** (紫色) 用來管理底下橘
 
 * Use [Minikube](minikube.md)
 * Quick Start
-* 
 
