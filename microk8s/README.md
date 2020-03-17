@@ -9,3 +9,6 @@
   * Replicate or scale the deployment.
   * Create a service to expose the deployment.
   * Delete both the deployment and the service.
+* [Inspect Networking on Pods](inspect_networking.md)
+  * Create a Multiple Pods Deployment with an Exposed Service
+  * Inspect each Pod

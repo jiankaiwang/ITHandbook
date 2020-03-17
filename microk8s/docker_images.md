@@ -66,10 +66,11 @@ Next, we can create a configure file (`deploy.yml`).
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment   # deployment name
   labels:
     app: nginx
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -81,7 +82,7 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
-        imagePullPolicy: Never
+        imagePullPolicy: Always   # Never might cause `ErrImageNeverPull` 
         ports:
         - containerPort: 80
 ```
