@@ -44,12 +44,22 @@ $ microk8s.kubectl get pod
 $ microk8s.kubectl delete pod nginx-deployment-59c9f8dff-zk5rp
 
 # show the deployment
+#
+# NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+# k8s-bootcamp       1/1     1            1           8d
+# nginx-deployment   2/2     2            2           2m34s
+#
 $ microk8s.kubectl get deployment
 
 # expose the service to the deployment
 $ microk8s.kubectl expose deployment nginx-deployment --type=NodePort --name=nginx-service --port=80
 
 # view the service
+#
+# NAME            TYPE        CLUSTER-IP     EXTERNAL-IP PORT(S)        AGE
+# kubernetes      ClusterIP   10.152.183.1   <none>      443/TCP        8d
+# nginx-service   NodePort    10.152.183.124 <none>      80:30322/TCP   9s
+#
 $ microk8s.kubectl get service
 ```
 
@@ -69,10 +79,10 @@ We can create a python script to do multiple requests.
 
 ```sh
 # create a virtualenv for requests
-$ virtualenv -p python ./k8s_req
+$ virtualenv -p python ./k8s
 
 # activate the virtualenv
-$ source ./k8s_req/bin/activate
+$ source ./k8s/bin/activate
 
 # install the necessary package
 $ pip install requests
@@ -98,7 +108,7 @@ if __name__ == "__main__":
       print("Stage {}".format(i+1))
 
     # we can inspect the logs to watch the networking balance
-    url_id = "http://10.152.183.39/?q={}".format(str(i+1))
+    url_id = "http://10.152.183.124/?q={}".format(str(i+1))
     if not req(url_id):
       print("Error\n")
       break
@@ -113,6 +123,11 @@ $ python req.py
 You now can inspect the the pods to make sure they are accessible.
 
 ```sh
+# show the pod names
+#
+# NAME                              READY
+# nginx-deployment-59c9f8dff-8vbl9  1/1
+# nginx-deployment-59c9f8dff-zw5hz  1/1
 $ microk8s.kubectl get pod -o wide
 ```
 
@@ -120,10 +135,10 @@ Inspect each pod.
 
 ```sh
 # the first pod
-$ microk8s.kubectl logs nginx-deployment-59c9f8dff-cb6pg
+$ microk8s.kubectl logs nginx-deployment-59c9f8dff-8vbl9
 
 # the second pod
-$ microk8s.kubectl logs nginx-deployment-59c9f8dff-648r9
+$ microk8s.kubectl logs nginx-deployment-59c9f8dff-zw5hz
 ```
 
 You can simply delete the service and the deployment.
