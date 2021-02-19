@@ -7,6 +7,7 @@
 ```sh
 kubectl 
   version
+  componentstatuses
   create 
     -f ./service.yaml           # from the yaml file
     deployment <deployName>     # create a deployment
@@ -57,6 +58,7 @@ kubectl
     serviceaccount
       [--namespace=<kube-system>]
     clusterrolebinding
+    daemonsets                  # get the daemonset information
   scale                         # scale the deployment
     deployment <name> 
     <--replicas=2>              # the number of replicas
