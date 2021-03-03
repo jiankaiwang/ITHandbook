@@ -6,6 +6,7 @@
 
 ```sh
 kubectl 
+  help <command-name>
   version
   componentstatuses
   create 
@@ -30,6 +31,8 @@ kubectl
   run <hello-server> 
     [--image=<hub>] 
     [--port 8080]
+  attach
+    <-it <pod-name>>            # attach the pod and send the msg to it    
   logs                          # show the logs
     [-f]                        # follows the messages
     <pod-name>
@@ -40,6 +43,8 @@ kubectl
       [--name="svc-name"]       # the service name
       <--port 8080>             # must expose the port number
   label                         # update the resources's labels
+    <res-type> <res-name> <"secure=y">   # add labels
+    <res-type> <res-name> <"secure=-">   # remove
     <pod-name> <"secure=y">
   get 
     service                     # get the service list    
@@ -65,7 +70,7 @@ kubectl
   describe                      # show the metadata
     pods <pod-name>
   port-forward                  # port-forwarding from local or node port
-    <pod-name>                  # to the pod port
+    <pod-name|services/service-name>
     [--address <0.0.0.0>]
     <local-port:pod-port>  
   set 
@@ -77,6 +82,8 @@ kubectl
     [-c <container-name>]
     [--stdin] [--tty]           # interactive
     [-- commands]               # recommended to add `--`
+  cp                            # copy from the container to the local
+    <POD-NAME>:</path> </path/local>
   delete                        # delete the objects
     service <service-name>
     deployment <deploy-name>
@@ -94,5 +101,9 @@ kubectl
     undo <deployment/name>      # roll back to the previous versions
   apply                         # apply the new changes
     <-f file.yaml>
+    --dry-run=client            # dry run the modification 
+    view-last-applied
+    edit-last-applied
+    set-last-applied
 ```
 
