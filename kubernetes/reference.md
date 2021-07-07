@@ -31,6 +31,8 @@ kubectl
   run <hello-server> 
     [--image=<hub>] 
     [--port 8080]
+    [--replicas=<number>]
+    [--labels="key1=value1,key2=label2"]
   attach
     <-it <pod-name>>            # attach the pod and send the msg to it    
   logs                          # show the logs
