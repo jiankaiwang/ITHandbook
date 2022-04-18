@@ -8,7 +8,9 @@
 kubectl 
   help <command-name>
   version
-  componentstatuses
+  config
+    set-context <context-name>  # create the context
+    use-context <context-name>  # use the context
   create 
     -f ./service.yaml           # from the yaml file
     deployment <deployName>     # create a deployment
@@ -46,9 +48,10 @@ kubectl
       <--port 8080>             # must expose the port number
   label                         # update the resources's labels
     <res-type> <res-name> <"secure=y">   # add labels
-    <res-type> <res-name> <"secure=-">   # remove
+    <res-type> <res-name> <"secure-">    # remove, without =
     <pod-name> <"secure=y">
   get 
+    componentstatuses           # the health check
     service                     # get the service list    
       [service-name]
       [deployment-name]        
@@ -70,6 +73,7 @@ kubectl
     deployment <name> 
     <--replicas=2>              # the number of replicas
   describe                      # show the metadata
+    nodes <node-name>           # the node's information
     pods <pod-name>
   port-forward                  # port-forwarding from local or node port
     <pod-name|services/service-name>
